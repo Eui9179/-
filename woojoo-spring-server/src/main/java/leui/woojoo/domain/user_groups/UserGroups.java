@@ -13,6 +13,7 @@ public class UserGroups {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long userId;
 
     @Column(length = 30, nullable = false)
