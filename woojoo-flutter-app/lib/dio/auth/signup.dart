@@ -10,7 +10,7 @@ Future<Map<String, dynamic>> dioApiSignup(Map profileData) async {
           ? await MultipartFile.fromFile(profileData["file"].path)
           : null,
       "name": profileData["name"],
-      "groups": profileData["groups"],
+      "groups": profileData["groups"][0],
       "detail1": profileData["detail1"],
       "phone_number": profileData["phoneNumber"],
       "fcm_token": profileData["fcmToken"]
