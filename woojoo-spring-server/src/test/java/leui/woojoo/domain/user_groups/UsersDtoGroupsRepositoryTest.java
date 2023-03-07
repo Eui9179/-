@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-public class UserGroupsRepositoryTest {
+public class UsersDtoGroupsRepositoryTest {
 
     @Autowired
     private UserGroupsRepository userGroupsRepository;

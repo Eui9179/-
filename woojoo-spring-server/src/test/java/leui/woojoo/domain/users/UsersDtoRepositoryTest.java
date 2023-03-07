@@ -13,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class UsersRepositoryTest {
+public class UsersDtoRepositoryTest {
 
     @Autowired
     private UsersRepository usersRepository;
