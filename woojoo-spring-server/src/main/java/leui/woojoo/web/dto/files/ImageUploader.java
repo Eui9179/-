@@ -19,7 +19,7 @@ public class ImageUploader {
         long nowDate = System.currentTimeMillis();
         Timestamp timeStamp = new Timestamp(nowDate);
 
-        File newFileName = new File(timeStamp + "_" + kind);
+        File newFileName = new File(timeStamp.getTime() + "_" + kind);
         //TODO 저장 로직 추가
         file.transferTo(newFileName);
 
