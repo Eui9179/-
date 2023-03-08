@@ -1,6 +1,5 @@
 package leui.woojoo.web.controller.users;
 
-import jakarta.servlet.http.HttpServletRequest;
 import leui.woojoo.config.JwtProvider;
 import leui.woojoo.service.user_groups.UserGroupsService;
 import leui.woojoo.service.users.AuthService;
@@ -12,11 +11,13 @@ import leui.woojoo.web.dto.users.auth.SignupRequest;
 import leui.woojoo.web.dto.users.auth.SignupResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
@@ -31,7 +32,7 @@ public class AuthController {
     private final JwtProvider jwtProvider;
     private final FileUtils fileUtils;
 
-    @PostMapping(value = "/signup")
+    @PostMapping(value = "/signup", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<SignupResponse> signup(SignupRequest requestDto) throws IllegalStateException, IOException {
 
         if (authService.findByPhoneNumber(requestDto.getPhone_number()) != null) {
