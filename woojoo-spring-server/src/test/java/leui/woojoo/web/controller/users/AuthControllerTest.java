@@ -1,12 +1,8 @@
 package leui.woojoo.web.controller.users;
 
-import leui.woojoo.config.JwtProvider;
 import leui.woojoo.domain.user_groups.UserGroupsRepository;
 import leui.woojoo.domain.users.Users;
 import leui.woojoo.domain.users.UsersRepository;
-import leui.woojoo.service.user_groups.UserGroupsService;
-import leui.woojoo.service.users.AuthService;
-import leui.woojoo.utils.file.FileUtils;
 import leui.woojoo.web.dto.users.auth.SignupResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -100,5 +96,4 @@ public class AuthControllerTest {
         List<String> fileList = Arrays.stream(files).map(File::getName).toList();
         assertThat(fileList.contains(userList.get(0).getProfileImageName())).isTrue();
     }
-
 }
