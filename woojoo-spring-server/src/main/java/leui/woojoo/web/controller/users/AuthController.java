@@ -63,5 +63,7 @@ public class AuthController {
         return new ResponseEntity<>(new LoginResponse(token), HttpStatus.OK);
     }
 
+    //TODO 회원탈퇴
+    //TODO jwt_required()
 
 }
