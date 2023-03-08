@@ -33,4 +33,13 @@ public class AuthService {
     public Long save(SignupParam signupParam) {
         return usersRepository.save(signupParam.toEntity()).getId();
     }
+
+    @Transactional
+    public Long updateFcmToken(Long userId, String fcmToken) {
+        Users users = usersRepository.findById(userId)
+                .orElseThrow(()-> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
+
+        users.updateFcmToken(fcmToken);
+        return userId;
+    }
 }
