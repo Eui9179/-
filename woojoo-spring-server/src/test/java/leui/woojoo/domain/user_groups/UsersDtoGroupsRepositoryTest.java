@@ -1,6 +1,7 @@
 package leui.woojoo.domain.user_groups;
 
-import org.assertj.core.api.Assertions;
+import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.domain.entity.user_groups.UserGroupsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

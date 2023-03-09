@@ -1,4 +1,4 @@
-package leui.woojoo.domain.user_groups;
+package leui.woojoo.domain.entity.user_groups;
 
 import jakarta.persistence.*;
 import lombok.Builder;

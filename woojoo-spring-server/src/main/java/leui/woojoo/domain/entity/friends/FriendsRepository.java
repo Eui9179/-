@@ -1,4 +1,4 @@
-package leui.woojoo.domain.friends;
+package leui.woojoo.domain.entity.friends;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,7 @@
-package leui.woojoo.service.users;
+package leui.woojoo.domain.service.users;
 
-import leui.woojoo.domain.users.Users;
-import leui.woojoo.domain.users.UsersRepository;
+import leui.woojoo.domain.entity.users.Users;
+import leui.woojoo.domain.entity.users.UsersRepository;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.auth.SignupParam;
 import lombok.RequiredArgsConstructor;

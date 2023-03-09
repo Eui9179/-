@@ -1,4 +1,4 @@
-package leui.woojoo.domain.today_games;
+package leui.woojoo.domain.entity.today_games;
 
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;

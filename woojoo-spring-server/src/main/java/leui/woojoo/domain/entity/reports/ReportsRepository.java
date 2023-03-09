@@ -1,4 +1,4 @@
-package leui.woojoo.domain.reports;
+package leui.woojoo.domain.entity.reports;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

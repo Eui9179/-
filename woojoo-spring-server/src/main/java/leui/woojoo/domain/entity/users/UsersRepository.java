@@ -1,4 +1,4 @@
-package leui.woojoo.domain.users;
+package leui.woojoo.domain.entity.users;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

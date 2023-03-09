@@ -1,6 +1,6 @@
 package leui.woojoo.web.dto.users.auth;
 
-import leui.woojoo.domain.users.Users;
+import leui.woojoo.domain.entity.users.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

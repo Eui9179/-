@@ -1,7 +1,9 @@
 package leui.woojoo.domain.user_games;
 
-import leui.woojoo.domain.users.Users;
-import leui.woojoo.domain.users.UsersRepository;
+import leui.woojoo.domain.entity.user_games.UserGames;
+import leui.woojoo.domain.entity.user_games.UserGamesRepository;
+import leui.woojoo.domain.entity.users.Users;
+import leui.woojoo.domain.entity.users.UsersRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

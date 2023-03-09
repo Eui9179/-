@@ -1,4 +1,4 @@
-package leui.woojoo.domain.user_block;
+package leui.woojoo.domain.entity.user_block;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

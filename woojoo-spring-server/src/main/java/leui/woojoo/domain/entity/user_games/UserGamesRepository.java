@@ -1,4 +1,4 @@
-package leui.woojoo.domain.user_games;
+package leui.woojoo.domain.entity.user_games;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

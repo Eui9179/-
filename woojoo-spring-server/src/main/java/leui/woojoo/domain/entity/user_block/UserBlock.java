@@ -1,4 +1,4 @@
-package leui.woojoo.domain.friends;
+package leui.woojoo.domain.entity.user_block;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Friends {
+public class UserBlock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,11 +17,11 @@ public class Friends {
     private Long userId;
 
     @Column(nullable = false)
-    private Long friendsId;
+    private Long friendId;
 
     @Builder
-    public Friends(Long userId, Long friendsId) {
+    public UserBlock(Long userId, Long friendId) {
         this.userId = userId;
-        this.friendsId = friendsId;
+        this.friendId = friendId;
     }
 }

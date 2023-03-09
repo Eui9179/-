@@ -1,6 +1,6 @@
 package leui.woojoo.web.dto.groups;
 
-import leui.woojoo.domain.user_groups.UserGroups;
+import leui.woojoo.domain.entity.user_groups.UserGroups;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

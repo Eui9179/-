@@ -2,11 +2,16 @@ package leui.woojoo.utils.file;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 
 @Slf4j
@@ -31,5 +36,10 @@ public class FileUtils {
         file.transferTo(newFileName);
 
         return newFileName.getName();
+    }
+
+    public Resource download(String fileName) throws IOException {
+        Path path = Paths.get(imagePath + fileName);
+        return new InputStreamResource(Files.newInputStream(path));
     }
 }

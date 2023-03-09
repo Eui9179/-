@@ -1,8 +1,8 @@
 package leui.woojoo.web.controller.users;
 
-import leui.woojoo.config.JwtProvider;
-import leui.woojoo.service.user_groups.UserGroupsService;
-import leui.woojoo.service.users.AuthService;
+import leui.woojoo.config.JWTProvider;
+import leui.woojoo.domain.service.user_groups.UserGroupsService;
+import leui.woojoo.domain.service.users.AuthService;
 import leui.woojoo.utils.file.FileUtils;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.auth.LoginRequest;
@@ -29,7 +29,7 @@ public class AuthController {
 
     private final AuthService authService;
     private final UserGroupsService userGroupsService;
-    private final JwtProvider jwtProvider;
+    private final JWTProvider jwtProvider;
     private final FileUtils fileUtils;
 
     @PostMapping(value = "/signup", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})

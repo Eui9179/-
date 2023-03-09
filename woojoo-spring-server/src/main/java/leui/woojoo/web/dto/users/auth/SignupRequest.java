@@ -1,13 +1,10 @@
 package leui.woojoo.web.dto.users.auth;
 
-import leui.woojoo.domain.user_groups.UserGroups;
-import leui.woojoo.domain.users.Users;
 import leui.woojoo.web.dto.groups.SignupGroupsParam;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Getter
