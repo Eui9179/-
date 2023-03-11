@@ -1,4 +1,4 @@
-package leui.woojoo.domain.service.users;
+package leui.woojoo.service.users;
 
 import org.springframework.stereotype.Service;
 

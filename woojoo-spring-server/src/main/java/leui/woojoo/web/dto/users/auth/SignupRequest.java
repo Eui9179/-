@@ -1,11 +1,16 @@
 package leui.woojoo.web.dto.users.auth;
 
+import leui.woojoo.domain.entity.authority.Authority;
+import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.domain.entity.users.Users;
 import leui.woojoo.web.dto.groups.SignupGroupsParam;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -28,17 +33,22 @@ public class SignupRequest {
         this.fcm_token = fcm_token;
     }
 
-    public SignupParam toSignupParam(String profileImageName) {
-        return SignupParam.builder()
+    public Users toUserEntity(String profileImageName) {
+        Authority authority = Authority.builder()
+                .authorityName("ROLE_USER")
+                .build();
+
+        return Users.builder()
                 .name(name)
                 .phoneNumber(phone_number)
                 .profileImageName(profileImageName)
                 .fcmToken(fcm_token)
+                .authorities(Collections.singleton(authority))
                 .build();
     }
 
-    public SignupGroupsParam toSignupGroupsParam(Long userId) {
-        return SignupGroupsParam.builder()
+    public UserGroups toUserGroupEntity(Long userId) {
+        return UserGroups.builder()
                 .userId(userId)
                 .groupName(groups)
                 .detail1(detail1)

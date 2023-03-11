@@ -1,8 +1,9 @@
 package leui.woojoo.web.controller.users;
 
-import leui.woojoo.config.JWTProvider;
-import leui.woojoo.domain.service.user_groups.UserGroupsService;
-import leui.woojoo.domain.service.users.AuthService;
+import leui.woojoo.domain.entity.authority.Authority;
+import leui.woojoo.jwt.JwtProvider;
+import leui.woojoo.service.user_groups.UserGroupsService;
+import leui.woojoo.service.users.AuthService;
 import leui.woojoo.utils.file.FileUtils;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.auth.LoginRequest;
@@ -14,10 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -27,9 +25,14 @@ import java.io.IOException;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
     private final AuthService authService;
     private final UserGroupsService userGroupsService;
-    private final JWTProvider jwtProvider;
+    private final JwtProvider jwtProvider;
     private final FileUtils fileUtils;
 
     @PostMapping(value = "/signup", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -40,11 +43,11 @@ public class AuthController {
         }
 
         String profileImageName = fileUtils.upload(requestDto.getFile(), "profile");
-        Long userId = authService.save(requestDto.toSignupParam(profileImageName));
+        Long userId = authService.save(requestDto.toUserEntity(profileImageName));
 
-        userGroupsService.save(requestDto.toSignupGroupsParam(userId));
+        userGroupsService.save(requestDto.toUserGroupEntity(userId));
 
-        String token = jwtProvider.createToken(userId.toString());
+        String token = jwtProvider.createToken(userId);
         return new ResponseEntity<>(new SignupResponse(token), HttpStatus.OK);
     }
 
@@ -59,7 +62,7 @@ public class AuthController {
             authService.updateFcmToken(users.getId(), loginRequest.getFcmToken());
         }
 
-        String token = jwtProvider.createToken(users.getId().toString());
+        String token = jwtProvider.createToken(users.getId());
         return new ResponseEntity<>(new LoginResponse(token), HttpStatus.OK);
     }
 

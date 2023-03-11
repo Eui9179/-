@@ -1,9 +1,8 @@
-package leui.woojoo.domain.service.users;
+package leui.woojoo.service.users;
 
 import leui.woojoo.domain.entity.users.Users;
 import leui.woojoo.domain.entity.users.UsersRepository;
 import leui.woojoo.web.dto.users.UsersDto;
-import leui.woojoo.web.dto.users.auth.SignupParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +29,8 @@ public class AuthService {
     }
 
     @Transactional
-    public Long save(SignupParam signupParam) {
-        return usersRepository.save(signupParam.toEntity()).getId();
+    public Long save(Users users) {
+        return usersRepository.save(users).getId();
     }
 
     @Transactional

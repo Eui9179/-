@@ -2,12 +2,18 @@ package leui.woojoo.domain.entity.users;
 
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
+import leui.woojoo.domain.entity.authority.Authority;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 public class Users extends BaseTimeEntity {
 
@@ -27,14 +33,6 @@ public class Users extends BaseTimeEntity {
     @Column(length = 200)
     private String fcmToken;
 
-    @Builder
-    public Users(String name, String phoneNumber, String profileImageName, String fcmToken) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.profileImageName = profileImageName;
-        this.fcmToken = fcmToken;
-    }
-
     public void updateProfile(String name, String profileImageName) {
         this.name = name;
         this.profileImageName = profileImageName;
@@ -43,4 +41,11 @@ public class Users extends BaseTimeEntity {
     public void updateFcmToken(String fcmToken) {
         this.fcmToken = fcmToken;
     }
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_authority",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+    private Set<Authority> authorities;
 }
