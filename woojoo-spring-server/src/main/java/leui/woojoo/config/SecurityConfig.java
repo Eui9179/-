@@ -53,8 +53,8 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers(PathRequest.toH2Console()).permitAll()
-                .requestMatchers("api/auth/login").permitAll()
-                .requestMatchers("api/auth/signup").permitAll()
+                .requestMatchers("/api/auth/login").permitAll()
+                .requestMatchers("/api/auth/signup").permitAll()
                 .anyRequest().authenticated()
 
                 .and()

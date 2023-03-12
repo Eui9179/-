@@ -42,4 +42,8 @@ public class FileUtils {
         Path path = Paths.get(imagePath + fileName);
         return new InputStreamResource(Files.newInputStream(path));
     }
+
+    public void delete(String fileName) throws IOException {
+
+    }
 }

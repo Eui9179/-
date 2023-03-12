@@ -3,17 +3,18 @@ package leui.woojoo.web.dto.users.auth;
 import leui.woojoo.domain.entity.authority.Authority;
 import leui.woojoo.domain.entity.user_groups.UserGroups;
 import leui.woojoo.domain.entity.users.Users;
-import leui.woojoo.web.dto.groups.SignupGroupsParam;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
 
 @Getter
 @Setter
+@Slf4j
 @NoArgsConstructor
 public class SignupRequest {
     String name;

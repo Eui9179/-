@@ -23,9 +23,7 @@ public class AuthService {
     public UsersDto findByPhoneNumber(String phoneNumber) {
         Users users = usersRepository.findByPhoneNumber(phoneNumber)
                 .orElse(null);
-
         return users == null ? null : new UsersDto(users);
-
     }
 
     @Transactional
@@ -37,8 +35,15 @@ public class AuthService {
     public Long updateFcmToken(Long userId, String fcmToken) {
         Users users = usersRepository.findById(userId)
                 .orElseThrow(()-> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
-
         users.updateFcmToken(fcmToken);
         return userId;
+    }
+
+    @Transactional
+    public String deleteUser(Long userId) {
+        Users entity = usersRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
+        usersRepository.delete(entity);
+        return entity.getProfileImageName();
     }
 }

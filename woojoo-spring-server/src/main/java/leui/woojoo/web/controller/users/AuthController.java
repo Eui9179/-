@@ -1,6 +1,5 @@
 package leui.woojoo.web.controller.users;
 
-import leui.woojoo.domain.entity.authority.Authority;
 import leui.woojoo.jwt.JwtProvider;
 import leui.woojoo.service.user_groups.UserGroupsService;
 import leui.woojoo.service.users.AuthService;
@@ -15,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -24,12 +25,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
-
     private final AuthService authService;
     private final UserGroupsService userGroupsService;
     private final JwtProvider jwtProvider;
@@ -66,7 +61,10 @@ public class AuthController {
         return new ResponseEntity<>(new LoginResponse(token), HttpStatus.OK);
     }
 
-    //TODO 회원탈퇴
-    //TODO jwt_required()
-
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/withdrawal")
+    public String withdrawUser(@AuthenticationPrincipal User user) {
+        String profileImageName = authService.deleteUser(Long.parseLong(user.getUsername()));
+        return "ok";
+    }
 }

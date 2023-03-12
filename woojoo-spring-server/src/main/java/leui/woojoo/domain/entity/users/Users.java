@@ -18,6 +18,7 @@ import java.util.Set;
 public class Users extends BaseTimeEntity {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -42,7 +43,7 @@ public class Users extends BaseTimeEntity {
         this.fcmToken = fcmToken;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
             name = "user_authority",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},

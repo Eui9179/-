@@ -25,17 +25,14 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(final String username) {
         return usersRepository.findOneWithAuthoritiesById(Long.parseLong(username))
-                .map(users -> createUser(username, users))
+                .map(this::createUser)
                 .orElseThrow(() -> new UsernameNotFoundException(username + " -> 데이터베이스에서 찾을 수 없습니다."));
     }
 
-    private User createUser(String username, Users user) {
+    private User createUser(Users user) {
         List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
                 .collect(Collectors.toList());
-
-        return new User(user.getName(),
-                "",
-                grantedAuthorities);
+        return new User(user.getId().toString(), "", grantedAuthorities);
     }
 }
