@@ -12,14 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/profile")
 public class UsersController {
 
     private final UsersService usersService;
 
-    @PostMapping("/async-token")
-    public String asyncFcmToken(@AuthenticationPrincipal User user, @RequestBody FcmRequest fcmRequest) {
-        usersService.asyncFcmToken(Long.parseLong(user.getUsername()), fcmRequest.getFcmToken());
-        return "ok";
-    }
 }
