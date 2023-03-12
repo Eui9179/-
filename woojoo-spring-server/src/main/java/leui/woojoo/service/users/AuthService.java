@@ -35,7 +35,7 @@ public class AuthService {
     public Long updateFcmToken(Long userId, String fcmToken) {
         Users users = usersRepository.findById(userId)
                 .orElseThrow(()-> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
-        users.updateFcmToken(fcmToken);
+        users.asyncFcmToken(fcmToken);
         return userId;
     }
 
