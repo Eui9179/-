@@ -43,7 +43,10 @@ public class FileUtils {
         return new InputStreamResource(Files.newInputStream(path));
     }
 
-    public void delete(String fileName) throws IOException {
-
+    public void delete(String fileName, String kind) {
+        File file = new File(imagePath + kind + "/" + fileName);
+        if (file.exists()) {
+            file.delete();
+        }
     }
 }

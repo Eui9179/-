@@ -65,6 +65,7 @@ public class AuthController {
     @DeleteMapping("/withdrawal")
     public String withdrawUser(@AuthenticationPrincipal User user) {
         String profileImageName = authService.deleteUser(Long.parseLong(user.getUsername()));
+        fileUtils.delete(profileImageName, "profile");
         return "ok";
     }
 }
