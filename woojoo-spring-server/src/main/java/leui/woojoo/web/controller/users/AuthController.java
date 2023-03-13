@@ -4,6 +4,7 @@ import leui.woojoo.jwt.JwtProvider;
 import leui.woojoo.service.user_groups.UserGroupsService;
 import leui.woojoo.service.users.AuthService;
 import leui.woojoo.service.users.UsersService;
+import leui.woojoo.utils.User.UserUtils;
 import leui.woojoo.utils.file.FileUtils;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.auth.LoginRequest;
@@ -75,7 +76,7 @@ public class AuthController {
     @PostMapping("/async-token")
     @ResponseStatus(HttpStatus.OK)
     public String asyncFcmToken(@AuthenticationPrincipal User user, @RequestBody FcmRequest fcmRequest) {
-        usersService.asyncFcmToken(Long.parseLong(user.getUsername()), fcmRequest.getFcmToken());
+        usersService.asyncFcmToken(UserUtils.resolveUserId(user), fcmRequest.getFcmToken());
         return "ok";
     }
 }

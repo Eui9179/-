@@ -1,4 +1,4 @@
-package leui.woojoo.web.dto.users.profile;
+package leui.woojoo.web.dto.users.profile.me_request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

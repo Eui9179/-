@@ -3,11 +3,13 @@ package leui.woojoo.domain.entity.users;
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
 import leui.woojoo.domain.entity.authority.Authority;
+import leui.woojoo.domain.entity.friends.Friends;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -40,6 +42,9 @@ public class Users extends BaseTimeEntity {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<Friends> friends;
 
     public void updateProfile(String name, String profileImageName) {
         this.name = name;

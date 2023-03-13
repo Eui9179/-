@@ -1,6 +1,7 @@
 package leui.woojoo.domain.entity.friends;
 
 import jakarta.persistence.*;
+import leui.woojoo.domain.entity.users.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,14 +15,14 @@ public class Friends {
     private Long id;
 
     @Column(nullable = false)
-    private Long userId;
-
-    @Column(nullable = false)
     private Long friendsId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @Builder
     public Friends(Long userId, Long friendsId) {
-        this.userId = userId;
         this.friendsId = friendsId;
     }
 }

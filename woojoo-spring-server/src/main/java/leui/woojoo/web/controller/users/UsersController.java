@@ -1,13 +1,17 @@
 package leui.woojoo.web.controller.users;
 
+import leui.woojoo.domain.entity.friends.Friends;
 import leui.woojoo.service.users.UsersService;
+import leui.woojoo.utils.User.UserUtils;
 import leui.woojoo.web.dto.users.UsersDto;
-import leui.woojoo.web.dto.users.fcm.FcmRequest;
-import leui.woojoo.web.dto.users.profile.MeRequest;
+import leui.woojoo.web.dto.users.profile.me_request.MeRequest;
+import leui.woojoo.web.dto.users.profile.user_profile_request.UserProfileRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,11 +22,14 @@ public class UsersController {
 
     @GetMapping("/me")
     public MeRequest getMyProfile(@AuthenticationPrincipal User user) {
-        UsersDto entity = usersService.findById(Long.parseLong(user.getUsername()));
+        UsersDto entity = usersService.findById(UserUtils.resolveUserId(user));
         return new MeRequest(entity);
     }
 
-//    @GetMapping("/{userId}")
-//    public getUserProfile
+    @GetMapping("/{userId}")
+    public List<Friends> getUserProfile(@AuthenticationPrincipal User user, @PathVariable Long userId) {
+        Long myUserId = UserUtils.resolveUserId(user);
+        return usersService.findFriendsByUsers(myUserId);
+    }
 
 }
