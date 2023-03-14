@@ -34,19 +34,18 @@ public class UsersDtoGamesRepositoryTest {
                 .fcmToken("1234")
                 .build());
 
-        Long userId = userEntity.getId();
         String gameName = "leagueoflegneds";
         String gameNickname = "Lee";
 
         //when
         UserGames userGamesEntity = userGamesRepository.save(UserGames.builder()
-                .userId(userId)
+                .users(userEntity)
                 .gameName(gameName)
                 .gameNickname(gameNickname)
                 .build());
 
         //then
-        Assertions.assertThat(userGamesEntity.getUserId()).isEqualTo(userId);
+        Assertions.assertThat(userGamesEntity.getUsers().getId()).isEqualTo(userEntity.getId());
         Assertions.assertThat(userGamesEntity.getGameName()).isEqualTo(gameName);
     }
 

@@ -1,6 +1,7 @@
 package leui.woojoo.domain.entity.user_games;
 
 import jakarta.persistence.*;
+import leui.woojoo.domain.entity.users.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,9 @@ public class UserGames {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @Column(length = 50, nullable = false)
     private String gameName;
@@ -23,8 +25,8 @@ public class UserGames {
     private String gameNickname;
 
     @Builder
-    public UserGames(Long userId, String gameName, String gameNickname) {
-        this.userId = userId;
+    public UserGames(Users users, String gameName, String gameNickname) {
+        this.users = users;
         this.gameName = gameName;
         this.gameNickname = gameNickname;
     }

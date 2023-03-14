@@ -5,7 +5,6 @@ import leui.woojoo.service.users.UsersService;
 import leui.woojoo.utils.User.UserUtils;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.profile.me_request.MeRequest;
-import leui.woojoo.web.dto.users.profile.user_profile_request.UserProfileRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -27,9 +26,10 @@ public class UsersController {
     }
 
     @GetMapping("/{userId}")
-    public List<Friends> getUserProfile(@AuthenticationPrincipal User user, @PathVariable Long userId) {
+    public void getUserProfile(
+            @AuthenticationPrincipal User user, @PathVariable Long userId) {
         Long myUserId = UserUtils.resolveUserId(user);
-        return usersService.findFriendsByUsers(myUserId);
+//        return usersService.findFriendsByUserId(myUserId);
     }
 
 }
