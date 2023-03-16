@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 public class UserProfileRequest {
     private UserProfile userProfile;
     private boolean isFriend;
-    private ArrayList<UserGroup> userGroups;
-    private ArrayList<UserGame> userGames;
-    private ArrayList<Friends> alreadyFriends;
-    private ArrayList<Friends> userFriends;
+    private List<UserGroup> userGroups;
+    private List<UserGame> userGames;
+    private ArrayList<UserFriend> alreadyFriends;
+    private ArrayList<UserFriend> userFriends;
 }

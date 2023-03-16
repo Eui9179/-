@@ -7,6 +7,7 @@ import leui.woojoo.domain.entity.friends.Friends;
 import leui.woojoo.domain.entity.today_games.TodayGames;
 import leui.woojoo.domain.entity.user_games.UserGames;
 import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.web.dto.users.profile.user_profile_request.UserProfile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -65,5 +66,13 @@ public class Users extends BaseTimeEntity {
 
     public void asyncFcmToken(String fcmToken) {
         this.fcmToken = fcmToken;
+    }
+
+    public UserProfile toProfile() {
+        return UserProfile.builder()
+                .userId(id)
+                .name(name)
+                .profileImageName(profileImageName)
+                .build();
     }
 }

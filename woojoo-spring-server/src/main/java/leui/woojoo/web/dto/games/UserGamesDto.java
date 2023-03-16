@@ -11,11 +11,11 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class UserGameDto {
+public class UserGamesDto {
     private String gameName;
     private String gameNickname;
 
-    public UserGameDto(UserGames games) {
+    public UserGamesDto(UserGames games) {
         this.gameName = games.getGameName();
         this.gameNickname = games.getGameNickname();
     }

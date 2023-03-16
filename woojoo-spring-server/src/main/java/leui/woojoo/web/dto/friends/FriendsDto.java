@@ -5,17 +5,18 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import leui.woojoo.domain.entity.friends.Friends;
 import lombok.*;
 
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class FriendDto {
+public class FriendsDto {
     private Long userId;
     private Long friendId;
 
-    public FriendDto(Friends friends) {
+    public FriendsDto(Friends friends) {
         this.userId = friends.getUsers().getId();
         this.friendId = friends.getFriendsId();
     }
