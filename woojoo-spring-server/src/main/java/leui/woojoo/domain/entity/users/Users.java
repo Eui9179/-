@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
 import leui.woojoo.domain.entity.authority.Authority;
 import leui.woojoo.domain.entity.friends.Friends;
+import leui.woojoo.domain.entity.today_games.TodayGames;
 import leui.woojoo.domain.entity.user_games.UserGames;
+import leui.woojoo.domain.entity.user_groups.UserGroups;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -49,6 +51,12 @@ public class Users extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<UserGames> games;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<TodayGames> todayGames;
+
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    private UserGroups userGroups;
 
     public void updateProfile(String name, String profileImageName) {
         this.name = name;

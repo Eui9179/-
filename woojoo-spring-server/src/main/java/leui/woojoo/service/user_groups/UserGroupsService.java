@@ -13,7 +13,6 @@ public class UserGroupsService {
     private final UserGroupsRepository userGroupsRepository;
 
     public Long save(UserGroups userGroups) {
-
         return userGroupsRepository.save(userGroups).getId();
     }
 }

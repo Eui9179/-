@@ -21,7 +21,7 @@ public class FileUtils {
     private String imagePath;
 
     public String upload(MultipartFile file, String kind) throws IOException {
-        if (file.isEmpty()) {
+        if (file == null || file.isEmpty()) {
             return "default.png";
         }
 

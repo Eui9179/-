@@ -1,6 +1,7 @@
 package leui.woojoo.domain.entity.user_groups;
 
 import jakarta.persistence.*;
+import leui.woojoo.domain.entity.users.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,12 @@ public class UserGroups {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long userId;
+//    @Column(nullable = false)
+//    private Long userId;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @Column(length = 30, nullable = false)
     private String groupName;
@@ -23,8 +28,8 @@ public class UserGroups {
     private String detail1;
 
     @Builder
-    public UserGroups(Long userId, String groupName, String detail1) {
-        this.userId = userId;
+    public UserGroups(Users users, String groupName, String detail1) {
+        this.users = users;
         this.groupName = groupName;
         this.detail1 = detail1;
     }

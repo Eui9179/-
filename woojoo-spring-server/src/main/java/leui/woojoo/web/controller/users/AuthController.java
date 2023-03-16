@@ -1,5 +1,6 @@
 package leui.woojoo.web.controller.users;
 
+import leui.woojoo.domain.entity.users.Users;
 import leui.woojoo.jwt.JwtProvider;
 import leui.woojoo.service.user_groups.UserGroupsService;
 import leui.woojoo.service.users.AuthService;
@@ -42,11 +43,11 @@ public class AuthController {
         }
 
         String profileImageName = fileUtils.upload(requestDto.getFile(), "profile");
-        Long userId = authService.save(requestDto.toUserEntity(profileImageName));
+        Users users = authService.save(requestDto.toUserEntity(profileImageName));
 
-        userGroupsService.save(requestDto.toUserGroupEntity(userId));
+        userGroupsService.save(requestDto.toUserGroupEntity(users));
 
-        String token = jwtProvider.createToken(userId);
+        String token = jwtProvider.createToken(users.getId());
         return new ResponseEntity<>(new SignupResponse(token), HttpStatus.OK);
     }
 

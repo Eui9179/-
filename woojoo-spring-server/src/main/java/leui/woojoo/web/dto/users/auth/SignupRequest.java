@@ -48,9 +48,9 @@ public class SignupRequest {
                 .build();
     }
 
-    public UserGroups toUserGroupEntity(Long userId) {
+    public UserGroups toUserGroupEntity(Users users) {
         return UserGroups.builder()
-                .userId(userId)
+                .users(users)
                 .groupName(groups)
                 .detail1(detail1)
                 .build();

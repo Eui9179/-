@@ -27,8 +27,8 @@ public class AuthService {
     }
 
     @Transactional
-    public Long save(Users users) {
-        return usersRepository.save(users).getId();
+    public Users save(Users users) {
+        return usersRepository.save(users);
     }
 
     @Transactional

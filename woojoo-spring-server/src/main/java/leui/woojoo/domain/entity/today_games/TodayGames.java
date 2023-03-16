@@ -2,6 +2,7 @@ package leui.woojoo.domain.entity.today_games;
 
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
+import leui.woojoo.domain.entity.users.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,12 @@ public class TodayGames extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long userId;
+//    @Column(nullable = false)
+//    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @Column(length = 40, nullable = false)
     private String gameName;
@@ -24,8 +29,8 @@ public class TodayGames extends BaseTimeEntity {
     private String descriptions;
 
     @Builder
-    public TodayGames(Long userId, String gameName, String descriptions) {
-        this.userId = userId;
+    public TodayGames(Users users, String gameName, String descriptions) {
+        this.users = users;
         this.gameName = gameName;
         this.descriptions = descriptions;
     }

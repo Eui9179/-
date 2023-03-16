@@ -20,12 +20,4 @@ public class SignupGroupsParam {
         this.groupName = groupName;
         this.detail1 = detail1;
     }
-
-    public UserGroups toEntity() {
-        return UserGroups.builder()
-                .userId(userId)
-                .groupName(groupName)
-                .detail1(detail1)
-                .build();
-    }
 }

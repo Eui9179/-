@@ -22,6 +22,4 @@ public class UsersDto {
         this.profileImageName = users.getProfileImageName();
         this.fcmToken = users.getFcmToken();
     }
-
-
 }
