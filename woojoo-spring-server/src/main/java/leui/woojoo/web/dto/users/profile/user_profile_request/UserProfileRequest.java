@@ -2,6 +2,7 @@ package leui.woojoo.web.dto.users.profile.user_profile_request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import leui.woojoo.web.dto.groups.UserGroup;
 import lombok.*;
 
 import java.util.ArrayList;

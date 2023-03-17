@@ -1,4 +1,4 @@
-package leui.woojoo.web.dto.users.profile.user_profile_request;
+package leui.woojoo.web.dto.groups;
 
 import leui.woojoo.domain.entity.user_groups.UserGroups;
 import lombok.*;

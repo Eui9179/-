@@ -1,7 +1,6 @@
 package leui.woojoo.service.users;
 
 import leui.woojoo.domain.entity.friends.Friends;
-import leui.woojoo.domain.entity.friends.FriendsRepository;
 import leui.woojoo.domain.entity.user_games.UserGames;
 import leui.woojoo.domain.entity.user_groups.UserGroups;
 import leui.woojoo.domain.entity.users.Users;
@@ -12,7 +11,7 @@ import leui.woojoo.web.dto.friends.FriendsDto;
 import leui.woojoo.web.dto.games.UserGamesDto;
 import leui.woojoo.web.dto.users.UsersDto;
 import leui.woojoo.web.dto.users.profile.user_profile_request.UserGame;
-import leui.woojoo.web.dto.users.profile.user_profile_request.UserGroup;
+import leui.woojoo.web.dto.groups.UserGroup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -83,6 +82,12 @@ public class UsersService {
     }
 
     public UserGroup findUserGroupsByEntity(Users users) {
+        return new UserGroup(users.getUserGroups());
+    }
+
+    public UserGroup findUserGroupsByUserId(Long userId) {
+        Users users = usersRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
         return new UserGroup(users.getUserGroups());
     }
 
