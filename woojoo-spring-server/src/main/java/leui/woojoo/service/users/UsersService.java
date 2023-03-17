@@ -3,9 +3,11 @@ package leui.woojoo.service.users;
 import leui.woojoo.domain.entity.friends.Friends;
 import leui.woojoo.domain.entity.friends.FriendsRepository;
 import leui.woojoo.domain.entity.user_games.UserGames;
+import leui.woojoo.domain.entity.user_groups.UserGroups;
 import leui.woojoo.domain.entity.users.Users;
 import leui.woojoo.domain.entity.users.UsersRepository;
 import leui.woojoo.domain.entity.users.dto.UserFriendsWithUsersDto;
+import leui.woojoo.service.users.dto.UserProfileUpdate;
 import leui.woojoo.web.dto.friends.FriendsDto;
 import leui.woojoo.web.dto.games.UserGamesDto;
 import leui.woojoo.web.dto.users.UsersDto;
@@ -15,15 +17,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
 public class UsersService {
     private final UsersRepository usersRepository;
-    private final FriendsRepository friendsRepository;
 
     @Transactional
     public void asyncFcmToken(Long userId, String fcm) {
@@ -89,6 +88,30 @@ public class UsersService {
 
     public List<UserFriendsWithUsersDto> findFriendsWithUsers(Long userId) {
         return usersRepository.findFriendsWithUsers(userId);
+    }
+
+    @Transactional
+    public boolean updateUserProfile(Long userId, UserProfileUpdate userProfileUpdate) {
+        Users user = usersRepository.findById(userId)
+                .orElse(null);
+
+        if (user == null) {
+            return false;
+        }
+
+        if (userProfileUpdate.getName() != null) {
+            user.updateUserName(userProfileUpdate.getName());
+        }
+
+        if (userProfileUpdate.getProfileImageName() != null) {
+            user.updateProfileImageName(userProfileUpdate.getProfileImageName());
+        }
+
+        if (userProfileUpdate.getGroupName() != null) {
+            UserGroups userGroup = user.getUserGroups();
+            userGroup.update(userProfileUpdate.getGroupName(), userProfileUpdate.getGroupDetail());
+        }
+        return true;
     }
 
 

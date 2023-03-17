@@ -4,7 +4,10 @@ import leui.woojoo.domain.entity.users.Users;
 import leui.woojoo.domain.entity.users.dto.UserFriendsWithUsersDto;
 import leui.woojoo.service.user_games.UserGamesService;
 import leui.woojoo.service.users.UsersService;
+import leui.woojoo.service.users.dto.UserProfileUpdate;
 import leui.woojoo.utils.User.UserUtils;
+import leui.woojoo.utils.file.FileUtils;
+import leui.woojoo.web.dto.RsData;
 import leui.woojoo.web.dto.friends.FriendsDto;
 import leui.woojoo.web.dto.games.UserGamesDto;
 import leui.woojoo.web.dto.users.UsersDto;
@@ -13,13 +16,16 @@ import leui.woojoo.web.dto.users.profile.user_profile_request.UserFriend;
 import leui.woojoo.web.dto.users.profile.user_profile_request.UserGame;
 import leui.woojoo.web.dto.users.profile.user_profile_request.UserGroup;
 import leui.woojoo.web.dto.users.profile.user_profile_request.UserProfileRequest;
+import leui.woojoo.web.dto.users.profile.user_setting_request.UserSettingRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,6 +36,7 @@ public class UsersController {
 
     private final UsersService usersService;
     private final UserGamesService userGamesService;
+    private final FileUtils fileUtils;
 
     @GetMapping("/me")
     public MeRequest getMyProfile(@AuthenticationPrincipal User user) {
@@ -43,7 +50,6 @@ public class UsersController {
         Long myUserId = UserUtils.resolveUserId(user);
         Users me = usersService.findEntityById(myUserId);
         List<FriendsDto> myFriends = usersService.findFriendsByEntity(me);
-        List<UserGame> myGames = usersService.findUserGamesByEntity(me);
 
         boolean isFriend = isMyFriend(myFriends, userId);
 
@@ -83,6 +89,42 @@ public class UsersController {
 
     public boolean isMyFriend(List<FriendsDto> myFriends, Long friendId) {
         return myFriends.stream().anyMatch(f -> f.getFriendId().equals(friendId));
+    }
+
+    @PostMapping("/setting")
+    public ResponseEntity<String> setProfile(@AuthenticationPrincipal User user, @ModelAttribute UserSettingRequest request) throws IOException {
+        Long userId = UserUtils.resolveUserId(user);
+        UsersDto usersDto = usersService.findById(userId);
+
+        UserProfileUpdate userProfileUpdate = new UserProfileUpdate();
+        String profileImageName = "default.png";
+
+        if (request.getIsFile().equals("true")) {
+            if (request.getFile() != null) {
+                if (!usersDto.getProfileImageName().equals("default")) {
+                    fileUtils.delete(usersDto.getProfileImageName(), "profile");
+                }
+                profileImageName = fileUtils.upload(request.getFile(), "profile");
+            } else {
+                if (!usersDto.getProfileImageName().equals("default.png")) {
+                    fileUtils.delete(usersDto.getProfileImageName(), "profile");
+                }
+            }
+            userProfileUpdate.setProfileImageName(profileImageName);
+        }
+        if (request.getName() != null) {
+            userProfileUpdate.setName(request.getName());
+        }
+
+        if (request.getIsGroup().equals("true")) {
+            userProfileUpdate.setGroupName(request.getGroupName());
+            userProfileUpdate.setGroupDetail(request.getGroupDetail1());
+        }
+
+        if (!usersService.updateUserProfile(userId, userProfileUpdate)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(profileImageName, HttpStatus.OK);
     }
 
 }

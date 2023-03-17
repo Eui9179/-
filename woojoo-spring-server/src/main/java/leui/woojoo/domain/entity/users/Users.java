@@ -59,11 +59,6 @@ public class Users extends BaseTimeEntity {
     @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private UserGroups userGroups;
 
-    public void updateProfile(String name, String profileImageName) {
-        this.name = name;
-        this.profileImageName = profileImageName;
-    }
-
     public void asyncFcmToken(String fcmToken) {
         this.fcmToken = fcmToken;
     }
@@ -74,5 +69,13 @@ public class Users extends BaseTimeEntity {
                 .name(name)
                 .profileImageName(profileImageName)
                 .build();
+    }
+
+    public void updateProfileImageName(String profileImageName) {
+        this.profileImageName = profileImageName;
+    }
+
+    public void updateUserName(String name) {
+        this.name = name;
     }
 }

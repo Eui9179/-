@@ -40,10 +40,10 @@ public class SecurityConfig {
 //                .accessDeniedHandler(jwtAccessDeniedHandler)
 
                 // enable h2-console
-                .and()
-                .headers()
-                .frameOptions()
-                .sameOrigin()
+//                .and()
+//                .headers()
+//                .frameOptions()
+//                .sameOrigin()
 
                 // 세션을 사용하지 않기 때문에 STATELESS로 설정
                 .and()
@@ -52,7 +52,7 @@ public class SecurityConfig {
 
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers(PathRequest.toH2Console()).permitAll()
+//                .requestMatchers(PathRequest.toH2Console()).permitAll()
                 .requestMatchers("/api/auth/login").permitAll()
                 .requestMatchers("/api/auth/signup").permitAll()
                 .anyRequest().authenticated()
