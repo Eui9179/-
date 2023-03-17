@@ -18,9 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/groups")
 public class GroupsController {
-    private final UserGroupsService userGroupsService;
     private final UsersService usersService;
-
 
     @GetMapping("/me")
     public MyGroupResponse getMyGroup(@AuthenticationPrincipal User user) {
