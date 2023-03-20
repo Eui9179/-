@@ -1,7 +1,7 @@
 package leui.woojoo.domain.user_games;
 
-import leui.woojoo.domain.entity.user_games.UserGames;
-import leui.woojoo.domain.entity.user_games.UserGamesRepository;
+import leui.woojoo.domain.user_games.entity.UserGames;
+import leui.woojoo.domain.user_games.entity.UserGamesRepository;
 import leui.woojoo.domain.users.entity.Users;
 import leui.woojoo.domain.users.entity.UsersRepository;
 import org.assertj.core.api.Assertions;

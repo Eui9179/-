@@ -2,17 +2,17 @@ package leui.woojoo.domain.users.controller;
 
 import leui.woojoo.domain.users.entity.Users;
 import leui.woojoo.domain.users.dto.repository.UserFriendsWithUsersDto;
-import leui.woojoo.service.user_games.UserGamesService;
+import leui.woojoo.domain.user_games.service.UserGamesService;
 import leui.woojoo.domain.users.service.UsersService;
 import leui.woojoo.domain.users.dto.service.UserProfileUpdate;
 import leui.woojoo.domain.users.utils.UserUtils;
 import leui.woojoo.utils.file.FileUtils;
-import leui.woojoo.web.dto.friends.FriendsDto;
+import leui.woojoo.domain.friends.dto.FriendId;
 import leui.woojoo.domain.users.dto.UserDetail;
 import leui.woojoo.domain.users.dto.web.profile.MeResponse;
 import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserFriend;
-import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserGame;
-import leui.woojoo.web.dto.groups.UserGroup;
+import leui.woojoo.domain.user_games.dto.UserGame;
+import leui.woojoo.domain.user_groups.dto.UserGroup;
 import leui.woojoo.domain.users.dto.web.profile.UserProfileResponse;
 import leui.woojoo.domain.users.dto.web.profile.UserSettingRequest;
 import lombok.RequiredArgsConstructor;
@@ -47,9 +47,9 @@ public class UsersController {
             @AuthenticationPrincipal User user, @PathVariable Long userId) {
         Long myUserId = UserUtils.resolveUserId(user);
         Users me = usersService.findEntityById(myUserId);
-        List<FriendsDto> myFriends = usersService.findFriendsByEntity(me);
+        List<FriendId> myFriendIds = usersService.findFriendsByEntity(me);
 
-        boolean isFriend = isMyFriend(myFriends, userId);
+        boolean isFriend = isMyFriend(myFriendIds, userId);
 
         Users other = usersService.findEntityById(userId);
         UserGroup otherGroup = usersService.findUserGroupsByEntity(other);
@@ -65,7 +65,7 @@ public class UsersController {
             List<UserGame> userFriendGames = userGamesService.findUserGamesByUserId(userFriend.getId());
             List<String> intersection = userFriendGames.stream().map(UserGame::getGame).toList();
 
-            if (isMyFriend(myFriends, userFriend.getId())) {
+            if (isMyFriend(myFriendIds, userFriend.getId())) {
                 alreadyFriends.add(new UserFriend(userFriend, intersection));
             } else {
                 userFriends.add(new UserFriend(userFriend, intersection));
@@ -85,8 +85,8 @@ public class UsersController {
                 .build();
     }
 
-    public boolean isMyFriend(List<FriendsDto> myFriends, Long friendId) {
-        return myFriends.stream().anyMatch(f -> f.getFriendId().equals(friendId));
+    public boolean isMyFriend(List<FriendId> myFriendIds, Long friendId) {
+        return myFriendIds.stream().anyMatch(f -> f.getFriendId().equals(friendId));
     }
 
     @PostMapping("/setting")

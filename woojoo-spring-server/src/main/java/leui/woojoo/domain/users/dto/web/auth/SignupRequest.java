@@ -1,7 +1,7 @@
 package leui.woojoo.domain.users.dto.web.auth;
 
-import leui.woojoo.domain.entity.authority.Authority;
-import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.domain.authority.Authority;
+import leui.woojoo.domain.user_groups.entity.UserGroups;
 import leui.woojoo.domain.users.entity.Users;
 import lombok.Builder;
 import lombok.Getter;

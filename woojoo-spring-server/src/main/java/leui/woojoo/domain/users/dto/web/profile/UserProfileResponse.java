@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import leui.woojoo.domain.users.dto.UserSimple;
 import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserFriend;
-import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserGame;
-import leui.woojoo.web.dto.groups.UserGroup;
+import leui.woojoo.domain.user_games.dto.UserGame;
+import leui.woojoo.domain.user_groups.dto.UserGroup;
 import lombok.*;
 
 import java.util.ArrayList;

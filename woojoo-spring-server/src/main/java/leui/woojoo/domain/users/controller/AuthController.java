@@ -2,7 +2,7 @@ package leui.woojoo.domain.users.controller;
 
 import leui.woojoo.domain.users.entity.Users;
 import leui.woojoo.jwt.JwtProvider;
-import leui.woojoo.service.user_groups.UserGroupsService;
+import leui.woojoo.domain.user_groups.service.UserGroupsService;
 import leui.woojoo.domain.users.service.AuthService;
 import leui.woojoo.domain.users.service.UsersService;
 import leui.woojoo.domain.users.utils.UserUtils;

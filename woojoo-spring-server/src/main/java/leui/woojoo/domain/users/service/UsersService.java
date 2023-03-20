@@ -1,17 +1,16 @@
 package leui.woojoo.domain.users.service;
 
-import leui.woojoo.domain.entity.friends.Friends;
-import leui.woojoo.domain.entity.user_games.UserGames;
-import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.domain.friends.entity.Friends;
+import leui.woojoo.domain.user_games.entity.UserGames;
+import leui.woojoo.domain.user_groups.entity.UserGroups;
 import leui.woojoo.domain.users.entity.Users;
 import leui.woojoo.domain.users.entity.UsersRepository;
 import leui.woojoo.domain.users.dto.repository.UserFriendsWithUsersDto;
 import leui.woojoo.domain.users.dto.service.UserProfileUpdate;
-import leui.woojoo.web.dto.friends.FriendsDto;
-import leui.woojoo.web.dto.games.UserGamesDto;
+import leui.woojoo.domain.friends.dto.FriendId;
 import leui.woojoo.domain.users.dto.UserDetail;
-import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserGame;
-import leui.woojoo.web.dto.groups.UserGroup;
+import leui.woojoo.domain.user_games.dto.UserGame;
+import leui.woojoo.domain.user_groups.dto.UserGroup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,31 +44,21 @@ public class UsersService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
     }
 
-    public List<FriendsDto> findFriendsByUserId(Long userId) {
+    public List<FriendId> findFriendsByUserId(Long userId) {
         Users users = usersRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
         List<Friends> friendsEntity = users.getFriends();
         return friendsEntity
                 .stream()
-                .map(FriendsDto::new)
+                .map(FriendId::new)
                 .toList();
     }
 
-    public List<FriendsDto> findFriendsByEntity(Users users) {
+    public List<FriendId> findFriendsByEntity(Users users) {
         List<Friends> friendsEntity = users.getFriends();
         return friendsEntity
                 .stream()
-                .map(FriendsDto::new)
-                .toList();
-    }
-
-    public List<UserGamesDto> findUserGamesByUserId(Long userId) {
-        Users users = usersRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. " + userId));
-        List<UserGames> userGamesEntity = users.getGames();
-        return userGamesEntity
-                .stream()
-                .map(UserGamesDto::new)
+                .map(FriendId::new)
                 .toList();
     }
 

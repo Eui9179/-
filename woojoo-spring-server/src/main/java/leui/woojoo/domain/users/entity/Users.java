@@ -2,11 +2,11 @@ package leui.woojoo.domain.users.entity;
 
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
-import leui.woojoo.domain.entity.authority.Authority;
-import leui.woojoo.domain.entity.friends.Friends;
-import leui.woojoo.domain.entity.today_games.TodayGames;
-import leui.woojoo.domain.entity.user_games.UserGames;
-import leui.woojoo.domain.entity.user_groups.UserGroups;
+import leui.woojoo.domain.authority.Authority;
+import leui.woojoo.domain.friends.entity.Friends;
+import leui.woojoo.domain.today_games.entity.TodayGames;
+import leui.woojoo.domain.user_games.entity.UserGames;
+import leui.woojoo.domain.user_groups.entity.UserGroups;
 import leui.woojoo.domain.users.dto.UserSimple;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
