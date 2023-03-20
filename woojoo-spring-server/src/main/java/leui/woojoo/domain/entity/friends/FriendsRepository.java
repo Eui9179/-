@@ -1,6 +1,6 @@
 package leui.woojoo.domain.entity.friends;
 
-import leui.woojoo.domain.entity.users.Users;
+import leui.woojoo.domain.users.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

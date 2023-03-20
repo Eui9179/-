@@ -1,17 +1,13 @@
 package leui.woojoo.web.controller.groups;
 
-import leui.woojoo.domain.entity.user_games.UserGames;
-import leui.woojoo.service.user_groups.UserGroupsService;
-import leui.woojoo.web.dto.groups.GroupsByNameResponse;
 import leui.woojoo.web.dto.groups.UserGroup;
-import leui.woojoo.service.users.UsersService;
-import leui.woojoo.utils.User.UserUtils;
+import leui.woojoo.domain.users.service.UsersService;
+import leui.woojoo.domain.users.utils.UserUtils;
 import leui.woojoo.web.dto.groups.MyGroupResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

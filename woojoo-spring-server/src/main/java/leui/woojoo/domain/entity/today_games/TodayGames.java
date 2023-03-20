@@ -2,7 +2,7 @@ package leui.woojoo.domain.entity.today_games;
 
 import jakarta.persistence.*;
 import leui.woojoo.domain.BaseTimeEntity;
-import leui.woojoo.domain.entity.users.Users;
+import leui.woojoo.domain.users.entity.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

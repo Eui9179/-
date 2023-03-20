@@ -1,7 +1,7 @@
 package leui.woojoo.domain.entity.user_groups;
 
 import jakarta.persistence.*;
-import leui.woojoo.domain.entity.users.Users;
+import leui.woojoo.domain.users.entity.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

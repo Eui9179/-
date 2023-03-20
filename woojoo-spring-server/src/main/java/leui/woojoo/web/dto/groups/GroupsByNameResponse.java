@@ -1,6 +1,6 @@
 package leui.woojoo.web.dto.groups;
 
-import leui.woojoo.web.dto.users.profile.user_profile_request.UserFriend;
+import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserFriend;
 import lombok.*;
 
 import java.util.List;
