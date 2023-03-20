@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -119,5 +120,10 @@ public class UsersService {
         return true;
     }
 
+    public List<UserGames> getUserGames(Long userId) {
+        Users userEntity = usersRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다."));
+        return userEntity.getGames();
+    }
 
 }
