@@ -1,6 +1,7 @@
 package leui.woojoo.domain.user_groups.controller;
 
 import leui.woojoo.domain.user_groups.dto.UserGroup;
+import leui.woojoo.domain.user_groups.dto.web.UsersInGroupResponse;
 import leui.woojoo.domain.users.service.UsersService;
 import leui.woojoo.domain.users.utils.UserUtils;
 import leui.woojoo.domain.user_groups.dto.web.MyGroupResponse;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,10 +31,9 @@ public class GroupsController {
     }
 
 //    @GetMapping("/{name}")
-//    public GroupsByNameResponse getGroupByName(@AuthenticationPrincipal User user, @PathVariable String name) {
+//    public UsersInGroupResponse getGroupByName(@AuthenticationPrincipal User user, @PathVariable String name) {
 //        Long userId = UserUtils.resolveUserId(user);
-//        List<UserGames> myGames = usersService.getUserGames(userId);
-//
+//         게, 친구, 차단 유저
 //    }
 
 }

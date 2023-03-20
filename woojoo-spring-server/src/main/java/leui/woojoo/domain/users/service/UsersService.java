@@ -108,10 +108,16 @@ public class UsersService {
         return true;
     }
 
-    public List<UserGames> getUserGames(Long userId) {
+    public List<UserGames> findUserGamesByUserId(Long userId) {
         Users userEntity = usersRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다."));
         return userEntity.getGames();
+    }
+
+    public List<UserGame> findUserGames(Users user) {
+        return user.getGames().stream()
+                .map(UserGame::new)
+                .toList();
     }
 
 }

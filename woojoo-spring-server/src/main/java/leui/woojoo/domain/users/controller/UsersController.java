@@ -10,7 +10,7 @@ import leui.woojoo.utils.file.FileUtils;
 import leui.woojoo.domain.friends.dto.FriendId;
 import leui.woojoo.domain.users.dto.UserDetail;
 import leui.woojoo.domain.users.dto.web.profile.MeResponse;
-import leui.woojoo.domain.users.dto.web.profile.user_profile_request.UserFriend;
+import leui.woojoo.domain.users.dto.UserInList;
 import leui.woojoo.domain.user_games.dto.UserGame;
 import leui.woojoo.domain.user_groups.dto.UserGroup;
 import leui.woojoo.domain.users.dto.web.profile.UserProfileResponse;
@@ -56,8 +56,8 @@ public class UsersController {
         List<UserGame> otherGames = usersService.findUserGamesByEntity(other);
         List<UserFriendsWithUsersDto> otherFriends = usersService.findFriendsWithUsers(userId);
 
-        ArrayList<UserFriend> alreadyFriends = new ArrayList<>();
-        ArrayList<UserFriend> userFriends = new ArrayList<>();
+        ArrayList<UserInList> alreadyFriends = new ArrayList<>();
+        ArrayList<UserInList> userInLists = new ArrayList<>();
 
         for (UserFriendsWithUsersDto userFriend : otherFriends) {
             if (myUserId.equals(userFriend.getId())) continue;
@@ -66,14 +66,14 @@ public class UsersController {
             List<String> intersection = userFriendGames.stream().map(UserGame::getGame).toList();
 
             if (isMyFriend(myFriendIds, userFriend.getId())) {
-                alreadyFriends.add(new UserFriend(userFriend, intersection));
+                alreadyFriends.add(new UserInList(userFriend, intersection));
             } else {
-                userFriends.add(new UserFriend(userFriend, intersection));
+                userInLists.add(new UserInList(userFriend, intersection));
             }
         }
 
         Collections.sort(alreadyFriends);
-        Collections.sort(userFriends);
+        Collections.sort(userInLists);
 
         return UserProfileResponse.builder()
                 .userSimple(other.toProfile())
@@ -81,7 +81,7 @@ public class UsersController {
                 .userGroups(new ArrayList<>(Collections.singletonList(otherGroup)))
                 .userGames(otherGames)
                 .alreadyFriends(alreadyFriends)
-                .userFriends(userFriends)
+                .userInLists(userInLists)
                 .build();
     }
 
