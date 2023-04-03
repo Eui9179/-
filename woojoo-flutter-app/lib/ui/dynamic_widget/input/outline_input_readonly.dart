@@ -1,8 +1,12 @@
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class OutlineInputReadOnly extends StatelessWidget {
-  const OutlineInputReadOnly({Key? key, required this.hintText, required this.labelText, required this.onTap})
+  const OutlineInputReadOnly(
+      {Key? key,
+      required this.hintText,
+      required this.labelText,
+      required this.onTap})
       : super(key: key);
   final String? hintText;
   final String labelText;

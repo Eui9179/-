@@ -1,8 +1,8 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/dio/game/update_my_game_nickname.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/woojoo_games.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/dio/game/update_my_game_nickname.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/woojoo_games.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

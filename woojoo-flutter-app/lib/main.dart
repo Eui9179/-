@@ -1,14 +1,14 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/fcm_token_controller.dart';
-import 'package:dor_app/controller/my_games_controller.dart';
-import 'package:dor_app/controller/my_groups_controller.dart';
-import 'package:dor_app/controller/my_profile_controller.dart';
-import 'package:dor_app/controller/todays_game_controller.dart';
-import 'package:dor_app/pages.dart';
-import 'package:dor_app/ui/screens/main_loading_screen.dart';
-import 'package:dor_app/utils/color_palette.dart';
 // import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/fcm_token_controller.dart';
+import 'package:woojoo/controller/my_games_controller.dart';
+import 'package:woojoo/controller/my_groups_controller.dart';
+import 'package:woojoo/controller/my_profile_controller.dart';
+import 'package:woojoo/controller/todays_game_controller.dart';
+import 'package:woojoo/pages.dart';
+import 'package:woojoo/ui/screens/main_loading_screen.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -18,9 +18,9 @@ import 'controller/my_friends_controller.dart';
 // import 'firebase_options.dart';
 
 const storage = FlutterSecureStorage();
-// Future<void> _messageHandler(RemoteMessage message) async {
-  // print('background message ${message.notification!.body}');
-// }
+Future<void> _messageHandler(RemoteMessage message) async {
+  print('background message ${message.notification!.body}');
+}
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -72,9 +72,10 @@ class _HomeState extends State<Home> {
     super.initState();
 
     // FirebaseMessaging.instance.getToken().then((token) {
-      // Get.find<FcmTokenController>().setFcmToken(token!);
+    //   print(token);
+    //   Get.find<FcmTokenController>().setFcmToken(token!);
     // });
-    
+
     Future<String?> res = _getAccessToken();
     res.then((accessToken) {
       if (accessToken != null) {

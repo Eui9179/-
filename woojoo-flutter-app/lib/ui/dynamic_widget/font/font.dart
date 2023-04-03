@@ -1,4 +1,4 @@
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class Font extends StatelessWidget {

@@ -1,10 +1,8 @@
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class SendIconButton extends StatelessWidget {
-  const SendIconButton(
-      {Key? key, required this.onPressed})
-      : super(key: key);
+  const SendIconButton({Key? key, required this.onPressed}) : super(key: key);
 
   final VoidCallback onPressed;
 

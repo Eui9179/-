@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:dor_app/ui/screens/main_loading_screen.dart';
-import 'package:dor_app/ui/static_widget/woojoo_logo_and_name.dart';
+import 'package:woojoo/ui/screens/main_loading_screen.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo_and_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,10 +1,10 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/dio/friend/delete_friend.dart';
-import 'package:dor_app/dio/friend/insert_friend.dart';
-import 'package:dor_app/ui/dynamic_widget/button/font_button.dart';
-import 'package:dor_app/ui/static_widget/dividing_line.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/dio/friend/delete_friend.dart';
+import 'package:woojoo/dio/friend/insert_friend.dart';
+import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
+import 'package:woojoo/ui/static_widget/dividing_line.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -71,24 +71,28 @@ class _UserFriendsState extends State<UserFriends> {
                 children: [
                   const DividingLine(),
                   Container(
-                      margin: const EdgeInsets.only(top: 4, bottom: 4),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              const Icon(Icons.people, color: Colors.white, size: 16),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Font(text: myFriendString, size: 16),
-                            ],
-                          ),
-                          const Icon(Icons.chevron_right, color: ColorPalette.font,size: 18,),
-                        ],
-                      ),
+                    margin: const EdgeInsets.only(top: 4, bottom: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.people,
+                                color: Colors.white, size: 16),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Font(text: myFriendString, size: 16),
+                          ],
+                        ),
+                        const Icon(
+                          Icons.chevron_right,
+                          color: ColorPalette.font,
+                          size: 18,
+                        ),
+                      ],
                     ),
-
+                  ),
                   const DividingLine(),
                 ],
               ),
@@ -236,9 +240,9 @@ class _UserFriendsState extends State<UserFriends> {
         setState(() {
           userFriends[index]['isFollow'] = true;
         });
-      } else if (statusCode == 409){
+      } else if (statusCode == 409) {
         notification(context, '이미 등록된 친구 입니다.');
-      }else {
+      } else {
         print('insertFriendsIntoFriends(): $statusCode');
       }
     });

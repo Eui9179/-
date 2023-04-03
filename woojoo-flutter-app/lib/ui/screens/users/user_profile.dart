@@ -1,9 +1,9 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/ui/dynamic_widget/avatar/profile_avatar.dart';
-import 'package:dor_app/ui/dynamic_widget/button/font_button.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
+import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

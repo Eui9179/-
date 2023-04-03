@@ -1,4 +1,4 @@
-import 'package:dor_app/dio/dio_instance.dart';
+import 'package:woojoo/dio/dio_instance.dart';
 import 'package:flutter/material.dart';
 
 class FriendAvatar extends StatelessWidget {
@@ -13,9 +13,8 @@ class FriendAvatar extends StatelessWidget {
           width: 50,
           height: 50,
           color: Colors.black54,
-          child: image == "default"
-              ? Image.asset('assets/images/logo/default.png',
-                  fit: BoxFit.cover)
+          child: image == "default.png"
+              ? Image.asset('assets/images/logo/default.png', fit: BoxFit.cover)
               : Image.network('$cdnProfileImageBaseUri$image',
                   fit: BoxFit.cover)),
     );

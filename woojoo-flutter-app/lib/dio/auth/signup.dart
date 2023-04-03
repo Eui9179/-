@@ -1,4 +1,4 @@
-import 'package:dor_app/dio/dio_instance.dart';
+import 'package:woojoo/dio/dio_instance.dart';
 import 'package:dio/dio.dart';
 
 Future<Map<String, dynamic>> dioApiSignup(Map profileData) async {
@@ -15,15 +15,10 @@ Future<Map<String, dynamic>> dioApiSignup(Map profileData) async {
       "phone_number": profileData["phoneNumber"],
       "fcm_token": profileData["fcmToken"]
     });
-    // test
-    // Response response = await dio.post('/auth/signup', data: formData);
-    // return {
-    //   "statusCode": response.statusCode,
-    //   "data": response.data["access_token"]
-    // };
+    Response response = await dio.post('/auth/signup', data: formData);
     return {
-      "statusCode": 200,
-      "data": "accesstoken"
+      "statusCode": response.statusCode,
+      "data": response.data["access_token"]
     };
   } on DioError catch (error) {
     return {"statusCode": error.response!.statusCode};

@@ -1,7 +1,7 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_groups_controller.dart';
-import 'package:dor_app/dio/group/get_my_groups.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_groups_controller.dart';
+import 'package:woojoo/dio/group/get_my_groups.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,13 +41,14 @@ class _MyGroupsState extends State<MyGroups> {
                   itemCount: _myGroups.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GroupTextButton(
-                      text: '${_myGroups[index]["name"]} ${_myGroups[index]['detail1']}학년',
+                      text:
+                          '${_myGroups[index]["name"]} ${_myGroups[index]['detail1']}학년',
                       onTap: () {
-                        Get.toNamed("/group/detail1?name=${_myGroups[index]['name']}&detail1=${_myGroups[index]['detail1']}");
+                        Get.toNamed(
+                            "/group/detail1?name=${_myGroups[index]['name']}&detail1=${_myGroups[index]['detail1']}");
                       },
                     );
                   }),
-
             ],
           ),
         );

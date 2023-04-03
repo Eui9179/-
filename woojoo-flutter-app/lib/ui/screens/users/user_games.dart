@@ -1,5 +1,5 @@
-import 'package:dor_app/ui/dynamic_widget/card/game_card.dart';
-import 'package:dor_app/ui/dynamic_widget/font/subject_title.dart';
+import 'package:woojoo/ui/dynamic_widget/card/game_card.dart';
+import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
 import 'package:flutter/material.dart';
 
 class UserGames extends StatelessWidget {
@@ -28,7 +28,11 @@ class UserGames extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: userGames.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return GameCard(gameName: userGames[index]['game'], isMe: false, nickname: userGames[index]['nickname'],);
+                  return GameCard(
+                    gameName: userGames[index]['game'],
+                    isMe: false,
+                    nickname: userGames[index]['nickname'],
+                  );
                 },
               ),
             )
@@ -36,13 +40,12 @@ class UserGames extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 5.0),
               height: 70.0,
               child: const Center(
-                    child: Text("등록된 게임이 없습니다",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.blueAccent,
-                        )),
-                  ),
-
+                child: Text("등록된 게임이 없습니다",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.blueAccent,
+                    )),
+              ),
             ),
     ]);
   }

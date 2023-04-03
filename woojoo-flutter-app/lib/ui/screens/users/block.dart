@@ -1,13 +1,12 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/dio/friend/block_user.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/dio/friend/block_user.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Future<String?> showBlockDialog(BuildContext context, int userId) async {
-
   blockUserHandler() {
     String accessToken = Get.find<AccessTokenController>().accessToken;
     Future<dynamic> response = dioApiBlockUser(accessToken, userId);
@@ -24,7 +23,7 @@ Future<String?> showBlockDialog(BuildContext context, int userId) async {
         }
         Get.find<MyFriendsController>().setMyFriends([...originalFriends]);
         notification(context, '차단했습니다.');
-      } else if(statusCode == 409) {
+      } else if (statusCode == 409) {
         notification(context, '이미 차단했습니다.');
       } else {
         print(statusCode);

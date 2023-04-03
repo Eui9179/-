@@ -1,4 +1,4 @@
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class MoreIconButton extends StatelessWidget {
@@ -14,8 +14,7 @@ class MoreIconButton extends StatelessWidget {
       tooltip: "더보기",
       padding: EdgeInsets.zero,
       constraints: const BoxConstraints(),
-      icon: const Icon(Icons.more_vert,
-          color: ColorPalette.font, size: 20),
+      icon: const Icon(Icons.more_vert, color: ColorPalette.font, size: 20),
     );
   }
 }

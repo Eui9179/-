@@ -1,13 +1,13 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/dio/profile/get_user.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/ui/screens/home/profile_loading_screen.dart';
-import 'package:dor_app/ui/screens/users/report.dart';
-import 'package:dor_app/ui/screens/users/user_friends.dart';
-import 'package:dor_app/ui/screens/users/user_games.dart';
-import 'package:dor_app/ui/screens/users/user_groups.dart';
-import 'package:dor_app/ui/screens/users/user_profile.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/dio/profile/get_user.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/ui/screens/home/profile_loading_screen.dart';
+import 'package:woojoo/ui/screens/users/report.dart';
+import 'package:woojoo/ui/screens/users/user_friends.dart';
+import 'package:woojoo/ui/screens/users/user_games.dart';
+import 'package:woojoo/ui/screens/users/user_groups.dart';
+import 'package:woojoo/ui/screens/users/user_profile.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

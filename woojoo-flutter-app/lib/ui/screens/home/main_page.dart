@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:dor_app/main.dart';
-import 'package:dor_app/ui/screens/home/main_page_bar.dart';
-import 'package:dor_app/ui/screens/game/todays_game/select_todays_game.dart';
+import 'package:woojoo/main.dart';
+import 'package:woojoo/ui/screens/home/main_page_bar.dart';
+import 'package:woojoo/ui/screens/game/todays_game/select_todays_game.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/color_palette.dart';
@@ -18,18 +18,16 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with AutomaticKeepAliveClientMixin {
-    
+class _MainPageState extends State<MainPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-  
+
   @override
   void initState() {
     super.initState();
     _getIsFirstAccess();
   }
-
-  
 
   @override
   Widget build(BuildContext context) {

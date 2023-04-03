@@ -1,7 +1,6 @@
-import 'package:dor_app/ui/static_widget/woojoo_logo.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
 import '../../utils/color_palette.dart';
-import 'dor_logo.dart';
 
 class WoojooLogoAndName extends StatelessWidget {
   const WoojooLogoAndName({Key? key}) : super(key: key);

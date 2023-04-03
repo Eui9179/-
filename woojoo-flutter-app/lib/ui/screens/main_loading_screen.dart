@@ -1,16 +1,14 @@
-import 'package:dor_app/ui/static_widget/woojoo_logo.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MainLoadingScreen extends StatelessWidget {
-
   const MainLoadingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Stack(
@@ -20,8 +18,7 @@ class MainLoadingScreen extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 11, 14, 27),
                   image: DecorationImage(
-                      image:
-                      AssetImage("assets/images/login/login_image.png"),
+                      image: AssetImage("assets/images/login/login_image.png"),
                       fit: BoxFit.cover),
                 ),
                 child: Container(
@@ -42,7 +39,7 @@ class MainLoadingScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(top: 50, left: 16, child: WoojooLogo ()),
+            const Positioned(top: 50, left: 16, child: WoojooLogo()),
           ],
         ));
   }

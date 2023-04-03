@@ -1,23 +1,23 @@
 import 'dart:async';
 
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/fcm_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/controller/my_games_controller.dart';
-import 'package:dor_app/controller/my_groups_controller.dart';
-import 'package:dor_app/controller/my_profile_controller.dart';
-import 'package:dor_app/dio/auth/async_fcm_token.dart';
-import 'package:dor_app/dio/friend/get_my_friends.dart';
-import 'package:dor_app/dio/game/get_my_games.dart';
-import 'package:dor_app/dio/group/get_my_groups.dart';
-import 'package:dor_app/dio/profile/get_my_profile.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/ui/screens/home/main_page.dart';
-import 'package:dor_app/ui/screens/main_loading_screen.dart';
-import 'package:dor_app/ui/screens/setting/settting.dart';
-import 'package:dor_app/ui/screens/game/todays_game/todays_game_list.dart';
-import 'package:dor_app/ui/static_widget/woojoo_logo.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/fcm_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/controller/my_games_controller.dart';
+import 'package:woojoo/controller/my_groups_controller.dart';
+import 'package:woojoo/controller/my_profile_controller.dart';
+import 'package:woojoo/dio/auth/async_fcm_token.dart';
+import 'package:woojoo/dio/friend/get_my_friends.dart';
+import 'package:woojoo/dio/game/get_my_games.dart';
+import 'package:woojoo/dio/group/get_my_groups.dart';
+import 'package:woojoo/dio/profile/get_my_profile.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/ui/screens/home/main_page.dart';
+import 'package:woojoo/ui/screens/main_loading_screen.dart';
+import 'package:woojoo/ui/screens/setting/settting.dart';
+import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -119,8 +119,8 @@ class _MainHomeState extends State<MainHome> {
 
   Future<bool> _initUserData() async {
     String accessToken = Get.find<AccessTokenController>().accessToken;
-    // _asyncFcmToken(accessToken);
-    _initMyProfile(accessToken);
+    _asyncFcmToken(accessToken);
+    // _initMyProfile(accessToken);
     _initMyGroups(accessToken);
     _initMyGameList(accessToken);
     _initMyFriendList(accessToken);
@@ -143,12 +143,12 @@ class _MainHomeState extends State<MainHome> {
     Future<Map<String, dynamic>> response = dioApiGetMyProfile(accessToken);
     response.then((res) {
       int statusCode = res["statusCode"];
-      if (statusCode == 200) {
+      if (statusCode == 200 && res["data"] != null) {
         Map<String, dynamic> profileData = res["data"];
         Get.find<MyProfileController>().setMyProfile(profileData["name"],
             profileData["profile_image_name"], profileData["phone_number"]);
       } else {
-        print("_getMyProfile() error: $statusCode");
+        Get.toNamed("/login");
       }
     });
   }

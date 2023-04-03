@@ -1,15 +1,15 @@
 import 'package:contacts_service/contacts_service.dart';
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/dio/friend/get_my_friends.dart';
-import 'package:dor_app/dio/friend/sync_my_friends.dart';
-import 'package:dor_app/ui/dynamic_widget/avatar/friend_avatar.dart';
-import 'package:dor_app/ui/dynamic_widget/avatar/game_logo_avatar.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/ui/dynamic_widget/font/subject_title.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/notification.dart';
-import 'package:dor_app/utils/sync_contacts.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/dio/friend/get_my_friends.dart';
+import 'package:woojoo/dio/friend/sync_my_friends.dart';
+import 'package:woojoo/ui/dynamic_widget/avatar/friend_avatar.dart';
+import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/notification.dart';
+import 'package:woojoo/utils/sync_contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -31,10 +31,11 @@ class _MyFriendsState extends State<MyFriends> {
     super.initState();
     _accessToken = Get.find<AccessTokenController>().accessToken;
   }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MyFriendsController>(
-      builder: (controller){
+      builder: (controller) {
         _myFriends = controller.myFriends;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +44,8 @@ class _MyFriendsState extends State<MyFriends> {
               height: 8,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 13.0, left: 13.0, bottom: 12.0),
+              padding:
+                  const EdgeInsets.only(right: 13.0, left: 13.0, bottom: 12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -67,108 +69,115 @@ class _MyFriendsState extends State<MyFriends> {
             ),
             _myFriends.isEmpty
                 ? Container(
-              height: 40,
-              margin: const EdgeInsets.only(top: 35),
-              width: double.infinity,
-              child: Row(
-                textBaseline: TextBaseline.ideographic,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                children: [
-                  const Font(text: "내연락처를 ", size: 18),
-                  InkWell(
-                      onTap: () {
-                        _syncContacts();
-                      },
-                      child: const Text("동기화",
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.blueAccent,
-                            decoration: TextDecoration.underline,
-                          ))),
-                  const Font(text: " 해보세요!", size: 18),
-                ],
-              ),
-            )
+                    height: 40,
+                    margin: const EdgeInsets.only(top: 35),
+                    width: double.infinity,
+                    child: Row(
+                      textBaseline: TextBaseline.ideographic,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      children: [
+                        const Font(text: "내연락처를 ", size: 18),
+                        InkWell(
+                            onTap: () {
+                              _syncContacts();
+                            },
+                            child: const Text("동기화",
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  color: Colors.blueAccent,
+                                  decoration: TextDecoration.underline,
+                                ))),
+                        const Font(text: " 해보세요!", size: 18),
+                      ],
+                    ),
+                  )
                 : ListView.builder(
-                shrinkWrap: true,
-                itemExtent: 70.0,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: _myFriends.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () {
-                      Get.toNamed('/users/${_myFriends[index]['id']}');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 13.0, left: 13.0),
-                      child: Row(
-                        children: [
-                          FriendAvatar(
-                              image: _myFriends[index]["profile_image_name"]),
-                          const SizedBox(
-                            width: 13,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    shrinkWrap: true,
+                    itemExtent: 70.0,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _myFriends.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Get.toNamed('/users/${_myFriends[index]['id']}');
+                        },
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(right: 13.0, left: 13.0),
+                          child: Row(
                             children: [
-                              Font(text: _myFriends[index]["name"], size: 18),
-                              _myFriends[index]['games'].length != 0
-                                  ? const SizedBox(
-                                height: 8,
-                              )
-                                  : const SizedBox(),
-                              _myFriends[index]['games'].length != 0
-                                  ? Row(
+                              FriendAvatar(
+                                  image: _myFriends[index]
+                                      ["profile_image_name"]),
+                              const SizedBox(
+                                width: 13,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  if (_myFriends[index]['games'].length ==
-                                      1) ...[
-                                    GameLogoAvatar(
-                                        gameName: _myFriends[index]
-                                        ['games'][0]),
-                                    const SizedBox(
-                                      width: 3,
-                                    ),
-                                    const SubjectTitle(
-                                        title: "함께 하는 게임 1개")
-                                  ],
-                                  if (_myFriends[index]['games'].length >
-                                      1) ...[
-                                    SizedBox(
-                                      width: 47,
-                                      child: Stack(children: [
-                                        Positioned(
-                                            left: 18,
-                                            child: GameLogoAvatar(
-                                                gameName:
-                                                _myFriends[index]
-                                                ['games'][1])),
-                                        Positioned(
-                                            child: GameLogoAvatar(
-                                                gameName:
-                                                _myFriends[index]
-                                                ['games'][0])),
-                                      ]),
-                                    ),
-                                    SubjectTitle(
-                                        title:
-                                        "함께 하는 게임 ${_myFriends[index]['games'].length}개")
-                                  ]
+                                  Font(
+                                      text: _myFriends[index]["name"],
+                                      size: 18),
+                                  _myFriends[index]['games'].length != 0
+                                      ? const SizedBox(
+                                          height: 8,
+                                        )
+                                      : const SizedBox(),
+                                  _myFriends[index]['games'].length != 0
+                                      ? Row(
+                                          children: [
+                                            if (_myFriends[index]['games']
+                                                    .length ==
+                                                1) ...[
+                                              GameLogoAvatar(
+                                                  gameName: _myFriends[index]
+                                                      ['games'][0]),
+                                              const SizedBox(
+                                                width: 3,
+                                              ),
+                                              const SubjectTitle(
+                                                  title: "함께 하는 게임 1개")
+                                            ],
+                                            if (_myFriends[index]['games']
+                                                    .length >
+                                                1) ...[
+                                              SizedBox(
+                                                width: 47,
+                                                child: Stack(children: [
+                                                  Positioned(
+                                                      left: 18,
+                                                      child: GameLogoAvatar(
+                                                          gameName:
+                                                              _myFriends[index]
+                                                                      ['games']
+                                                                  [1])),
+                                                  Positioned(
+                                                      child: GameLogoAvatar(
+                                                          gameName:
+                                                              _myFriends[index]
+                                                                      ['games']
+                                                                  [0])),
+                                                ]),
+                                              ),
+                                              SubjectTitle(
+                                                  title:
+                                                      "함께 하는 게임 ${_myFriends[index]['games'].length}개")
+                                            ]
+                                          ],
+                                        )
+                                      : const SizedBox()
                                 ],
-                              )
-                                  : const SizedBox()
+                              ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
+                        ),
+                      );
+                    }),
           ],
         );
       },
-
     );
   }
 

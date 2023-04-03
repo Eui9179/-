@@ -1,7 +1,7 @@
 
 import 'package:dio/dio.dart';
 
-String baseUri = "http://10.0.2.2/api";
+String baseUri = "http://localhost:8080/api";
 
 String cdnProfileImageBaseUri = "http://10.0.2.2/cdn/profile/image/";
 

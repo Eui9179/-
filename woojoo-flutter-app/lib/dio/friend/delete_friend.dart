@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:dor_app/dio/dio_instance.dart';
+import 'package:woojoo/dio/dio_instance.dart';
 
 Future<Map<String, dynamic>> dioApiDeleteFriendOne(
     String accessToken, int friendId) async {
   Dio dio = DioInstance(accessToken).dio;
 
   try {
-    Response response = await dio.delete('/user/friend/$friendId');
+    Response response = await dio.delete('/friend/$friendId');
     return {
       'statusCode': response.statusCode,
     };

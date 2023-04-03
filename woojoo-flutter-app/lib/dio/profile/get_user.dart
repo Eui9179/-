@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:dor_app/dio/dio_instance.dart';
+import 'package:woojoo/dio/dio_instance.dart';
 
-Future<Map<String, dynamic>> dioApiUser(
-    String accessToken, int userId) async {
+Future<Map<String, dynamic>> dioApiUser(String accessToken, int userId) async {
   Dio dio = DioInstance(accessToken).dio;
   try {
-    Response response = await dio.get('/user/profile/$userId');
+    Response response = await dio.get('/users/$userId');
     return {
       'statusCode': response.statusCode,
       'data': {

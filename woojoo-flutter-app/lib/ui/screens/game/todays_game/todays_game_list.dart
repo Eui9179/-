@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/todays_game_controller.dart';
-import 'package:dor_app/dio/game/delete_todays_game.dart';
-import 'package:dor_app/dio/todays_games/get_todays_games.dart';
-import 'package:dor_app/ui/dynamic_widget/avatar/profile_avatar.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/woojoo_games.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/todays_game_controller.dart';
+import 'package:woojoo/dio/game/delete_todays_game.dart';
+import 'package:woojoo/dio/todays_games/get_todays_games.dart';
+import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/woojoo_games.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -69,6 +69,7 @@ class _TodaysGameListState extends State<TodaysGameList> {
                             color: ColorPalette.subFont, fontSize: 13))),
                 ListView.builder(
                     shrinkWrap: true,
+                    reverse: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: todaysGameList.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -367,7 +368,7 @@ class _TodaysGameListState extends State<TodaysGameList> {
   }
 
   _getTime(String time) {
-    return time.split(' ')[4].substring(0, 5);
+    return time.split('T')[1].substring(0, 5);
   }
 
   void _getTapPosition(TapDownDetails details) {

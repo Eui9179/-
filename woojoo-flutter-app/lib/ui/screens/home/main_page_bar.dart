@@ -1,5 +1,5 @@
-import 'package:dor_app/ui/static_widget/woojoo_logo.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

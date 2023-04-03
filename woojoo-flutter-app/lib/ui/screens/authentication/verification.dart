@@ -1,15 +1,16 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/fcm_token_controller.dart';
-import 'package:dor_app/dio/auth/login.dart';
-import 'package:dor_app/main.dart';
-import 'package:dor_app/ui/dynamic_widget/button/rounded_button.dart';
-import 'package:dor_app/ui/layout/app_bar/logo_app_bar.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/notification.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/fcm_token_controller.dart';
+import 'package:woojoo/dio/auth/login.dart';
+import 'package:woojoo/dio/auth/verify_sms_auth.dart';
+import 'package:woojoo/main.dart';
+import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
+import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+import '../../../dio/auth/send_sms.dart';
 import '../../dynamic_widget/font/font.dart';
 
 class Verification extends StatefulWidget {
@@ -37,7 +38,6 @@ class _VerificationState extends State<Verification> {
   @override
   void initState() {
     super.initState();
-    // _verifyPhone();
   }
 
   @override
@@ -126,16 +126,16 @@ class _VerificationState extends State<Verification> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Font(text: _phoneNumber, size: 20),
-                        // TextButton(
-                        //   onPressed: () {
-                        //     _verifyPhone();
-                        //   },
-                        //   child: const Text(
-                        //     "재전송",
-                        //     style: TextStyle(
-                        //         color: Colors.blueAccent, fontSize: 18),
-                        //   ),
-                        // ),
+                        TextButton(
+                          onPressed: () {
+                            _resend();
+                          },
+                          child: const Text(
+                            "재전송",
+                            style: TextStyle(
+                                color: Colors.blueAccent, fontSize: 18),
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -153,110 +153,28 @@ class _VerificationState extends State<Verification> {
         ));
   }
 
-  _verifyPhone() async {
-    //test
-    isVerification = true;
-    Future<Map<String, dynamic>> response =
-              dioApiLogin(_phoneNumber, _fcmToken);
-    response.then((result) {
-      int statusCode = result["statusCode"];
-      if (statusCode == 200) {
-        _signin(result["data"]);
-      } else if (statusCode == 401) {
-        _signup();
-      }
-      // TODO: fcm 키 처리
-    });
-    //test
-
-    // await _auth.verifyPhoneNumber(
-    //     phoneNumber: _phoneNumber,
-    //     verificationCompleted: (PhoneAuthCredential credential) {
-    //       //async {
-    //       setState(() {
-    //         isVerification = true;
-    //       });
-    //       Future<Map<String, dynamic>> response =
-    //           dioApiLogin(_phoneNumber, _fcmToken);
-    //       response.then((result) {
-    //         int statusCode = result["statusCode"];
-    //         if (statusCode == 200) {
-    //           _signin(result["data"]);
-    //         } else if (statusCode == 401) {
-    //           _signup();
-    //         }
-    //         // TODO: fcm 키 처리
-    //       });
-    //     },
-    //     verificationFailed: (FirebaseAuthException e) {
-    //       print(e.message);
-    //     },
-    //     codeSent: (String? verificationID, int? resendToken) {
-    //       if (!isDisposed) {
-    //         setState(() {
-    //           _verificationCode = verificationID!;
-    //         });
-    //       }
-    //     },
-    //     codeAutoRetrievalTimeout: (String verificationID) {
-    //       if (!isDisposed) {
-    //         setState(() {
-    //           _verificationCode = verificationID;
-    //         });
-    //       }
-    //     },
-    //     timeout: const Duration(seconds: 60));
-  }
-
   _onPressed() async {
-    //test
     Future<Map<String, dynamic>> response =
-            dioApiLogin(_phoneNumber, _fcmToken);
+        dioApiVerifySmsAuth(_phoneNumber, _smsCode);
     response.then((result) {
       int statusCode = result["statusCode"];
       if (statusCode == 200) {
-        _signin(result["data"]);
-      } else if (statusCode == 401) {
-        _signup();
+        Future<Map<String, dynamic>> response =
+            dioApiLogin(_phoneNumber, _fcmToken, _smsCode);
+        response.then((result) {
+          int statusCode = result["statusCode"];
+          if (statusCode == 200) {
+            _signin(result["data"]);
+          } else if (statusCode == 401) {
+            _signup();
+          }
+        });
+      } else if (statusCode == 403) {
+        notification(context, "코드를 확인해주세요.");
+      } else {
+        notification(context, "잘못된 요청입니다.");
       }
     });
-    //test
-    // if (_formKey.currentState!.validate()) {
-    //   if (isVerification == true) {
-    //     Future<Map<String, dynamic>> response =
-    //         dioApiLogin(_phoneNumber, _fcmToken);
-    //     response.then((result) {
-    //       int statusCode = result["statusCode"];
-    //       if (statusCode == 200) {
-    //         _signin(result["data"]);
-    //       } else if (statusCode == 401) {
-    //         _signup();
-    //       }
-    //     });
-    //   } else {
-    //     try {
-    //       await _auth
-    //           .signInWithCredential(PhoneAuthProvider.credential(
-    //               verificationId: _verificationCode, smsCode: _smsCode))
-    //           .then((value) {
-    //         Future<Map<String, dynamic>> response =
-    //             dioApiLogin(_phoneNumber, _fcmToken);
-    //         response.then((result) {
-    //           int statusCode = result["statusCode"];
-    //           if (statusCode == 200) {
-    //             _signin(result["data"]);
-    //           } else if (statusCode == 401) {
-    //             _signup();
-    //           }
-    //         });
-    //       });
-    //     } catch (e) {
-    //       print(e.toString());
-    //       FocusScope.of(context).unfocus();
-    //       notification(context, '코드를 확인해 주세요');
-    //     }
-    //   }
-    // }
   }
 
   _signup() {
@@ -267,5 +185,18 @@ class _VerificationState extends State<Verification> {
     storage.write(key: "accessToken", value: accessToken);
     Get.find<AccessTokenController>().setAccessToken(accessToken);
     Get.offAllNamed('/');
+  }
+
+  _resend() {
+    _formKey.currentState!.save();
+    Future<Map<String, dynamic>> response = dioApiSendSms(_phoneNumber);
+    response.then((result) {
+      int statusCode = result["statusCode"];
+      if (statusCode == 200) {
+        Get.toNamed('/auth/verification', arguments: _phoneNumber);
+      } else {
+        notification(context, "오류 발생");
+      }
+    });
   }
 }

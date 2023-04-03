@@ -1,4 +1,4 @@
-package com.woojoo.dor_app
+package com.woojoo.app
 
 import io.flutter.embedding.android.FlutterActivity
 

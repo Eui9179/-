@@ -1,9 +1,9 @@
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_games_controller.dart';
-import 'package:dor_app/controller/todays_game_controller.dart';
-import 'package:dor_app/dio/game/insert_todays_game.dart';
-import 'package:dor_app/dio/todays_games/get_todays_games.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_games_controller.dart';
+import 'package:woojoo/controller/todays_game_controller.dart';
+import 'package:woojoo/dio/game/insert_todays_game.dart';
+import 'package:woojoo/dio/todays_games/get_todays_games.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

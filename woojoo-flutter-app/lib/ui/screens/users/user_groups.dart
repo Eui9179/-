@@ -1,4 +1,4 @@
-import 'package:dor_app/ui/static_widget/dividing_line.dart';
+import 'package:woojoo/ui/static_widget/dividing_line.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

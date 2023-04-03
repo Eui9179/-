@@ -1,7 +1,7 @@
-import 'package:dor_app/ui/dynamic_widget/button/rounded_button.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/ui/layout/app_bar/text_app_bar.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
+import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -134,6 +134,7 @@ class _Step2TOSState extends State<Step2TOS> {
       int statusCode = res["statusCode"];
       if (statusCode == 200) {
         String accessToken = res["data"];
+        print("dioApiSignup() ${accessToken}");
         storage.write(key: "accessToken", value: accessToken);
         Get.find<AccessTokenController>().setAccessToken(accessToken);
         Get.offNamed('/setting/games?type=signup');

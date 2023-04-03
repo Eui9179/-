@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dor_app/controller/access_token_controller.dart';
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/controller/my_games_controller.dart';
-import 'package:dor_app/controller/my_groups_controller.dart';
-import 'package:dor_app/controller/my_profile_controller.dart';
-import 'package:dor_app/dio/auth/withdrawal.dart';
-import 'package:dor_app/dio/dio_instance.dart';
-import 'package:dor_app/dio/profile/update_my_profile.dart';
-import 'package:dor_app/main.dart';
-import 'package:dor_app/ui/dynamic_widget/font/font.dart';
-import 'package:dor_app/utils/color_palette.dart';
-import 'package:dor_app/utils/woojoo_groups.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/controller/my_games_controller.dart';
+import 'package:woojoo/controller/my_groups_controller.dart';
+import 'package:woojoo/controller/my_profile_controller.dart';
+import 'package:woojoo/dio/auth/withdrawal.dart';
+import 'package:woojoo/dio/dio_instance.dart';
+import 'package:woojoo/dio/profile/update_my_profile.dart';
+import 'package:woojoo/main.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/woojoo_groups.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
@@ -97,7 +97,7 @@ class _SettingState extends State<Setting> {
                           radius: 55,
                           backgroundColor: Colors.black54,
                           child: _image == null
-                              ? _originImage == 'default'
+                              ? _originImage == 'default.png'
                                   ? const CircleAvatar(
                                       backgroundImage: AssetImage(
                                         "assets/images/logo/default.png",

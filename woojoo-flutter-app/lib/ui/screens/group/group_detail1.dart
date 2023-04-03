@@ -1,9 +1,9 @@
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/dio/friend/insert_friends.dart';
-import 'package:dor_app/dio/group/get_friends_by_group_detail1.dart';
-import 'package:dor_app/ui/dynamic_widget/avatar/group_avatar.dart';
-import 'package:dor_app/ui/dynamic_widget/button/font_button.dart';
-import 'package:dor_app/utils/notification.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/dio/friend/insert_friends.dart';
+import 'package:woojoo/dio/group/get_friends_by_group_detail1.dart';
+import 'package:woojoo/ui/dynamic_widget/avatar/group_avatar.dart';
+import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

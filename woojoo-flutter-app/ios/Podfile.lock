@@ -16,7 +16,7 @@ PODS:
   - firebase_core (1.24.0):
     - Firebase/CoreOnly (= 9.6.0)
     - Flutter
-  - firebase_messaging (12.0.3):
+  - firebase_messaging (11.4.4):
     - Firebase/Messaging (= 9.6.0)
     - firebase_core
     - Flutter
@@ -53,6 +53,8 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - Flutter (1.0.0)
   - flutter_keyboard_visibility (0.0.1):
+    - Flutter
+  - flutter_local_notifications (0.0.1):
     - Flutter
   - flutter_native_splash (0.0.1):
     - Flutter
@@ -102,6 +104,7 @@ DEPENDENCIES:
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
   - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
+  - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
@@ -137,6 +140,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_keyboard_visibility:
     :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
+  flutter_local_notifications:
+    :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_native_splash:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
   flutter_secure_storage:
@@ -155,7 +160,7 @@ SPEC CHECKSUMS:
   Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
   firebase_auth: 07a4db69cfa447ac42cb7faa560fc100708b707c
   firebase_core: 7c28ecc1e5dd74e03829ac3e9ff5ba3314e737a9
-  firebase_messaging: 2499de6fb0276940a70ed027f35a4b59a8ea0f73
+  firebase_messaging: fc1151f90dd4534756fae713d651695acca6f122
   FirebaseAuth: e4a5d3c36e778e41141b91cc861103a441d80bcc
   FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
@@ -164,6 +169,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: a4d7910e4af663c9cbfc1071c5bef34651690949
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
+  flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4

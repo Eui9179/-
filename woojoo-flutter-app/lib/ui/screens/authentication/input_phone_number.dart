@@ -1,6 +1,8 @@
-import 'package:dor_app/ui/dynamic_widget/button/rounded_button.dart';
-import 'package:dor_app/ui/layout/app_bar/logo_app_bar.dart';
-import 'package:dor_app/utils/color_palette.dart';
+import 'package:woojoo/dio/auth/send_sms.dart';
+import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
+import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
+import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,7 +64,7 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
                           },
                           onSaved: (val) {
                             setState(() {
-                              _phoneNumber = "+82010$val";
+                              _phoneNumber = "010$val";
                             });
                           },
                           onChanged: (val) {
@@ -165,7 +167,15 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
 
   _onPressed() {
     _formKey.currentState!.save();
-    Get.toNamed('/auth/verification', arguments: _phoneNumber);
+    Future<Map<String, dynamic>> response = dioApiSendSms(_phoneNumber);
+    response.then((result) {
+      int statusCode = result["statusCode"];
+      if (statusCode == 200) {
+        Get.toNamed('/auth/verification', arguments: _phoneNumber);
+      } else {
+        notification(context, "오류 발생");
+      }
+    });
   }
 
   void _onTapTOSLaunch() => launchUrl(Uri.parse(''));

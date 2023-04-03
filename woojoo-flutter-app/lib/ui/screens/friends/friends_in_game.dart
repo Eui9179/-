@@ -1,5 +1,5 @@
-import 'package:dor_app/controller/my_friends_controller.dart';
-import 'package:dor_app/utils/woojoo_games.dart';
+import 'package:woojoo/controller/my_friends_controller.dart';
+import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -114,7 +114,9 @@ class _FriendsInGameState extends State<FriendsInGame> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Font(text: _friends[index]["name"], size: 18),
+                                    Font(
+                                        text: _friends[index]["name"],
+                                        size: 18),
                                     _friends[index]['games'].length != 0
                                         ? const SizedBox(
                                             height: 8,
