@@ -6,7 +6,6 @@
 📋 학교를 등록하고 학교 친구들과 오늘 할 게임을 공유하는 애플리케이션입니다.
 서로 팔로우하고 팔로우를 하면 친구가 하는 게임과 닉네임을 쉽게 알 수 있고 오늘 무슨 게임을 할지 
 ‘오늘의 게임’을 통해 쉽게 알 수 있게 도와줍니다.
-
 </aside>
 
 📅 작업기간: 2022.5 ~ 2022.11
@@ -22,6 +21,7 @@
 🔧 스킬 및 사용툴
 
  `springboot` `mysql` `docker` `flutter` `git` `~~flask~~`
+ 
 
 🐱 GitHub
 
@@ -36,6 +36,7 @@
 ---
 
 ### **회원가입**
+<img width="347" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png">
 
 ![login.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/173ff0be-1f1f-4ec2-b49d-53c325c5049d/login.png)
 
