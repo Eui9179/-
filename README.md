@@ -10,18 +10,14 @@
 
 <br>
 
-➕ 자세한 내용
+✅ 자세한 내용
 https://eui9179.notion.site/f8cd37a3c45149098bb926b57709231e
 
 <br>
 
 📅 작업기간: 2022.5 ~ 2022.11
 
-<br>
-
 👨🏻‍💻 투입인원: 2명
-
-<br>
 
 💻 주요업무
 
@@ -29,12 +25,8 @@ https://eui9179.notion.site/f8cd37a3c45149098bb926b57709231e
     - SpringBoot REST API 서버 개발
     - flutter 앱 개발
 
-<br>
-
 
 🔧 스킬 및 사용툴
 
  `springboot` `mysql` `docker` `flutter` `git` `~~flask~~`
-
-
 
