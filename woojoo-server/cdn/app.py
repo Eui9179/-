@@ -1,1 +1,0 @@
-from woojoo import app as application

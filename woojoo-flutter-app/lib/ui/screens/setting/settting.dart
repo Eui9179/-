@@ -447,7 +447,7 @@ class _SettingState extends State<Setting> {
         setState(() {
           _image = image;
           if (image == null) {
-            _originImage = 'default';
+            _originImage = 'default.png';
           }
           _isFile = true;
         });
