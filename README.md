@@ -37,9 +37,9 @@
 
 ### **회원가입**
 
-<table frame=void>
+<table>
   <tr>
-      <td><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
+      <td border=none><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
       <td><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
       <td><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
   <tr>
