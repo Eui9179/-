@@ -36,7 +36,7 @@
 ---
 
 ### **회원가입**
-<img width="347" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png">
+<img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png">
 
 ![login.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/173ff0be-1f1f-4ec2-b49d-53c325c5049d/login.png)
 
