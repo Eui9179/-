@@ -76,5 +76,11 @@
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
 	<string>YES</string>
+	<!-- Permission options for the `photos` group -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>photos</string>
+    <!-- Permission options for the `contacts` group -->
+    <key>NSContactsUsageDescription</key>
+    <string>contacts</string>
 </dict>
 </plist>

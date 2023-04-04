@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 String baseUri = "http://localhost:8080/api";
 
-String cdnProfileImageBaseUri = "http://10.0.2.2/cdn/profile/image/";
+String cdnProfileImageBaseUri = "http://localhost:8080/api/users/profile/image/";
 
 class DioInstance{
   final _dio = Dio();

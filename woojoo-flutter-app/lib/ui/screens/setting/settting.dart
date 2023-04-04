@@ -437,6 +437,7 @@ class _SettingState extends State<Setting> {
   }
 
   Future getImageFromGallery() async {
+    print("getImageFromGallery");
     // var status = await Permission.storage.status;
     final status = await Permission.photos.request();
     if (status == PermissionStatus.granted) {
@@ -451,7 +452,7 @@ class _SettingState extends State<Setting> {
           _isFile = true;
         });
       });
-    }
+    } 
   }
 
   Future<String?> _showTextInputDialog(BuildContext context) async {
