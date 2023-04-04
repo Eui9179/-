@@ -35,7 +35,7 @@
 
 ### **회원가입**
 <p align="center">
-<table>
+<table style="border:none">
   <tr>
       <td border=none><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
       <td><img width="200" alt="phonenumber" src="https://user-images.githubusercontent.com/83222282/229723489-4b399b97-4d73-4e8d-9329-ca5d4fa86e7d.png"></td>
