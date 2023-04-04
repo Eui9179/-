@@ -27,5 +27,5 @@ https://eui9179.notion.site/f8cd37a3c45149098bb926b57709231e
 
 🔧 스킬 및 사용툴
 
- `springboot` `mysql` `docker` `flutter` `git` `~~flask~~`
+ `springboot` `mysql` `docker` `flutter` `git`
 
