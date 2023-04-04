@@ -34,18 +34,15 @@
 ## UI
 
 ### **회원가입**
-
+<p align="center">
 <table>
   <tr>
       <td border=none><img width="200" alt="login" src="https://user-images.githubusercontent.com/83222282/229721111-4445fdd9-5e72-47af-b4e7-f8c194394215.png"></td>
-      <td><img width="348" alt="phonenumber" src="https://user-images.githubusercontent.com/83222282/229723489-4b399b97-4d73-4e8d-9329-ca5d4fa86e7d.png"></td>
-      <td><img width="348" alt="auth" src="https://user-images.githubusercontent.com/83222282/229723588-b295a629-2de7-40f9-b28e-68076b51bde8.png"></td>
+      <td><img width="200" alt="phonenumber" src="https://user-images.githubusercontent.com/83222282/229723489-4b399b97-4d73-4e8d-9329-ca5d4fa86e7d.png"></td>
+      <td><img width="200" alt="auth" src="https://user-images.githubusercontent.com/83222282/229723588-b295a629-2de7-40f9-b28e-68076b51bde8.png"></td>
   <tr>
 </table>
-
-
-
-
+</p>
 
 ![login.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/173ff0be-1f1f-4ec2-b49d-53c325c5049d/login.png)
 
