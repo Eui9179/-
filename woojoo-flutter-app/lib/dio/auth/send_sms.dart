@@ -6,7 +6,7 @@ Future<Map<String, dynamic>> dioApiSendSms(String phoneNumber) async {
 
   try {
     Response response =
-        await dio.post('/sms', data: {"phone_number": phoneNumber});
+        await dio.post('/sms/sms-code', data: {"phone_number": phoneNumber});
     return {"statusCode": 200};
   } catch (error) {
     print(error);

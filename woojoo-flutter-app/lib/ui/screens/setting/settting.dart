@@ -466,7 +466,7 @@ class _SettingState extends State<Setting> {
             contentPadding: const EdgeInsets.only(top: 10, right: 20, left: 20),
             actionsAlignment: MainAxisAlignment.spaceAround,
             title: SizedBox(
-              height: 80,
+              height: 100,
               child: Column(
                 children: const [
                   Text(
