@@ -5,17 +5,13 @@ Future<Map<String, dynamic>> dioApiSendSms(String phoneNumber) async {
   Dio dio = DioInstance(null).dio;
 
   try {
-    Response response =
-        await dio.post('/sms/sms-code', data: {"phone_number": phoneNumber});
+    Response response = await dio.post(
+      '/sms-code',
+      data: {"phone_number": phoneNumber},
+    );
     return {"statusCode": 200};
-  } catch (error) {
-    print(error);
-
-    return {"statusCode": 500};
-
-    // } on DioError catch (error) {
-    //   print("dio login error code: ${error.response!.statusCode}");
-    //   return {"statusCode": error.response!.statusCode};
+  } on DioError catch (error) {
+    return {"statusCode": error.response!.statusCode};
   } finally {
     dio.close();
   }

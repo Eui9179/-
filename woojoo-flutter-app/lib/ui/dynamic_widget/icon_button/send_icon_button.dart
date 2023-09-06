@@ -1,5 +1,5 @@
-import 'package:woojoo/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:woojoo/common/context_extension.dart';
 
 class SendIconButton extends StatelessWidget {
   const SendIconButton({Key? key, required this.onPressed}) : super(key: key);
@@ -12,9 +12,9 @@ class SendIconButton extends StatelessWidget {
       onPressed: onPressed,
       tooltip: "게임하자",
       splashRadius: 23,
-      icon: const Icon(
+      icon: Icon(
         Icons.telegram,
-        color: ColorPalette.sendButton,
+        color: context.appColors.sendButton,
         size: 35,
       ),
     );

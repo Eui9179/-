@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:woojoo/common/context_extension.dart';
 
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
 
 class OutlineInput extends StatefulWidget {
   final void Function(String?) onSaved;
@@ -44,7 +45,7 @@ class _OutlineInputState extends State<OutlineInput> {
             onSaved: widget.onSaved,
             onChanged: widget.onChanged,
             validator: widget.validator,
-            style: const TextStyle(fontSize: 20.0, color: ColorPalette.font),
+            style: TextStyle(fontSize: 20.0, color: context.appColors.font),
             decoration: InputDecoration(
               fillColor: const Color.fromARGB(255, 62, 62, 75),
               filled: true,

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
@@ -17,7 +18,7 @@ import 'package:woojoo/ui/screens/main_loading_screen.dart';
 import 'package:woojoo/ui/screens/setting/settting.dart';
 import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
 import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -71,7 +72,7 @@ class _MainHomeState extends State<MainHome> {
       return const MainLoadingScreen();
     }
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       // body: SafeArea(
       //   child: _widgetOptions.elementAt(_selectedIndex),
       // ),
@@ -97,9 +98,9 @@ class _MainHomeState extends State<MainHome> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: ColorPalette.font,
-        unselectedItemColor: ColorPalette.subFont,
-        backgroundColor: ColorPalette.navigationBarColor,
+        selectedItemColor: context.appColors.font,
+        unselectedItemColor: context.appColors.subFont,
+        backgroundColor: context.appColors.navigationBarColor,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         onTap: _onItemTapped,

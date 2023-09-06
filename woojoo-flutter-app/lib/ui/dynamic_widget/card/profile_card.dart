@@ -1,4 +1,5 @@
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 import '../avatar/profile_avatar.dart';
@@ -15,7 +16,7 @@ class ProfileCard extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Card(
-            color: ColorPalette.card,
+            color: context.appColors.card,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),

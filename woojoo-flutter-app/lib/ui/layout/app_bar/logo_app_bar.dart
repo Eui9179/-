@@ -1,7 +1,6 @@
-import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
-
-import '../../../utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 
 class LogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LogoAppBar({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class LogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       elevation: 0.0,
       centerTitle: true,
       title: const WoojooLogo(),

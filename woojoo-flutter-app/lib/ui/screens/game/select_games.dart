@@ -1,9 +1,10 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/dio/friend/get_my_friends.dart';
 import 'package:woojoo/dio/game/update_my_games.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,16 +35,16 @@ class _SelectGameState extends State<SelectGames> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorPalette.mainBackgroundColor,
+        backgroundColor: context.appColors.mainBackgroundColor,
         appBar: AppBar(
           elevation: 0.0,
-          backgroundColor: ColorPalette.mainBackgroundColor,
-          title: const Text(
+          backgroundColor: context.appColors.mainBackgroundColor,
+          title: Text(
             "게임 선택",
             style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w400,
-                color: ColorPalette.font),
+                color: context.appColors.font),
           ),
           actions: [
             TextButton(

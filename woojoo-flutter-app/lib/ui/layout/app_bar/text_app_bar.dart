@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
+
+import '../../../common/theme/color_palette.dart';
 
 class TextAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -13,13 +15,13 @@ class TextAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0.0,
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       title: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.w400,
-            color: ColorPalette.font),
+            color: context.appColors.font),
       ),
       centerTitle: true,
     );

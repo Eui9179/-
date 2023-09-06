@@ -1,6 +1,7 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
-import '../../utils/color_palette.dart';
+import '../../common/theme/color_palette.dart';
 
 class WoojooLogoAndName extends StatelessWidget {
   const WoojooLogoAndName({Key? key}) : super(key: key);
@@ -12,14 +13,14 @@ class WoojooLogoAndName extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          WoojooLogo(),
-          SizedBox(
+        children: [
+          const WoojooLogo(),
+          const SizedBox(
             width: 8,
           ),
           Text('우주',
               style: TextStyle(
-                color: ColorPalette.font,
+                color: context.appColors.font,
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
               ))

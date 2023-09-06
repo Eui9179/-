@@ -1,7 +1,8 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/dio/auth/send_sms.dart';
 import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
     );
 
     return Scaffold(
-        backgroundColor: ColorPalette.mainBackgroundColor,
+        backgroundColor: context.appColors.mainBackgroundColor,
         appBar: const LogoAppBar(),
         body: Container(
           padding: const EdgeInsets.all(15.0),

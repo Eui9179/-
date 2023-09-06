@@ -1,6 +1,7 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/dio/game/update_my_game_nickname.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
@@ -225,7 +226,7 @@ class _GameCardState extends State<GameCard> {
           return AlertDialog(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            backgroundColor: ColorPalette.mainBackgroundColor,
+            backgroundColor: context.appColors.mainBackgroundColor,
             contentPadding: const EdgeInsets.only(top: 10, right: 20, left: 20),
             actionsAlignment: MainAxisAlignment.spaceAround,
             title: SizedBox(
@@ -235,15 +236,16 @@ class _GameCardState extends State<GameCard> {
                   Text(
                     changeKorGameName(widget.gameName),
                     style:
-                        const TextStyle(color: ColorPalette.font, fontSize: 23),
+                        TextStyle(color: context.appColors.font, fontSize: 23),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
+                  Text(
                     '친구들이 볼 수 있게 닉네임을 입력해주세요',
-                    style: TextStyle(color: ColorPalette.subFont, fontSize: 15),
+                    style: TextStyle(
+                        color: context.appColors.subFont, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -253,17 +255,16 @@ class _GameCardState extends State<GameCard> {
               height: 65,
               child: TextField(
                 maxLength: 20,
-                cursorColor: ColorPalette.font,
+                cursorColor: context.appColors.font,
                 autofocus: true,
                 controller: _textFieldController,
-                style:
-                    const TextStyle(fontSize: 19.0, color: ColorPalette.font),
+                style: TextStyle(fontSize: 19.0, color: context.appColors.font),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: const Color.fromARGB(255, 66, 73, 92),
+                  fillColor: context.appColors.dialogFill,
                   enabledBorder: enabledBorder,
                   focusedBorder: focusedBorder,
-                  counterStyle: const TextStyle(color: ColorPalette.subFont),
+                  counterStyle: TextStyle(color: context.appColors.subFont),
                 ),
               ),
             ),
@@ -272,9 +273,10 @@ class _GameCardState extends State<GameCard> {
                   onPressed: () {
                     Get.back();
                   },
-                  child: const Text(
+                  child: Text(
                     '취소',
-                    style: TextStyle(color: ColorPalette.font, fontSize: 20),
+                    style:
+                        TextStyle(color: context.appColors.font, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

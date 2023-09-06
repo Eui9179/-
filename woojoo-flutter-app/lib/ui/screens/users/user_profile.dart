@@ -1,8 +1,9 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,15 +43,15 @@ class _UserProfileState extends State<UserProfile> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-            ColorPalette.headerBackgroundColor,
-            ColorPalette.mainBackgroundColor
+                context.appColors.headerBackgroundColor,
+                context.appColors.mainBackgroundColor
           ],
-              stops: [
+              stops: const [
             0.4,
             0.4
           ])),
@@ -63,17 +64,17 @@ class _UserProfileState extends State<UserProfile> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(name,
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: ColorPalette.font)),
+                    color: context.appColors.font)),
             isFriend
                 ? FontButton(
                     onPressed: () {
                       deleteFriendFromMyFriends();
                     },
                     text: buttonText,
-                    color: ColorPalette.subFont,
+                    color: context.appColors.subFont,
                   )
                 : FontButton(
                     onPressed: () {

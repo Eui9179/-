@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
 import 'package:woojoo/dio/game/delete_todays_game.dart';
 import 'package:woojoo/dio/todays_games/get_todays_games.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
@@ -35,10 +36,10 @@ class _TodaysGameListState extends State<TodaysGameList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorPalette.headerBackgroundColor,
+        backgroundColor: context.appColors.headerBackgroundColor,
         title: const Font(text: '오늘의 게임', size: 22),
         actions: [
           IconButton(
@@ -47,9 +48,9 @@ class _TodaysGameListState extends State<TodaysGameList> {
             },
             tooltip: "오늘의 게임 추가",
             splashRadius: 23,
-            icon: const Icon(
+            icon: Icon(
               Icons.add,
-              color: ColorPalette.sendButton,
+              color: context.appColors.sendButton,
               size: 30,
             ),
           ),
@@ -64,9 +65,9 @@ class _TodaysGameListState extends State<TodaysGameList> {
                 Container(
                     alignment: AlignmentDirectional.topStart,
                     padding: const EdgeInsets.only(left: 13, top: 10),
-                    child: const Text('친구들에게 오늘 무슨 게임을 할지 + 버튼을 눌러서 공유해 보세요!',
+                    child: Text('친구들에게 오늘 무슨 게임을 할지 + 버튼을 눌러서 공유해 보세요!',
                         style: TextStyle(
-                            color: ColorPalette.subFont, fontSize: 13))),
+                            color: context.appColors.subFont, fontSize: 13))),
                 ListView.builder(
                     shrinkWrap: true,
                     reverse: true,
@@ -109,7 +110,7 @@ class _TodaysGameListState extends State<TodaysGameList> {
                 : null,
             backgroundColor: onPressedRefresh
                 ? Colors.blueAccent
-                : ColorPalette.boxFillColor,
+                : context.appColors.boxFillColor,
             child: const Icon(Icons.refresh_outlined),
           ),
           const SizedBox(
@@ -172,8 +173,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
               child: Container(
                 margin: const EdgeInsets.only(left: 20),
                 padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(
-                    color: ColorPalette.boxFillColor,
+                decoration: BoxDecoration(
+                    color: context.appColors.boxFillColor,
                     borderRadius: BorderRadius.all(Radius.circular(8))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,15 +184,15 @@ class _TodaysGameListState extends State<TodaysGameList> {
                       children: [
                         Text(
                           userName,
-                          style: const TextStyle(
-                              color: ColorPalette.font,
+                          style: TextStyle(
+                              color: context.appColors.font,
                               fontSize: 20,
                               fontWeight: FontWeight.w400),
                         ),
                         Text(
                           _getTime(createTime),
-                          style: const TextStyle(
-                              color: ColorPalette.subFont, fontSize: 12),
+                          style: TextStyle(
+                              color: context.appColors.subFont, fontSize: 12),
                         ),
                       ],
                     ),
@@ -210,8 +211,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                         ),
                         Text(
                           changeKorGameName(game),
-                          style: const TextStyle(
-                              color: ColorPalette.font, fontSize: 17),
+                          style: TextStyle(
+                              color: context.appColors.font, fontSize: 17),
                         ),
                         const SizedBox(
                           width: 5,
@@ -219,8 +220,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                         gameNickname != null
                             ? Text(
                                 gameNickname,
-                                style: const TextStyle(
-                                    color: ColorPalette.subFont, fontSize: 15),
+                                style: TextStyle(
+                                    color: context.appColors.subFont, fontSize: 15),
                               )
                             : const SizedBox()
                       ],
@@ -236,8 +237,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                     introduction != ''
                         ? Text(
                             introduction,
-                            style: const TextStyle(
-                                color: ColorPalette.subFont, fontSize: 17),
+                            style: TextStyle(
+                                color: context.appColors.subFont, fontSize: 17),
                           )
                         : const SizedBox(),
                   ],
@@ -274,9 +275,9 @@ class _TodaysGameListState extends State<TodaysGameList> {
             child: Container(
               margin: const EdgeInsets.only(right: 20),
               padding: const EdgeInsets.all(8),
-              decoration: const BoxDecoration(
-                  color: ColorPalette.boxFillColor,
-                  borderRadius: BorderRadius.all(Radius.circular(8))),
+              decoration: BoxDecoration(
+                  color: context.appColors.boxFillColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(8))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -287,16 +288,16 @@ class _TodaysGameListState extends State<TodaysGameList> {
                         onTap: () => Get.toNamed('/users/$userId'),
                         child: Text(
                           userName,
-                          style: const TextStyle(
-                              color: ColorPalette.font,
+                          style: TextStyle(
+                              color: context.appColors.font,
                               fontSize: 20,
                               fontWeight: FontWeight.w400),
                         ),
                       ),
                       Text(
                         _getTime(createTime),
-                        style: const TextStyle(
-                            color: ColorPalette.subFont, fontSize: 12),
+                        style: TextStyle(
+                            color: context.appColors.subFont, fontSize: 12),
                       ),
                     ],
                   ),
@@ -315,8 +316,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                       ),
                       Text(
                         changeKorGameName(game),
-                        style: const TextStyle(
-                            color: ColorPalette.font, fontSize: 17),
+                        style: TextStyle(
+                            color: context.appColors.font, fontSize: 17),
                       ),
                       const SizedBox(
                         width: 5,
@@ -324,8 +325,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                       gameNickname != null
                           ? Text(
                               gameNickname,
-                              style: const TextStyle(
-                                  color: ColorPalette.subFont, fontSize: 15),
+                              style: TextStyle(
+                                  color: context.appColors.subFont, fontSize: 15),
                             )
                           : const SizedBox()
                     ],
@@ -341,8 +342,8 @@ class _TodaysGameListState extends State<TodaysGameList> {
                   introduction != ''
                       ? Text(
                           introduction,
-                          style: const TextStyle(
-                              color: ColorPalette.subFont, fontSize: 17),
+                          style: TextStyle(
+                              color: context.appColors.subFont, fontSize: 17),
                         )
                       : const SizedBox()
                 ],
@@ -383,7 +384,7 @@ class _TodaysGameListState extends State<TodaysGameList> {
     final RenderObject? overlay =
         Overlay.of(context).context.findRenderObject();
     final result = await showMenu(
-        color: ColorPalette.mainBackgroundColor,
+        color: context.appColors.mainBackgroundColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(6.0),
@@ -395,12 +396,12 @@ class _TodaysGameListState extends State<TodaysGameList> {
             Rect.fromLTWH(0, 0, overlay!.paintBounds.size.width,
                 overlay.paintBounds.size.height)),
         items: [
-          const PopupMenuItem(
+          PopupMenuItem(
             height: 27,
             value: 'delete',
             child: Text(
               '삭제하기',
-              style: TextStyle(color: ColorPalette.font),
+              style: TextStyle(color: context.appColors.font),
             ),
           ),
         ]);

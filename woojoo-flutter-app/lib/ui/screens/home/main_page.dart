@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/ui/screens/home/main_page_bar.dart';
 import 'package:woojoo/ui/screens/game/todays_game/select_todays_game.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
 import 'my_friends.dart';
 import 'my_games.dart';
 import 'my_groups.dart';
@@ -38,11 +39,11 @@ class _MainPageState extends State<MainPage>
       }
     });
     return Scaffold(
-        backgroundColor: ColorPalette.mainBackgroundColor,
+        backgroundColor: context.appColors.mainBackgroundColor,
         appBar: const MainPageBar(),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               MyProfile(),
               MyGroups(),
               MyGames(),

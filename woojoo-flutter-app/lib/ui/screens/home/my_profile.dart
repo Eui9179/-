@@ -1,8 +1,9 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
 import 'package:woojoo/dio/profile/get_my_profile.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,34 +31,32 @@ class _MyProfileState extends State<MyProfile> {
         width: double.infinity,
         padding:
             const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-              ColorPalette.headerBackgroundColor,
-              ColorPalette.mainBackgroundColor
+              context.appColors.headerBackgroundColor,
+              context.appColors.mainBackgroundColor
             ],
-                stops: [
+                stops: const [
               0.4,
               0.4
             ])),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              ProfileAvatar(
-                size: 45,
-                image: "default.png",
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Text('',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: ColorPalette.font)),
-            ]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const ProfileAvatar(
+            size: 45,
+            image: "default.png",
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text('',
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: context.appColors.font)),
+        ]),
       );
     } else {
       return GetBuilder<MyProfileController>(
@@ -70,13 +69,13 @@ class _MyProfileState extends State<MyProfile> {
             width: double.infinity,
             padding:
                 const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                  ColorPalette.headerBackgroundColor,
-                  ColorPalette.mainBackgroundColor
+                  context.appColors.headerBackgroundColor,
+                  context.appColors.mainBackgroundColor
                 ],
                     stops: [
                   0.4,
@@ -89,10 +88,10 @@ class _MyProfileState extends State<MyProfile> {
                 height: 15,
               ),
               Text(name,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: ColorPalette.font)),
+                      color: context.appColors.font)),
             ]),
           );
         },

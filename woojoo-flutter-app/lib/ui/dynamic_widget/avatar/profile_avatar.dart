@@ -1,5 +1,6 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/dio/dio_instance.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAvatar extends StatelessWidget {
@@ -12,9 +13,9 @@ class ProfileAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       backgroundImage: image != "default.png"
-          ? NetworkImage('$cdnProfileImageBaseUri$image')
+          ? NetworkImage('$profileImagePath/$image')
           : const AssetImage("assets/images/logo/default.png") as ImageProvider,
       radius: size,
     );

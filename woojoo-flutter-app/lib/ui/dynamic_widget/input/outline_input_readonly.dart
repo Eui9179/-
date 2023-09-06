@@ -1,4 +1,4 @@
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class OutlineInputReadOnly extends StatelessWidget {
@@ -26,18 +26,17 @@ class OutlineInputReadOnly extends StatelessWidget {
       margin: const EdgeInsets.only(top: 10, bottom: 10),
       child: TextFormField(
         readOnly: true,
-        style: const TextStyle(fontSize: 20.0, color: ColorPalette.font),
+        style: TextStyle(fontSize: 20.0, color: context.appColors.font),
         onTap: onTap,
         decoration: InputDecoration(
-          labelStyle:
-              const TextStyle(color: Color.fromARGB(255, 206, 206, 215)),
+          labelStyle: TextStyle(color: context.appColors.inputLabel),
           labelText: labelText,
           hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: TextStyle(color: context.appColors.font),
           enabledBorder: enabledBorder,
           focusedBorder: focusedBorder,
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          fillColor: const Color.fromARGB(255, 62, 62, 75),
+          fillColor: context.appColors.inputFill,
           filled: true,
         ),
       ),

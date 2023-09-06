@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
@@ -11,7 +12,7 @@ import 'package:woojoo/dio/dio_instance.dart';
 import 'package:woojoo/dio/profile/update_my_profile.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
@@ -57,19 +58,19 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorPalette.headerBackgroundColor,
+        backgroundColor: context.appColors.headerBackgroundColor,
         title: const Font(text: '설정', size: 22),
         actions: [
           TextButton(
               onPressed: _onUpdateProfile,
               child: _isLoading
-                  ? const Text(
+                  ? Text(
                       '완료',
                       style:
-                          TextStyle(color: ColorPalette.subFont, fontSize: 22),
+                          TextStyle(color: context.appColors.subFont, fontSize: 22),
                     )
                   : const Text(
                       '완료',
@@ -163,8 +164,8 @@ class _SettingState extends State<Setting> {
                         validator: (val) {
                           return null;
                         },
-                        style: const TextStyle(
-                            fontSize: 20.0, color: ColorPalette.font),
+                        style: TextStyle(
+                            fontSize: 20.0, color: context.appColors.font),
                         decoration: InputDecoration(
                           fillColor: const Color.fromARGB(255, 62, 62, 75),
                           filled: true,
@@ -189,8 +190,8 @@ class _SettingState extends State<Setting> {
                 TypeAheadField(
                     textFieldConfiguration: TextFieldConfiguration(
                       textInputAction: TextInputAction.next,
-                      style: const TextStyle(
-                          fontSize: 20.0, color: ColorPalette.font),
+                      style: TextStyle(
+                          fontSize: 20.0, color: context.appColors.font),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
@@ -234,14 +235,14 @@ class _SettingState extends State<Setting> {
                     transitionBuilder: (context, suggestionsBox, controller) {
                       return suggestionsBox;
                     },
-                    suggestionsBoxDecoration: const SuggestionsBoxDecoration(
-                        color: ColorPalette.boxFillColor),
+                    suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                        color: context.appColors.boxFillColor),
                     itemBuilder: (context, suggestion) {
                       return ListTile(
-                        tileColor: ColorPalette.boxFillColor,
+                        tileColor: context.appColors.boxFillColor,
                         title: Text(
                           suggestion.toString(),
-                          style: const TextStyle(color: ColorPalette.font),
+                          style: TextStyle(color: context.appColors.font),
                         ),
                       );
                     },
@@ -249,10 +250,10 @@ class _SettingState extends State<Setting> {
                       return Container(
                           padding: const EdgeInsets.only(
                               top: 13, bottom: 13, left: 13),
-                          child: const Text(
+                          child: Text(
                             '검색 결과가 없습니다.',
                             style: TextStyle(
-                                fontSize: 15, color: ColorPalette.font),
+                                fontSize: 15, color: context.appColors.font),
                           ));
                     },
                     onSuggestionSelected: (suggestion) {
@@ -273,7 +274,7 @@ class _SettingState extends State<Setting> {
                   height: 60,
                   child: InputDecorator(
                     decoration: InputDecoration(
-                      fillColor: ColorPalette.boxFillColor,
+                      fillColor: context.appColors.boxFillColor,
                       filled: true,
                       labelText: '학년을 입력해주세요',
                       labelStyle: const TextStyle(
@@ -292,9 +293,9 @@ class _SettingState extends State<Setting> {
                         value: _detail1,
                         icon: const Icon(Icons.arrow_drop_down),
                         elevation: 16,
-                        style: const TextStyle(color: ColorPalette.font),
+                        style: TextStyle(color: context.appColors.font),
                         isExpanded: true,
-                        dropdownColor: ColorPalette.boxFillColor,
+                        dropdownColor: context.appColors.boxFillColor,
                         underline: Container(
                           height: 2,
                         ),
@@ -353,10 +354,10 @@ class _SettingState extends State<Setting> {
                     onPressed: () {
                       _showTextInputDialog(context);
                     },
-                    child: const Text(
+                    child: Text(
                       '회원탈퇴',
                       style: TextStyle(
-                          color: ColorPalette.subFont,
+                          color: context.appColors.subFont,
                           fontSize: 18,
                           fontWeight: FontWeight.w300),
                     )),
@@ -462,24 +463,24 @@ class _SettingState extends State<Setting> {
           return AlertDialog(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            backgroundColor: ColorPalette.mainBackgroundColor,
+            backgroundColor: context.appColors.mainBackgroundColor,
             contentPadding: const EdgeInsets.only(top: 10, right: 20, left: 20),
             actionsAlignment: MainAxisAlignment.spaceAround,
             title: SizedBox(
               height: 100,
               child: Column(
-                children: const [
+                children: [
                   Text(
                     '회원 탈퇴',
-                    style: TextStyle(color: ColorPalette.font, fontSize: 23),
+                    style: TextStyle(color: context.appColors.font, fontSize: 23),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Text(
                     '회원탈퇴시 저장되어 있는 \n모든 데이터가 삭제됩니다',
-                    style: TextStyle(color: ColorPalette.subFont, fontSize: 15),
+                    style: TextStyle(color: context.appColors.subFont, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -490,9 +491,9 @@ class _SettingState extends State<Setting> {
                   onPressed: () {
                     Get.back();
                   },
-                  child: const Text(
+                  child: Text(
                     '취소',
-                    style: TextStyle(color: ColorPalette.font, fontSize: 20),
+                    style: TextStyle(color: context.appColors.font, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

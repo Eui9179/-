@@ -1,8 +1,10 @@
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/w_user_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/friend_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,16 +16,16 @@ class Acquaintance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorPalette.headerBackgroundColor,
+        backgroundColor: context.appColors.headerBackgroundColor,
         title: Text(
           kinds,
-          style: const TextStyle(
+          style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w400,
-              color: ColorPalette.font),
+              color: context.appColors.font),
         ),
       ),
       body: SingleChildScrollView(
@@ -58,8 +60,9 @@ class Acquaintance extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 13.0, left: 13.0),
                       child: Row(
                         children: [
-                          FriendAvatar(
-                              image: _myFriends[index]["profile_image_name"]),
+                          UserAvatar(
+                            imagePath: _myFriends[index]["profile_image_name"],
+                          ),
                           const SizedBox(
                             width: 13,
                           ),

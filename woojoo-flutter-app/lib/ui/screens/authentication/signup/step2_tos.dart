@@ -1,7 +1,8 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,7 +28,7 @@ class _Step2TOSState extends State<Step2TOS> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: const TextAppBar(title: "약관 동의"),
       body: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0),

@@ -1,3 +1,4 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/dio/profile/get_user.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
@@ -7,7 +8,7 @@ import 'package:woojoo/ui/screens/users/user_friends.dart';
 import 'package:woojoo/ui/screens/users/user_games.dart';
 import 'package:woojoo/ui/screens/users/user_groups.dart';
 import 'package:woojoo/ui/screens/users/user_profile.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,14 +42,14 @@ class _UsersState extends State<Users> {
     return isLoading
         ? const ProfileLoadingScreen()
         : Scaffold(
-            backgroundColor: ColorPalette.mainBackgroundColor,
+            backgroundColor: context.appColors.mainBackgroundColor,
             appBar: AppBar(
               elevation: 0.0,
-              backgroundColor: ColorPalette.headerBackgroundColor,
+              backgroundColor: context.appColors.headerBackgroundColor,
               actions: [
                 PopupMenuButton(
                   onSelected: _userMoreHandler,
-                  color: ColorPalette.headerBackgroundColor,
+                  color: context.appColors.headerBackgroundColor,
                   itemBuilder: (BuildContext context) {
                     return {'차단하기', '신고하기'}.map((String choice) {
                       return PopupMenuItem<String>(

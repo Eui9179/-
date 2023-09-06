@@ -1,9 +1,11 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
+import '../../../common/widget/w_user_avatar.dart';
 import '../../dynamic_widget/avatar/friend_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
@@ -33,13 +35,13 @@ class _FriendsInGameState extends State<FriendsInGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0.0,
           titleSpacing: 0,
-          backgroundColor: ColorPalette.headerBackgroundColor,
+          backgroundColor: context.appColors.headerBackgroundColor,
           title: Row(
             children: [
               ClipRRect(
@@ -100,8 +102,9 @@ class _FriendsInGameState extends State<FriendsInGame> {
                       padding: const EdgeInsets.only(right: 13.0, left: 13.0),
                       child: Row(
                         children: [
-                          FriendAvatar(
-                              image: _friends[index]["profile_image_name"]),
+                          UserAvatar(
+                            imagePath: _friends[index]["profile_image_name"],
+                          ),
                           const SizedBox(
                             width: 13,
                           ),

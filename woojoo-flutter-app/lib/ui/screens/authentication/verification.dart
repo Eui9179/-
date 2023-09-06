@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pinput/pinput.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/dio/auth/login.dart';
@@ -5,11 +10,8 @@ import 'package:woojoo/dio/auth/verify_sms_auth.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
-import 'package:woojoo/utils/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
+
 import '../../../dio/auth/send_sms.dart';
 import '../../dynamic_widget/font/font.dart';
 
@@ -71,7 +73,7 @@ class _VerificationState extends State<Verification> {
     );
 
     return Scaffold(
-        backgroundColor: ColorPalette.mainBackgroundColor,
+        backgroundColor: context.appColors.mainBackgroundColor,
         appBar: const LogoAppBar(),
         body: Container(
           padding: const EdgeInsets.all(15.0),
@@ -82,10 +84,10 @@ class _VerificationState extends State<Verification> {
               const SizedBox(
                 height: 5,
               ),
-              const Text("메시지 도착까지 최대 1분정도 소요됩니다.\n메시지가 도착하지 않을 경우 재실행 시켜주세요.",
+              Text("메시지 도착까지 최대 1분정도 소요됩니다.\n메시지가 도착하지 않을 경우 재실행 시켜주세요.",
                   style: TextStyle(
                     fontSize: 13,
-                    color: ColorPalette.subFont,
+                    color: context.appColors.subFont,
                   )),
               Form(
                 key: _formKey,

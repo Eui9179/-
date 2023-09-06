@@ -1,5 +1,6 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,10 +12,10 @@ class MainPageBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: ColorPalette.headerBackgroundColor));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: context.appColors.headerBackgroundColor));
     return AppBar(
-      backgroundColor: ColorPalette.headerBackgroundColor,
+      backgroundColor: context.appColors.headerBackgroundColor,
       elevation: 0.0,
       title: const Padding(
         padding: EdgeInsets.only(top: 10.0),

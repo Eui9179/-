@@ -1,3 +1,4 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/dio/friend/delete_friend.dart';
@@ -8,7 +9,7 @@ import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
 import '../../dynamic_widget/avatar/friend_avatar.dart';
 import '../../dynamic_widget/avatar/game_logo_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
@@ -59,7 +60,7 @@ class _UserFriendsState extends State<UserFriends> {
           Padding(
             padding: const EdgeInsets.only(right: 13.0, left: 13.0),
             child: InkWell(
-              splashColor: ColorPalette.headerBackgroundColor,
+              splashColor: context.appColors.headerBackgroundColor,
               onTap: () {
                 Get.toNamed('/acquaintance', arguments: {
                   'friends': widget.alreadyFriends,
@@ -85,9 +86,9 @@ class _UserFriendsState extends State<UserFriends> {
                             Font(text: myFriendString, size: 16),
                           ],
                         ),
-                        const Icon(
+                        Icon(
                           Icons.chevron_right,
-                          color: ColorPalette.font,
+                          color: context.appColors.font,
                           size: 18,
                         ),
                       ],
@@ -187,7 +188,7 @@ class _UserFriendsState extends State<UserFriends> {
                                             userFriends[index]['id'], index);
                                       },
                                       text: '취소',
-                                      color: ColorPalette.font,
+                                      color: context.appColors.font,
                                     )
                                   : FontButton(
                                       onPressed: () {

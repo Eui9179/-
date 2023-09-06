@@ -1,18 +1,20 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:woojoo/controller/fcm_token_controller.dart';
-import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
-import 'package:woojoo/ui/dynamic_widget/input/outline_input.dart';
-import 'package:woojoo/ui/dynamic_widget/input/outline_input_readonly.dart';
-import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
-import 'package:woojoo/utils/color_palette.dart';
-import 'package:woojoo/utils/woojoo_groups.dart';
-import 'package:woojoo/utils/notification.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
+import 'package:woojoo/controller/fcm_token_controller.dart';
+import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
+import 'package:woojoo/ui/dynamic_widget/input/outline_input.dart';
+import 'package:woojoo/ui/dynamic_widget/input/outline_input_readonly.dart';
+import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
+import 'package:woojoo/utils/notification.dart';
+import 'package:woojoo/utils/woojoo_groups.dart';
 
 class Step1Profile extends StatefulWidget {
   const Step1Profile({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class _Step1ProfileState extends State<Step1Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: const TextAppBar(title: "프로필 설정"),
       body: SingleChildScrollView(
         child: Container(
@@ -119,8 +121,8 @@ class _Step1ProfileState extends State<Step1Profile> {
                   child: TypeAheadField(
                       textFieldConfiguration: TextFieldConfiguration(
                         textInputAction: TextInputAction.next,
-                        style: const TextStyle(
-                            fontSize: 20.0, color: ColorPalette.font),
+                        style: TextStyle(
+                            fontSize: 20.0, color: context.appColors.font),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -198,9 +200,9 @@ class _Step1ProfileState extends State<Step1Profile> {
                         value: _detail1,
                         icon: const Icon(Icons.arrow_drop_down),
                         elevation: 16,
-                        style: const TextStyle(color: ColorPalette.font),
+                        style: TextStyle(color: context.appColors.font),
                         isExpanded: true,
-                        dropdownColor: ColorPalette.mainBackgroundColor,
+                        dropdownColor: context.appColors.mainBackgroundColor,
                         underline: Container(
                           height: 2,
                         ),

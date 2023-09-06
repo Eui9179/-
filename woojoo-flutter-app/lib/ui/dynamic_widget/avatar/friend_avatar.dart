@@ -8,7 +8,7 @@ class FriendAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(25.0),
       child: Container(
           width: 50,
           height: 50,

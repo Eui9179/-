@@ -1,4 +1,5 @@
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class Font extends StatelessWidget {
@@ -12,7 +13,7 @@ class Font extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontSize: size, color: ColorPalette.font),
+      style: TextStyle(fontSize: size, color: context.appColors.font),
     );
   }
 }

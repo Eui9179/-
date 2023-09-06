@@ -1,5 +1,6 @@
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 
 class GameLogoAvatar extends StatelessWidget {
   const GameLogoAvatar({Key? key, required this.gameName}) : super(key: key);
@@ -8,14 +9,9 @@ class GameLogoAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: ColorPalette.mainBackgroundColor,
-      radius: 13,
-      child: CircleAvatar(
-        backgroundColor: ColorPalette.headerBackgroundColor,
-        backgroundImage:
-            AssetImage("assets/images/game/logo/${gameName}_logo.png"),
-        radius: 10.0,
-      ),
+      backgroundColor: context.appColors.transparent,
+      radius: 10,
+      foregroundImage: AssetImage("assets/images/game/logo/${gameName}_logo.png"),
     );
   }
 }

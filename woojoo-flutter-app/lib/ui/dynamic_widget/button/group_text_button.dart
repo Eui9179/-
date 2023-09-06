@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:woojoo/common/context_extension.dart';
 
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
 
 class GroupTextButton extends StatelessWidget {
   const GroupTextButton({Key? key, required this.text, required this.onTap}) : super(key: key);
@@ -11,18 +12,18 @@ class GroupTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      splashColor: ColorPalette.headerBackgroundColor,
+      splashColor: context.appColors.headerBackgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
-              const Icon(Icons.school_sharp, color: ColorPalette.font, size: 19,),
+              Icon(Icons.school_sharp, color: context.appColors.font, size: 19,),
               const SizedBox(width: 10,),
-              Text(text, style: const TextStyle(color: ColorPalette.font, fontWeight: FontWeight.w400, fontSize: 20),),
+              Text(text, style: TextStyle(color: context.appColors.font, fontWeight: FontWeight.w400, fontSize: 20),),
             ],
           ),
-          const Icon(Icons.chevron_right, color: ColorPalette.font,size: 18,),
+          Icon(Icons.chevron_right, color: context.appColors.font,size: 18,),
         ],
       ),
     );

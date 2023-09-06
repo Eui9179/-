@@ -1,3 +1,4 @@
+import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/dio/friend/insert_friends.dart';
 import 'package:woojoo/dio/group/get_friends_by_group_detail1.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 import '../../../controller/access_token_controller.dart';
 import '../../../dio/friend/delete_friend.dart';
 import '../../../dio/friend/insert_friend.dart';
-import '../../../utils/color_palette.dart';
+import '../../../common/theme/color_palette.dart';
 import '../../dynamic_widget/avatar/friend_avatar.dart';
 import '../../dynamic_widget/avatar/game_logo_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
@@ -40,16 +41,16 @@ class _GroupDetail1State extends State<GroupDetail1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.mainBackgroundColor,
+      backgroundColor: context.appColors.mainBackgroundColor,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorPalette.headerBackgroundColor,
-        title: const Text(
+        backgroundColor: context.appColors.headerBackgroundColor,
+        title: Text(
           "학교 게임 친구",
           style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w400,
-              color: ColorPalette.font),
+              color: context.appColors.font),
         ),
       ),
       body: SingleChildScrollView(
@@ -322,7 +323,7 @@ class _GroupDetail1State extends State<GroupDetail1> {
                                           });
                                         },
                                         text: '취소',
-                                        color: ColorPalette.subFont,
+                                        color: context.appColors.subFont,
                                       )
                                     : FontButton(
                                         onPressed: () {

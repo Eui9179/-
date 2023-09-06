@@ -8,7 +8,7 @@ import 'package:woojoo/controller/my_profile_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
 import 'package:woojoo/pages.dart';
 import 'package:woojoo/ui/screens/main_loading_screen.dart';
-import 'package:woojoo/utils/color_palette.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -23,8 +23,8 @@ Future<void> _messageHandler(RemoteMessage message) async {
 }
 
 void main() async {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: ColorPalette.headerBackgroundColor,
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: const ColorPalette().headerBackgroundColor,
   ));
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(
