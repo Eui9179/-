@@ -1,18 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
-import 'package:woojoo/dio/friend/insert_friends.dart';
 import 'package:woojoo/dio/group/get_friends_by_group_detail1.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/group_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
 import 'package:woojoo/utils/notification.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import '../../../common/widget/w_user_avatar.dart';
 import '../../../controller/access_token_controller.dart';
 import '../../../dio/friend/delete_friend.dart';
 import '../../../dio/friend/insert_friend.dart';
-import '../../../common/theme/color_palette.dart';
-import '../../dynamic_widget/avatar/friend_avatar.dart';
 import '../../dynamic_widget/avatar/game_logo_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
@@ -141,8 +139,9 @@ class _GroupDetail1State extends State<GroupDetail1> {
                       padding: const EdgeInsets.only(right: 13.0, left: 13.0),
                       child: Row(
                         children: [
-                          FriendAvatar(
-                              image: _friends[index]["profile_image_name"]),
+                          UserAvatar(
+                            imagePath: _friends[index]["profile_image_name"]
+                          ),
                           const SizedBox(
                             width: 13,
                           ),
@@ -249,8 +248,9 @@ class _GroupDetail1State extends State<GroupDetail1> {
                       padding: const EdgeInsets.only(right: 13.0, left: 13.0),
                       child: Row(
                         children: [
-                          FriendAvatar(
-                              image: _people[index]["profile_image_name"]),
+                          UserAvatar(
+                              imagePath: _people[index]["profile_image_name"]
+                          ),
                           const SizedBox(
                             width: 13,
                           ),

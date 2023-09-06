@@ -4,9 +4,7 @@ import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../common/theme/color_palette.dart';
 import '../../../common/widget/w_user_avatar.dart';
-import '../../dynamic_widget/avatar/friend_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
 

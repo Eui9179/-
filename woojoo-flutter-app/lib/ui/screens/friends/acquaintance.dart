@@ -1,10 +1,8 @@
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/w_user_avatar.dart';
-import 'package:woojoo/ui/dynamic_widget/avatar/friend_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
