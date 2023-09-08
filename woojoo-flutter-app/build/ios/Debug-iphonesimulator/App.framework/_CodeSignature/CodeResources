@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		xeK36yXhGI1GeZ3HBaGqpR5kxME=
+		UfuCDLyrDPw+AvblrUC0j78r+r4=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		P1G6WC7Pd1Pl2nX+0xafiNlED2U=
+		cBzbr51mis9GDS7LbrUY+pbHZvQ=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -23,6 +23,10 @@
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
 		L91FhDKUn9vbzat5PgJZUY9hHwg=
+		</data>
+		<key>flutter_assets/assets/images/default.png</key>
+		<data>
+		UBF44kYZrBUtKjgyD1SUkbHHPOs=
 		</data>
 		<key>flutter_assets/assets/images/game/apexlegends.jpg</key>
 		<data>
@@ -316,18 +320,6 @@
 		<data>
 		u0mFC0YqDvHAWZcWEWN1EJA1h9I=
 		</data>
-		<key>flutter_assets/assets/images/logo/default.png</key>
-		<data>
-		UBF44kYZrBUtKjgyD1SUkbHHPOs=
-		</data>
-		<key>flutter_assets/assets/images/logo/dor.jpg</key>
-		<data>
-		r3sxbedLkocTJQIjyQDMkZBWWfk=
-		</data>
-		<key>flutter_assets/assets/images/logo/dor_default.png</key>
-		<data>
-		d2JfooPYqjdgG3Q7aEQ3bFQio/A=
-		</data>
 		<key>flutter_assets/assets/images/logo/logo.png</key>
 		<data>
 		QpV7xiSpQ8El6NIQQFtjBNbTrfo=
@@ -358,7 +350,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		7wBj4nQxutJ6PW5AUtsl5+gfFHE=
+		qpM9asnbH4/NcU+MXaovorRRhK0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -379,14 +371,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DWu2TpueqY0BM9QOUGYc2OXx+rdVpTx76/47U9Trbvs=
+			OdZUk6UddBwBe0aq/ac855deGjtC8O2k7pQzm4KR/8U=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u3FmdAMt5au3biHVteV8fHB3ghQhtcxjUhGBROU2vsI=
+			3FUD7851o1lmZYoyviTTdfE+/43bQbetIi24Jr9XtrQ=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -401,6 +393,13 @@
 			<key>hash2</key>
 			<data>
 			bVDgQn7fyiXN7rob8DrVCtHKW/GMw97Dkzp8ot6yu0E=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/default.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NJh5HgDSfyajyispQLsb8LmTRlKs13H5DNJxJDYbNzE=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/game/apexlegends.jpg</key>
@@ -914,27 +913,6 @@
 			KZcRYq21QYiW5AGWD1znchIVKc3Rte40nq2By2Q+XdQ=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/images/logo/default.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			NJh5HgDSfyajyispQLsb8LmTRlKs13H5DNJxJDYbNzE=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/images/logo/dor.jpg</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			bn0hUcC5LFx5ZKllUpooupMqe7pn/o9w+/eyUwDksrM=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/images/logo/dor_default.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tLPZw4XLosMFisFY6H0hM1UTNLD19VbPoKG9j1a4Dj8=
-			</data>
-		</dict>
 		<key>flutter_assets/assets/images/logo/logo.png</key>
 		<dict>
 			<key>hash2</key>
@@ -988,7 +966,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K3aA3dn/dTm3XcwR3rQWO1gOjnjQdCExVzuNPIgOYmA=
+			+6mtvssaSs4DAx7q1dZXgWfIHvDTPI+AWxppLvGVMxc=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

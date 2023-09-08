@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 
 class MyProfileController extends GetxController {
   String name = '';
-  String profileImage = 'default';
+  String? profileImage;
   String phoneNumber = '';
 
-  void setMyProfile(String name, String profileImage, String phoneNumber) {
+  void setMyProfile(String name, String? profileImage, String phoneNumber) {
     this.name = name;
     this.profileImage = profileImage;
     this.phoneNumber = phoneNumber;

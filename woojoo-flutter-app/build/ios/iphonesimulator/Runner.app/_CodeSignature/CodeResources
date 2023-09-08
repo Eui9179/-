@@ -38,7 +38,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		OoLiofc4kC6gUjsbeH1mDEefuNk=
+		x5NzbFRzULjhYgye4L/6mo0GLWI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -46,15 +46,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		kmY0WgglijU4VhfTyTQ5/E3Gkzg=
+		iRIB/lYJ8Qg+MWu0KD2OF9HC3mE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		xeK36yXhGI1GeZ3HBaGqpR5kxME=
+		UfuCDLyrDPw+AvblrUC0j78r+r4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		P1G6WC7Pd1Pl2nX+0xafiNlED2U=
+		cBzbr51mis9GDS7LbrUY+pbHZvQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -63,6 +63,10 @@
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 		L91FhDKUn9vbzat5PgJZUY9hHwg=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/default.png</key>
+		<data>
+		UBF44kYZrBUtKjgyD1SUkbHHPOs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/game/apexlegends.jpg</key>
 		<data>
@@ -356,18 +360,6 @@
 		<data>
 		u0mFC0YqDvHAWZcWEWN1EJA1h9I=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/default.png</key>
-		<data>
-		UBF44kYZrBUtKjgyD1SUkbHHPOs=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/dor.jpg</key>
-		<data>
-		r3sxbedLkocTJQIjyQDMkZBWWfk=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/dor_default.png</key>
-		<data>
-		d2JfooPYqjdgG3Q7aEQ3bFQio/A=
-		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/logo.png</key>
 		<data>
 		QpV7xiSpQ8El6NIQQFtjBNbTrfo=
@@ -398,7 +390,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		7wBj4nQxutJ6PW5AUtsl5+gfFHE=
+		qpM9asnbH4/NcU+MXaovorRRhK0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -426,7 +418,7 @@
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/FirebaseAuth</key>
 		<data>
-		m/7te+4eK5J6blCeDUOwCC6wnvo=
+		3N7lpaIhm9s9b6Du4s59QKWy1ac=
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
 		<data>
@@ -438,7 +430,7 @@
 		</data>
 		<key>Frameworks/FirebaseCore.framework/FirebaseCore</key>
 		<data>
-		BuvXxWi+1/u1Uc33MwVG1FEsb2U=
+		nNL/Gls8mjOOzpmTqq7BGvehdLQ=
 		</data>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
 		<data>
@@ -450,7 +442,7 @@
 		</data>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/FirebaseCoreDiagnostics</key>
 		<data>
-		7NWU8MPMCdvC34QdEWa1qEZM9FA=
+		p1BWytDPS8PznhqosDCjPQ56H30=
 		</data>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/Info.plist</key>
 		<data>
@@ -462,7 +454,7 @@
 		</data>
 		<key>Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal</key>
 		<data>
-		lIGwR3ijxoqsK1+MXER1ZVhTTmc=
+		IhS0oIi541OLSbNEmqfiqpyuzpc=
 		</data>
 		<key>Frameworks/FirebaseCoreInternal.framework/Info.plist</key>
 		<data>
@@ -474,7 +466,7 @@
 		</data>
 		<key>Frameworks/FirebaseInstallations.framework/FirebaseInstallations</key>
 		<data>
-		deFsOkJ/eI3qSixuHLcchWHT7t4=
+		8AwNYQSBlgvfax1A7i5T6oaOz9A=
 		</data>
 		<key>Frameworks/FirebaseInstallations.framework/Info.plist</key>
 		<data>
@@ -486,7 +478,7 @@
 		</data>
 		<key>Frameworks/FirebaseMessaging.framework/FirebaseMessaging</key>
 		<data>
-		vnEKaPQPze5pRjTV6YhHdksf78g=
+		gCOzolk3kH2FwsQ8pnJCrPZ6P28=
 		</data>
 		<key>Frameworks/FirebaseMessaging.framework/Info.plist</key>
 		<data>
@@ -594,7 +586,7 @@
 		</data>
 		<key>Frameworks/GoogleDataTransport.framework/GoogleDataTransport</key>
 		<data>
-		mBQ8oO3HWKKwUqbK2Pmr4GhPEbQ=
+		tM1DuxKQZ8vK6r6hBwZOlBVvBr8=
 		</data>
 		<key>Frameworks/GoogleDataTransport.framework/Info.plist</key>
 		<data>
@@ -606,7 +598,7 @@
 		</data>
 		<key>Frameworks/GoogleUtilities.framework/GoogleUtilities</key>
 		<data>
-		YHrLO8YN6TtCDDyFQoe8EvPOCIM=
+		gPyKpk514aKNAlctoEosYzlWIjo=
 		</data>
 		<key>Frameworks/GoogleUtilities.framework/Info.plist</key>
 		<data>
@@ -799,7 +791,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aWs6GU63A7m+ryGDvDEmqEjE0X9RsS5Pbs+o4gIE3yg=
+			DiR8X3R/TXkT3Hk3xo7zAe+UcqRFKuZsqLnOw00LFMc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -813,21 +805,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O7xI8/vYZ9Krl4czXXmSNJcoBcsgk0qrYEgoxKVphiU=
+			1iaa2hj+cccA5w3lD6xb9vUt0VL0L8FCZ77KJn8ud2Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DWu2TpueqY0BM9QOUGYc2OXx+rdVpTx76/47U9Trbvs=
+			OdZUk6UddBwBe0aq/ac855deGjtC8O2k7pQzm4KR/8U=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u3FmdAMt5au3biHVteV8fHB3ghQhtcxjUhGBROU2vsI=
+			3FUD7851o1lmZYoyviTTdfE+/43bQbetIi24Jr9XtrQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -842,6 +834,13 @@
 			<key>hash2</key>
 			<data>
 			bVDgQn7fyiXN7rob8DrVCtHKW/GMw97Dkzp8ot6yu0E=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/default.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NJh5HgDSfyajyispQLsb8LmTRlKs13H5DNJxJDYbNzE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/game/apexlegends.jpg</key>
@@ -1355,27 +1354,6 @@
 			KZcRYq21QYiW5AGWD1znchIVKc3Rte40nq2By2Q+XdQ=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/default.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			NJh5HgDSfyajyispQLsb8LmTRlKs13H5DNJxJDYbNzE=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/dor.jpg</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			bn0hUcC5LFx5ZKllUpooupMqe7pn/o9w+/eyUwDksrM=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/dor_default.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tLPZw4XLosMFisFY6H0hM1UTNLD19VbPoKG9j1a4Dj8=
-			</data>
-		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/logo/logo.png</key>
 		<dict>
 			<key>hash2</key>
@@ -1429,7 +1407,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K3aA3dn/dTm3XcwR3rQWO1gOjnjQdCExVzuNPIgOYmA=
+			+6mtvssaSs4DAx7q1dZXgWfIHvDTPI+AWxppLvGVMxc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1478,7 +1456,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jui3ehBP1EUwhYGeayhLsuKaI3QalymFycZERtNWIT4=
+			Mw0eeSzO76T89kq2W3xhuzkUL04Evx4aBGGPhe+aq2g=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
@@ -1499,7 +1477,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OOdYCXYBxGfU6dG/wlbqpBrWlVNT+RPFdxVtTR2UoAA=
+			0vFSZ6y7/EteTHPtDxXFjsPROWP4foYfDFXEjC32M1M=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
@@ -1520,7 +1498,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HN53L9eeakrtC0TKWztkAY4hcCgdOb+3u0gr9W1rG58=
+			1KWoWFwxqQL0KNwMlUrQ/CPfHcnJjdzFtfnQJQ6o6kg=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/Info.plist</key>
@@ -1541,7 +1519,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iJOXlVd0l9zSjh5IVFiTxld49Vyby7QYw1JhyqomEuQ=
+			CjvZn8v57seP1Si53LVYEDZFRSXtq6fGDkq6ObTrVt4=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCoreInternal.framework/Info.plist</key>
@@ -1562,7 +1540,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			raZWTlN9Vo9Cb0d3RfdKZOM97zT6kSG8ZkLKQeaQxus=
+			pEyqHhQTH9CXQ4jAFPaYL9s2Beq67pZPqg/Lu+1Bf1A=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseInstallations.framework/Info.plist</key>
@@ -1583,7 +1561,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lMtBdbMYSex5QOCeMeATCZcPctHMFf5zOmOJ/jEWF4Q=
+			r3dnVZo2ATZVVvUG9nwBppnUfQO8X0Kq/CtgW/AD72E=
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseMessaging.framework/Info.plist</key>
@@ -1772,7 +1750,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			p0PZprdOVNpHscrfnUG21bZAOqRG1qlkCSZKi+Y+gi4=
+			qrJnipjG8uQza4NUbVrq1hI0HKqU+mqPwImeP1MV8KQ=
 			</data>
 		</dict>
 		<key>Frameworks/GoogleDataTransport.framework/Info.plist</key>
@@ -1793,7 +1771,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zdq+kMdflCdeAjhAY7zJ7z5vrMuzZjLQJYwMB20GUjo=
+			lB4Q1V+4248nEanPrL1zf7BZ+w0y5KDXpt7vol5nkJA=
 			</data>
 		</dict>
 		<key>Frameworks/GoogleUtilities.framework/Info.plist</key>

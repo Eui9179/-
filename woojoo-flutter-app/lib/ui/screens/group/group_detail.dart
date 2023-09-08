@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/widget/w_user_avatar.dart';
+import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/dio/friend/delete_friend.dart';
 import 'package:woojoo/dio/friend/insert_friend.dart';
@@ -11,6 +11,7 @@ import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
 import 'package:woojoo/ui/static_widget/dividing_line.dart';
 import 'package:woojoo/utils/notification.dart';
 
+import '../../../common/widget/game_badge/w_game_badge.dart';
 import '../../../controller/access_token_controller.dart';
 import '../../../dio/group/get_people_by_group.dart';
 import '../../dynamic_widget/avatar/game_logo_avatar.dart';
@@ -185,56 +186,13 @@ class _GroupDetailState extends State<GroupDetail> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Font(
-                                          text: _people[index]["name"],
-                                          size: 18),
-                                      _people[index]['games'].length != 0
-                                          ? const SizedBox(
-                                              height: 8,
-                                            )
-                                          : const SizedBox(),
-                                      _people[index]['games'].length != 0
-                                          ? Row(
-                                              children: [
-                                                if (_people[index]['games']
-                                                        .length ==
-                                                    1) ...[
-                                                  GameLogoAvatar(
-                                                      gameName: _people[index]
-                                                          ['games'][0]),
-                                                  const SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  const SubjectTitle(
-                                                      title: "함께 하는 게임 1개")
-                                                ],
-                                                if (_people[index]['games']
-                                                        .length >
-                                                    1) ...[
-                                                  SizedBox(
-                                                    width: 52,
-                                                    child: Stack(children: [
-                                                      Positioned(
-                                                          left: 18,
-                                                          child: GameLogoAvatar(
-                                                              gameName: _people[
-                                                                          index]
-                                                                      ['games']
-                                                                  [1])),
-                                                      Positioned(
-                                                          child: GameLogoAvatar(
-                                                              gameName: _people[
-                                                                          index]
-                                                                      ['games']
-                                                                  [0])),
-                                                    ]),
-                                                  ),
-                                                  SubjectTitle(
-                                                      title:
-                                                          "함께 하는 게임 ${_people[index]['games'].length}개")
-                                                ]
-                                              ],
-                                            )
-                                          : const SizedBox()
+                                        text: _people[index]["name"],
+                                        size: 18,
+                                      ),
+                                      GameBadge(
+                                        size: _people[index]['games'].length,
+                                        gameNames: _people[index]['games'],
+                                      ),
                                     ],
                                   ),
                                   _people[index]['isFollow']

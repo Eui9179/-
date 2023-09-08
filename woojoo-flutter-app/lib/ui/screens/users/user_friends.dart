@@ -9,7 +9,9 @@ import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../common/widget/w_user_avatar.dart';
+import '../../../common/constants.dart';
+import '../../../common/widget/avatar/w_avatar.dart';
+import '../../../common/widget/avatar/w_user_avatar.dart';
 import '../../dynamic_widget/avatar/game_logo_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
@@ -114,8 +116,8 @@ class _UserFriendsState extends State<UserFriends> {
                     child: Row(
                       children: [
                         UserAvatar(
-                            imagePath: userFriends[index]["profile_image_name"]
-                        ),
+                            imagePath: userFriends[index]
+                                ["profile_image_name"]),
                         const SizedBox(
                           width: 13,
                         ),
@@ -142,9 +144,12 @@ class _UserFriendsState extends State<UserFriends> {
                                             if (userFriends[index]['games']
                                                     .length ==
                                                 1) ...[
-                                              GameLogoAvatar(
-                                                  gameName: userFriends[index]
-                                                      ['games'][0]),
+                                              Avatar(
+                                                imagePath:
+                                                    '$basePath/${userFriends[index]['games'][0]}',
+                                                radius:
+                                                    Avatar.gameAvatarSize,
+                                              ),
                                               const SizedBox(
                                                 width: 5,
                                               ),
@@ -158,18 +163,21 @@ class _UserFriendsState extends State<UserFriends> {
                                                 width: 52,
                                                 child: Stack(children: [
                                                   Positioned(
-                                                      left: 18,
-                                                      child: GameLogoAvatar(
-                                                          gameName:
-                                                              userFriends[index]
-                                                                      ['games']
-                                                                  [1])),
+                                                    left: 18,
+                                                    child: Avatar(
+                                                      imagePath:
+                                                          '$basePath/${userFriends[index]['games'][1]}',
+                                                      radius:
+                                                          Avatar.gameAvatarSize,
+                                                    ),
+                                                  ),
                                                   Positioned(
-                                                      child: GameLogoAvatar(
-                                                          gameName:
-                                                              userFriends[index]
-                                                                      ['games']
-                                                                  [0])),
+                                                      child: Avatar(
+                                                    imagePath:
+                                                        '$basePath/${userFriends[index]['games'][0]}',
+                                                    radius:
+                                                        Avatar.gameAvatarSize,
+                                                  )),
                                                 ]),
                                               ),
                                               SubjectTitle(

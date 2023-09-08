@@ -43,27 +43,29 @@ class _MyProfileState extends State<MyProfile> {
               0.4,
               0.4
             ])),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const ProfileAvatar(
-            size: 45,
-            image: "default.png",
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text('',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: context.appColors.font)),
-        ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ProfileAvatar(
+              size: 45,
+              image: null,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text('',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: context.appColors.font)),
+          ],
+        ),
       );
     } else {
       return GetBuilder<MyProfileController>(
         builder: (controller) {
           String name = controller.name;
-
-          String profileImageName = controller.profileImage;
+          String? profileImageName = controller.profileImage;
 
           return Container(
             width: double.infinity,

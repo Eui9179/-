@@ -1,5 +1,8 @@
+import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/widget/w_user_avatar.dart';
+import 'package:woojoo/common/widget/avatar/w_avatar.dart';
+import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
+import 'package:woojoo/common/widget/game_badge/w_game_badge.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
@@ -69,50 +72,10 @@ class Acquaintance extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Font(text: _myFriends[index]["name"], size: 18),
-                              _myFriends[index]['games'].length != 0
-                                  ? const SizedBox(
-                                      height: 8,
-                                    )
-                                  : const SizedBox(),
-                              _myFriends[index]['games'].length != 0
-                                  ? Row(
-                                      children: [
-                                        if (_myFriends[index]['games'].length ==
-                                            1) ...[
-                                          GameLogoAvatar(
-                                              gameName: _myFriends[index]
-                                                  ['games'][0]),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const SubjectTitle(
-                                              title: "함께 하는 게임 1개")
-                                        ],
-                                        if (_myFriends[index]['games'].length >
-                                            1) ...[
-                                          SizedBox(
-                                            width: 52,
-                                            child: Stack(children: [
-                                              Positioned(
-                                                  left: 18,
-                                                  child: GameLogoAvatar(
-                                                      gameName:
-                                                          _myFriends[index]
-                                                              ['games'][1])),
-                                              Positioned(
-                                                  child: GameLogoAvatar(
-                                                      gameName:
-                                                          _myFriends[index]
-                                                              ['games'][0])),
-                                            ]),
-                                          ),
-                                          SubjectTitle(
-                                              title:
-                                                  "함께 하는 게임 ${_myFriends[index]['games'].length}개")
-                                        ]
-                                      ],
-                                    )
-                                  : const SizedBox()
+                              GameBadge(
+                                size: _myFriends[index]['games'].length,
+                                gameNames: _myFriends[index]['games'],
+                              ),
                             ],
                           ),
                         ],

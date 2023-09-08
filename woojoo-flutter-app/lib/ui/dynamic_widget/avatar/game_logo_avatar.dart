@@ -1,6 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 
 class GameLogoAvatar extends StatelessWidget {
   const GameLogoAvatar({Key? key, required this.gameName}) : super(key: key);

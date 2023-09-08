@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
@@ -35,7 +36,7 @@ class _SettingState extends State<Setting> {
   final List<String> _groups = [];
   XFile? _image;
   String? _name;
-  String _originImage = '';
+  String? _originImage = '';
   String _detail1 = '1';
   bool _isName = true;
   bool _isNameChange = false;
@@ -98,16 +99,16 @@ class _SettingState extends State<Setting> {
                           radius: 55,
                           backgroundColor: Colors.black54,
                           child: _image == null
-                              ? _originImage == 'default.png'
+                              ? _originImage == null
                                   ? const CircleAvatar(
                                       backgroundImage: AssetImage(
-                                        "assets/images/logo/default.png",
+                                        "$basePath/default.png",
                                       ),
                                       radius: 55,
                                     )
                                   : CircleAvatar(
                                       backgroundImage: NetworkImage(
-                                          '$cdnProfileImageBaseUri$_originImage'),
+                                          '$profileImageUrl/$_originImage'),
                                       radius: 55.0,
                                     )
                               : CircleAvatar(
@@ -438,7 +439,6 @@ class _SettingState extends State<Setting> {
   }
 
   Future getImageFromGallery() async {
-    print("getImageFromGallery");
     // var status = await Permission.storage.status;
     final status = await Permission.photos.request();
     if (status == PermissionStatus.granted) {
@@ -448,7 +448,7 @@ class _SettingState extends State<Setting> {
         setState(() {
           _image = image;
           if (image == null) {
-            _originImage = 'default.png';
+            _originImage = null;
           }
           _isFile = true;
         });

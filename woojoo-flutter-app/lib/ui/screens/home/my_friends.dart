@@ -13,7 +13,8 @@ import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:woojoo/utils/sync_contacts.dart';
 
-import '../../../common/widget/w_user_avatar.dart';
+import '../../../common/widget/avatar/w_user_avatar.dart';
+import '../../../common/widget/game_badge/w_game_badge.dart';
 
 class MyFriends extends StatefulWidget {
   const MyFriends({Key? key}) : super(key: key);
@@ -121,54 +122,10 @@ class _MyFriendsState extends State<MyFriends> {
                                   Font(
                                       text: _myFriends[index]["name"],
                                       size: 18),
-                                  _myFriends[index]['games'].length != 0
-                                      ? const SizedBox(
-                                          height: 8,
-                                        )
-                                      : const SizedBox(),
-                                  _myFriends[index]['games'].length != 0
-                                      ? Row(
-                                          children: [
-                                            if (_myFriends[index]['games']
-                                                    .length ==
-                                                1) ...[
-                                              GameLogoAvatar(
-                                                  gameName: _myFriends[index]
-                                                      ['games'][0]),
-                                              const SizedBox(
-                                                width: 3,
-                                              ),
-                                              const SubjectTitle(
-                                                  title: "함께 하는 게임 1개")
-                                            ],
-                                            if (_myFriends[index]['games']
-                                                    .length >
-                                                1) ...[
-                                              SizedBox(
-                                                width: 47,
-                                                child: Stack(children: [
-                                                  Positioned(
-                                                      left: 18,
-                                                      child: GameLogoAvatar(
-                                                          gameName:
-                                                              _myFriends[index]
-                                                                      ['games']
-                                                                  [1])),
-                                                  Positioned(
-                                                      child: GameLogoAvatar(
-                                                          gameName:
-                                                              _myFriends[index]
-                                                                      ['games']
-                                                                  [0])),
-                                                ]),
-                                              ),
-                                              SubjectTitle(
-                                                  title:
-                                                      "함께 하는 게임 ${_myFriends[index]['games'].length}개")
-                                            ]
-                                          ],
-                                        )
-                                      : const SizedBox()
+                                  GameBadge(
+                                    size: _myFriends[index]['games'].length,
+                                    gameNames: _myFriends[index]['games'],
+                                  ),
                                 ],
                               ),
                             ],

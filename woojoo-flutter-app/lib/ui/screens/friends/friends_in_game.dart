@@ -1,10 +1,11 @@
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/game_badge/w_game_badge.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../common/widget/w_user_avatar.dart';
+import '../../../common/widget/avatar/w_user_avatar.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
 
@@ -116,32 +117,13 @@ class _FriendsInGameState extends State<FriendsInGame> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Font(
-                                        text: _friends[index]["name"],
-                                        size: 18),
-                                    _friends[index]['games'].length != 0
-                                        ? const SizedBox(
-                                            height: 8,
-                                          )
-                                        : const SizedBox(),
-                                    _friends[index]['games'].length != 0
-                                        ? Row(
-                                            children: [
-                                              if (_friends[index]['games']
-                                                      .length ==
-                                                  1) ...[
-                                                const SubjectTitle(
-                                                    title: "함께 하는 게임 1개")
-                                              ],
-                                              if (_friends[index]['games']
-                                                      .length >
-                                                  1) ...[
-                                                SubjectTitle(
-                                                    title:
-                                                        "함께 하는 게임 ${_friends[index]['games'].length}개")
-                                              ]
-                                            ],
-                                          )
-                                        : const SizedBox()
+                                      text: _friends[index]["name"],
+                                      size: 18,
+                                    ),
+                                    GameBadge(
+                                      size: _friends[index]['games'].length,
+                                      gameNames: _friends[index]['games'],
+                                    ),
                                   ],
                                 ),
                               ],
