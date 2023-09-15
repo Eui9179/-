@@ -185,7 +185,7 @@ class _VerificationState extends State<Verification> {
 
   _signin(String accessToken) async {
     storage.write(key: "accessToken", value: accessToken);
-    Get.find<AccessTokenController>().setAccessToken(accessToken);
+    Get.find<AccessTokenController>().accessToken = accessToken;
     Get.offAllNamed('/');
   }
 

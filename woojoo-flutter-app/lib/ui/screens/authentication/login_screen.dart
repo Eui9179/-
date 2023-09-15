@@ -71,8 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                       _inputPhoneNumber(context);
                     },
                     style: OutlinedButton.styleFrom(
-                        fixedSize: const Size(350, 50),
-                        primary: Colors.black,
+                        foregroundColor: Colors.black, fixedSize: const Size(350, 50),
                         backgroundColor: Colors.white,
                         shape: const RoundedRectangleBorder(
                             borderRadius:

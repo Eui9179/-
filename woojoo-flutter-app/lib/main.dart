@@ -1,5 +1,10 @@
 // import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'dart:async';
+import 'dart:io';
+
+import 'package:after_layout/after_layout.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
@@ -18,15 +23,17 @@ import 'controller/my_friends_controller.dart';
 // import 'firebase_options.dart';
 
 const storage = FlutterSecureStorage();
-Future<void> _messageHandler(RemoteMessage message) async {
-  print('background message ${message.notification!.body}');
-}
+// Future<void> _messageHandler(RemoteMessage message) async {
+//   print('background message ${message.notification!.body}');
+// }
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: const ColorPalette().headerBackgroundColor,
   ));
   WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: ensureInitialized);
+
   // await Firebase.initializeApp(
     // options: DefaultFirebaseOptions.currentPlatform,
   // );
@@ -39,14 +46,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AccessTokenController());
-    Get.put(MyFriendsController());
-    Get.put(MyProfileController());
-    Get.put(MyGroupsController());
-    Get.put(MyGamesController());
-    Get.put(TodaysGameController());
-    Get.put(FcmTokenController());
-
     return GetMaterialApp(
       title: '',
       theme: ThemeData(
@@ -66,24 +65,23 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with AfterLayoutMixin {
+
   @override
   void initState() {
     super.initState();
+    Get.put(AccessTokenController());
+    Get.put(MyFriendsController());
+    Get.put(MyProfileController());
+    Get.put(MyGroupsController());
+    Get.put(MyGamesController());
+    Get.put(TodaysGameController());
+    Get.put(FcmTokenController());
 
     // FirebaseMessaging.instance.getToken().then((token) {
     //   print(token);
     //   Get.find<FcmTokenController>().setFcmToken(token!);
     // });
-
-    Future<String?> res = _getAccessToken();
-    res.then((accessToken) {
-      if (accessToken != null) {
-        Get.offAllNamed('/home');
-      } else {
-        Get.offAllNamed('/login');
-      }
-    });
   }
 
   @override
@@ -91,11 +89,16 @@ class _HomeState extends State<Home> {
     return const MainLoadingScreen();
   }
 
-  Future<String?> _getAccessToken() async {
-    String? accessToken = await storage.read(key: "accessToken");
-    if (accessToken != null) {
-      Get.find<AccessTokenController>().setAccessToken(accessToken);
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) async {
+    String accessToken = await const FlutterSecureStorage().read(key: "accessToken") ?? '';
+    Get.find<AccessTokenController>().accessToken = accessToken;
+    FlutterNativeSplash.remove();
+    bool isLogin = Get.find<AccessTokenController>().isLogin();
+    if (isLogin) {
+      Get.offAllNamed('/home');
+    } else {
+      Get.offAllNamed('/login');
     }
-    return accessToken;
   }
 }
