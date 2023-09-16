@@ -1,5 +1,5 @@
+import 'package:woojoo/screen/authentication/login/s_login.dart';
 import 'package:woojoo/ui/screens/authentication/input_phone_number.dart';
-import 'package:woojoo/ui/screens/authentication/login_screen.dart';
 import 'package:woojoo/ui/screens/authentication/signup/step1_profile.dart';
 import 'package:woojoo/ui/screens/authentication/signup/step2_tos.dart';
 import 'package:woojoo/ui/screens/authentication/verification.dart';
@@ -21,7 +21,7 @@ List<GetPage> pages = [
   GetPage(name: '/', page: () => const Home()),
   GetPage(
     name: '/login',
-    page: () => const LoginPage(),
+    page: () => const LoginScreen(),
     // transition: Transition.rightToLeft
   ),
   GetPage(

@@ -38,6 +38,10 @@ dependencies:
   get: ^4.6.5
   pinput: ^2.2.11
 #  firebase_auth: ^3.4.1
+
+  #util
+  velocity_x: ^4.1.0
+
   flutter_secure_storage: ^5.0.2
   image_picker: ^0.8.5+3
   dio: ^4.0.0

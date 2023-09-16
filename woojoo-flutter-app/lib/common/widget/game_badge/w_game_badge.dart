@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:woojoo/common/widget/avatar/w_avatar.dart';
-import 'package:woojoo/common/widget/height.dart';
+import 'package:woojoo/common/widget/w_height.dart';
 
 import '../../../ui/dynamic_widget/font/subject_title.dart';
 import '../../constants.dart';
-import '../width.dart';
+import '../w_width.dart';
 
 class GameBadge extends StatelessWidget {
   final int size;

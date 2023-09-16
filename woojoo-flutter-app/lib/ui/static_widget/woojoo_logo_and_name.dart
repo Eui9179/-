@@ -1,31 +1,27 @@
+import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/w_width.dart';
 import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
-import '../../common/theme/color_palette.dart';
 
 class WoojooLogoAndName extends StatelessWidget {
   const WoojooLogoAndName({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const WoojooLogo(),
-          const SizedBox(
-            width: 8,
-          ),
-          Text('우주',
-              style: TextStyle(
-                color: context.appColors.font,
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
-              ))
-        ],
-      ),
-    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const WoojooLogo(),
+        const Width(8),
+        '우주'
+            .text
+            .color(context.appColors.font)
+            .size(25)
+            .fontWeight(FontWeight.w600)
+            .make()
+      ],
+    ).pOnly(top: 10);
   }
 }
