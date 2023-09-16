@@ -13,7 +13,7 @@ import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
 import 'package:woojoo/pages.dart';
-import 'package:woojoo/screen/authentication/login/s_login.dart';
+import 'package:woojoo/screen/authentication/s_login.dart';
 import 'package:woojoo/ui/screens/home/home.dart';
 import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
