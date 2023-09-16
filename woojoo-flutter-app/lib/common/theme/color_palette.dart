@@ -17,4 +17,5 @@ class ColorPalette {
   Color get inputLabel => const Color.fromARGB(255, 206, 206, 215);
   Color get inputFill => navigationBarColor;
   Color get loginScreenBackground => const Color.fromARGB(255, 11, 14, 27);
+  Color get textButton => Colors.blueAccent;
 }

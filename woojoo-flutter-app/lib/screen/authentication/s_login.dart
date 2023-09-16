@@ -80,5 +80,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void goInputPhoneNumberScreen() => Get.to(const LoginInput(), transition: Transition.fade);
+  void goInputPhoneNumberScreen() =>
+      Get.to(() => const LoginInput(), transition: Transition.fade);
 }
