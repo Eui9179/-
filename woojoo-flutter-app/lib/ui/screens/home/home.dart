@@ -8,11 +8,6 @@ import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
-import 'package:woojoo/dio/auth/async_fcm_token.dart';
-import 'package:woojoo/dio/friend/get_my_friends.dart';
-import 'package:woojoo/dio/game/get_my_games.dart';
-import 'package:woojoo/dio/group/get_my_groups.dart';
-import 'package:woojoo/dio/profile/get_my_profile.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/screens/home/main_page.dart';
 import 'package:woojoo/ui/screens/main_loading_screen.dart';
@@ -20,6 +15,12 @@ import 'package:woojoo/ui/screens/setting/settting.dart';
 import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../remote/authentication/async_fcm_token.dart';
+import '../../../remote/friend/get_my_friends.dart';
+import '../../../remote/game/get_my_games.dart';
+import '../../../remote/group/get_my_groups.dart';
+import '../../../remote/profile/get_my_profile.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);

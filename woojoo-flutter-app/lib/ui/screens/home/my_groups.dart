@@ -1,10 +1,10 @@
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
-import 'package:woojoo/dio/group/get_my_groups.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../remote/group/get_my_groups.dart';
 import '../../dynamic_widget/button/group_text_button.dart';
 
 class MyGroups extends StatefulWidget {

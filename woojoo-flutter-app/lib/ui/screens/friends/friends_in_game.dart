@@ -1,5 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/widget/game_badge/w_game_badge.dart';
+import 'package:woojoo/common/widget/w_game_badge.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:flutter/material.dart';

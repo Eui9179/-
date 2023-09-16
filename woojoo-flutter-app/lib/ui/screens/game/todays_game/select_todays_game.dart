@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
-import 'package:woojoo/dio/game/insert_todays_game.dart';
-import 'package:woojoo/dio/todays_games/get_todays_games.dart';
+
+import '../../../../remote/game/insert_todays_game.dart';
+import '../../../../remote/todays_games/get_todays_games.dart';
 
 Future<String?> showSelectTodaysGame(
     BuildContext context, bool isUpdate) async {

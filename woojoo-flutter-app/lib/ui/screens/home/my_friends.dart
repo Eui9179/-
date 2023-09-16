@@ -5,16 +5,15 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
-import 'package:woojoo/dio/friend/get_my_friends.dart';
-import 'package:woojoo/dio/friend/sync_my_friends.dart';
-import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:woojoo/utils/sync_contacts.dart';
 
 import '../../../common/widget/avatar/w_user_avatar.dart';
-import '../../../common/widget/game_badge/w_game_badge.dart';
+import '../../../common/widget/w_game_badge.dart';
+import '../../../remote/friend/get_my_friends.dart';
+import '../../../remote/friend/sync_my_friends.dart';
 
 class MyFriends extends StatefulWidget {
   const MyFriends({Key? key}) : super(key: key);

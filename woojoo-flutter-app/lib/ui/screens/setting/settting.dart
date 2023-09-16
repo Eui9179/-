@@ -8,12 +8,8 @@ import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
-import 'package:woojoo/dio/auth/withdrawal.dart';
-import 'package:woojoo/dio/dio_instance.dart';
-import 'package:woojoo/dio/profile/update_my_profile.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +18,11 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../remote/authentication/withdrawal.dart';
+import '../../../remote/dio_instance.dart';
+import '../../../remote/profile/update_my_profile.dart';
+
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);

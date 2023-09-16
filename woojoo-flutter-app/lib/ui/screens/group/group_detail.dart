@@ -4,16 +4,16 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
 import 'package:woojoo/common/widget/w_dividing_line.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
-import 'package:woojoo/dio/friend/delete_friend.dart';
-import 'package:woojoo/dio/friend/insert_friend.dart';
-import 'package:woojoo/dio/friend/insert_friends.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/group_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
 import 'package:woojoo/utils/notification.dart';
 
-import '../../../common/widget/game_badge/w_game_badge.dart';
+import '../../../common/widget/w_game_badge.dart';
 import '../../../controller/access_token_controller.dart';
-import '../../../dio/group/get_people_by_group.dart';
+import '../../../remote/friend/delete_friend.dart';
+import '../../../remote/friend/insert_friend.dart';
+import '../../../remote/friend/insert_friends.dart';
+import '../../../remote/group/get_people_by_group.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
 

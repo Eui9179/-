@@ -9,12 +9,13 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
-import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/dynamic_widget/input/outline_input.dart';
 import 'package:woojoo/ui/dynamic_widget/input/outline_input_readonly.dart';
 import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
+
+import '../../../../common/widget/w_rounded_button.dart';
 
 class Step1Profile extends StatefulWidget {
   const Step1Profile({Key? key}) : super(key: key);

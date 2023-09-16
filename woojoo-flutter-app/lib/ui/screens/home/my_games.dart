@@ -1,14 +1,13 @@
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
-import 'package:woojoo/dio/game/get_my_games.dart';
 import 'package:woojoo/ui/dynamic_widget/card/game_card.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../remote/game/get_my_games.dart';
 import '../../dynamic_widget/font/font.dart';
 
 class MyGames extends StatefulWidget {

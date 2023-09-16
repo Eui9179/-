@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
-import 'package:woojoo/dio/game/delete_todays_game.dart';
-import 'package:woojoo/dio/todays_games/get_todays_games.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../remote/game/delete_todays_game.dart';
+import '../../../../remote/todays_games/get_todays_games.dart';
 import 'select_todays_game.dart';
 
 class TodaysGameList extends StatefulWidget {

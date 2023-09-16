@@ -1,9 +1,8 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/dio/dio_instance.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/constants.dart';
+import '../../../remote/dio_instance.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({

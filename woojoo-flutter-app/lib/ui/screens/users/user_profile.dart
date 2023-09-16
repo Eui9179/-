@@ -8,8 +8,9 @@ import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../dio/friend/delete_friend.dart';
-import '../../../dio/friend/insert_friend.dart';
+import '../../../remote/friend/delete_friend.dart';
+import '../../../remote/friend/insert_friend.dart';
+
 
 class UserProfile extends StatefulWidget {
   const UserProfile(

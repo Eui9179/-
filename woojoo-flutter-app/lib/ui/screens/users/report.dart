@@ -1,11 +1,11 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
-import 'package:woojoo/dio/friend/report_user.dart';
-import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
-import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/utils/notification.dart';
+
+import '../../../remote/friend/report_user.dart';
 
 Future<String?> showReport(BuildContext context, int userId) async {
   List<bool> isCheckedList = [

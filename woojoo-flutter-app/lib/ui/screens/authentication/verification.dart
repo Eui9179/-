@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
-import 'package:woojoo/dio/auth/login.dart';
-import 'package:woojoo/dio/auth/verify_sms_auth.dart';
 import 'package:woojoo/main.dart';
-import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
 import 'package:woojoo/utils/notification.dart';
 
-import '../../../dio/auth/send_sms.dart';
+import '../../../common/widget/w_rounded_button.dart';
+import '../../../remote/authentication/login.dart';
+import '../../../remote/authentication/verification/send_sms.dart';
+import '../../../remote/authentication/verification/verify_sms_auth.dart';
 import '../../dynamic_widget/font/font.dart';
 
 class Verification extends StatefulWidget {

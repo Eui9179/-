@@ -2,7 +2,7 @@ import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/avatar/w_avatar.dart';
 import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
-import 'package:woojoo/common/widget/game_badge/w_game_badge.dart';
+import 'package:woojoo/common/widget/w_game_badge.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/game_logo_avatar.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';

@@ -1,15 +1,14 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
-import 'package:woojoo/ui/dynamic_widget/font/font.dart';
-import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/ui/dynamic_widget/font/font.dart';
+import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
 
+import '../../../../common/widget/w_rounded_button.dart';
 import '../../../../controller/access_token_controller.dart';
-import '../../../../dio/auth/signup.dart';
 import '../../../../main.dart';
+import '../../../../remote/authentication/signup.dart';
 import '../../../../utils/notification.dart';
 
 class Step2TOS extends StatefulWidget {

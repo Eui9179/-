@@ -1,15 +1,14 @@
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
-import 'package:woojoo/dio/friend/get_my_friends.dart';
-import 'package:woojoo/dio/game/update_my_games.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/my_friends_controller.dart';
+import '../../../remote/friend/get_my_friends.dart';
+import '../../../remote/game/update_my_games.dart';
 import '../../../utils/woojoo_games.dart';
 
 List<String> gameList = getWoojooGameList();
