@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:after_layout/after_layout.dart';
+
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
@@ -12,7 +13,8 @@ import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
 import 'package:woojoo/pages.dart';
-import 'package:woojoo/ui/screens/main_loading_screen.dart';
+import 'package:woojoo/ui/screens/authentication/login_screen.dart';
+import 'package:woojoo/ui/screens/home/home.dart';
 import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,7 +37,7 @@ void main() async {
   // FlutterNativeSplash.preserve(widgetsBinding: ensureInitialized);
 
   // await Firebase.initializeApp(
-    // options: DefaultFirebaseOptions.currentPlatform,
+  // options: DefaultFirebaseOptions.currentPlatform,
   // );
   // FirebaseMessaging.onBackgroundMessage(_messageHandler);
   runApp(const MyApp());
@@ -61,22 +63,18 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with AfterLayoutMixin {
-
+class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    Get.put(AccessTokenController());
-    Get.put(MyFriendsController());
-    Get.put(MyProfileController());
-    Get.put(MyGroupsController());
-    Get.put(MyGamesController());
-    Get.put(TodaysGameController());
-    Get.put(FcmTokenController());
+    _initGetXController();
+    _initAccessToken();
+    FlutterNativeSplash.remove();
 
     // FirebaseMessaging.instance.getToken().then((token) {
     //   print(token);
@@ -86,19 +84,27 @@ class _HomeState extends State<Home> with AfterLayoutMixin {
 
   @override
   Widget build(BuildContext context) {
-    return const MainLoadingScreen();
-  }
-
-  @override
-  FutureOr<void> afterFirstLayout(BuildContext context) async {
-    String accessToken = await const FlutterSecureStorage().read(key: "accessToken") ?? '';
-    Get.find<AccessTokenController>().accessToken = accessToken;
-    FlutterNativeSplash.remove();
     bool isLogin = Get.find<AccessTokenController>().isLogin();
     if (isLogin) {
-      Get.offAllNamed('/home');
+      return const MainHome();
     } else {
-      Get.offAllNamed('/login');
+      return const LoginPage();
     }
+  }
+
+  void _initAccessToken() async {
+    AccessTokenController controller = Get.find<AccessTokenController>();
+    String accessToken = await controller.readAccessTokenSecureStorage();
+    controller.accessToken = accessToken;
+  }
+
+  void _initGetXController() {
+    Get.put(AccessTokenController());
+    Get.put(MyFriendsController());
+    Get.put(MyProfileController());
+    Get.put(MyGroupsController());
+    Get.put(MyGamesController());
+    Get.put(TodaysGameController());
+    Get.put(FcmTokenController());
   }
 }

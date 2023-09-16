@@ -18,18 +18,18 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 1000), () {
-      setState(() {
-        _isLoading = false;
-      });
-    });
+    // Timer(const Duration(milliseconds: 1000), () {
+    //   setState(() {
+    //     _isLoading = false;
+    //   });
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const MainLoadingScreen();
-    } else {
+    // if (_isLoading) {
+    //   return const MainLoadingScreen();
+    // } else {
       return Scaffold(
           resizeToAvoidBottomInset: false,
           body: Stack(
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                       ))),
             ],
           ));
-    }
+    // }
   }
 
   _inputPhoneNumber(context) {
