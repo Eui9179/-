@@ -1,6 +1,7 @@
-import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../common/widget/logo/w_logo.dart';
 
 class MainLoadingScreen extends StatelessWidget {
   const MainLoadingScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class MainLoadingScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(top: 50, left: 16, child: WoojooLogo()),
+            const Positioned(top: 50, left: 16, child: Logo()),
           ],
         ));
   }

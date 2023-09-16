@@ -1,8 +1,7 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/logo/w_logo.dart';
 
 class MainPageBar extends StatelessWidget implements PreferredSizeWidget {
   const MainPageBar({Key? key}) : super(key: key);
@@ -19,32 +18,8 @@ class MainPageBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0.0,
       title: const Padding(
         padding: EdgeInsets.only(top: 10.0),
-        child: WoojooLogo(),
+        child: Logo(),
       ),
-      // actions: [
-      //   IconButton(
-      //     icon: const Icon(
-      //         Icons.calendar_today_outlined),
-      //     splashRadius: 25,
-      //     tooltip: '오늘할 게임',
-      //     onPressed: () {
-      //       Get.toNamed('/todays-games');
-      //     },
-      //   ),
-      //   IconButton(
-      //     icon: const Icon(
-      //       Icons.settings,
-      //     ),
-      //     splashRadius: 25,
-      //     tooltip: '설정',
-      //     onPressed: () {
-      //       Get.toNamed('/setting');
-      //     },
-      //   ),
-      //   const SizedBox(
-      //     width: 7,
-      //   )
-      // ],
     );
   }
 }

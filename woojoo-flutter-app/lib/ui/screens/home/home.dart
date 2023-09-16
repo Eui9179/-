@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/logo/w_logo.dart';
 import 'package:woojoo/controller/access_token_controller.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
@@ -17,8 +18,6 @@ import 'package:woojoo/ui/screens/home/main_page.dart';
 import 'package:woojoo/ui/screens/main_loading_screen.dart';
 import 'package:woojoo/ui/screens/setting/settting.dart';
 import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
-import 'package:woojoo/ui/static_widget/woojoo_logo.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -110,7 +109,7 @@ class _MainHomeState extends State<MainHome> {
 
   Widget navigationTitle() {
     if (_selectedIndex == 0) {
-      return const WoojooLogo();
+      return const Logo();
     } else if (_selectedIndex == 1) {
       return const Font(text: '오늘의 게임', size: 22);
     } else {

@@ -2,7 +2,6 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/dio/auth/send_sms.dart';
 import 'package:woojoo/ui/dynamic_widget/button/rounded_button.dart';
 import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class InputPhoneNumber extends StatefulWidget {
 class _InputPhoneNumberState extends State<InputPhoneNumber> {
   final _formKey = GlobalKey<FormState>();
   String _phoneNumber = "";
-  bool btnEnabled = false;
+  bool buttonActive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +69,8 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
                           },
                           onChanged: (val) {
                             val.length == 8
-                                ? setState(() => btnEnabled = true)
-                                : setState(() => btnEnabled = false);
+                                ? setState(() => buttonActive = true)
+                                : setState(() => buttonActive = false);
                           },
                           style: const TextStyle(
                               fontSize: 30.0, height: 2.0, color: Colors.white),
@@ -154,7 +153,7 @@ class _InputPhoneNumberState extends State<InputPhoneNumber> {
                       ),
                       const SizedBox(height: 50),
                       RoundedButton(
-                          btnEnabled: btnEnabled,
+                          btnEnabled: buttonActive,
                           onPressed: _onPressed,
                           text: "계속")
                     ],
