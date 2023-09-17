@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/authentication/dto_signup_request.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/layout/app_bar/text_app_bar.dart';
 
 import '../../../../common/widget/w_rounded_button.dart';
-import '../../../../controller/access_token_controller.dart';
-import '../../../../main.dart';
-import '../../../../remote/authentication/signup.dart';
-import '../../../../utils/notification.dart';
 
 class Step2TOS extends StatefulWidget {
   const Step2TOS({Key? key}) : super(key: key);
@@ -18,7 +16,7 @@ class Step2TOS extends StatefulWidget {
   State<Step2TOS> createState() => _Step2TOSState();
 }
 
-class _Step2TOSState extends State<Step2TOS> {
+class _Step2TOSState extends State<Step2TOS> with AuthenticationDataProvider {
   bool _isChecked1 = false;
   bool _isChecked2 = false;
   bool _isChecked3 = false;
@@ -129,21 +127,18 @@ class _Step2TOSState extends State<Step2TOS> {
   }
 
   _onPressed() {
-    Future<Map<String, dynamic>> response = dioApiSignup(Get.arguments);
-    response.then((res) {
-      int statusCode = res["statusCode"];
-      if (statusCode == 200) {
-        String accessToken = res["data"];
-        print("dioApiSignup() ${accessToken}");
-        storage.write(key: "accessToken", value: accessToken);
-        Get.find<AccessTokenController>().accessToken = accessToken;
-        Get.offNamed('/setting/games?type=signup');
-      } else if (statusCode == 409) {
-        notification(context, "이미 가입된 회원입니다. 로그인해주세요");
-      } else if (statusCode == 500) {
-        notification(context, "죄송합니다. 다시 실행시켜주세요");
-      }
-    });
+    final request = SignupRequest(data: Get.arguments);
+    authenticationData.signup(request);
+    // Future<Map<String, dynamic>> response = dioApiSignup(Get.arguments);
+    // response.then((res) {
+    //   int statusCode = res["statusCode"];
+    //   if (statusCode == 200) {
+    //     String accessToken = res["data"];
+    //     storage.write(key: "accessToken", value: accessToken);
+    //     Get.find<AccessTokenData>().accessToken = accessToken;
+        Get.offAllNamed('/setting/games?type=signup');
+      // }
+    // });
   }
 
   void _onTapTOSLaunch() => launchUrl(Uri.parse(''));

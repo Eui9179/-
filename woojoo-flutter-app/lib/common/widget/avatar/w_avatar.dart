@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/remote/dio_instance.dart';
+
+import '../../../data/remote/dio_instance.dart';
 
 class Avatar extends StatelessWidget {
   final String imagePath;

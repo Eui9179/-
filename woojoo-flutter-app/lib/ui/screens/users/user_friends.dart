@@ -1,5 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
 import 'package:woojoo/utils/notification.dart';
@@ -10,8 +10,8 @@ import '../../../common/constants.dart';
 import '../../../common/widget/avatar/w_avatar.dart';
 import '../../../common/widget/avatar/w_user_avatar.dart';
 import '../../../common/widget/w_dividing_line.dart';
-import '../../../remote/friend/delete_friend.dart';
-import '../../../remote/friend/insert_friend.dart';
+import '../../../data/remote/friend/delete_friend.dart';
+import '../../../data/remote/friend/insert_friend.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
 
@@ -235,7 +235,7 @@ class _UserFriendsState extends State<UserFriends> {
   }
 
   insertFriendsIntoMyFriends(int friendId, int index) {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response =
         dioApiInsertFriendOne(accessToken, friendId);
     response.then((res) {
@@ -257,7 +257,7 @@ class _UserFriendsState extends State<UserFriends> {
   }
 
   deleteFriendFromMyFriends(int friendId, int index) {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response =
         dioApiDeleteFriendOne(accessToken, friendId);
     response.then((res) {

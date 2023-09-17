@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
-import 'package:woojoo/screen/authentication/verification/verification_data.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
+import 'package:woojoo/data/memory/authentication/verification/dto_send_verification_code_request.dart';
+import 'package:woojoo/data/memory/authentication/verification/dto_verify_code_request.dart';
 import 'package:woojoo/screen/authentication/verification/w_verification_code_input.dart';
 
 import '../../../common/widget/w_height.dart';
 import '../../../common/widget/w_rounded_button.dart';
-import '../../../controller/access_token_controller.dart';
 import '../../../controller/fcm_token_controller.dart';
 import '../../../main.dart';
-import '../../../remote/authentication/login.dart';
-import '../../../remote/authentication/verification/send_sms.dart';
 import '../../../ui/layout/app_bar/logo_app_bar.dart';
+import '../../../ui/screens/authentication/signup/step1_profile.dart';
 import '../../../utils/notification.dart';
 
 class VerificationScreen extends StatefulWidget {
@@ -24,14 +25,14 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen>
-    with AccessTokenDataProvider, VerificationData {
+    with AuthenticationDataProvider {
   final String phoneNumber = Get.arguments;
 
   _VerificationScreenState();
 
   final _formKey = GlobalKey<FormState>();
 
-  String smsCode = "";
+  String verificationCode = "";
   final String fcmToken = Get.find<FcmTokenController>().fcmToken;
   bool btnEnabled = false;
   bool isVerification = false;
@@ -63,11 +64,12 @@ class _VerificationScreenState extends State<VerificationScreen>
                   children: [
                     VerificationCodeInput(
                       validator: (value) {
-                        return isValidate(value) ? null : '코드를 확인해주세요';
+                        return _isValidate(value) ? null : '코드를 확인해주세요';
                       },
-                      onCompleted: (pin) => setState(() => smsCode = pin),
+                      onCompleted: (pin) =>
+                          setState(() => verificationCode = pin),
                       onChanged: (val) =>
-                          setState(() => btnEnabled = isValidate(val)),
+                          setState(() => btnEnabled = _isValidate(val)),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,7 +79,7 @@ class _VerificationScreenState extends State<VerificationScreen>
                             .color(context.appColors.font)
                             .make(),
                         TextButton(
-                          onPressed: () => resend(),
+                          onPressed: () => _resend(),
                           child: "재전송"
                               .text
                               .color(context.appColors.textButton)
@@ -101,55 +103,39 @@ class _VerificationScreenState extends State<VerificationScreen>
   }
 
   onPressed() {
-    verifySmsCode(phoneNumber, smsCode).then((statusCode) {
-      switch (statusCode) {
+    final request = VerifyCodeRequest(
+      phoneNumber: phoneNumber,
+      cp: verificationCode,
+    );
+    verificationData.verifyCode(context, request, _decideNextPage);
+  }
+
+  _decideNextPage() {
+    final request = LoginRequest(
+      phoneNumber: phoneNumber,
+      fcm: fcmToken,
+      verificationCode: verificationCode,
+    );
+    authenticationData.login(request).then((response) {
+      switch (response.statusCode) {
         case 200:
-          decideNextPage();
-        case 403:
-          notification(context, "코드를 확인해주세요.");
+          Get.offAll(() => const Home());
         default:
-          notification(context, "잘못된 요청입니다.");
+          Get.to(() => const Step1Profile(), arguments: phoneNumber);
       }
     });
   }
 
-  decideNextPage() {
-    Future<Map<String, dynamic>> response =
-        dioApiLogin(phoneNumber, fcmToken, smsCode);
-    response.then((result) {
-      int statusCode = result["statusCode"];
-      if (statusCode == 200) {
-        signin(result["data"]);
-      } else if (statusCode == 401) {
-        signup();
-      }
-    });
-  }
-
-  signup() {
-    Get.toNamed('auth/signup/step1', arguments: phoneNumber);
-  }
-
-  signin(String accessToken) async {
-    storage.write(key: "accessToken", value: accessToken).then((value) {
-      accessTokenData.accessToken = accessToken;
-      Get.offAllNamed('/');
-    });
-  }
-
-  resend() {
-    _formKey.currentState!.save();
-    Future<Map<String, dynamic>> response = dioApiSendSms(phoneNumber);
-    response.then((result) {
-      int statusCode = result["statusCode"];
-      if (statusCode == 200) {
-        Get.toNamed('/auth/verification', arguments: phoneNumber);
-      } else {
-        notification(context, "오류 발생");
-      }
-    });
-  }
-
-  bool isValidate(String? value) =>
+  bool _isValidate(String? value) =>
       value.isNotEmptyAndNotNull || value?.length == 6;
+
+  _resend() {
+    setState(() {
+      verificationCode = "";
+    });
+    final request = SendVerificationCodeRequest(phoneNumber: phoneNumber);
+    verificationData.sendVerificationCode(request).then((statusCode) {
+      if (statusCode != 200) notification(context, "오류 발생");
+    });
+  }
 }

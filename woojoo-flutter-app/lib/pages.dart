@@ -1,8 +1,8 @@
 import 'package:woojoo/screen/authentication/login_input/s_login_input.dart';
 import 'package:woojoo/screen/authentication/s_login.dart';
+import 'package:woojoo/screen/authentication/verification/s_verification.dart';
 import 'package:woojoo/ui/screens/authentication/signup/step1_profile.dart';
 import 'package:woojoo/ui/screens/authentication/signup/step2_tos.dart';
-import 'package:woojoo/ui/screens/authentication/verification.dart';
 import 'package:woojoo/ui/screens/friends/friends_in_game.dart';
 import 'package:woojoo/ui/screens/group/group_detail.dart';
 import 'package:woojoo/ui/screens/friends/acquaintance.dart';
@@ -34,7 +34,7 @@ List<GetPage> pages = [
       transition: Transition.rightToLeft),
   GetPage(
     name: '/auth/verification',
-    page: () => const Verification(),
+    page: () => const VerificationScreen(),
     transition: Transition.rightToLeft,
   ),
   GetPage(

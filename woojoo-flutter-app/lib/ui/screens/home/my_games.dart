@@ -1,5 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/card/game_card.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
@@ -7,7 +7,7 @@ import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/game/get_my_games.dart';
+import '../../../data/remote/game/get_my_games.dart';
 import '../../dynamic_widget/font/font.dart';
 
 class MyGames extends StatefulWidget {
@@ -103,7 +103,7 @@ class _MyGamesState extends State<MyGames> {
 
   _initMyGameList() {
     print('_initMyGameList');
-    _accessToken = Get.find<AccessTokenController>().accessToken;
+    _accessToken = Get.find<AccessTokenData>().accessToken;
     _getMyGameList();
   }
 

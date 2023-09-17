@@ -6,7 +6,7 @@ import 'package:after_layout/after_layout.dart';
 
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
@@ -73,7 +73,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     _initGetXController();
-    _initAccessToken();
     FlutterNativeSplash.remove();
 
     // FirebaseMessaging.instance.getToken().then((token) {
@@ -84,7 +83,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    bool isLogin = Get.find<AccessTokenController>().isLogin();
+    bool isLogin = Get.find<AccessTokenData>().isLogin();
     if (isLogin) {
       return const MainHome();
     } else {
@@ -92,14 +91,8 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void _initAccessToken() async {
-    AccessTokenController controller = Get.find<AccessTokenController>();
-    String accessToken = await controller.readAccessTokenSecureStorage();
-    controller.accessToken = accessToken;
-  }
-
   void _initGetXController() {
-    Get.put(AccessTokenController());
+    Get.put(AccessTokenData());
     Get.put(MyFriendsController());
     Get.put(MyProfileController());
     Get.put(MyGroupsController());

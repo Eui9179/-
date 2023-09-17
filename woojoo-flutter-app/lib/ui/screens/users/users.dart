@@ -1,5 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/screens/home/profile_loading_screen.dart';
 import 'package:woojoo/ui/screens/users/report.dart';
@@ -10,7 +10,7 @@ import 'package:woojoo/ui/screens/users/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/profile/get_user.dart';
+import '../../../data/remote/profile/get_user.dart';
 import 'block.dart';
 
 class Users extends StatefulWidget {
@@ -79,7 +79,7 @@ class _UsersState extends State<Users> {
   }
 
   _initUser() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response = dioApiUser(accessToken, userId);
     response.then((res) {
       int statusCode = res['statusCode'];

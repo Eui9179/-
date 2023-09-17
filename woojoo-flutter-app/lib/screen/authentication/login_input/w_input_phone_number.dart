@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
 
-import 'login_input_data.dart';
+import '../../../data/memory/authentication/login_input_data.dart';
 
 class InputPhoneNumber extends StatefulWidget {
   const InputPhoneNumber({super.key});
@@ -31,7 +32,7 @@ class _InputPhoneNumberState extends State<InputPhoneNumber>
         ],
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null || value.isEmpty || value.length != 8) {
+          if (value.isEmptyOrNull || value?.length != 8) {
             return "전화번호 번호 8자리 입력";
           }
           return null;

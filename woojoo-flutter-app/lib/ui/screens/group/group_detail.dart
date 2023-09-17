@@ -9,11 +9,11 @@ import 'package:woojoo/ui/dynamic_widget/button/font_button.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../../common/widget/w_game_badge.dart';
-import '../../../controller/access_token_controller.dart';
-import '../../../remote/friend/delete_friend.dart';
-import '../../../remote/friend/insert_friend.dart';
-import '../../../remote/friend/insert_friends.dart';
-import '../../../remote/group/get_people_by_group.dart';
+import '../../../data/memory/authentication/access_token_data.dart';
+import '../../../data/remote/friend/delete_friend.dart';
+import '../../../data/remote/friend/insert_friend.dart';
+import '../../../data/remote/friend/insert_friends.dart';
+import '../../../data/remote/group/get_people_by_group.dart';
 import '../../dynamic_widget/font/font.dart';
 import '../../dynamic_widget/font/subject_title.dart';
 
@@ -234,7 +234,7 @@ class _GroupDetailState extends State<GroupDetail> {
   }
 
   void _initMyGroupDetail() {
-    _accessToken = Get.find<AccessTokenController>().accessToken;
+    _accessToken = Get.find<AccessTokenData>().accessToken;
 
     Future<Map<String, dynamic>> response =
         dioApiGetPeopleByGroup(_accessToken, groupName);
@@ -265,7 +265,7 @@ class _GroupDetailState extends State<GroupDetail> {
   }
 
   insertFriendsIntoMyFriends(int userId) {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response =
         dioApiInsertFriendOne(accessToken, userId);
     response.then((res) {
@@ -284,7 +284,7 @@ class _GroupDetailState extends State<GroupDetail> {
   }
 
   deleteFriendFromMyFriends(int userId) {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response =
         dioApiDeleteFriendOne(accessToken, userId);
     response.then((res) {

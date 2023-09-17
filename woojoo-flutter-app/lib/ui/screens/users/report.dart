@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/utils/notification.dart';
 
-import '../../../remote/friend/report_user.dart';
+import '../../../data/remote/friend/report_user.dart';
 
 Future<String?> showReport(BuildContext context, int userId) async {
   List<bool> isCheckedList = [
@@ -18,7 +18,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
   ];
 
   _onPressed(List<bool> isCheckedList, int userId) {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     String reportString = '';
 
     for (int i = 0; i < isCheckedList.length; i++) {

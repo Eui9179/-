@@ -1,11 +1,11 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/game/update_my_game_nickname.dart';
+import '../../../data/remote/game/update_my_game_nickname.dart';
 
 class GameCard extends StatefulWidget {
   const GameCard(
@@ -295,7 +295,7 @@ class _GameCardState extends State<GameCard> {
   }
 
   _updateGameNickname() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response = dioApiUpdateMyGamesNickname(
         accessToken, widget.gameName, _textFieldController.text);
     response.then((res) {

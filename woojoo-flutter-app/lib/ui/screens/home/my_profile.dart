@@ -1,12 +1,12 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/avatar/profile_avatar.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/profile/get_my_profile.dart';
+import '../../../data/remote/profile/get_my_profile.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({Key? key}) : super(key: key);
@@ -102,7 +102,7 @@ class _MyProfileState extends State<MyProfile> {
   }
 
   _initMyProfile() {
-    final String accessToken = Get.find<AccessTokenController>().accessToken;
+    final String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response = dioApiGetMyProfile(accessToken);
     response.then((res) {
       int statusCode = res["statusCode"];

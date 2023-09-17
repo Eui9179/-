@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/todays_game_controller.dart';
 
-import '../../../../remote/game/insert_todays_game.dart';
-import '../../../../remote/todays_games/get_todays_games.dart';
+import '../../../../data/remote/game/insert_todays_game.dart';
+import '../../../../data/remote/todays_games/get_todays_games.dart';
 
 Future<String?> showSelectTodaysGame(
     BuildContext context, bool isUpdate) async {
@@ -187,7 +187,7 @@ Future<String?> showSelectTodaysGame(
 }
 
 _onPressed(String game, String introduction, bool isUpdate) {
-  String accessToken = Get.find<AccessTokenController>().accessToken;
+  String accessToken = Get.find<AccessTokenData>().accessToken;
   Future<Map<String, dynamic>> response =
       dioApiInsertTodaysGame(accessToken, game, introduction);
   response.then((res) {
@@ -204,7 +204,7 @@ _onPressed(String game, String introduction, bool isUpdate) {
 }
 
 getMyTodaysGameList() {
-  String accessToken = Get.find<AccessTokenController>().accessToken;
+  String accessToken = Get.find<AccessTokenData>().accessToken;
   Future<dynamic> response = dioApiGetTodaysGames(accessToken);
   response.then((res) {
     int statusCode = res["statusCode"];

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
@@ -12,8 +12,8 @@ import 'package:woojoo/utils/sync_contacts.dart';
 
 import '../../../common/widget/avatar/w_user_avatar.dart';
 import '../../../common/widget/w_game_badge.dart';
-import '../../../remote/friend/get_my_friends.dart';
-import '../../../remote/friend/sync_my_friends.dart';
+import '../../../data/remote/friend/get_my_friends.dart';
+import '../../../data/remote/friend/sync_my_friends.dart';
 
 class MyFriends extends StatefulWidget {
   const MyFriends({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _MyFriendsState extends State<MyFriends> {
   @override
   void initState() {
     super.initState();
-    _accessToken = Get.find<AccessTokenController>().accessToken;
+    _accessToken = Get.find<AccessTokenData>().accessToken;
   }
 
   @override

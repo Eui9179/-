@@ -1,15 +1,15 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/friend/block_user.dart';
+import '../../../data/remote/friend/block_user.dart';
 
 Future<String?> showBlockDialog(BuildContext context, int userId) async {
   blockUserHandler() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<dynamic> response = dioApiBlockUser(accessToken, userId);
     response.then((res) {
       int statusCode = res['statusCode'];

@@ -6,6 +6,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
@@ -66,7 +67,7 @@ class _Step1ProfileState extends State<Step1Profile> {
                           ? CircleAvatar(
                               radius: 55,
                               backgroundImage: Image.asset(
-                                "assets/images/logo/default.png",
+                                "$basePath/default.png",
                                 fit: BoxFit.cover,
                               ).image,
                             )

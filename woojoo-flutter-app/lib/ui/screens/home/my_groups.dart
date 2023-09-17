@@ -1,10 +1,10 @@
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/group/get_my_groups.dart';
+import '../../../data/remote/group/get_my_groups.dart';
 import '../../dynamic_widget/button/group_text_button.dart';
 
 class MyGroups extends StatefulWidget {
@@ -57,7 +57,7 @@ class _MyGroupsState extends State<MyGroups> {
   }
 
   void _initMyGroups() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response = dioApiGetMyGroups(accessToken);
     response.then((res) {
       int statusCode = res['statusCode'];

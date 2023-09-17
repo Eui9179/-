@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/fcm_token_controller.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/authentication/dto_fcm_request.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/ui/screens/home/main_page.dart';
 import 'package:woojoo/ui/screens/main_loading_screen.dart';
@@ -16,11 +18,10 @@ import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../remote/authentication/async_fcm_token.dart';
-import '../../../remote/friend/get_my_friends.dart';
-import '../../../remote/game/get_my_games.dart';
-import '../../../remote/group/get_my_groups.dart';
-import '../../../remote/profile/get_my_profile.dart';
+import '../../../data/remote/friend/get_my_friends.dart';
+import '../../../data/remote/game/get_my_games.dart';
+import '../../../data/remote/group/get_my_groups.dart';
+import '../../../data/remote/profile/get_my_profile.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class MainHome extends StatefulWidget {
   State<MainHome> createState() => _MainHomeState();
 }
 
-class _MainHomeState extends State<MainHome> {
+class _MainHomeState extends State<MainHome> with AuthenticationDataProvider {
   int _selectedIndex = 0;
   bool _isLoading = true;
   PageController pageController = PageController();
@@ -119,7 +120,7 @@ class _MainHomeState extends State<MainHome> {
   }
 
   Future<bool> _initUserData() async {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     _asyncFcmToken(accessToken);
     // _initMyProfile(accessToken);
     _initMyGroups(accessToken);
@@ -129,15 +130,8 @@ class _MainHomeState extends State<MainHome> {
   }
 
   void _asyncFcmToken(String accessToken) {
-    String fcmToken = Get.find<FcmTokenController>().fcmToken;
-    Future<Map<String, dynamic>> response =
-        dioApiAsyncFcmToken(accessToken, fcmToken);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode != 200) {
-        print(statusCode);
-      }
-    });
+    String fcm = Get.find<FcmTokenController>().fcmToken;
+    authenticationData.syncFcm(FcmRequest(fcm: fcm));
   }
 
   void _initMyProfile(String accessToken) {

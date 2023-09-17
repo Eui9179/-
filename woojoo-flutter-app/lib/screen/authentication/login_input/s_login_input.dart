@@ -4,6 +4,9 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/common/widget/w_height.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/authentication/verification/dto_send_verification_code_request.dart';
+import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
 import 'package:woojoo/screen/authentication/login_input/w_input_phone_number.dart';
 import 'package:woojoo/screen/authentication/login_input/w_terms_description.dart';
 import 'package:woojoo/screen/authentication/verification/s_verification.dart';
@@ -11,8 +14,7 @@ import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../../common/widget/w_rounded_button.dart';
-import '../../../remote/authentication/verification/send_sms.dart';
-import 'login_input_data.dart';
+import '../../../data/memory/authentication/login_input_data.dart';
 
 class LoginInput extends StatefulWidget {
   const LoginInput({Key? key}) : super(key: key);
@@ -21,7 +23,8 @@ class LoginInput extends StatefulWidget {
   State<LoginInput> createState() => _LoginInputState();
 }
 
-class _LoginInputState extends State<LoginInput> with LoginInputDataProvider {
+class _LoginInputState extends State<LoginInput>
+    with LoginInputDataProvider, AuthenticationDataProvider {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -59,7 +62,7 @@ class _LoginInputState extends State<LoginInput> with LoginInputDataProvider {
                         const Height(50),
                         RoundedButton(
                           btnEnabled: inputData.buttonActive,
-                          onPressed: verify,
+                          onPressed: sendVerificationCode,
                           text: "계속",
                         )
                       ],
@@ -70,17 +73,20 @@ class _LoginInputState extends State<LoginInput> with LoginInputDataProvider {
             ).p16()));
   }
 
-  verify() {
-    print("verify");
+  sendVerificationCode() {
     formKey.currentState!.save();
-    Future<Map<String, dynamic>> response =
-        dioApiSendSms(inputData.phoneNumber);
-    response.then((result) {
-      int statusCode = result["statusCode"];
-      if (statusCode == 200) {
-        Get.to(() => const VerificationScreen(), arguments: inputData.phoneNumber);
-      } else {
-        notification(context, "오류 발생");
+    final request = SendVerificationCodeRequest(
+      phoneNumber: inputData.phoneNumber,
+    );
+    verificationData.sendVerificationCode(request).then((statusCode) {
+      switch (statusCode) {
+        case 200:
+          Get.to(
+            () => const VerificationScreen(),
+            arguments: inputData.phoneNumber,
+          );
+        default:
+          notification(context, "오류 발생");
       }
     });
   }

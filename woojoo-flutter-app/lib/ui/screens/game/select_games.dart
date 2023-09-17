@@ -1,5 +1,5 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/ui/dynamic_widget/font/subject_title.dart';
 import 'package:woojoo/utils/notification.dart';
@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/my_friends_controller.dart';
-import '../../../remote/friend/get_my_friends.dart';
-import '../../../remote/game/update_my_games.dart';
+import '../../../data/remote/friend/get_my_friends.dart';
+import '../../../data/remote/game/update_my_games.dart';
 import '../../../utils/woojoo_games.dart';
 
 List<String> gameList = getWoojooGameList();
@@ -132,7 +132,7 @@ class _SelectGameState extends State<SelectGames> {
   }
 
   _onPressed() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
+    String accessToken = Get.find<AccessTokenData>().accessToken;
     Future<Map<String, dynamic>> response =
         dioApiUpdateMyGames(accessToken, filterSelectedGameList());
     response.then((res) {

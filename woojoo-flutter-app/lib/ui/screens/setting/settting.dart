@@ -3,11 +3,12 @@ import 'dart:io';
 
 import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/controller/access_token_controller.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/controller/my_friends_controller.dart';
 import 'package:woojoo/controller/my_games_controller.dart';
 import 'package:woojoo/controller/my_groups_controller.dart';
 import 'package:woojoo/controller/my_profile_controller.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/ui/dynamic_widget/font/font.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
@@ -19,10 +20,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../remote/authentication/withdrawal.dart';
-import '../../../remote/dio_instance.dart';
-import '../../../remote/profile/update_my_profile.dart';
-
+import '../../../data/remote/dio_instance.dart';
+import '../../../data/remote/profile/update_my_profile.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class Setting extends StatefulWidget {
   State<Setting> createState() => _SettingState();
 }
 
-class _SettingState extends State<Setting> {
+class _SettingState extends State<Setting> with AuthenticationDataProvider {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _typeAheadController = TextEditingController();
   final List<String> _groups = [];
@@ -49,7 +48,6 @@ class _SettingState extends State<Setting> {
   @override
   void initState() {
     super.initState();
-    //TODO: 현재는 그룹 한개만
     _typeAheadController.text =
         Get.find<MyGroupsController>().groups[0]["name"];
     _detail1 = Get.find<MyGroupsController>().groups[0]["detail1"];
@@ -377,7 +375,7 @@ class _SettingState extends State<Setting> {
     });
     if (_isName && _isGroup) {
       _formKey.currentState!.save();
-      String accessToken = Get.find<AccessTokenController>().accessToken;
+      String accessToken = Get.find<AccessTokenData>().accessToken;
       Map profileData = {
         'isFile': _isFile,
         'file': _image,
@@ -421,22 +419,22 @@ class _SettingState extends State<Setting> {
   }
 
   _onWithdrawal() {
-    String accessToken = Get.find<AccessTokenController>().accessToken;
-    Future<Map<String, dynamic>> response = dioApiWithdrawal(accessToken);
-    response.then((res) {
-      int statusCode = res['statusCode'];
+    authenticationData.withdrawal().then((statusCode) {
       if (statusCode == 200) {
-        storage.delete(key: "accessToken");
-        Get.find<AccessTokenController>().clear();
-        Get.find<MyGroupsController>().clear();
-        Get.find<MyProfileController>().clear();
-        Get.find<MyFriendsController>().clear();
-        Get.find<MyGamesController>().clear();
+        clearGetXController();
         Get.offAllNamed('/');
       } else {
         notification(context, '죄송합니다. 다시 실행시켜주세요[$statusCode]');
       }
     });
+  }
+
+  void clearGetXController() {
+    Get.find<AccessTokenData>().clear();
+    Get.find<MyGroupsController>().clear();
+    Get.find<MyProfileController>().clear();
+    Get.find<MyFriendsController>().clear();
+    Get.find<MyGamesController>().clear();
   }
 
   Future getImageFromGallery() async {
