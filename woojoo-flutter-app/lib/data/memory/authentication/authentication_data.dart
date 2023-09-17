@@ -14,7 +14,7 @@ class AuthenticationData with AccessTokenDataProvider {
 
   Future<AccessTokenResponse> login(LoginRequest request) async {
     AccessTokenResponse accessTokenResponse =
-    await authRepository.login(request);
+        await authRepository.login(request);
     int statusCode = accessTokenResponse.statusCode;
     String? accessToken = accessTokenResponse.accessToken;
 
@@ -43,7 +43,8 @@ class AuthenticationData with AccessTokenDataProvider {
   }
 
   Future<int> withdrawal() async {
-    int statusCode = await authRepository.withdrawal(accessTokenData.accessToken);
+    int statusCode =
+        await authRepository.withdrawal(accessTokenData.accessToken);
     accessTokenData.clear();
     return statusCode;
   }

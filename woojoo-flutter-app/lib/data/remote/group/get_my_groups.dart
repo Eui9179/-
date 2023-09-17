@@ -10,10 +10,6 @@ Future<Map<String, dynamic>> dioApiGetMyGroups(String? accessToken) async {
       "statusCode": response.statusCode,
       "data": response.data["my_groups"]
     };
-    // return {
-    //   "statusCode": 200,
-    //   "data": [{"name":"상원고등학교", "detail1":"2"}]
-    // };
   } on DioError catch (error) {
     return {"statusCode": error.response!.statusCode};
   } finally {

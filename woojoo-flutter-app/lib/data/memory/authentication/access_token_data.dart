@@ -10,14 +10,9 @@ abstract mixin class AccessTokenDataProvider {
 class AccessTokenData extends GetxController {
   RxString accessTokenObs = ''.obs;
 
-  @override
-  void onInit() async {
-    super.onInit();
-    readAccessTokenSecureStorage().then((accessToken) => this.accessToken = accessToken);
-  }
   void clear() {
     storage.delete(key: "accessToken");
-    accessTokenObs.value = '';
+    accessTokenObs = ''.obs;
   }
 
   bool isLogin() {
@@ -32,6 +27,8 @@ class AccessTokenData extends GetxController {
   }
 
   Future<String> readAccessTokenSecureStorage() async {
-    return await const FlutterSecureStorage().read(key: "accessToken") ?? '';
+    String readAccessToken =  await const FlutterSecureStorage().read(key: "accessToken") ?? '';
+    accessToken = readAccessToken;
+    return accessToken;
   }
 }

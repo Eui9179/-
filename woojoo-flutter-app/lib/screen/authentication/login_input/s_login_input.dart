@@ -6,14 +6,13 @@ import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/common/widget/w_height.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 import 'package:woojoo/data/memory/authentication/verification/dto_send_verification_code_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
 import 'package:woojoo/screen/authentication/login_input/w_input_phone_number.dart';
 import 'package:woojoo/screen/authentication/login_input/w_terms_description.dart';
 import 'package:woojoo/screen/authentication/verification/s_verification.dart';
-import 'package:woojoo/ui/layout/app_bar/logo_app_bar.dart';
+import 'package:woojoo/common/appbar/logo_app_bar.dart';
 import 'package:woojoo/utils/notification.dart';
 
-import '../../../common/widget/w_rounded_button.dart';
+import '../../../common/widget/button/w_rounded_button.dart';
 import '../../../data/memory/authentication/login_input_data.dart';
 
 class LoginInput extends StatefulWidget {

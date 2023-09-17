@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 
 import '../dio_instance.dart';
@@ -8,7 +10,7 @@ Future<Map<String, dynamic>> dioApiGetMyGames(String? accessToken) async {
     Response response = await dio.get('/games/me');
     return {"statusCode": 200, "data": response.data["my_games"]};
   } catch (error) {
-    print(error);
+    log(error.toString());
     return {"statusCode": error};
   }
 }

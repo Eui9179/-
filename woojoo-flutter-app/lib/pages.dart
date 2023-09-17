@@ -1,31 +1,31 @@
+import 'package:woojoo/app.dart';
 import 'package:woojoo/screen/authentication/login_input/s_login_input.dart';
 import 'package:woojoo/screen/authentication/s_login.dart';
 import 'package:woojoo/screen/authentication/verification/s_verification.dart';
-import 'package:woojoo/ui/screens/authentication/signup/step1_profile.dart';
-import 'package:woojoo/ui/screens/authentication/signup/step2_tos.dart';
-import 'package:woojoo/ui/screens/friends/friends_in_game.dart';
-import 'package:woojoo/ui/screens/group/group_detail.dart';
-import 'package:woojoo/ui/screens/friends/acquaintance.dart';
-import 'package:woojoo/ui/screens/group/group_detail1.dart';
-import 'package:woojoo/ui/screens/home/home.dart';
-import 'package:woojoo/ui/screens/home/main_page.dart';
-import 'package:woojoo/ui/screens/game/select_games.dart';
-import 'package:woojoo/ui/screens/setting/settting.dart';
-import 'package:woojoo/ui/screens/game/todays_game/todays_game_list.dart';
-import 'package:woojoo/ui/screens/users/users.dart';
-import 'package:get/get.dart';
 
-import 'main.dart';
+import 'package:get/get.dart';
+import 'package:woojoo/screen/authentication/signup/s_step1_profile.dart';
+import 'package:woojoo/screen/authentication/signup/s_step2_tos.dart';
+import 'package:woojoo/screen/game_setting/s_game_setting.dart';
+import 'package:woojoo/screen/main/tab/home/game_friend_list/s_game_friend_list.dart';
+import 'package:woojoo/screen/acquaintance/s_acquaintance.dart';
+import 'package:woojoo/screen/main/tab/todays_game/s_todays_game_list.dart';
+import 'package:woojoo/screen/main/tab/home/group/s_group.dart';
+import 'package:woojoo/screen/main/tab/home/group/s_group_detail.dart';
+import 'package:woojoo/screen/main/s_main.dart';
+import 'package:woojoo/screen/main/tab/home/s_home.dart';
+import 'package:woojoo/screen/main/tab/setting/s_settting.dart';
+import 'package:woojoo/screen/user/s_user.dart';
 
 List<GetPage> pages = [
-  GetPage(name: '/', page: () => const Home()),
+  GetPage(name: '/', page: () => const App()),
   GetPage(
     name: '/login',
     page: () => const LoginScreen(),
   ),
   GetPage(
       name: '/home',
-      page: () => const MainHome(),
+      page: () => const MainScreen(),
       transition: Transition.noTransition),
   GetPage(name: '/main', page: () => const MainPage()),
   GetPage(
@@ -39,42 +39,42 @@ List<GetPage> pages = [
   ),
   GetPage(
       name: '/auth/signup/step1',
-      page: () => const Step1Profile(),
+      page: () => const Step1ProfileScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/auth/signup/step2',
-      page: () => const Step2TOS(),
+      page: () => const Step2TOSScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/setting/games',
-      page: () => const SelectGames(),
+      page: () => const GameSettingScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/group/detail',
-      page: () => const GroupDetail(),
+      page: () => const GroupScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/group/detail1',
-      page: () => const GroupDetail1(),
+      page: () => const GroupDetailScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/acquaintance',
-      page: () => Acquaintance(),
+      page: () => AcquaintanceScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/users/:userId',
-      page: () => const Users(),
+      page: () => const UserScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/friends/:gameName',
-      page: () => const FriendsInGame(),
+      page: () => const GameFriendListScreen(),
       transition: Transition.rightToLeft),
   GetPage(
       name: '/setting',
-      page: () => const Setting(),
+      page: () => const SettingScreen(),
       transition: Transition.rightToLeft),
   GetPage(
     name: '/todays-games',
-    page: () => const TodaysGameList(),
+    page: () => const TodaysGameListScreen(),
   ),
 ];

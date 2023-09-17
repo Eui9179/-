@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:woojoo/app.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
@@ -10,11 +11,11 @@ import 'package:woojoo/data/memory/authentication/verification/dto_verify_code_r
 import 'package:woojoo/screen/authentication/verification/w_verification_code_input.dart';
 
 import '../../../common/widget/w_height.dart';
-import '../../../common/widget/w_rounded_button.dart';
-import '../../../controller/fcm_token_controller.dart';
+import '../../../common/widget/button/w_rounded_button.dart';
+import '../../../data/controller/fcm_token_controller.dart';
 import '../../../main.dart';
-import '../../../ui/layout/app_bar/logo_app_bar.dart';
-import '../../../ui/screens/authentication/signup/step1_profile.dart';
+import '../../../common/appbar/logo_app_bar.dart';
+import '../signup/s_step1_profile.dart';
 import '../../../utils/notification.dart';
 
 class VerificationScreen extends StatefulWidget {
@@ -119,9 +120,9 @@ class _VerificationScreenState extends State<VerificationScreen>
     authenticationData.login(request).then((response) {
       switch (response.statusCode) {
         case 200:
-          Get.offAll(() => const Home());
+          Get.offAll(() => const App());
         default:
-          Get.to(() => const Step1Profile(), arguments: phoneNumber);
+          Get.to(() => const Step1ProfileScreen(), arguments: phoneNumber);
       }
     });
   }

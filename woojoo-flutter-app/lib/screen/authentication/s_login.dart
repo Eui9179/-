@@ -6,7 +6,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo_with_name.dart';
 import 'package:woojoo/common/widget/w_height.dart';
 
-import '../../common/widget/w_rounded_button.dart';
+import '../../common/widget/button/w_rounded_button.dart';
 import 'login_input/s_login_input.dart';
 
 class LoginScreen extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:woojoo/common/widget/avatar/w_avatar.dart';
 import 'package:woojoo/common/widget/w_height.dart';
 
-import '../../ui/dynamic_widget/font/subject_title.dart';
+import 'w_subject_title.dart';
 import '../constants.dart';
 import 'w_width.dart';
 
