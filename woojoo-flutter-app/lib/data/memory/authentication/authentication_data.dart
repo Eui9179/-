@@ -1,6 +1,6 @@
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
-import 'package:woojoo/data/remote/authentication_api.dart';
+import 'package:woojoo/data/remote/authentication/authentication_api.dart';
 
 import 'dto_access_token.dart';
 import 'dto_login_request.dart';

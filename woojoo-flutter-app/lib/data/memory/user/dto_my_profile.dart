@@ -6,9 +6,9 @@ class MyProfile {
   final int statusCode;
 
   MyProfile({
-    required this.name,
-    required this.profileImageName,
-    required this.statusCode,
+    this.name = '',
+    this.profileImageName,
+    this.statusCode = 200,
   });
 
   factory MyProfile.fromJson(Response response) {

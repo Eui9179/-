@@ -5,6 +5,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/prefs/first_connection.dart';
+import '../../../../data/memory/group/group_data.dart';
 import '../../../../data/memory/user/user_simple_data.dart';
 import '../../../../dialog/d_select_todays_game.dart';
 import 'f_home_profile.dart';
@@ -29,6 +30,7 @@ class _MainPageState extends State<MainPage>
   @override
   void initState() {
     Get.put(UserSimpleData());
+    Get.put(GroupData());
     super.initState();
   }
 

@@ -14,19 +14,19 @@ abstract mixin class UserDataProvider {
 }
 
 class UserData extends UserSimpleData {
-  RxString fcmRx = ''.obs;
-  RxString groupRx = ''.obs;
-  RxString detailRx = ''.obs;
+  RxString rxFcm = ''.obs;
+  RxString rxGroup = ''.obs;
+  RxString rxDetail = ''.obs;
 
-  String get fcm => fcmRx.value;
+  String get fcm => rxFcm.value;
 
-  String get group => groupRx.value;
+  String get group => rxGroup.value;
 
-  String get detail => detailRx.value;
+  String get detail => rxDetail.value;
 
-  set fcm(String fcm) => fcmRx(fcm);
+  set fcm(String fcm) => rxFcm(fcm);
 
-  set group(String fcm) => groupRx(fcm);
+  set group(String fcm) => rxGroup(fcm);
 
-  set detail(String fcm) => detailRx(fcm);
+  set detail(String fcm) => rxDetail(fcm);
 }
