@@ -151,7 +151,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
       int todaysGameListIndex,
       int userId,
       int todaysGameId,
-      String profileImageName,
+      String? profileImageName,
       String userName,
       String createTime,
       String game,
