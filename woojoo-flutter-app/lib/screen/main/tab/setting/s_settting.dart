@@ -20,7 +20,7 @@ import '../../../../../data/controller/my_friends_controller.dart';
 import '../../../../../data/controller/my_games_controller.dart';
 import '../../../../../data/controller/my_groups_controller.dart';
 import '../../../../../data/controller/my_profile_controller.dart';
-import '../../../../../data/remote/dio_instance.dart';
+import '../../../../data/remote/dio/dio_instance.dart';
 import '../../../../../data/remote/profile/update_my_profile.dart';
 
 class SettingScreen extends StatefulWidget {

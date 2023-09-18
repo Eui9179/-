@@ -1,12 +1,17 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/utils/notification.dart';
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/w_height.dart';
+import 'package:woojoo/data/memory/user/dto_my_profile.dart';
+import 'package:woojoo/data/memory/user/user_simple_data.dart';
 
 import '../../../../common/widget/avatar/w_profile_avatar.dart';
-import '../../../../data/controller/my_profile_controller.dart';
-import '../../../../data/remote/profile/get_my_profile.dart';
+import '../../../../utils/notification.dart';
+import '../../../authentication/s_login.dart';
 
 class HomeProfileFrame extends StatefulWidget {
   const HomeProfileFrame({Key? key}) : super(key: key);
@@ -15,113 +20,51 @@ class HomeProfileFrame extends StatefulWidget {
   State<HomeProfileFrame> createState() => _HomeProfileFrameState();
 }
 
-class _HomeProfileFrameState extends State<HomeProfileFrame> {
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _initMyProfile();
-  }
-
+class _HomeProfileFrameState extends State<HomeProfileFrame>
+    with UserSimpleDataProvider, AfterLayoutMixin {
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return Container(
+    return Obx(
+      () => Container(
         width: double.infinity,
-        padding:
-            const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
               context.appColors.headerBackgroundColor,
-              context.appColors.mainBackgroundColor
+              context.appColors.mainBackgroundColor,
             ],
-                stops: const [
-              0.4,
-              0.4
-            ])),
+            stops: const [0.4, 0.4],
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ProfileAvatar(
-              size: 45,
-              image: null,
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Text('',
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: context.appColors.font)),
+            ProfileAvatar(image: userSimpleData.profileImageName, size: 45),
+            const Height(15),
+            userSimpleData.name.text
+                .size(25)
+                .fontWeight(FontWeight.bold)
+                .color(context.appColors.font)
+                .make(),
           ],
-        ),
-      );
-    } else {
-      return GetBuilder<MyProfileController>(
-        builder: (controller) {
-          String name = controller.name;
-          String? profileImageName = controller.profileImage;
-
-          return Container(
-            width: double.infinity,
-            padding:
-                const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  context.appColors.headerBackgroundColor,
-                  context.appColors.mainBackgroundColor
-                ],
-                    stops: [
-                  0.4,
-                  0.4
-                ])),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              ProfileAvatar(image: profileImageName, size: 45),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(name,
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: context.appColors.font)),
-            ]),
-          );
-        },
-      );
-    }
+        ).pSymmetric(v: 15, h: 13),
+      ),
+    );
   }
 
-  _initMyProfile() {
-    final String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response = dioApiGetMyProfile(accessToken);
-    response.then((res) {
-      int statusCode = res["statusCode"];
-      if (statusCode == 200 && res["data"] != null) {
-        Map<String, dynamic> profileData = res["data"];
-        Get.find<MyProfileController>().setMyProfile(
-          profileData["name"],
-          profileData["profile_image_name"],
-          profileData["phone_number"],
-        );
-        setState(() {
-          isLoading = false;
-        });
-      } else if (statusCode == 401) {
-        notification(context, "다시 로그인 해주세요");
-      } else {
-        Get.toNamed("/login");
-        print("_getMyProfile() error: $statusCode");
-      }
-    });
+  _initMyProfile() async {
+    MyProfile myProfile = await userSimpleData.getMyProfile();
+    if (myProfile.statusCode != 200) {
+      notification(context, "다시 로그인 해주세요");
+      Get.offAll(() => const LoginScreen(), transition: Transition.downToUp);
+    }
+    userSimpleData.setMyProfile(myProfile);
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    _initMyProfile();
   }
 }

@@ -8,21 +8,21 @@ abstract mixin class AccessTokenDataProvider {
 }
 
 class AccessTokenData extends GetxController {
-  RxString accessTokenObs = ''.obs;
+  RxString accessTokenRx = ''.obs;
 
   void clear() {
     storage.delete(key: "accessToken");
-    accessTokenObs = ''.obs;
+    accessTokenRx = ''.obs;
   }
 
   bool isLogin() {
-    return accessTokenObs.isNotEmpty;
+    return accessTokenRx.isNotEmpty;
   }
 
-  String get accessToken => accessTokenObs.value;
+  String get accessToken => accessTokenRx.value;
 
   set accessToken(String accessToken) {
-    accessTokenObs.value = accessToken;
+    accessTokenRx.value = accessToken;
     storage.write(key: "accessToken", value: accessToken);
   }
 

@@ -29,7 +29,6 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
     super.initState();
     _initGetXController();
 
-
     // FirebaseMessaging.instance.getToken().then((token) {
     //   print(token);
     //   Get.find<FcmTokenController>().setFcmToken(token!);

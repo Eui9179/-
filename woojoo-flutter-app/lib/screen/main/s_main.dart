@@ -4,7 +4,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/authentication/dto_fcm_request.dart';
+import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +30,8 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> with AuthenticationDataProvider, AccessTokenDataProvider {
+class _MainScreenState extends State<MainScreen>
+    with AuthenticationDataProvider, AccessTokenDataProvider {
   int _selectedIndex = 0;
   bool _isLoading = true;
   PageController pageController = PageController();
@@ -124,7 +125,7 @@ class _MainScreenState extends State<MainScreen> with AuthenticationDataProvider
 
   void _syncFcmToken(String accessToken) {
     String fcm = Get.find<FcmTokenController>().fcmToken;
-    authenticationData.syncFcm(FcmRequest(fcm: fcm));
+    // userRepository.syncFcm(FcmRequest(fcm: fcm));
   }
 
   void _initMyProfile(String accessToken) {

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:woojoo/data/memory/authentication/dto_access_token_response.dart';
-import 'package:woojoo/data/memory/authentication/dto_fcm_request.dart';
+import 'package:woojoo/data/memory/authentication/dto_access_token.dart';
+import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
 import 'package:woojoo/data/memory/authentication/dto_signup_request.dart';
-import 'package:woojoo/data/remote/authentication/authentication_repository.dart';
+import 'package:woojoo/data/authentication_repository.dart';
 
-import '../dio_instance.dart';
+import 'dio/dio_instance.dart';
 
 class AuthenticationApi implements AuthenticationRepository {
   Dio dio = DioInstance().dio;
@@ -15,30 +15,21 @@ class AuthenticationApi implements AuthenticationRepository {
   static AuthenticationApi instance = AuthenticationApi._();
 
   @override
-  Future<AccessTokenResponse> login(LoginRequest request) async {
+  Future<AccessToken> login(LoginRequest request) async {
     Response response = await dio.post(
       '/auth/login',
       data: request.toJson(),
     );
-    return AccessTokenResponse.fromJson(response);
+    return AccessToken.fromJson(response);
   }
 
   @override
-  Future<AccessTokenResponse> signup(SignupRequest request) async {
+  Future<AccessToken> signup(SignupRequest request) async {
     Response response = await dio.post(
       '/auth/signup',
       data: request.toForm(),
     );
-    return AccessTokenResponse.fromJson(response);
-  }
-
-  @override
-  Future<int> syncFcm(FcmRequest request) async {
-    Response response = await dio.post(
-      '/auth/async-token',
-      data: request.toJson(),
-    );
-    return response.statusCode ?? 500;
+    return AccessToken.fromJson(response);
   }
 
   @override

@@ -1,19 +1,21 @@
-import 'dart:developer';
-
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
-import 'package:woojoo/data/remote/authentication/authentication_api.dart';
+import 'package:woojoo/data/remote/authentication_api.dart';
 
-import 'dto_access_token_response.dart';
-import 'dto_fcm_request.dart';
+import 'dto_access_token.dart';
 import 'dto_login_request.dart';
 import 'dto_signup_request.dart';
+
+mixin class AuthenticationDataProvider {
+  late final AuthenticationData authenticationData = AuthenticationData();
+  late final VerificationData verificationData = VerificationData();
+}
 
 class AuthenticationData with AccessTokenDataProvider {
   final authRepository = AuthenticationApi.instance;
 
-  Future<AccessTokenResponse> login(LoginRequest request) async {
-    AccessTokenResponse accessTokenResponse =
+  Future<AccessToken> login(LoginRequest request) async {
+    AccessToken accessTokenResponse =
         await authRepository.login(request);
     int statusCode = accessTokenResponse.statusCode;
     String? accessToken = accessTokenResponse.accessToken;
@@ -26,20 +28,12 @@ class AuthenticationData with AccessTokenDataProvider {
   }
 
   void signup(SignupRequest request) async {
-    final AccessTokenResponse response = await authRepository.signup(request);
+    final AccessToken response = await authRepository.signup(request);
     String? accessToken = response.accessToken;
 
     if (response.statusCode == 200 && accessToken != null) {
       accessTokenData.accessToken = accessToken;
     }
-  }
-
-  void syncFcm(FcmRequest request) {
-    authRepository.syncFcm(request).then((statusCode) {
-      if (statusCode != 200) {
-        log('syncFcm error code: $statusCode');
-      }
-    });
   }
 
   Future<int> withdrawal() async {
@@ -50,7 +44,3 @@ class AuthenticationData with AccessTokenDataProvider {
   }
 }
 
-mixin class AuthenticationDataProvider {
-  late final AuthenticationData authenticationData = AuthenticationData();
-  late final VerificationData verificationData = VerificationData();
-}

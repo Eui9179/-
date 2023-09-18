@@ -5,6 +5,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/prefs/first_connection.dart';
+import '../../../../data/memory/user/user_simple_data.dart';
 import '../../../../dialog/d_select_todays_game.dart';
 import 'f_home_profile.dart';
 import 'home_app_bar.dart';
@@ -24,6 +25,12 @@ class _MainPageState extends State<MainPage>
 
   @override
   bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    Get.put(UserSimpleData());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

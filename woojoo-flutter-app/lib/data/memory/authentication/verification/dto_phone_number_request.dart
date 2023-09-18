@@ -1,13 +1,13 @@
-class VerifyCodeRequest {
+class PhoneNumberRequest {
   final String phoneNumber;
-  final String cp;
 
-  VerifyCodeRequest({required this.phoneNumber, required this.cp});
+  PhoneNumberRequest({
+    required this.phoneNumber,
+  });
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'phone_number': phoneNumber,
-      'cp': cp
     };
   }
 }
