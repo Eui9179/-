@@ -54,7 +54,9 @@ dependencies:
   flutter_native_splash: ^2.2.6
 #  firebase_messaging: ^11.2.5
   flutter_local_notifications: ^9.2.0
+
   after_layout: ^1.2.0
+  shared_preferences: ^2.2.1
 
 dev_dependencies:
   flutter_test:

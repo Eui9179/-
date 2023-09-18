@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/main.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../common/prefs/first_connection.dart';
+import '../../../../data/memory/user/user_simple_data.dart';
 import '../../../../dialog/d_select_todays_game.dart';
 import 'f_home_profile.dart';
 import 'home_app_bar.dart';
@@ -20,19 +22,20 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with AutomaticKeepAliveClientMixin {
+
   @override
   bool get wantKeepAlive => true;
 
   @override
   void initState() {
+    Get.put(UserSimpleData());
     super.initState();
-    _getIsFirstAccess();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    _getIsFirstAccess().then((result) {
+    FirstConnection.isFirst().then((result) {
       if (result) {
         Future.delayed(
             Duration.zero, () => showSelectTodaysGame(context, false));
@@ -51,19 +54,5 @@ class _MainPageState extends State<MainPage>
             ],
           ),
         ));
-  }
-
-  Future<bool> _getIsFirstAccess() async {
-    // 저장된 최근 날짜와 접속 날짜가 다르면 최초 접속
-    String? lastAccessTime = await storage.read(key: "lastAccessTime");
-    DateTime now = DateTime.now();
-    String today = now.toString().split(' ')[0];
-
-    if (today == lastAccessTime) {
-      return false;
-    } else {
-      storage.write(key: 'lastAccessTime', value: today);
-      return true;
-    }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class ProfileLoadingScreen extends StatelessWidget {
@@ -22,29 +21,30 @@ class ProfileLoadingScreen extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  context.appColors.headerBackgroundColor,
-                  context.appColors.mainBackgroundColor
+              context.appColors.headerBackgroundColor,
+              context.appColors.mainBackgroundColor
             ],
                 stops: const [
               0.4,
               0.4
             ])),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CircleAvatar(
-                backgroundColor: Colors.grey,
-                radius: 45.0,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text('',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: context.appColors.font)),
-            ]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const CircleAvatar(
+            backgroundColor: Colors.grey,
+            radius: 45.0,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            '',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: context.appColors.font,
+            ),
+          ),
+        ]),
       ),
     );
   }

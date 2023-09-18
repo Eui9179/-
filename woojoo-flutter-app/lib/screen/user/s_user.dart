@@ -11,7 +11,7 @@ import 'package:woojoo/screen/user/f_user_profile.dart';
 
 import '../../../data/remote/profile/get_user.dart';
 import '../../dialog/d_block.dart';
-import '../../screen/main/tab/home/profile_loading_screen.dart';
+import '../../screen/main/tab/home/s_profile_loading.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);

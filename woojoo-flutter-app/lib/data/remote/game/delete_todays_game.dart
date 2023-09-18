@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../dio_instance.dart';
+import '../dio/dio_instance.dart';
 
 Future<Map<String, dynamic>> dioApiDeleteTodaysGame(
     String? accessToken, int todaysGameId) async {

@@ -6,8 +6,8 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_send_verification_code_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_verify_code_request.dart';
+import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_request.dart';
+import 'package:woojoo/data/memory/authentication/verification/dto_verification_code_request.dart';
 import 'package:woojoo/screen/authentication/verification/w_verification_code_input.dart';
 
 import '../../../common/widget/w_height.dart';
@@ -104,7 +104,7 @@ class _VerificationScreenState extends State<VerificationScreen>
   }
 
   onPressed() {
-    final request = VerifyCodeRequest(
+    final request = VerificationCodeRequest(
       phoneNumber: phoneNumber,
       cp: verificationCode,
     );
@@ -134,7 +134,7 @@ class _VerificationScreenState extends State<VerificationScreen>
     setState(() {
       verificationCode = "";
     });
-    final request = SendVerificationCodeRequest(phoneNumber: phoneNumber);
+    final request = PhoneNumberRequest(phoneNumber: phoneNumber);
     verificationData.sendVerificationCode(request).then((statusCode) {
       if (statusCode != 200) notification(context, "오류 발생");
     });
