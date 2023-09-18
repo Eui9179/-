@@ -3,26 +3,22 @@ import 'package:get/get.dart';
 
 import '../../../main.dart';
 
-abstract mixin class AccessTokenDataProvider {
-  late final accessTokenData = Get.find<AccessTokenData>();
-}
-
 class AccessTokenData extends GetxController {
-  RxString accessTokenRx = ''.obs;
+  RxString rxAccessToken = ''.obs;
 
   void clear() {
     storage.delete(key: "accessToken");
-    accessTokenRx = ''.obs;
+    rxAccessToken = ''.obs;
   }
 
   bool isLogin() {
-    return accessTokenRx.isNotEmpty;
+    return rxAccessToken.isNotEmpty;
   }
 
-  String get accessToken => accessTokenRx.value;
+  String get accessToken => rxAccessToken.value;
 
   set accessToken(String accessToken) {
-    accessTokenRx.value = accessToken;
+    rxAccessToken.value = accessToken;
     storage.write(key: "accessToken", value: accessToken);
   }
 
@@ -31,4 +27,8 @@ class AccessTokenData extends GetxController {
     accessToken = readAccessToken;
     return accessToken;
   }
+}
+
+mixin class AccessTokenDataProvider {
+  late final accessTokenData = Get.find<AccessTokenData>();
 }

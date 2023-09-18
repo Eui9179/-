@@ -1,33 +1,23 @@
 import 'package:get/get.dart';
 import 'package:woojoo/data/memory/user/dto_my_profile.dart';
 
-import '../../remote/user_api.dart';
-
-abstract mixin class UserSimpleDataProvider {
-  late final userSimpleData = Get.find<UserSimpleData>();
-}
+import '../../remote/user/user_api.dart';
 
 class UserSimpleData extends GetxController {
-  RxString nameRx = ''.obs;
-  RxnString profileImageNameRxn = RxnString('');
+  Rx<MyProfile> rxMyProfile = MyProfile().obs;
 
-  UserApi userRepository = UserApi.instance;
+  UserApi userRepository = UserApi.userRepository;
 
-  Future<MyProfile> getMyProfile() async {
-    return userRepository.getMyProfile();
+  @override
+  void onInit() async {
+    MyProfile myProfile = await userRepository.getMyProfile();
+    rxMyProfile(myProfile);
+    super.onInit();
   }
 
-  void setMyProfile(MyProfile myProfile) {
-    name = myProfile.name;
-    profileImageName = myProfile.profileImageName;
-  }
+  MyProfile get myProfile => rxMyProfile.value;
+}
 
-  String get name => nameRx.value;
-
-  String? get profileImageName => profileImageNameRxn.value;
-
-  set name(String name) => nameRx(name);
-
-  set profileImageName(String? profileImageName) =>
-      profileImageNameRxn(profileImageName);
+mixin class UserSimpleDataProvider {
+  late final userSimpleData = Get.find<UserSimpleData>();
 }

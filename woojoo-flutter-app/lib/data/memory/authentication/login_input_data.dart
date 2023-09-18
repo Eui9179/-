@@ -5,21 +5,21 @@ abstract mixin class LoginInputDataProvider {
 }
 
 class LoginInputData extends GetxController {
-  RxString phoneNumberObs = "".obs;
-  RxBool buttonActiveObs = false.obs;
+  RxString rxPhoneNumber = "".obs;
+  RxBool rxButtonActive = false.obs;
 
   void activeButton() {
-    buttonActiveObs.value = true;
+    rxButtonActive.value = true;
   }
 
   void disableButton() {
-    buttonActiveObs.value = false;
+    rxButtonActive.value = false;
   }
 
   set phoneNumber(String phoneNumber) {
-    phoneNumberObs.value = phoneNumber;
+    rxPhoneNumber.value = phoneNumber;
   }
 
-  String get phoneNumber => phoneNumberObs.value;
-  bool get buttonActive => buttonActiveObs.value;
+  String get phoneNumber => rxPhoneNumber.value;
+  bool get buttonActive => rxButtonActive.value;
 }

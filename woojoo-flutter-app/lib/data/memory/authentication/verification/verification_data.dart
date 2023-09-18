@@ -3,10 +3,10 @@ import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_
 import 'package:woojoo/data/memory/authentication/verification/dto_verification_code_request.dart';
 
 import '../../../../utils/notification.dart';
-import '../../../remote/verification_api.dart';
+import '../../../remote/authentication/verification/verification_api.dart';
 
 class VerificationData {
-  final verificationRepository = VerificationApi.instance;
+  final verificationRepository = VerificationApi.verificationRepository;
 
   Future<int> sendVerificationCode(PhoneNumberRequest request) {
     return verificationRepository.sendVerificationCode(request);

@@ -1,27 +1,21 @@
 import 'dart:async';
 
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/widget/logo/w_logo.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
-import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/logo/w_logo.dart';
+import 'package:woojoo/common/widget/w_text2.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 
 import '../../../data/controller/fcm_token_controller.dart';
 import '../../../data/controller/my_friends_controller.dart';
 import '../../../data/controller/my_games_controller.dart';
-import '../../../data/controller/my_groups_controller.dart';
-import '../../../data/controller/my_profile_controller.dart';
 import '../../../data/remote/friend/get_my_friends.dart';
 import '../../../data/remote/game/get_my_games.dart';
-import '../../../data/remote/group/get_my_groups.dart';
-import '../../../data/remote/profile/get_my_profile.dart';
-import 'tab/todays_game/s_todays_game_list.dart';
-import '../main_loading_screen.dart';
-import 'tab/setting/s_settting.dart';
 import 'tab/home/s_home.dart';
+import 'tab/setting/s_settting.dart';
+import 'tab/todays_game/s_todays_game_list.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -114,10 +108,7 @@ class _MainScreenState extends State<MainScreen>
 
   Future<bool> _initUserData() async {
     final String accessToken = accessTokenData.accessToken;
-    print('accessToken $accessToken');
     _syncFcmToken(accessToken);
-    // _initMyProfile(accessToken);
-    _initMyGroups(accessToken);
     _initMyGameList(accessToken);
     _initMyFriendList(accessToken);
     return true;
@@ -126,30 +117,6 @@ class _MainScreenState extends State<MainScreen>
   void _syncFcmToken(String accessToken) {
     String fcm = Get.find<FcmTokenController>().fcmToken;
     // userRepository.syncFcm(FcmRequest(fcm: fcm));
-  }
-
-  void _initMyProfile(String accessToken) {
-    Future<Map<String, dynamic>> response = dioApiGetMyProfile(accessToken);
-    response.then((res) {
-      int statusCode = res["statusCode"];
-      if (statusCode == 200 && res["data"] != null) {
-        Map<String, dynamic> profileData = res["data"];
-        Get.find<MyProfileController>().setMyProfile(profileData["name"],
-            profileData["profile_image_name"], profileData["phone_number"]);
-      } else {
-        Get.toNamed("/login");
-      }
-    });
-  }
-
-  void _initMyGroups(String accessToken) {
-    Future<Map<String, dynamic>> response = dioApiGetMyGroups(accessToken);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        Get.find<MyGroupsController>().setMyGroups(res['data']);
-      } else if (statusCode == 401) {}
-    });
   }
 
   void _initMyGameList(String accessToken) {
