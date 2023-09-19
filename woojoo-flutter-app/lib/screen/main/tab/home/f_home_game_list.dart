@@ -7,8 +7,6 @@ import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:woojoo/data/memory/game/game_data.dart';
 import 'package:woojoo/screen/main/tab/home/w_game_card.dart';
 
-import '../../../../../common/widget/w_text2.dart';
-
 class HomeGameListFrame extends StatefulWidget {
   const HomeGameListFrame({Key? key}) : super(key: key);
 
@@ -18,7 +16,6 @@ class HomeGameListFrame extends StatefulWidget {
 
 class _HomeGameListFrameState extends State<HomeGameListFrame>
     with GameDataProvider {
-
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -60,21 +57,22 @@ class _HomeGameListFrameState extends State<HomeGameListFrame>
               )
             : Container(
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
-                height: 230.0,
+                height: 200.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
-                        onTap: () {
-                          Get.toNamed('/setting/games?type=setting');
-                        },
-                        child: const Text("게임등록",
-                            style: TextStyle(
-                              fontSize: 22,
-                              color: Colors.blueAccent,
-                              decoration: TextDecoration.underline,
-                            ))),
-                    const Text2(text: "을 해보세요!", size: 18),
+                      onTap: () {
+                        Get.toNamed('/setting/games?type=setting');
+                      },
+                      child: '게임등록'
+                          .text
+                          .size(FontSize.normal)
+                          .color(context.appColors.textButton)
+                          .underline
+                          .make(),
+                    ),
+                    '을 해보세요!'.text.color(context.appColors.text).size(FontSize.normal).make(),
                   ],
                 ),
               ),
