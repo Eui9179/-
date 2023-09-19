@@ -29,11 +29,11 @@ class RoundedButton extends StatelessWidget {
       style: OutlinedButton.styleFrom(
           side: BorderSide(
             width: 2.0,
-            color: context.appColors.font,
+            color: context.appColors.text,
           ),
           fixedSize: Size(buttonWidth, buttonHeight),
           foregroundColor: foregroundColor ?? context.appColors.loginScreenBackground,
-          backgroundColor: backgroundColor ?? context.appColors.font,
+          backgroundColor: backgroundColor ?? context.appColors.text,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25)),
           )),

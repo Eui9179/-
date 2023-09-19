@@ -43,7 +43,7 @@ class _OutlineInputState extends State<OutlineInput> {
             onSaved: widget.onSaved,
             onChanged: widget.onChanged,
             validator: widget.validator,
-            style: TextStyle(fontSize: 20.0, color: context.appColors.font),
+            style: TextStyle(fontSize: 20.0, color: context.appColors.text),
             decoration: InputDecoration(
               fillColor: const Color.fromARGB(255, 62, 62, 75),
               filled: true,

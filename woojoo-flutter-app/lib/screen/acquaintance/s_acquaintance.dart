@@ -23,7 +23,7 @@ class AcquaintanceScreen extends StatelessWidget {
           style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w400,
-              color: context.appColors.font),
+              color: context.appColors.text),
         ),
       ),
       body: SingleChildScrollView(

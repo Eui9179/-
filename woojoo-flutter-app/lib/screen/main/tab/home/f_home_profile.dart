@@ -42,12 +42,11 @@ class _HomeProfileFrameState extends State<HomeProfileFrame>
             myProfile.name.text
                 .size(25)
                 .fontWeight(FontWeight.bold)
-                .color(context.appColors.font)
+                .color(context.appColors.text)
                 .make(),
           ],
         ).pSymmetric(v: 15, h: 13),
       );
     });
   }
-
 }

@@ -86,8 +86,8 @@ class _MainScreenState extends State<MainScreen>
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: context.appColors.font,
-        unselectedItemColor: context.appColors.subFont,
+        selectedItemColor: context.appColors.text,
+        unselectedItemColor: context.appColors.subText,
         backgroundColor: context.appColors.navigationBarColor,
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -109,7 +109,7 @@ class _MainScreenState extends State<MainScreen>
   Future<bool> _initUserData() async {
     final String accessToken = accessTokenData.accessToken;
     _syncFcmToken(accessToken);
-    _initMyGameList(accessToken);
+    // _initMyGameList(accessToken);
     _initMyFriendList(accessToken);
     return true;
   }
@@ -121,6 +121,7 @@ class _MainScreenState extends State<MainScreen>
 
   void _initMyGameList(String accessToken) {
     Future<dynamic> response = dioApiGetMyGames(accessToken);
+
     response.then((res) {
       int statusCode = res["statusCode"];
       if (statusCode == 200) {

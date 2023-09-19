@@ -123,7 +123,7 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
                       textFieldConfiguration: TextFieldConfiguration(
                         textInputAction: TextInputAction.next,
                         style: TextStyle(
-                            fontSize: 20.0, color: context.appColors.font),
+                            fontSize: 20.0, color: context.appColors.text),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -201,7 +201,7 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
                         value: _detail1,
                         icon: const Icon(Icons.arrow_drop_down),
                         elevation: 16,
-                        style: TextStyle(color: context.appColors.font),
+                        style: TextStyle(color: context.appColors.text),
                         isExpanded: true,
                         dropdownColor: context.appColors.mainBackgroundColor,
                         underline: Container(

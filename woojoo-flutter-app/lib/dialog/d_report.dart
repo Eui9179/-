@@ -57,7 +57,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
             title: SizedBox(
               child: Text(
                 '신고하기',
-                style: TextStyle(color: context.appColors.font, fontSize: 23),
+                style: TextStyle(color: context.appColors.text, fontSize: 23),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -73,8 +73,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[0] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '원치 않는 광고 또는 스펨', size: 17),
@@ -89,8 +89,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[1] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '희롱 또는 괴롭힘', size: 17),
@@ -105,8 +105,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[2] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '혐오 발언', size: 17),
@@ -121,8 +121,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[3] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '거짓 또는 사기', size: 17),
@@ -137,8 +137,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[4] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '불법', size: 17),
@@ -153,8 +153,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
                           isCheckedList[5] = newValue!;
                         });
                       },
-                      side: BorderSide(color: context.appColors.font),
-                      checkColor: context.appColors.font,
+                      side: BorderSide(color: context.appColors.text),
+                      checkColor: context.appColors.text,
                       activeColor: Colors.blueAccent,
                     ),
                     const Text2(text: '타인 사칭', size: 17),
@@ -169,7 +169,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                   },
                   child: Text(
                     '닫기',
-                    style: TextStyle(color: context.appColors.font, fontSize: 20),
+                    style: TextStyle(color: context.appColors.text, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

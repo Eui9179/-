@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/font_size.dart';
 
 class SubjectTitle extends StatelessWidget {
   const SubjectTitle({Key? key, required this.title}) : super(key: key);
@@ -7,8 +10,12 @@ class SubjectTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title,
-        style: const TextStyle(
-            color: Color.fromARGB(255, 172, 172, 172), fontSize: 15));
+    return Text(
+      title,
+      style: TextStyle(
+        color: context.appColors.subText,
+        fontSize: FontSize.subTitle,
+      ),
+    );
   }
 }

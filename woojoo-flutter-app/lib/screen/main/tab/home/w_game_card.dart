@@ -236,7 +236,7 @@ class _GameCardState extends State<GameCard> {
                   Text(
                     changeKorGameName(widget.gameName),
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 23),
+                        TextStyle(color: context.appColors.text, fontSize: 23),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -245,7 +245,7 @@ class _GameCardState extends State<GameCard> {
                   Text(
                     '친구들이 볼 수 있게 닉네임을 입력해주세요',
                     style: TextStyle(
-                        color: context.appColors.subFont, fontSize: 15),
+                        color: context.appColors.subText, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -255,16 +255,16 @@ class _GameCardState extends State<GameCard> {
               height: 65,
               child: TextField(
                 maxLength: 20,
-                cursorColor: context.appColors.font,
+                cursorColor: context.appColors.text,
                 autofocus: true,
                 controller: _textFieldController,
-                style: TextStyle(fontSize: 19.0, color: context.appColors.font),
+                style: TextStyle(fontSize: 19.0, color: context.appColors.text),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: context.appColors.dialogFill,
                   enabledBorder: enabledBorder,
                   focusedBorder: focusedBorder,
-                  counterStyle: TextStyle(color: context.appColors.subFont),
+                  counterStyle: TextStyle(color: context.appColors.subText),
                 ),
               ),
             ),
@@ -276,7 +276,7 @@ class _GameCardState extends State<GameCard> {
                   child: Text(
                     '취소',
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 20),
+                        TextStyle(color: context.appColors.text, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

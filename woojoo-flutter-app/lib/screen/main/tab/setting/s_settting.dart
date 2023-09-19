@@ -70,7 +70,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                   ? Text(
                       '완료',
                       style: TextStyle(
-                          color: context.appColors.subFont, fontSize: 22),
+                          color: context.appColors.subText, fontSize: 22),
                     )
                   : const Text(
                       '완료',
@@ -165,7 +165,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                           return null;
                         },
                         style: TextStyle(
-                            fontSize: 20.0, color: context.appColors.font),
+                            fontSize: 20.0, color: context.appColors.text),
                         decoration: InputDecoration(
                           fillColor: const Color.fromARGB(255, 62, 62, 75),
                           filled: true,
@@ -191,7 +191,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                     textFieldConfiguration: TextFieldConfiguration(
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
-                          fontSize: 20.0, color: context.appColors.font),
+                          fontSize: 20.0, color: context.appColors.text),
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
@@ -242,7 +242,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                         tileColor: context.appColors.boxFillColor,
                         title: Text(
                           suggestion.toString(),
-                          style: TextStyle(color: context.appColors.font),
+                          style: TextStyle(color: context.appColors.text),
                         ),
                       );
                     },
@@ -253,7 +253,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                           child: Text(
                             '검색 결과가 없습니다.',
                             style: TextStyle(
-                                fontSize: 15, color: context.appColors.font),
+                                fontSize: 15, color: context.appColors.text),
                           ));
                     },
                     onSuggestionSelected: (suggestion) {
@@ -293,7 +293,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                         value: _detail1,
                         icon: const Icon(Icons.arrow_drop_down),
                         elevation: 16,
-                        style: TextStyle(color: context.appColors.font),
+                        style: TextStyle(color: context.appColors.text),
                         isExpanded: true,
                         dropdownColor: context.appColors.boxFillColor,
                         underline: Container(
@@ -357,7 +357,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                     child: Text(
                       '회원탈퇴',
                       style: TextStyle(
-                          color: context.appColors.subFont,
+                          color: context.appColors.subText,
                           fontSize: 18,
                           fontWeight: FontWeight.w300),
                     )),
@@ -473,7 +473,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                   Text(
                     '회원 탈퇴',
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 23),
+                        TextStyle(color: context.appColors.text, fontSize: 23),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -482,7 +482,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                   Text(
                     '회원탈퇴시 저장되어 있는 \n모든 데이터가 삭제됩니다',
                     style: TextStyle(
-                        color: context.appColors.subFont, fontSize: 15),
+                        color: context.appColors.subText, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -496,7 +496,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
                   child: Text(
                     '취소',
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 20),
+                        TextStyle(color: context.appColors.text, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

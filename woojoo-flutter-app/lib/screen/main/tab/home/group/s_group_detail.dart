@@ -48,7 +48,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
           style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w400,
-              color: context.appColors.font),
+              color: context.appColors.text),
         ),
       ),
       body: SingleChildScrollView(
@@ -240,7 +240,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
                                           });
                                         },
                                         text: '취소',
-                                        color: context.appColors.subFont,
+                                        color: context.appColors.subText,
                                       )
                                     : TextButton2(
                                         onPressed: () {

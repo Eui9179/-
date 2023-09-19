@@ -67,14 +67,14 @@ class _UserProfileFrameState extends State<UserProfileFrame> {
                 style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: context.appColors.font)),
+                    color: context.appColors.text)),
             isFriend
                 ? TextButton2(
                     onPressed: () {
                       deleteFriendFromMyFriends();
                     },
                     text: buttonText,
-                    color: context.appColors.subFont,
+                    color: context.appColors.subText,
                   )
                 : TextButton2(
                     onPressed: () {

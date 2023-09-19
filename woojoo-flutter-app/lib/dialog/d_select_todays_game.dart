@@ -35,7 +35,7 @@ Future<String?> showSelectTodaysGame(
                   Text(
                     '오늘 할 게임 선택',
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 23),
+                        TextStyle(color: context.appColors.text, fontSize: 23),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -44,13 +44,13 @@ Future<String?> showSelectTodaysGame(
                   Text(
                     '오늘 무슨 게임을 할건지 선택해 주세요.',
                     style: TextStyle(
-                        color: context.appColors.subFont, fontSize: 15),
+                        color: context.appColors.subText, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                   Text(
                     '친구들에게 공유됩니다.',
                     style: TextStyle(
-                        color: context.appColors.subFont, fontSize: 15),
+                        color: context.appColors.subText, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -125,10 +125,10 @@ Future<String?> showSelectTodaysGame(
                         return null;
                       },
                       style: TextStyle(
-                          fontSize: 17.0, color: context.appColors.font),
+                          fontSize: 17.0, color: context.appColors.text),
                       decoration: InputDecoration(
                         counterStyle:
-                            TextStyle(color: context.appColors.subFont),
+                            TextStyle(color: context.appColors.subText),
                         fillColor: const Color.fromARGB(255, 62, 62, 75),
                         filled: true,
                         labelText: '메모',
@@ -165,7 +165,7 @@ Future<String?> showSelectTodaysGame(
                   child: Text(
                     '닫기',
                     style:
-                        TextStyle(color: context.appColors.font, fontSize: 20),
+                        TextStyle(color: context.appColors.text, fontSize: 20),
                   )),
               TextButton(
                   onPressed: () {

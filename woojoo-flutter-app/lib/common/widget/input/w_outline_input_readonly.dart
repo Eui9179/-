@@ -26,13 +26,13 @@ class OutlineInputReadOnly extends StatelessWidget {
       margin: const EdgeInsets.only(top: 10, bottom: 10),
       child: TextFormField(
         readOnly: true,
-        style: TextStyle(fontSize: 20.0, color: context.appColors.font),
+        style: TextStyle(fontSize: 20.0, color: context.appColors.text),
         onTap: onTap,
         decoration: InputDecoration(
           labelStyle: TextStyle(color: context.appColors.inputLabel),
           labelText: labelText,
           hintText: hintText,
-          hintStyle: TextStyle(color: context.appColors.font),
+          hintStyle: TextStyle(color: context.appColors.text),
           enabledBorder: enabledBorder,
           focusedBorder: focusedBorder,
           floatingLabelBehavior: FloatingLabelBehavior.always,

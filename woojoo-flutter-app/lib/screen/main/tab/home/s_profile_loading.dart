@@ -41,7 +41,7 @@ class ProfileLoadingScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
-              color: context.appColors.font,
+              color: context.appColors.text,
             ),
           ),
         ]),

@@ -68,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                 RoundedButton(
                   btnEnabled: true,
                   onPressed: goInputPhoneNumberScreen,
-                  foregroundColor: context.appColors.font,
+                  foregroundColor: context.appColors.text,
                   backgroundColor: context.appColors.loginScreenBackground,
                   text: '계정 만들기',
                 ),

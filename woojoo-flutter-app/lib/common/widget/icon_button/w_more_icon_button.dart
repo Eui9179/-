@@ -14,7 +14,7 @@ class MoreIconButton extends StatelessWidget {
       tooltip: "더보기",
       padding: EdgeInsets.zero,
       constraints: const BoxConstraints(),
-      icon: Icon(Icons.more_vert, color: context.appColors.font, size: 20),
+      icon: Icon(Icons.more_vert, color: context.appColors.text, size: 20),
     );
   }
 }

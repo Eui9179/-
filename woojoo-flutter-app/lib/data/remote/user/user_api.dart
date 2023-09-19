@@ -15,12 +15,12 @@ class UserApi implements UserRepository {
 
   UserApi._();
 
-  static UserApi userRepository = UserApi._();
+  static UserApi instance = UserApi._();
 
   @override
   Future<MyProfile> getMyProfile() async {
     final response = await dio.get('/users/me');
-    return MyProfile.fromJson(response);
+    return MyProfile.fromResponse(response);
   }
 
   @override

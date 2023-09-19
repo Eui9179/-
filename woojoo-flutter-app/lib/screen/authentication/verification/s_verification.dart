@@ -51,13 +51,13 @@ class _VerificationScreenState extends State<VerificationScreen>
               "내 코드 입력"
                   .text
                   .size(FontSize.title)
-                  .color(context.appColors.font)
+                  .color(context.appColors.text)
                   .make(),
               height5,
               "메시지 도착까지 최대 1분정도 소요됩니다.\n메시지가 도착하지 않을 경우 재실행 시켜주세요."
                   .text
                   .size(FontSize.description)
-                  .color(context.appColors.subFont)
+                  .color(context.appColors.subText)
                   .make(),
               Form(
                 key: _formKey,
@@ -77,7 +77,7 @@ class _VerificationScreenState extends State<VerificationScreen>
                       children: [
                         phoneNumber.text
                             .size(FontSize.normal)
-                            .color(context.appColors.font)
+                            .color(context.appColors.text)
                             .make(),
                         TextButton(
                           onPressed: () => _resend(),

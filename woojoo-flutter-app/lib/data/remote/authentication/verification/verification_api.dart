@@ -10,7 +10,7 @@ class VerificationApi implements VerificationRepository {
 
   VerificationApi._();
 
-  static VerificationApi verificationRepository = VerificationApi._();
+  static VerificationApi instance = VerificationApi._();
 
   @override
   Future<int> sendVerificationCode(PhoneNumberRequest request) async {

@@ -62,7 +62,7 @@ class _HomeFriendListFrameState extends State<HomeFriendListFrame> {
                           constraints: const BoxConstraints(),
                           splashRadius: 20,
                           icon: Icon(Icons.refresh_sharp,
-                              color: context.appColors.font, size: 25)),
+                              color: context.appColors.text, size: 25)),
                     ],
                   )
                 ],

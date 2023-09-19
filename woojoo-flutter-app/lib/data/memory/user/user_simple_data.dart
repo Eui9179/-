@@ -6,7 +6,7 @@ import '../../remote/user/user_api.dart';
 class UserSimpleData extends GetxController {
   Rx<MyProfile> rxMyProfile = MyProfile().obs;
 
-  UserApi userRepository = UserApi.userRepository;
+  UserApi userRepository = UserApi.instance;
 
   @override
   void onInit() async {

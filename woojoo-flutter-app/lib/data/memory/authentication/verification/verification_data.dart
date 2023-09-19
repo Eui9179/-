@@ -6,7 +6,7 @@ import '../../../../utils/notification.dart';
 import '../../../remote/authentication/verification/verification_api.dart';
 
 class VerificationData {
-  final verificationRepository = VerificationApi.verificationRepository;
+  final verificationRepository = VerificationApi.instance;
 
   Future<int> sendVerificationCode(PhoneNumberRequest request) {
     return verificationRepository.sendVerificationCode(request);

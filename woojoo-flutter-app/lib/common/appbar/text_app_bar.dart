@@ -19,7 +19,7 @@ class TextAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.w400,
-            color: context.appColors.font),
+            color: context.appColors.text),
       ),
       centerTitle: true,
     );

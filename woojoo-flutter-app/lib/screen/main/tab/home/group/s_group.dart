@@ -55,7 +55,7 @@ class _GroupScreenState extends State<GroupScreen> {
             style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w400,
-                color: context.appColors.font),
+                color: context.appColors.text),
           ),
         ),
         body: SingleChildScrollView(
@@ -205,7 +205,7 @@ class _GroupScreenState extends State<GroupScreen> {
                                                 _people[index]['id']);
                                           },
                                           text: '취소',
-                                          color: context.appColors.subFont,
+                                          color: context.appColors.subText,
                                         )
                                       : TextButton2(
                                           onPressed: () {

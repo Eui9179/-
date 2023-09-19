@@ -47,7 +47,7 @@ Future<String?> showBlockDialog(BuildContext context, int userId) async {
               children: [
                 Text(
                   '차단하기',
-                  style: TextStyle(color: context.appColors.font, fontSize: 23),
+                  style: TextStyle(color: context.appColors.text, fontSize: 23),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -55,7 +55,7 @@ Future<String?> showBlockDialog(BuildContext context, int userId) async {
                 ),
                 Text(
                   '차단하면 차단한 친구의 모든 정보를\n확인할 수 없으며, 친구목록에서 삭제됩니다.',
-                  style: TextStyle(color: context.appColors.subFont, fontSize: 15),
+                  style: TextStyle(color: context.appColors.subText, fontSize: 15),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -68,7 +68,7 @@ Future<String?> showBlockDialog(BuildContext context, int userId) async {
                 },
                 child: Text(
                   '취소',
-                  style: TextStyle(color: context.appColors.font, fontSize: 20),
+                  style: TextStyle(color: context.appColors.text, fontSize: 20),
                 )),
             TextButton(
                 onPressed: () {

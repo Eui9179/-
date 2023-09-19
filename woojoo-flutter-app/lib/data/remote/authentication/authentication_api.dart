@@ -20,7 +20,7 @@ class AuthenticationApi implements AuthenticationRepository {
       '/auth/login',
       data: request.toJson(),
     );
-    return AccessToken.fromJson(response);
+    return AccessToken.fromResponse(response);
   }
 
   @override
@@ -29,7 +29,7 @@ class AuthenticationApi implements AuthenticationRepository {
       '/auth/signup',
       data: request.toForm(),
     );
-    return AccessToken.fromJson(response);
+    return AccessToken.fromResponse(response);
   }
 
   @override

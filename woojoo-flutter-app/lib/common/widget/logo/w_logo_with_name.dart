@@ -18,7 +18,7 @@ class LogoWithName extends StatelessWidget {
         const Width(8),
         '우주'
             .text
-            .color(context.appColors.font)
+            .color(context.appColors.text)
             .size(25)
             .fontWeight(FontWeight.w600)
             .make()

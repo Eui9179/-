@@ -50,7 +50,7 @@ class _LoginInputState extends State<LoginInput>
                   '전화번호 입력'
                       .text
                       .size(FontSize.title)
-                      .color(context.appColors.font)
+                      .color(context.appColors.text)
                       .make(),
                   Form(
                     key: formKey,

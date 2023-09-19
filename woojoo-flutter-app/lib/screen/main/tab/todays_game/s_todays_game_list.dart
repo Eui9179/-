@@ -66,7 +66,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                     padding: const EdgeInsets.only(left: 13, top: 10),
                     child: Text('친구들에게 오늘 무슨 게임을 할지 + 버튼을 눌러서 공유해 보세요!',
                         style: TextStyle(
-                            color: context.appColors.subFont, fontSize: 13))),
+                            color: context.appColors.subText, fontSize: 13))),
                 ListView.builder(
                     shrinkWrap: true,
                     reverse: true,
@@ -184,14 +184,14 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                         Text(
                           userName,
                           style: TextStyle(
-                              color: context.appColors.font,
+                              color: context.appColors.text,
                               fontSize: 20,
                               fontWeight: FontWeight.w400),
                         ),
                         Text(
                           _getTime(createTime),
                           style: TextStyle(
-                              color: context.appColors.subFont, fontSize: 12),
+                              color: context.appColors.subText, fontSize: 12),
                         ),
                       ],
                     ),
@@ -211,7 +211,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                         Text(
                           changeKorGameName(game),
                           style: TextStyle(
-                              color: context.appColors.font, fontSize: 17),
+                              color: context.appColors.text, fontSize: 17),
                         ),
                         const SizedBox(
                           width: 5,
@@ -220,7 +220,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                             ? Text(
                                 gameNickname,
                                 style: TextStyle(
-                                    color: context.appColors.subFont, fontSize: 15),
+                                    color: context.appColors.subText, fontSize: 15),
                               )
                             : const SizedBox()
                       ],
@@ -237,7 +237,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                         ? Text(
                             introduction,
                             style: TextStyle(
-                                color: context.appColors.subFont, fontSize: 17),
+                                color: context.appColors.subText, fontSize: 17),
                           )
                         : const SizedBox(),
                   ],
@@ -288,7 +288,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                         child: Text(
                           userName,
                           style: TextStyle(
-                              color: context.appColors.font,
+                              color: context.appColors.text,
                               fontSize: 20,
                               fontWeight: FontWeight.w400),
                         ),
@@ -296,7 +296,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                       Text(
                         _getTime(createTime),
                         style: TextStyle(
-                            color: context.appColors.subFont, fontSize: 12),
+                            color: context.appColors.subText, fontSize: 12),
                       ),
                     ],
                   ),
@@ -316,7 +316,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                       Text(
                         changeKorGameName(game),
                         style: TextStyle(
-                            color: context.appColors.font, fontSize: 17),
+                            color: context.appColors.text, fontSize: 17),
                       ),
                       const SizedBox(
                         width: 5,
@@ -325,7 +325,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                           ? Text(
                               gameNickname,
                               style: TextStyle(
-                                  color: context.appColors.subFont, fontSize: 15),
+                                  color: context.appColors.subText, fontSize: 15),
                             )
                           : const SizedBox()
                     ],
@@ -342,7 +342,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                       ? Text(
                           introduction,
                           style: TextStyle(
-                              color: context.appColors.subFont, fontSize: 17),
+                              color: context.appColors.subText, fontSize: 17),
                         )
                       : const SizedBox()
                 ],
@@ -400,7 +400,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
             value: 'delete',
             child: Text(
               '삭제하기',
-              style: TextStyle(color: context.appColors.font),
+              style: TextStyle(color: context.appColors.text),
             ),
           ),
         ]);

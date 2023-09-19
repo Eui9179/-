@@ -43,7 +43,7 @@ class _SelectGameState extends State<GameSettingScreen> {
             style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w400,
-                color: context.appColors.font),
+                color: context.appColors.text),
           ),
           actions: [
             TextButton(

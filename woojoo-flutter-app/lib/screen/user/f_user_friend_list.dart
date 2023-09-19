@@ -88,7 +88,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                         ),
                         Icon(
                           Icons.chevron_right,
-                          color: context.appColors.font,
+                          color: context.appColors.text,
                           size: 18,
                         ),
                       ],
@@ -195,7 +195,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                                             userFriends[index]['id'], index);
                                       },
                                       text: '취소',
-                                      color: context.appColors.font,
+                                      color: context.appColors.text,
                                     )
                                   : TextButton2(
                                       onPressed: () {

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:woojoo/data/memory/game/game_data.dart';
 
 import '../../../../common/prefs/first_connection.dart';
 import '../../../../data/memory/group/group_data.dart';
@@ -31,6 +32,7 @@ class _MainPageState extends State<MainPage>
   void initState() {
     Get.put(UserSimpleData());
     Get.put(GroupData());
+    Get.put(GameData());
     super.initState();
   }
 

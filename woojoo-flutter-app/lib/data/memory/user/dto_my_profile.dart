@@ -11,11 +11,11 @@ class MyProfile {
     this.statusCode = 200,
   });
 
-  factory MyProfile.fromJson(Response response) {
+  factory MyProfile.fromResponse(Response response) {
     return MyProfile(
       name: response.data['name'],
       profileImageName: response.data['profileImageName'],
-        statusCode: response.statusCode ?? 500,
+      statusCode: response.statusCode ?? 500,
     );
   }
 }

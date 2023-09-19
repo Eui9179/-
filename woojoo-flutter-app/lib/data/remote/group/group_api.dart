@@ -14,7 +14,7 @@ class GroupApi implements GroupRepository {
 
   GroupApi._();
 
-  static GroupApi groupRepository = GroupApi._();
+  static GroupApi instance = GroupApi._();
 
   @override
   Future<Group> getMyGroup() async {

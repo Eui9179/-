@@ -16,12 +16,12 @@ class GroupTextButton extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.school_sharp, color: context.appColors.font, size: 19,),
+              Icon(Icons.school_sharp, color: context.appColors.text, size: 19,),
               const SizedBox(width: 10,),
-              Text(text, style: TextStyle(color: context.appColors.font, fontWeight: FontWeight.w400, fontSize: 20),),
+              Text(text, style: TextStyle(color: context.appColors.text, fontWeight: FontWeight.w400, fontSize: 20),),
             ],
           ),
-          Icon(Icons.chevron_right, color: context.appColors.font,size: 18,),
+          Icon(Icons.chevron_right, color: context.appColors.text,size: 18,),
         ],
       ),
     );
