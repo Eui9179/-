@@ -1,8 +1,8 @@
 import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 
-import '../../memory/user/dto_my_profile.dart';
+import '../../memory/user/dto_user_simple.dart';
 
 abstract interface class UserRepository {
-  Future<MyProfile> getMyProfile();
+  Future<UserSimple> getMyProfile();
   Future<void> syncFcm(FcmRequest request);
 }

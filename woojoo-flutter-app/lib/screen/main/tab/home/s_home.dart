@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
 import 'package:woojoo/data/memory/game/game_data.dart';
 
 import '../../../../common/prefs/first_connection.dart';
@@ -24,7 +25,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with AutomaticKeepAliveClientMixin {
-
   @override
   bool get wantKeepAlive => true;
 
@@ -33,6 +33,7 @@ class _MainPageState extends State<MainPage>
     Get.put(UserSimpleData());
     Get.put(GroupData());
     Get.put(GameData());
+    Get.put(FriendSimpleData());
     super.initState();
   }
 
@@ -46,17 +47,18 @@ class _MainPageState extends State<MainPage>
       }
     });
     return Scaffold(
-        backgroundColor: context.appColors.mainBackgroundColor,
-        appBar: const MainPageBar(),
-        body: const SingleChildScrollView(
-          child: Column(
-            children: [
-              HomeProfileFrame(),
-              HomeGroupFrame(),
-              HomeGameListFrame(),
-              HomeFriendListFrame(),
-            ],
-          ),
-        ));
+      backgroundColor: context.appColors.mainBackgroundColor,
+      appBar: const MainPageBar(),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeProfileFrame(),
+            HomeGroupFrame(),
+            HomeGameListFrame(),
+            HomeFriendListFrame(),
+          ],
+        ),
+      ),
+    );
   }
 }

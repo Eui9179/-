@@ -15,6 +15,7 @@ class GameApi with AccessTokenDataProvider implements GameRepository {
   @override
   Future<List<Game>> getMyGameList() async {
     final response = await dio.get<List>('/games/me');
-    return response.data!.map((game) => Game.fromJson(game)).toList();
+    return response.data?.map((game) => Game.fromJson(game)).toList() ?? [];
+
   }
 }

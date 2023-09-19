@@ -110,7 +110,7 @@ class _MainScreenState extends State<MainScreen>
     final String accessToken = accessTokenData.accessToken;
     _syncFcmToken(accessToken);
     // _initMyGameList(accessToken);
-    _initMyFriendList(accessToken);
+    // _initMyFriendList(accessToken);
     return true;
   }
 

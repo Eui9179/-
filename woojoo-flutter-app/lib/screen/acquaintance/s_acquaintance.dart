@@ -71,7 +71,7 @@ class AcquaintanceScreen extends StatelessWidget {
                               Text2(text: _myFriends[index]["name"], size: 18),
                               GameBadge(
                                 size: _myFriends[index]['games'].length,
-                                gameNames: _myFriends[index]['games'],
+                                gameList: _myFriends[index]['games'],
                               ),
                             ],
                           ),

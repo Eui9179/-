@@ -7,4 +7,8 @@ class Game {
   factory Game.fromJson(Map<String, dynamic> json) {
     return Game(game: json['game'], nickname: json['nickname']);
   }
+
+  factory Game.fromString(String game) {
+    return Game(game: game);
+  }
 }

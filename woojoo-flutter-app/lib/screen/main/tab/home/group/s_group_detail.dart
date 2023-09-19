@@ -159,7 +159,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
                                     ),
                                     GameBadge(
                                       size: _friends[index]['games'].length,
-                                      gameNames: _friends[index]['games'],
+                                      gameList: _friends[index]['games'],
                                     ),
                                   ],
                                 ),
@@ -226,7 +226,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
                                     ),
                                     GameBadge(
                                       size: _people[index]['games'].length,
-                                      gameNames: _people[index]['games'],
+                                      gameList: _people[index]['games'],
                                     ),
                                   ],
                                 ),

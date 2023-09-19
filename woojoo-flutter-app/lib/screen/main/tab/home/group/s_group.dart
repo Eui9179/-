@@ -190,7 +190,7 @@ class _GroupScreenState extends State<GroupScreen> {
                                       ),
                                       GameBadge(
                                         size: _people[index]['games'].length,
-                                        gameNames: _people[index]['games'],
+                                        gameList: _people[index]['games'],
                                       ),
                                     ],
                                   ),

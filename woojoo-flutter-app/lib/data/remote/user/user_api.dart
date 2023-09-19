@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
-import 'package:woojoo/data/memory/user/dto_my_profile.dart';
+import 'package:woojoo/data/memory/friend/dto_friend_simple.dart';
+import 'package:woojoo/data/memory/user/dto_user_simple.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 import 'package:woojoo/data/remote/user/user_repository.dart';
 
@@ -18,9 +17,9 @@ class UserApi implements UserRepository {
   static UserApi instance = UserApi._();
 
   @override
-  Future<MyProfile> getMyProfile() async {
+  Future<UserSimple> getMyProfile() async {
     final response = await dio.get('/users/me');
-    return MyProfile.fromResponse(response);
+    return UserSimple.fromJson(response.data);
   }
 
   @override

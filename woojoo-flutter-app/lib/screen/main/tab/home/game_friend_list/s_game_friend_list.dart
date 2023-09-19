@@ -122,7 +122,7 @@ class _GameFriendListScreenState extends State<GameFriendListScreen> {
                                     ),
                                     GameBadge(
                                       size: _friends[index]['games'].length,
-                                      gameNames: _friends[index]['games'],
+                                      gameList: _friends[index]['games'],
                                     ),
                                   ],
                                 ),
