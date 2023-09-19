@@ -16,7 +16,7 @@ class UserGameListFrame extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SubjectTitle(title: "$userName 님의 게임 목록"),
+            SubjectTitle("$userName 님의 게임 목록"),
           ],
         ),
       ),

@@ -4,7 +4,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 
 class SubjectTitle extends StatelessWidget {
-  const SubjectTitle({Key? key, required this.title}) : super(key: key);
+  const SubjectTitle(this.title, {Key? key}) : super(key: key);
 
   final String title;
 

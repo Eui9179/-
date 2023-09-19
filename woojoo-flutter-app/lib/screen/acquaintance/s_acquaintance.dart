@@ -39,8 +39,8 @@ class AcquaintanceScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SubjectTitle(title: "내 게임 친구"),
-                  SubjectTitle(title: '${_myFriends.length.toString()} 명'),
+                  const SubjectTitle("내 게임 친구"),
+                  SubjectTitle('${_myFriends.length.toString()} 명'),
                 ],
               ),
             ),

@@ -44,12 +44,12 @@ class GameBadge extends StatelessWidget {
         return Row(
           children: [
             Avatar(
-              imagePath: '$gamePath/logo/${gameNames[0].game}_logo.png',
+              imagePath: '$gamePath/logo/${gameNames[0].name}_logo.png',
               radius: Avatar.gameAvatarSize,
               isAssert: true,
             ),
             width10,
-            const SubjectTitle(title: "함께 하는 게임 1개"),
+            const SubjectTitle("함께 하는 게임 1개"),
           ],
         );
       default:
@@ -60,20 +60,20 @@ class GameBadge extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 18),
                   child: Avatar(
-                    imagePath: '$gamePath/logo/${gameNames[1].game}_logo.png',
+                    imagePath: '$gamePath/logo/${gameNames[1].name}_logo.png',
                     radius: Avatar.gameAvatarSize,
                     isAssert: true,
                   ),
                 ),
                 Avatar(
-                  imagePath: '$gamePath/logo/${gameNames[0].game}_logo.png',
+                  imagePath: '$gamePath/logo/${gameNames[0].name}_logo.png',
                   radius: Avatar.gameAvatarSize,
                   isAssert: true,
                 ),
               ],
             ),
             width10,
-            SubjectTitle(title: "함께 하는 게임 $size개")
+            SubjectTitle("함께 하는 게임 $size개")
           ],
         );
     }

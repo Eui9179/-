@@ -35,6 +35,13 @@ class FriendSimpleData extends GetxController {
     });
   }
 
+  List<String> _formattedContacts(List<String?> contacts) {
+    return contacts
+        .where((contact) => (contact != null && contact.contains("010")))
+        .map((contact) => contact!.replaceAll(' - ', ' '))
+        .toList();
+  }
+
   Future<List<String>> _getPhoneNumberFromContact() async {
     final status = await Permission.contacts.request();
     if (status == PermissionStatus.granted) {
@@ -45,17 +52,9 @@ class FriendSimpleData extends GetxController {
           .where((phones) => (phones != null && phones.isNotEmpty))
           .map((phones) => phones!.first.value!)
           .toList();
-      print(phoneNumberList);
       return _formattedContacts(phoneNumberList);
     }
     return [];
-  }
-
-  List<String> _formattedContacts(List<String?> contacts) {
-    return contacts
-        .where((contact) => (contact != null && contact.contains("010")))
-        .map((contact) => contact!.replaceAll(' - ', ' '))
-        .toList();
   }
 
   List<FriendSimple> get myFriendList => rxMyFriends;

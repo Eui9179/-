@@ -16,14 +16,14 @@ import 'f_home_friend_list.dart';
 import 'f_home_game_list.dart';
 import 'f_home_group.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MainPageState extends State<MainPage>
+class _HomeScreenState extends State<HomeScreen>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;

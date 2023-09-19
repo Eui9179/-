@@ -17,12 +17,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/screen/main/s_main.dart';
 
-import 'data/controller/fcm_token_controller.dart';
-import 'data/controller/my_friends_controller.dart';
-import 'data/controller/my_games_controller.dart';
-import 'data/controller/my_groups_controller.dart';
-import 'data/controller/my_profile_controller.dart';
-import 'data/controller/todays_game_controller.dart';
 // import 'firebase_options.dart';
 
 const storage = FlutterSecureStorage();

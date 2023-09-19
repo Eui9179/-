@@ -1,14 +1,14 @@
 class Game {
-  final String game;
+  final String name;
   final String? nickname;
 
-  Game({this.game = '', this.nickname});
+  Game({this.name = '', this.nickname});
 
   factory Game.fromJson(Map<String, dynamic> json) {
-    return Game(game: json['game'], nickname: json['nickname']);
+    return Game(name: json['game'], nickname: json['nickname']);
   }
 
   factory Game.fromString(String game) {
-    return Game(game: game);
+    return Game(name: game);
   }
 }

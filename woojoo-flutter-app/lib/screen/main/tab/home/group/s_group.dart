@@ -83,8 +83,7 @@ class _GroupScreenState extends State<GroupScreen> {
                           height: 10,
                         ),
                         SubjectTitle(
-                          title:
-                              '${_people.length + _friends.length}명이 소속되어 있습니다.',
+                          '${_people.length + _friends.length}명이 소속되어 있습니다.',
                         ),
                       ],
                     ),
@@ -143,7 +142,7 @@ class _GroupScreenState extends State<GroupScreen> {
                             fontSize: 18)),
                     Row(
                       children: [
-                        SubjectTitle(title: '${_people.length.toString()} 명'),
+                        SubjectTitle('${_people.length.toString()} 명'),
                         const SizedBox(width: 10),
                       ],
                     )

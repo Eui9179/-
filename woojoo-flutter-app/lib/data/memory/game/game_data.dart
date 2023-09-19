@@ -11,9 +11,25 @@ class GameData extends GetxController {
 
   @override
   void onInit() async {
+    getMyGameList();
+    super.onInit();
+  }
+
+  void getMyGameList() async {
+    myGameList.clear();
     List<Game> gameList = await gameRepository.getMyGameList();
     myGameList.addAll(gameList);
-    super.onInit();
+  }
+
+  Future<void> updateMyGameList(List<String> selectedGameList) async {
+    myGameList.clear();
+    List<Game> updatedGameList =
+        await gameRepository.updateMyGameList(selectedGameList);
+    myGameList.addAll(updatedGameList);
+  }
+
+  void clear() {
+    myGameList.clear();
   }
 }
 

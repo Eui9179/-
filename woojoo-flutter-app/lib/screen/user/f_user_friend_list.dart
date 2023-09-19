@@ -50,10 +50,9 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
               right: 13.0, left: 13.0, top: 15.0, bottom: 5.0),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            SubjectTitle(title: '${widget.userName}님의 게임 친구'),
+            SubjectTitle('${widget.userName}님의 게임 친구'),
             SubjectTitle(
-                title:
-                    '${userFriends.length + widget.alreadyFriends.length} 명'),
+                '${userFriends.length + widget.alreadyFriends.length} 명'),
           ]),
         ),
         if (widget.alreadyFriends.isNotEmpty)
@@ -146,14 +145,12 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                                               Avatar(
                                                 imagePath:
                                                     '$basePath/${userFriends[index]['games'][0]}',
-                                                radius:
-                                                    Avatar.gameAvatarSize,
+                                                radius: Avatar.gameAvatarSize,
                                               ),
                                               const SizedBox(
                                                 width: 5,
                                               ),
-                                              const SubjectTitle(
-                                                  title: "함께 하는 게임 1개")
+                                              const SubjectTitle("함께 하는 게임 1개")
                                             ],
                                             if (userFriends[index]['games']
                                                     .length >
@@ -180,8 +177,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                                                 ]),
                                               ),
                                               SubjectTitle(
-                                                  title:
-                                                      "함께 하는 게임 ${userFriends[index]['games'].length}개")
+                                                  "함께 하는 게임 ${userFriends[index]['games'].length}개")
                                             ]
                                           ],
                                         )

@@ -31,9 +31,9 @@ class _HomeFriendListFrameState extends State<HomeFriendListFrame>
           const Height(8),
           Row(
             children: [
-              const SubjectTitle(title: "내 게임 친구"),
+              const SubjectTitle("내 게임 친구"),
               emptyExpanded,
-              SubjectTitle(title: '${myFriendList.length.toString()} 명'),
+              SubjectTitle('${myFriendList.length.toString()} 명'),
               width10,
               IconButton(
                 onPressed: () => friendSimpleData.syncMyFriendList(context),

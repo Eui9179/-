@@ -3,14 +3,13 @@ import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 
-import '../../data/controller/my_games_controller.dart';
 import '../../data/controller/todays_game_controller.dart';
 import '../../data/remote/game/insert_todays_game.dart';
 import '../../data/remote/todays_games/get_todays_games.dart';
 
 Future<String?> showSelectTodaysGame(
     BuildContext context, bool isUpdate) async {
-  List<dynamic> myGames = Get.find<MyGamesController>().games;
+  List<dynamic> myGames = [];
   List<dynamic> selectableGames = List.generate(myGames.length,
       (index) => {'gameName': myGames[index]['game'], 'isSelected': false});
   int lastSelectedIndex = -1;

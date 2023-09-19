@@ -5,6 +5,7 @@ import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/game/game_data.dart';
 import 'package:woojoo/main.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
@@ -17,7 +18,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../data/controller/my_friends_controller.dart';
-import '../../../../../data/controller/my_games_controller.dart';
 import '../../../../../data/controller/my_groups_controller.dart';
 import '../../../../../data/controller/my_profile_controller.dart';
 import '../../../../data/remote/dio/dio_instance.dart';
@@ -435,7 +435,7 @@ class _SettingScreenState extends State<SettingScreen> with AuthenticationDataPr
     Get.find<MyGroupsController>().clear();
     Get.find<MyProfileController>().clear();
     Get.find<MyFriendsController>().clear();
-    Get.find<MyGamesController>().clear();
+    Get.find<GameData>().clear();
   }
 
   Future getImageFromGallery() async {

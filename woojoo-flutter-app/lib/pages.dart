@@ -27,7 +27,7 @@ List<GetPage> pages = [
       name: '/home',
       page: () => const MainScreen(),
       transition: Transition.noTransition),
-  GetPage(name: '/main', page: () => const MainPage()),
+  GetPage(name: '/main', page: () => const MainScreen()),
   GetPage(
       name: '/login-input',
       page: () => const LoginInput(),
