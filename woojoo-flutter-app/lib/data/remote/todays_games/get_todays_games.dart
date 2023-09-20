@@ -8,7 +8,7 @@ import '../dio/dio_instance.dart';
   "name": user_row.name,
   "profile_image_name":user_row.profile_image_name,
   'game': todays_game.game,
-  'introduction':todays_game.introduction,
+  'description':todays_game.introduction,
   'create_time':todays_game.create_time,
 }
 */

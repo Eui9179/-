@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/w_height.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../../../common/widget/avatar/w_profile_avatar.dart';
 import '../../../../../data/controller/todays_game_controller.dart';
+import '../../../../common/theme/font_size.dart';
 import '../../../../data/remote/game/todays_game/delete_todays_game.dart';
 import '../../../../../data/remote/todays_games/get_todays_games.dart';
 import '../../../../dialog/selecting_todays_game/d_selecting_todays_game.dart';
@@ -86,7 +88,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                             todaysGameList[index]['create_time'],
                             todaysGameList[index]['game'],
                             todaysGameList[index]['game_nickname'],
-                            todaysGameList[index]['introduction'],
+                            todaysGameList[index]['description'],
                             todaysGameList[index]['isme']),
                       );
                     }),
@@ -156,7 +158,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
       String createTime,
       String game,
       String? gameNickname,
-      String introduction,
+      String? description,
       bool isMe) {
     if (isMe) {
       return Row(
@@ -185,7 +187,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                           userName,
                           style: TextStyle(
                               color: context.appColors.text,
-                              fontSize: 20,
+                              fontSize: FontSize.subTitle,
                               fontWeight: FontWeight.w400),
                         ),
                         Text(
@@ -195,23 +197,23 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    height5,
                     Row(
                       children: [
                         CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage: AssetImage(
-                                "assets/images/game/logo/${game}_logo.png")),
+                          radius: 10,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: AssetImage(
+                              "assets/images/game/logo/${game}_logo.png"),
+                        ),
                         const SizedBox(
                           width: 5,
                         ),
                         Text(
                           changeKorGameName(game),
                           style: TextStyle(
-                              color: context.appColors.text, fontSize: 17),
+                              color: context.appColors.text,
+                              fontSize: FontSize.subTitle),
                         ),
                         const SizedBox(
                           width: 5,
@@ -220,7 +222,8 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                             ? Text(
                                 gameNickname,
                                 style: TextStyle(
-                                    color: context.appColors.subText, fontSize: 15),
+                                    color: context.appColors.subText,
+                                    fontSize: 15),
                               )
                             : const SizedBox()
                       ],
@@ -228,18 +231,16 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                     const SizedBox(
                       height: 3,
                     ),
-                    introduction != ''
+                    description != ''
                         ? const SizedBox(
                             height: 6,
                           )
                         : const SizedBox(),
-                    introduction != ''
-                        ? Text(
-                            introduction,
-                            style: TextStyle(
-                                color: context.appColors.subText, fontSize: 17),
-                          )
-                        : const SizedBox(),
+                    Text(
+                      description ?? '',
+                      style: TextStyle(
+                          color: context.appColors.subText, fontSize: 17),
+                    )
                   ],
                 ),
               ),
@@ -325,7 +326,8 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                           ? Text(
                               gameNickname,
                               style: TextStyle(
-                                  color: context.appColors.subText, fontSize: 15),
+                                  color: context.appColors.subText,
+                                  fontSize: 15),
                             )
                           : const SizedBox()
                     ],
@@ -333,18 +335,16 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
                   const SizedBox(
                     height: 3,
                   ),
-                  introduction != ''
+                  description != ''
                       ? const SizedBox(
                           height: 6,
                         )
                       : const SizedBox(),
-                  introduction != ''
-                      ? Text(
-                          introduction,
-                          style: TextStyle(
-                              color: context.appColors.subText, fontSize: 17),
-                        )
-                      : const SizedBox()
+                  Text(
+                    description ?? '',
+                    style: TextStyle(
+                        color: context.appColors.subText, fontSize: 17),
+                  )
                 ],
               ),
             ),
