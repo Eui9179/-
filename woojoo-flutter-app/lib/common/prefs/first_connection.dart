@@ -1,6 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstConnection {
+
+  FirstConnection._();
+
   static const String _lastAccessTimeKey = "lastAccessTime";
 
   static Future<bool> isFirst() async {

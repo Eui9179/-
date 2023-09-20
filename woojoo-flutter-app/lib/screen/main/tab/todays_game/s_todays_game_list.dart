@@ -10,9 +10,9 @@ import 'package:get/get.dart';
 
 import '../../../../../common/widget/avatar/w_profile_avatar.dart';
 import '../../../../../data/controller/todays_game_controller.dart';
-import '../../../../../data/remote/game/delete_todays_game.dart';
+import '../../../../data/remote/game/todays_game/delete_todays_game.dart';
 import '../../../../../data/remote/todays_games/get_todays_games.dart';
-import '../../../../dialog/d_select_todays_game.dart';
+import '../../../../dialog/selecting_todays_game/d_selecting_todays_game.dart';
 
 class TodaysGameListScreen extends StatefulWidget {
   const TodaysGameListScreen({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              showSelectTodaysGame(context, true);
+              showSelectingTodaysGame(context);
             },
             tooltip: "오늘의 게임 추가",
             splashRadius: 23,
@@ -118,7 +118,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen> {
           FloatingActionButton(
             heroTag: 'add',
             onPressed: () {
-              showSelectTodaysGame(context, true);
+              showSelectingTodaysGame(context);
             },
             backgroundColor: Colors.blueAccent,
             child: const Icon(

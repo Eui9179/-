@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 
+import '../../data/memory/game/todays_game/todays_game_data.dart';
 import 'tab/home/s_home.dart';
 import 'tab/setting/s_settting.dart';
 import 'tab/todays_game/s_todays_game_list.dart';
@@ -29,6 +31,7 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   void initState() {
+    Get.put(TodaysGameData());
     super.initState();
   }
 

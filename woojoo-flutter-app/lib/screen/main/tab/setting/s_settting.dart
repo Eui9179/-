@@ -30,6 +30,7 @@ class SettingScreen extends StatefulWidget {
   State<SettingScreen> createState() => _SettingScreenState();
 }
 
+// TODO GetX 데이터 설정
 class _SettingScreenState extends State<SettingScreen> with AuthenticationDataProvider {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _typeAheadController = TextEditingController();
