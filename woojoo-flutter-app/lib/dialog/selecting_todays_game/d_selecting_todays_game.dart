@@ -143,16 +143,3 @@ _onPressed(
   );
   Get.back();
 }
-
-// getMyTodaysGameList() {
-//   String accessToken = Get.find<AccessTokenData>().accessToken;
-//   Future<dynamic> response = dioApiGetTodaysGames(accessToken);
-//   response.then((res) {
-//     int statusCode = res["statusCode"];
-//     if (statusCode == 200) {
-//       Get.find<TodaysGameController>().setTodaysGameList(res['data']);
-//     } else {
-//       print(statusCode);
-//     }
-//   });
-// }

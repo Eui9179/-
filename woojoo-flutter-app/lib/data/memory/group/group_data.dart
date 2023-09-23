@@ -4,18 +4,18 @@ import 'package:woojoo/data/memory/group/dto_group.dart';
 import 'package:woojoo/data/remote/group/group_api.dart';
 
 class GroupData extends GetxController {
-  Rx<Group> rxMyGroup = Group().obs;
+  final Rx<Group> _rxMyGroup = Group().obs;
 
   GroupRepository groupRepository = GroupApi.instance;
 
   @override
   void onInit() async {
     Group group = await groupRepository.getMyGroup();
-    rxMyGroup(group);
+    _rxMyGroup(group);
     super.onInit();
   }
 
-  Group get myGroup => rxMyGroup.value;
+  Group get myGroup => _rxMyGroup.value;
 }
 
 mixin class GroupDataProvider {
