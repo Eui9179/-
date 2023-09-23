@@ -10,7 +10,6 @@ class WoojooGroups {
     "상동초등학교"
   ];
 
-
   static List<String> getSuggestions(String query) {
     List<String> matches = [];
     matches.addAll(states);

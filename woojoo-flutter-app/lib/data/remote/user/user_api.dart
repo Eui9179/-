@@ -1,15 +1,15 @@
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' as G;
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
-import 'package:woojoo/data/memory/friend/dto_friend_simple.dart';
 import 'package:woojoo/data/memory/user/dto_user_simple.dart';
+import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 import 'package:woojoo/data/remote/user/user_repository.dart';
 
 class UserApi implements UserRepository {
   final Dio dio = DioInstance(
-    accessToken: Get.find<AccessTokenData>().accessToken,
+    accessToken: G.Get.find<AccessTokenData>().accessToken,
   ).dio;
 
   UserApi._();
@@ -29,5 +29,14 @@ class UserApi implements UserRepository {
       data: request.toJson(),
     );
     return response.statusCode ?? 500;
+  }
+
+  @override
+  Future<String> updateMyProfile(UpdateMyProfileRequest request) async {
+    ///? await MultipartFile.fromFile(profileData["file"].path)
+    //     : null,
+    FormData formData = FormData.fromMap(await request.toJson());
+    Response response = await dio.post('/users/setting', data: formData);
+    return response.data;
   }
 }

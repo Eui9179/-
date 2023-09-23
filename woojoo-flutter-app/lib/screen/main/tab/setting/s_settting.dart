@@ -1,32 +1,30 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:velocity_x/velocity_x.dart';
-import 'package:woojoo/common/constants.dart';
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/theme/font_size.dart';
-import 'package:woojoo/common/widget/avatar/w_profile_avatar.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/game/game_data.dart';
-import 'package:woojoo/data/memory/group/group_data.dart';
-import 'package:woojoo/data/memory/user/user_simple_data.dart';
-import 'package:woojoo/main.dart';
-import 'package:woojoo/common/widget/w_text2.dart';
-import 'package:woojoo/utils/woojoo_groups.dart';
-import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/theme/font_size.dart';
+import 'package:woojoo/common/widget/avatar/w_profile_avatar.dart';
+import 'package:woojoo/common/widget/w_height.dart';
+import 'package:woojoo/data/memory/authentication/access_token_data.dart';
+import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/game/game_data.dart';
+import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
+import 'package:woojoo/data/memory/user/user_simple_data.dart';
+import 'package:woojoo/main.dart';
+import 'package:woojoo/screen/main/tab/setting/setting_data.dart';
+import 'package:woojoo/utils/notification.dart';
+import 'package:woojoo/utils/woojoo_groups.dart';
 
 import '../../../../../data/controller/my_friends_controller.dart';
 import '../../../../../data/controller/my_groups_controller.dart';
 import '../../../../../data/controller/my_profile_controller.dart';
-import '../../../../data/remote/dio/dio_instance.dart';
-import '../../../../../data/remote/profile/update_my_profile.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -35,67 +33,49 @@ class SettingScreen extends StatefulWidget {
   State<SettingScreen> createState() => _SettingScreenState();
 }
 
-// TODO GetX 데이터 설정
-// 1. UserSimpleData
-// 2. GroupData
-
 class _SettingScreenState extends State<SettingScreen>
-    with AuthenticationDataProvider, GroupDataProvider, UserSimpleDataProvider {
+    with
+        AuthenticationDataProvider,
+        SettingDataProvider,
+        UserSimpleDataProvider {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _typeAheadController = TextEditingController();
-  final List<String> _groups = [];
-  XFile? _image;
-  String? _name;
-  String? _originImage;
-  String _detail1 = '1';
-  bool _isName = true;
-  bool _isNameChange = false;
-  bool _isGroup = true;
-  bool _isGroupChange = false;
-  bool _isFile = false;
-  bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    _typeAheadController.text = groupData.myGroup.name;
-    // Get.find<MyGroupsController>().groups[0]["name"];
-    _detail1 = groupData.myGroup.detail1;
-    // Get.find<MyGroupsController>().groups[0]["detail1"];
-    _name = userSimpleData.myProfile.name;
-    // Get.find<MyProfileController>().name;
-    _originImage = userSimpleData.myProfile.profileImageName;
-    // Get.find<MyProfileController>().profileImage;
+    Get.put(SettingData());
+    _typeAheadController.text = settingData.groupName;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Scaffold(
-        backgroundColor: context.appColors.mainBackgroundColor,
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: context.appColors.headerBackgroundColor,
-          title: '설정'.text.size(FontSize.appBarTitle).make(),
-          actions: [
-            TextButton(
-              onPressed: _onUpdateProfile,
-              child: _isLoading
-                  ? '완료'
-                      .text
-                      .color(context.appColors.subText)
-                      .size(FontSize.appBarTextButton)
-                      .make()
-                  : '완료'
-                      .text
-                      .color(context.appColors.textButton)
-                      .size(FontSize.appBarTextButton)
-                      .make(),
-            )
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Container(
+    return Scaffold(
+      backgroundColor: context.appColors.mainBackgroundColor,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: context.appColors.headerBackgroundColor,
+        title: '설정'.text.size(FontSize.appBarTitle).make(),
+        actions: [
+          TextButton(
+            onPressed: _onUpdateProfile,
+            child: settingData.rxIsLoading.value
+                ? '완료'
+                    .text
+                    .color(context.appColors.subText)
+                    .size(FontSize.appBarTextButton)
+                    .make()
+                : '완료'
+                    .text
+                    .color(context.appColors.textButton)
+                    .size(FontSize.appBarTextButton)
+                    .make(),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Obx(
+          () => Container(
             padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
@@ -111,12 +91,15 @@ class _SettingScreenState extends State<SettingScreen>
                         CircleAvatar(
                           radius: 55,
                           backgroundColor: Colors.black54,
-                          child: _image == null
-                              ? ProfileAvatar(image: _originImage, size: 55) :
-                               CircleAvatar(
+                          child: settingData.image == null
+                              ? ProfileAvatar(
+                                  image: settingData.originImageName,
+                                  size: 55,
+                                )
+                              : CircleAvatar(
                                   radius: 55,
                                   backgroundImage: Image.file(
-                                    File(_image!.path),
+                                    File(settingData.image!.path),
                                     fit: BoxFit.cover,
                                   ).image,
                                 ),
@@ -136,56 +119,56 @@ class _SettingScreenState extends State<SettingScreen>
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  height20,
                   Container(
                     margin: const EdgeInsets.only(top: 15, bottom: 15),
                     child: Column(
                       children: [
                         TextFormField(
-                          initialValue: _name,
+                          initialValue: settingData.userName,
                           autofocus: false,
                           textInputAction: TextInputAction.next,
                           autovalidateMode: AutovalidateMode.always,
                           onSaved: (val) {
-                            setState(() {
-                              _name = val;
-                            });
+                            if (val.isNotEmptyAndNotNull) {
+                              settingData.userName = val!;
+                            }
                           },
                           onChanged: (val) {
                             if (val.isEmpty) {
-                              setState(() {
-                                _isName = false;
-                              });
+                              settingData.isName = false;
                             } else {
-                              setState(() {
-                                _isName = true;
-                                _isNameChange = true;
-                              });
+                              settingData.isName = true;
+                              settingData.isNameChanged = true;
                             }
                           },
-                          validator: (val) {
-                            return null;
-                          },
+                          validator: (val) => null,
                           style: TextStyle(
-                              fontSize: 20.0, color: context.appColors.text),
+                            fontSize: 20.0,
+                            color: context.appColors.text,
+                          ),
                           decoration: InputDecoration(
                             fillColor: const Color.fromARGB(255, 62, 62, 75),
                             filled: true,
                             labelText: '이름',
                             labelStyle: const TextStyle(
-                                color: Color.fromARGB(255, 206, 206, 215),
-                                fontSize: 20),
+                              color: Color.fromARGB(255, 206, 206, 215),
+                              fontSize: 20,
+                            ),
                             enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                                borderSide: const BorderSide(
-                                    color: Color.fromARGB(255, 52, 52, 71),
-                                    width: 2)),
+                              borderRadius: BorderRadius.circular(15.0),
+                              borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 52, 52, 71),
+                                width: 2,
+                              ),
+                            ),
                             focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                                borderSide: const BorderSide(
-                                    color: Colors.blueAccent, width: 2)),
+                              borderRadius: BorderRadius.circular(15.0),
+                              borderSide: const BorderSide(
+                                color: Colors.blueAccent,
+                                width: 2,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -210,26 +193,20 @@ class _SettingScreenState extends State<SettingScreen>
                           filled: true,
                           labelText: "학교",
                           labelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 206, 206, 215),
-                              fontSize: 20),
+                            color: Color.fromARGB(255, 206, 206, 215),
+                            fontSize: 20,
+                          ),
                         ),
                         controller: _typeAheadController,
                         onChanged: (val) {
                           if (val.isEmpty ||
                               !WoojooGroups.states.contains(val)) {
-                            setState(() {
-                              _isGroup = false;
-                            });
+                            settingData.isGroup = false;
                           } else if (WoojooGroups.states.contains(val)) {
                             setState(() {
-                              _groups.clear(); // 그룹 여러개로 했을 때 지워야됨
-                              _groups.add(val);
-                              if (!val.contains('초등학교') &&
-                                  ['4', '5', '6'].contains(_detail1)) {
-                                _detail1 = '1';
-                              }
-                              _isGroup = true;
-                              _isGroupChange = true;
+                              settingData.groupName = val;
+                              settingData.isGroup = true;
+                              settingData.isGroupChanged = true;
                             });
                           }
                         },
@@ -263,16 +240,9 @@ class _SettingScreenState extends State<SettingScreen>
                       },
                       onSuggestionSelected: (suggestion) {
                         _typeAheadController.text = suggestion.toString();
-                        setState(() {
-                          _groups.clear();
-                          _groups.add(_typeAheadController.text);
-                          if (!_typeAheadController.text.contains('초등학교') &&
-                              ['4', '5', '6'].contains(_detail1)) {
-                            _detail1 = '1';
-                          }
-                          _isGroup = true;
-                          _isGroupChange = true;
-                        });
+                        settingData.groupName = _typeAheadController.text;
+                        settingData.isGroup = true;
+                        settingData.isGroupChanged = true;
                       }),
                   Container(
                     margin: const EdgeInsets.only(top: 20, bottom: 10),
@@ -295,49 +265,21 @@ class _SettingScreenState extends State<SettingScreen>
                                 width: 2)),
                       ),
                       child: DropdownButton(
-                          value: _detail1,
-                          icon: const Icon(Icons.arrow_drop_down),
-                          elevation: 16,
-                          style: TextStyle(color: context.appColors.text),
-                          isExpanded: true,
-                          dropdownColor: context.appColors.boxFillColor,
-                          underline: Container(
-                            height: 2,
-                          ),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              _detail1 = newValue!;
-                              _isGroupChange = true;
-                            });
-                          },
-                          items: _groups.isEmpty || _groups[0].contains("초등학교")
-                              ? [
-                                  '1',
-                                  '2',
-                                  '3',
-                                  '4',
-                                  '5',
-                                  '6'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(
-                                      value,
-                                      style: const TextStyle(fontSize: 20),
-                                    ),
-                                  );
-                                }).toList()
-                              : [
-                                  '1',
-                                  '2',
-                                  '3'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value,
-                                        style: const TextStyle(fontSize: 20)),
-                                  );
-                                }).toList()),
+                        value: settingData.detail1,
+                        icon: const Icon(Icons.arrow_drop_down),
+                        elevation: 16,
+                        style: TextStyle(color: context.appColors.text),
+                        isExpanded: true,
+                        dropdownColor: context.appColors.boxFillColor,
+                        underline: Container(
+                          height: 2,
+                        ),
+                        onChanged: (String? newValue) {
+                          settingData.detail1 = newValue!;
+                          settingData.isGroupChanged = true;
+                        },
+                        items: _generateDetailDropMenu(),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -384,47 +326,48 @@ class _SettingScreenState extends State<SettingScreen>
     );
   }
 
-  _onUpdateProfile() {
-    setState(() {
-      _isLoading = true;
-    });
-    if (_isName && _isGroup) {
+  _generateDetailDropMenu() {
+    return settingData.groupName.isEmpty ||
+            settingData.groupName.contains("초등학교")
+        ? ['1', '2', '3', '4', '5', '6']
+            .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(
+                value,
+                style: const TextStyle(fontSize: 20),
+              ),
+            );
+          }).toList()
+        : ['1', '2', '3'].map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value, style: const TextStyle(fontSize: 20)),
+            );
+          }).toList();
+  }
+
+  _onUpdateProfile() async {
+    settingData.isLoading = true;
+    if (settingData.isName && settingData.isGroup) {
       _formKey.currentState!.save();
-      String accessToken = Get.find<AccessTokenData>().accessToken;
-      Map profileData = {
-        'isFile': _isFile,
-        'file': _image,
-        'name': _isNameChange ? _name : null,
-        'groupName': _isGroupChange ? _typeAheadController.text : null,
-        'groupDetail1': _isGroupChange ? _detail1 : null,
-        'isGroup': _isGroupChange,
-      };
-      Future<Map<String, dynamic>> response =
-          dioApiUpdateMyProfile(profileData, accessToken);
-      response.then((res) {
-        setState(() {
-          _isLoading = false;
-        });
-        int statusCode = res["statusCode"];
-        if (statusCode == 200) {
-          Get.find<MyProfileController>().setMyName(_name!);
-          Get.find<MyGroupsController>().setMyGroups([
-            {
-              'name': _typeAheadController.text,
-              'detail1': _detail1,
-            }
-          ]);
-          Get.find<MyProfileController>().setMyProfileImage(res['data']);
-          notification(context, '저장 완료!', warning: false);
-        } else if (statusCode == 401) {
-          notification(context, "다시 로그인 해주세요");
-        } else {
-          notification(context, statusCode.toString());
-        }
-      });
-    } else if (!_isName) {
+
+      final request = UpdateMyProfileRequest(
+        isFile: settingData.isFile,
+        file: settingData.image,
+        name: settingData.isNameChanged ? settingData.userName : null,
+        groupName:
+            settingData.isGroupChanged ? _typeAheadController.text : null,
+        groupDetail1: settingData.isGroupChanged ? settingData.detail1 : null,
+        isGroup: settingData.isGroupChanged,
+      );
+
+      userSimpleData
+          .updateMyProfile(request)
+          .then((value) => settingData.isLoading = false);
+    } else if (!settingData.isName) {
       notification(context, '이름을 입력해주세요');
-    } else if (!_isGroup) {
+    } else if (!settingData.isGroup) {
       notification(context, '소속을 입력해주세요');
     }
   }
@@ -458,13 +401,11 @@ class _SettingScreenState extends State<SettingScreen>
     if (status == PermissionStatus.granted) {
       await ImagePicker()
           .pickImage(source: ImageSource.gallery, imageQuality: 30)
-          .then((image) => setState(() {
-                _image = image;
-                if (image == null) {
-                  _originImage = null;
-                }
-                _isFile = true;
-              }));
+          .then((image) {
+        settingData.image = image;
+        if (image == null) settingData.originImageName = null;
+        settingData.isFile = true;
+      });
     }
   }
 

@@ -1,6 +1,6 @@
 class Group {
-  final String name;
-  final String detail1;
+  String name;
+  String detail1;
 
   Group({this.name = '', this.detail1 = ''});
 

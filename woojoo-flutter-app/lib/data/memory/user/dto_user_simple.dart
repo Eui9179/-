@@ -1,8 +1,7 @@
-
 class UserSimple {
   final int id;
-  final String name;
-  final String? profileImageName;
+  String name;
+  String? profileImageName;
 
   UserSimple({
     this.id = 0,
@@ -17,4 +16,9 @@ class UserSimple {
       profileImageName: json['profileImageName'],
     );
   }
+
+  set setName(String name) => this.name = name;
+
+  set setProfileImageName(String? profileImageName) =>
+      this.profileImageName = profileImageName;
 }
