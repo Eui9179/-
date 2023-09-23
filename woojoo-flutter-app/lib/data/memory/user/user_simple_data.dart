@@ -22,22 +22,19 @@ class UserSimpleData extends GetxController {
   }
 
   Future<void> updateMyProfile(UpdateMyProfileRequest request) async {
-    String profileImageName = await userRepository.updateMyProfile(request);
+    String name = _rxMyProfile.value.name;
+    String? profileImageName = await userRepository.updateMyProfile(request);
     if (request.name.isNotEmptyAndNotNull) name = request.name!;
     if (request.file != null) {
-      this.profileImageName = profileImageName;
+      profileImageName = profileImageName;
     } else {
-      this.profileImageName = null;
+      profileImageName = null;
     }
+    _rxMyProfile(_rxMyProfile.value.copyWith(name, profileImageName));
   }
 
   UserSimple get myProfile => _rxMyProfile.value;
   String? get profileImageName => _rxMyProfile.value.profileImageName;
-
-  set profileImageName(String? profileImageName) =>
-      _rxMyProfile.value.profileImageName = profileImageName;
-
-  set name(String name) => _rxMyProfile.value.name = name;
 }
 
 mixin class UserSimpleDataProvider {

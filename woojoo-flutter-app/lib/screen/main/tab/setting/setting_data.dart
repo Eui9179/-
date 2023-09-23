@@ -5,11 +5,14 @@ import 'package:woojoo/data/memory/user/user_simple_data.dart';
 
 class SettingData extends GetxController {
   Rxn<XFile?> rxnImage = Rxn<XFile>();
-  UserSimpleData userSimpleData = Get.find<UserSimpleData>();
-  GroupData groupData = Get.find<GroupData>();
+  RxString rxUserName = Get.find<UserSimpleData>().myProfile.name.obs;
+  RxnString rxProfileImageName =
+      RxnString(Get.find<UserSimpleData>().myProfile.profileImageName);
+  RxString rxGroupName = Get.find<GroupData>().myGroup.name.obs;
+  RxString rxGroupDetail = Get.find<GroupData>().myGroup.detail1.obs;
   RxnString rxOriginImageName =
       RxnString(Get.find<UserSimpleData>().profileImageName);
-  RxBool rxIsName = false.obs;
+  RxBool rxIsName = true.obs;
   RxBool rxIsNameChanged = false.obs;
   RxBool rxIsGroup = true.obs;
   RxBool rxIsGroupChanged = false.obs;
@@ -18,13 +21,13 @@ class SettingData extends GetxController {
 
   XFile? get image => rxnImage.value;
 
-  String get userName => userSimpleData.myProfile.name;
+  String get userName => rxUserName.value;
 
-  String? get profileImageName => userSimpleData.myProfile.profileImageName;
+  String? get profileImageName => rxProfileImageName.value;
 
-  String get groupName => groupData.myGroup.name;
+  String get groupName => rxGroupName.value;
 
-  String get detail1 => groupData.myGroup.detail1;
+  String get groupDetail => rxGroupDetail.value;
 
   String? get originImageName => rxOriginImageName.value;
 
@@ -40,9 +43,7 @@ class SettingData extends GetxController {
 
   bool get isLoading => rxIsLoading.value;
 
-  set userName(String userName) {
-    userSimpleData.myProfile.name = userName;
-  }
+  set userName(String userName) => rxUserName.value = userName;
 
   set isName(bool isName) => rxIsName.value = isName;
 
@@ -54,11 +55,11 @@ class SettingData extends GetxController {
   set isGroupChanged(bool isGroup) => rxIsGroupChanged.value = isGroup;
 
   set groupName(String groupName) {
-    groupData.myGroup.name = groupName;
-    groupData.myGroup.detail1 = '1';
+    rxGroupName.value = groupName;
+    rxGroupDetail.value = '1';
   }
 
-  set detail1(String detail1) => groupData.myGroup.detail1 = detail1;
+  set groupDetail(String detail1) => rxGroupDetail.value = detail1;
 
   set isLoading(bool isLoading) => rxIsLoading.value = isLoading;
 

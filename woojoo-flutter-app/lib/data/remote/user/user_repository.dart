@@ -6,5 +6,5 @@ import '../../memory/user/update_my_profile_request.dart';
 abstract interface class UserRepository {
   Future<UserSimple> getMyProfile();
   Future<void> syncFcm(FcmRequest request);
-  Future<String> updateMyProfile(UpdateMyProfileRequest request);
+  Future<String?> updateMyProfile(UpdateMyProfileRequest request);
 }

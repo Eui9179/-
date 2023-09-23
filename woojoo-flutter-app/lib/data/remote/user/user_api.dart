@@ -32,11 +32,9 @@ class UserApi implements UserRepository {
   }
 
   @override
-  Future<String> updateMyProfile(UpdateMyProfileRequest request) async {
-    ///? await MultipartFile.fromFile(profileData["file"].path)
-    //     : null,
+  Future<String?> updateMyProfile(UpdateMyProfileRequest request) async {
     FormData formData = FormData.fromMap(await request.toJson());
-    Response response = await dio.post('/users/setting', data: formData);
+    Response response = await dio.post<String?>('/users/setting', data: formData);
     return response.data;
   }
 }

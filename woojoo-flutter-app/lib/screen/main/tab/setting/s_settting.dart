@@ -25,6 +25,8 @@ import 'package:woojoo/utils/woojoo_groups.dart';
 import '../../../../../data/controller/my_friends_controller.dart';
 import '../../../../../data/controller/my_groups_controller.dart';
 import '../../../../../data/controller/my_profile_controller.dart';
+import '../../../../data/memory/group/dto_group.dart';
+import '../../../../data/memory/group/group_data.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -50,274 +52,279 @@ class _SettingScreenState extends State<SettingScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.appColors.mainBackgroundColor,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: context.appColors.headerBackgroundColor,
-        title: '설정'.text.size(FontSize.appBarTitle).make(),
-        actions: [
-          TextButton(
-            onPressed: _onUpdateProfile,
-            child: settingData.rxIsLoading.value
-                ? '완료'
-                    .text
-                    .color(context.appColors.subText)
-                    .size(FontSize.appBarTextButton)
-                    .make()
-                : '완료'
-                    .text
-                    .color(context.appColors.textButton)
-                    .size(FontSize.appBarTextButton)
-                    .make(),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Obx(
-          () => Container(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () => getImageFromGallery(),
-                    child: Stack(
-                      children: [
-                        CircleAvatar(
-                          radius: 55,
-                          backgroundColor: Colors.black54,
-                          child: settingData.image == null
-                              ? ProfileAvatar(
-                                  image: settingData.originImageName,
-                                  size: 55,
-                                )
-                              : CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage: Image.file(
-                                    File(settingData.image!.path),
-                                    fit: BoxFit.cover,
-                                  ).image,
-                                ),
-                        ),
-                        const Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.blueAccent,
-                            child: Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.white,
+    return Obx(
+      () => Scaffold(
+        backgroundColor: context.appColors.mainBackgroundColor,
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: context.appColors.headerBackgroundColor,
+          title: '설정'.text.size(FontSize.appBarTitle).make(),
+          actions: [
+            TextButton(
+              onPressed: _onUpdateProfile,
+              child: settingData.rxIsLoading.value
+                  ? '완료'
+                      .text
+                      .color(context.appColors.subText)
+                      .size(FontSize.appBarTextButton)
+                      .make()
+                  : '완료'
+                      .text
+                      .color(context.appColors.textButton)
+                      .size(FontSize.appBarTextButton)
+                      .make(),
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Obx(
+            () => Container(
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () => getImageFromGallery(),
+                      child: Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 55,
+                            backgroundColor: Colors.black54,
+                            child: settingData.image == null
+                                ? ProfileAvatar(
+                                    image: settingData.originImageName,
+                                    size: 55,
+                                  )
+                                : CircleAvatar(
+                                    radius: 55,
+                                    backgroundImage: Image.file(
+                                      File(settingData.image!.path),
+                                      fit: BoxFit.cover,
+                                    ).image,
+                                  ),
+                          ),
+                          const Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.blueAccent,
+                              child: Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  height20,
-                  Container(
-                    margin: const EdgeInsets.only(top: 15, bottom: 15),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          initialValue: settingData.userName,
-                          autofocus: false,
-                          textInputAction: TextInputAction.next,
-                          autovalidateMode: AutovalidateMode.always,
-                          onSaved: (val) {
-                            if (val.isNotEmptyAndNotNull) {
-                              settingData.userName = val!;
-                            }
-                          },
-                          onChanged: (val) {
-                            if (val.isEmpty) {
-                              settingData.isName = false;
-                            } else {
-                              settingData.isName = true;
-                              settingData.isNameChanged = true;
-                            }
-                          },
-                          validator: (val) => null,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: context.appColors.text,
+                    height20,
+                    Container(
+                      margin: const EdgeInsets.only(top: 15, bottom: 15),
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            initialValue: settingData.userName,
+                            autofocus: false,
+                            textInputAction: TextInputAction.next,
+                            autovalidateMode: AutovalidateMode.always,
+                            onSaved: (val) {
+                              if (val.isNotEmptyAndNotNull) {
+                                settingData.userName =  val!;
+                              }
+                            },
+                            onChanged: (val) {
+                              if (val.isEmpty) {
+                                settingData.isName = false;
+                              } else {
+                                settingData.isName = true;
+                                settingData.isNameChanged = true;
+                              }
+                            },
+                            validator: (val) => null,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              color: context.appColors.text,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: const Color.fromARGB(255, 62, 62, 75),
+                              filled: true,
+                              labelText: '이름',
+                              labelStyle: const TextStyle(
+                                color: Color.fromARGB(255, 206, 206, 215),
+                                fontSize: 20,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 52, 52, 71),
+                                  width: 2,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.blueAccent,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
                           ),
+                        ],
+                      ),
+                    ),
+                    TypeAheadField(
+                        textFieldConfiguration: TextFieldConfiguration(
+                          textInputAction: TextInputAction.next,
+                          style: TextStyle(
+                              fontSize: 20.0, color: context.appColors.text),
                           decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                    color: Color.fromARGB(255, 52, 52, 71),
+                                    width: 2)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                    color: Colors.blueAccent, width: 2)),
                             fillColor: const Color.fromARGB(255, 62, 62, 75),
                             filled: true,
-                            labelText: '이름',
+                            labelText: "학교",
                             labelStyle: const TextStyle(
                               color: Color.fromARGB(255, 206, 206, 215),
                               fontSize: 20,
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 52, 52, 71),
-                                width: 2,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                color: Colors.blueAccent,
-                                width: 2,
-                              ),
-                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TypeAheadField(
-                      textFieldConfiguration: TextFieldConfiguration(
-                        textInputAction: TextInputAction.next,
-                        style: TextStyle(
-                            fontSize: 20.0, color: context.appColors.text),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 52, 52, 71),
-                                  width: 2)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                  color: Colors.blueAccent, width: 2)),
-                          fillColor: const Color.fromARGB(255, 62, 62, 75),
-                          filled: true,
-                          labelText: "학교",
-                          labelStyle: const TextStyle(
-                            color: Color.fromARGB(255, 206, 206, 215),
-                            fontSize: 20,
-                          ),
-                        ),
-                        controller: _typeAheadController,
-                        onChanged: (val) {
-                          if (val.isEmpty ||
-                              !WoojooGroups.states.contains(val)) {
-                            settingData.isGroup = false;
-                          } else if (WoojooGroups.states.contains(val)) {
-                            setState(() {
+                          controller: _typeAheadController,
+                          onChanged: (val) {
+                            if (val.isEmpty ||
+                                !WoojooGroups.states.contains(val)) {
+                              settingData.isGroup = false;
+                            } else if (WoojooGroups.states.contains(val)) {
                               settingData.groupName = val;
                               settingData.isGroup = true;
                               settingData.isGroupChanged = true;
-                            });
-                          }
+                            }
+                          },
+                        ),
+                        suggestionsCallback: (pattern) {
+                          return WoojooGroups.getSuggestions(pattern);
                         },
-                      ),
-                      suggestionsCallback: (pattern) {
-                        return WoojooGroups.getSuggestions(pattern);
-                      },
-                      transitionBuilder: (context, suggestionsBox, controller) {
-                        return suggestionsBox;
-                      },
-                      suggestionsBoxDecoration: SuggestionsBoxDecoration(
-                          color: context.appColors.boxFillColor),
-                      itemBuilder: (context, suggestion) {
-                        return ListTile(
-                          tileColor: context.appColors.boxFillColor,
-                          title: Text(
-                            suggestion.toString(),
-                            style: TextStyle(color: context.appColors.text),
-                          ),
-                        );
-                      },
-                      noItemsFoundBuilder: (value) {
-                        return Container(
+                        transitionBuilder: (context, suggestionsBox, controller) {
+                          return suggestionsBox;
+                        },
+                        suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                          color: context.appColors.boxFillColor,
+                        ),
+                        itemBuilder: (context, suggestion) {
+                          return ListTile(
+                            tileColor: context.appColors.boxFillColor,
+                            title: suggestion
+                                .toString()
+                                .text
+                                .color(context.appColors.text)
+                                .make(),
+                          );
+                        },
+                        noItemsFoundBuilder: (value) {
+                          return Container(
                             padding: const EdgeInsets.only(
                                 top: 13, bottom: 13, left: 13),
-                            child: Text(
-                              '검색 결과가 없습니다.',
-                              style: TextStyle(
-                                  fontSize: 15, color: context.appColors.text),
-                            ));
-                      },
-                      onSuggestionSelected: (suggestion) {
-                        _typeAheadController.text = suggestion.toString();
-                        settingData.groupName = _typeAheadController.text;
-                        settingData.isGroup = true;
-                        settingData.isGroupChanged = true;
-                      }),
-                  Container(
-                    margin: const EdgeInsets.only(top: 20, bottom: 10),
-                    height: 60,
-                    child: InputDecorator(
-                      decoration: InputDecoration(
-                        fillColor: context.appColors.boxFillColor,
-                        filled: true,
-                        labelText: '학년을 입력해주세요',
-                        labelStyle: const TextStyle(
-                            color: Color.fromARGB(255, 206, 206, 215),
-                            fontSize: 20),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
+                            child: '검색 결과가 없습니다.'
+                                .text
+                                .size(FontSize.subTitle)
+                                .color(context.appColors.text)
+                                .make(),
+                          );
+                        },
+                        onSuggestionSelected: (suggestion) {
+                          _typeAheadController.text = suggestion.toString();
+                          settingData.groupName = _typeAheadController.text;
+                          settingData.isGroup = true;
+                          settingData.isGroupChanged = true;
+                        }),
+                    Container(
+                      margin: const EdgeInsets.only(top: 20, bottom: 10),
+                      height: 60,
+                      child: InputDecorator(
+                        decoration: InputDecoration(
+                          fillColor: context.appColors.boxFillColor,
+                          filled: true,
+                          labelText: '학년을 입력해주세요',
+                          labelStyle: TextStyle(
+                            color: context.appColors.text,
+                            fontSize: 20,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 52, 52, 71),
-                                width: 2)),
-                      ),
-                      child: DropdownButton(
-                        value: settingData.detail1,
-                        icon: const Icon(Icons.arrow_drop_down),
-                        elevation: 16,
-                        style: TextStyle(color: context.appColors.text),
-                        isExpanded: true,
-                        dropdownColor: context.appColors.boxFillColor,
-                        underline: Container(
-                          height: 2,
+                              color: Color.fromARGB(255, 52, 52, 71),
+                              width: 2,
+                            ),
+                          ),
                         ),
-                        onChanged: (String? newValue) {
-                          settingData.detail1 = newValue!;
-                          settingData.isGroupChanged = true;
-                        },
-                        items: _generateDetailDropMenu(),
+                        child: DropdownButton(
+                          value: settingData.groupDetail,
+                          icon: const Icon(Icons.arrow_drop_down),
+                          elevation: 16,
+                          style: TextStyle(color: context.appColors.text),
+                          isExpanded: true,
+                          dropdownColor: context.appColors.boxFillColor,
+                          underline: Container(
+                            height: 2,
+                          ),
+                          onChanged: (String? newValue) {
+                            print(newValue);
+                            settingData.groupDetail = newValue!;
+                            settingData.isGroupChanged = true;
+                          },
+                          items: _generateDetailDropMenu(),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  TextButton(
-                      onPressed: _onLogout,
-                      child: const Text(
-                        '로그아웃',
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400),
-                      )),
-                  TextButton(
-                      onPressed: () {
-                        launchUrl(Uri.parse("https://discord.gg/MTyBVZ72S9"),
-                            mode: LaunchMode.externalApplication);
-                      },
-                      child: const Text(
-                        '고객센터',
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400),
-                      )),
-                  TextButton(
-                      onPressed: () {
-                        _showTextInputDialog(context);
-                      },
-                      child: Text(
-                        '회원탈퇴',
-                        style: TextStyle(
-                            color: context.appColors.subText,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w300),
-                      )),
-                ],
+                    const Height(60),
+                    TextButton(
+                        onPressed: _onLogout,
+                        child: const Text(
+                          '로그아웃',
+                          style: TextStyle(
+                              color: Colors.blueAccent,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          launchUrl(Uri.parse("https://discord.gg/MTyBVZ72S9"),
+                              mode: LaunchMode.externalApplication);
+                        },
+                        child: const Text(
+                          '고객센터',
+                          style: TextStyle(
+                              color: Colors.blueAccent,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          _showTextInputDialog(context);
+                        },
+                        child: Text(
+                          '회원탈퇴',
+                          style: TextStyle(
+                              color: context.appColors.subText,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300),
+                        )),
+                  ],
+                ),
               ),
             ),
           ),
@@ -358,13 +365,17 @@ class _SettingScreenState extends State<SettingScreen>
         name: settingData.isNameChanged ? settingData.userName : null,
         groupName:
             settingData.isGroupChanged ? _typeAheadController.text : null,
-        groupDetail1: settingData.isGroupChanged ? settingData.detail1 : null,
+        groupDetail1: settingData.isGroupChanged ? settingData.groupDetail : null,
         isGroup: settingData.isGroupChanged,
       );
+
+      Group updatedGroup = Get.find<GroupData>().myGroup.copyWith(request.groupName!, request.groupDetail1!);
+      Get.find<GroupData>().myGroup = updatedGroup;
 
       userSimpleData
           .updateMyProfile(request)
           .then((value) => settingData.isLoading = false);
+
     } else if (!settingData.isName) {
       notification(context, '이름을 입력해주세요');
     } else if (!settingData.isGroup) {

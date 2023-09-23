@@ -9,6 +9,14 @@ class UserSimple {
     this.profileImageName,
   });
 
+  UserSimple copyWith(String name, String? profileImageName) {
+    return UserSimple(
+      id: id,
+      name: name,
+      profileImageName: profileImageName,
+    );
+  }
+
   factory UserSimple.fromJson(Map<String, dynamic> json) {
     return UserSimple(
       id: json['id'],

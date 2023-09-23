@@ -16,6 +16,8 @@ class GroupData extends GetxController {
   }
 
   Group get myGroup => _rxMyGroup.value;
+
+  set myGroup(Group group) => _rxMyGroup.value = group;
 }
 
 mixin class GroupDataProvider {
