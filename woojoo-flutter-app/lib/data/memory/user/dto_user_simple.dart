@@ -21,7 +21,7 @@ class UserSimple {
     return UserSimple(
       id: json['id'],
       name: json['name'],
-      profileImageName: json['profileImageName'],
+      profileImageName: json['profile_image_name'],
     );
   }
 

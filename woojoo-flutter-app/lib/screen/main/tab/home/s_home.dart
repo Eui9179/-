@@ -29,15 +29,6 @@ class _HomeScreenState extends State<HomeScreen>
   bool get wantKeepAlive => true;
 
   @override
-  void initState() {
-    Get.put(UserSimpleData());
-    Get.put(GroupData());
-    Get.put(GameData());
-    Get.put(FriendSimpleData());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
 

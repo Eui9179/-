@@ -6,7 +6,11 @@ import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
 
+import '../../data/memory/friend/friend_simple_data.dart';
+import '../../data/memory/game/game_data.dart';
 import '../../data/memory/game/todays_game/todays_game_data.dart';
+import '../../data/memory/group/group_data.dart';
+import '../../data/memory/user/user_simple_data.dart';
 import 'tab/home/s_home.dart';
 import 'tab/setting/s_settting.dart';
 import 'tab/todays_game/s_todays_game_list.dart';
@@ -31,6 +35,10 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   void initState() {
+    Get.put(UserSimpleData());
+    Get.put(GroupData());
+    Get.put(GameData());
+    Get.put(FriendSimpleData());
     Get.put(TodaysGameData());
     super.initState();
   }

@@ -25,11 +25,7 @@ class UserSimpleData extends GetxController {
     String name = _rxMyProfile.value.name;
     String? profileImageName = await userRepository.updateMyProfile(request);
     if (request.name.isNotEmptyAndNotNull) name = request.name!;
-    if (request.file != null) {
-      profileImageName = profileImageName;
-    } else {
-      profileImageName = null;
-    }
+    if (request.file == null) profileImageName = null;
     _rxMyProfile(_rxMyProfile.value.copyWith(name, profileImageName));
   }
 
