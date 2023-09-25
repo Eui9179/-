@@ -4,7 +4,7 @@ import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 import 'package:woojoo/data/memory/user/dto_user_simple.dart';
 import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
-import 'package:woojoo/data/remote/dio/dio_instance.dart';
+import 'package:woojoo/data/remote/dio_instance.dart';
 import 'package:woojoo/data/remote/user/user_repository.dart';
 
 class UserApi implements UserRepository {

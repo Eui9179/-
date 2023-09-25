@@ -3,7 +3,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/constants.dart';
-import '../../../data/remote/dio/dio_instance.dart';
+import '../../../data/remote/dio_instance.dart';
 
 // TODO 리팩토링
 class ProfileAvatar extends StatelessWidget {

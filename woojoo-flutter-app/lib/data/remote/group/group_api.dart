@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:woojoo/data/remote/group/group_repository.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/group/dto_group.dart';
-import 'package:woojoo/data/remote/dio/dio_instance.dart';
+import 'package:woojoo/data/remote/dio_instance.dart';
 
 
 

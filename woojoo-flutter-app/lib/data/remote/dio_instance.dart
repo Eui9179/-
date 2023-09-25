@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../../../screen/authentication/s_login.dart';
+import '../../screen/authentication/s_login.dart';
 
 String baseUri = "http://localhost:8080/api";
 // String baseUri = "http://43.201.193.44/api";

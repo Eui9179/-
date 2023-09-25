@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -23,8 +26,7 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen>
-    with AuthenticationDataProvider, AccessTokenDataProvider {
+class _MainScreenState extends State<MainScreen> with AfterLayoutMixin{
   int _selectedIndex = 0;
   PageController pageController = PageController();
 
@@ -36,8 +38,6 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   void initState() {
-    FlutterNativeSplash.remove();
-
     Get.put(UserSimpleData());
     Get.put(GroupData());
     Get.put(GameData());
@@ -98,5 +98,10 @@ class _MainScreenState extends State<MainScreen>
     } else {
       return const Text2(text: '설정', size: 22);
     }
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    FlutterNativeSplash.remove();
   }
 }
