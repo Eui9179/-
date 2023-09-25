@@ -7,4 +7,5 @@ class FontSize {
   static double get appBarTitle => 22;
   static double get appBarTextButton => 22;
   static double get subTitle => 16;
+  static double get settingTextButton => 20;
 }

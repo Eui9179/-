@@ -1,20 +1,18 @@
+import 'package:get/get.dart';
 import 'package:woojoo/app.dart';
+import 'package:woojoo/screen/acquaintance/s_acquaintance.dart';
 import 'package:woojoo/screen/authentication/login_input/s_login_input.dart';
 import 'package:woojoo/screen/authentication/s_login.dart';
-import 'package:woojoo/screen/authentication/verification/s_verification.dart';
-
-import 'package:get/get.dart';
 import 'package:woojoo/screen/authentication/signup/s_step1_profile.dart';
 import 'package:woojoo/screen/authentication/signup/s_step2_tos.dart';
+import 'package:woojoo/screen/authentication/verification/s_verification.dart';
 import 'package:woojoo/screen/game_setting/s_game_setting.dart';
+import 'package:woojoo/screen/main/s_main.dart';
 import 'package:woojoo/screen/main/tab/home/game_friend_list/s_game_friend_list.dart';
-import 'package:woojoo/screen/acquaintance/s_acquaintance.dart';
-import 'package:woojoo/screen/main/tab/todays_game/s_todays_game_list.dart';
 import 'package:woojoo/screen/main/tab/home/group/s_group.dart';
 import 'package:woojoo/screen/main/tab/home/group/s_group_detail.dart';
-import 'package:woojoo/screen/main/s_main.dart';
-import 'package:woojoo/screen/main/tab/home/s_home.dart';
 import 'package:woojoo/screen/main/tab/setting/s_settting.dart';
+import 'package:woojoo/screen/main/tab/todays_game/s_todays_game_list.dart';
 import 'package:woojoo/screen/user/s_user.dart';
 
 List<GetPage> pages = [

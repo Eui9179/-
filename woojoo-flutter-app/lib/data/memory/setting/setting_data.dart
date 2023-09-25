@@ -97,7 +97,7 @@ class SettingData extends GetxController
 
   set isLoading(bool isLoading) => rxIsLoading.value = isLoading;
 
-  set image(XFile? image) => rxnImage(image);
+  set image(XFile? image) => rxnImage.value = image;
 
   set isFile(bool isFile) => rxIsFile.value = isFile;
 

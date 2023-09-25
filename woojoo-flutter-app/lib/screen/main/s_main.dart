@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo.dart';
@@ -35,6 +36,8 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   void initState() {
+    FlutterNativeSplash.remove();
+
     Get.put(UserSimpleData());
     Get.put(GroupData());
     Get.put(GameData());

@@ -67,62 +67,57 @@ class _SettingScreenState extends State<SettingScreen>
           ],
         ),
         body: SingleChildScrollView(
-          child: Obx(
-            () => Container(
-              padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.only(top: 10),
-              width: double.infinity,
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ProfileImagePicker(settingData: settingData),
-                    height20,
-                    SettingNameInput(settingData: settingData),
-                    SettingGroupInput(
-                      settingData: settingData,
-                      typeAheadController: _typeAheadController,
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(top: 10),
+            width: double.infinity,
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ProfileImagePicker(settingData: settingData),
+                  height20,
+                  SettingNameInput(settingData: settingData),
+                  SettingGroupInput(
+                    settingData: settingData,
+                    typeAheadController: _typeAheadController,
+                  ),
+                  SettingGroupDetailInput(settingData: settingData),
+                  const Height(60),
+                  TextButton(
+                    onPressed: _onLogout,
+                    child: '로그아웃'
+                        .text
+                        .color(context.appColors.textButton)
+                        .size(FontSize.settingTextButton)
+                        .fontWeight(FontWeight.w400)
+                        .make(),
+                  ),
+                  TextButton(
+                    onPressed: () => launchUrl(
+                        Uri.parse("https://discord.gg/MTyBVZ72S9"),
+                        mode: LaunchMode.externalApplication),
+                    child: '커뮤니티'
+                        .text
+                        .color(context.appColors.textButton)
+                        .size(FontSize.settingTextButton)
+                        .fontWeight(FontWeight.w400)
+                        .make(),
+                  ),
+                  TextButton(
+                    onPressed: () => showWithdrawalCheck(
+                      context,
+                      onPressed: _onWithdrawal,
                     ),
-                    SettingGroupDetailInput(settingData: settingData),
-                    const Height(60),
-                    TextButton(
-                      onPressed: _onLogout,
-                      child: const Text(
-                        '로그아웃',
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => launchUrl(
-                          Uri.parse("https://discord.gg/MTyBVZ72S9"),
-                          mode: LaunchMode.externalApplication),
-                      child: const Text(
-                        '고객센터',
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => showWithdrawalCheck(
-                        context,
-                        onPressed: _onWithdrawal,
-                      ),
-                      child: Text(
-                        '회원탈퇴',
-                        style: TextStyle(
-                            color: context.appColors.subText,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                  ],
-                ),
+                    child: '회원탈퇴'
+                        .text
+                        .color(context.appColors.subText)
+                        .size(FontSize.normal)
+                        .fontWeight(FontWeight.w300)
+                        .make(),
+                  ),
+                ],
               ),
             ),
           ),

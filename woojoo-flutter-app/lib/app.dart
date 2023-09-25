@@ -53,8 +53,8 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) async {
     String accessToken = await accessTokenData.readAccessTokenSecureStorage();
-    FlutterNativeSplash.remove();
     if (accessToken.isEmpty) {
+      FlutterNativeSplash.remove();
       Get.offAll(() => const LoginScreen(), transition: Transition.noTransition);
       return;
     }

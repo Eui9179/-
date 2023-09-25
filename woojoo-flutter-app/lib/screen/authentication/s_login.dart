@@ -1,4 +1,6 @@
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/constants.dart';
