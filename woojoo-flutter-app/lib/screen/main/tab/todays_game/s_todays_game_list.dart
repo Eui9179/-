@@ -94,7 +94,7 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen>
             heroTag: 'refresh',
             onPressed: onPressedRefresh
                 ? () {
-                    _getMyGameList(true);
+                    _getMyGameList();
                     _disabledButton();
                   }
                 : null,
@@ -108,21 +108,17 @@ class _TodaysGameListScreenState extends State<TodaysGameListScreen>
     );
   }
 
-  _getMyGameList(bool isRefresh) {
+  _getMyGameList() {
     todaysGameData
         .getTodaysGameList()
         .then((value) => notification(context, '새로고침 완료', warning: false));
   }
 
   _disabledButton() {
-    setState(() {
-      onPressedRefresh = false;
-    });
+    setState(() => onPressedRefresh = false);
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
-        setState(() {
-          onPressedRefresh = true;
-        });
+        setState(() => onPressedRefresh = true);
       }
     });
   }
