@@ -1,47 +1,22 @@
-class TodaysGame {
-  final int id;
-  final int userId;
-  final String userName;
-  final String? profileImageName;
-  final String gameName;
-  final String? gameNickname;
-  final String createdTime;
-  final String? description;
-  final bool isMe;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  TodaysGame({
-    required this.id,
-    required this.userId,
-    required this.userName,
-    required this.profileImageName,
-    required this.gameName,
-    required this.gameNickname,
-    required this.createdTime,
-    required this.description,
-    required this.isMe,
-  });
+part 'dto_todays_game.freezed.dart';
+part 'dto_todays_game.g.dart';
 
-  factory TodaysGame.fromJson(Map<String, dynamic> json) {
-    return TodaysGame(
-      id: json['todays_game_id'],
-      userId: json['id'],
-      userName: json['name'],
-      profileImageName: json['profile_image_name'],
-      gameName: json['game'],
-      gameNickname: json['game_nickname'],
-      createdTime: json['create_time'],
-      description: json['introduction'],
-      isMe: json['isme'],
-    );
+@freezed
+class TodaysGame with _$TodaysGame {
+  factory TodaysGame({
+    @JsonKey(name: 'todays_game_id') required int id,
+    @JsonKey(name: 'id') required int userId,
+    @JsonKey(name: 'name') required String userName,
+    @JsonKey(name: 'profile_image_name') required String? profileImageName,
+    @JsonKey(name: 'game') required String gameName,
+    @JsonKey(name: 'game_nickname') required String? gameNickname,
+    @JsonKey(name: 'create_time') required String createdTime,
+    @JsonKey(name: 'introduction') required String? description,
+    @JsonKey(name: 'isme') required bool isMe,
+  }) = _TodaysGame;
 
-    ///  todaysGameList[index]['id'],
-    // todaysGameList[index]['todays_game_id'],
-    // todaysGameList[index]['profile_image_name'],
-    // todaysGameList[index]['name'],
-    // todaysGameList[index]['create_time'],
-    // todaysGameList[index]['game'],
-    // todaysGameList[index]['game_nickname'],
-    // todaysGameList[index]['description'],
-    // todaysGameList[index]['isme'],
-  }
+  factory TodaysGame.fromJson(Map<String, dynamic> json) =>
+      _$TodaysGameFromJson(json);
 }

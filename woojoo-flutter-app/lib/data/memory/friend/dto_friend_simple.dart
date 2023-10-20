@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../game/dto_game.dart';
 import '../user/dto_user_simple.dart';
 
@@ -15,7 +17,7 @@ class FriendSimple {
         name: json['name'],
         profileImageName: json['profileImageName'],
       ),
-      gameList: games.map((game) => Game.fromString(game.toString())).toList(),
+      gameList: games.map((game) => Game(name: game.toString())).toList(),
     );
   }
 }

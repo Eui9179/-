@@ -34,7 +34,7 @@ class SettingData extends GetxController
       isGroup: isGroupChanged,
     );
 
-    groupData.myGroup = groupData.myGroup.copyWith(groupName, groupDetail);
+    groupData.myGroup = groupData.myGroup.copyWith(name: groupName, detail1: groupDetail);
     userSimpleData.updateMyProfile(request).then((value) => isLoading = false);
   }
 

@@ -1,19 +1,16 @@
-class LoginRequest {
-  final String phoneNumber;
-  final String fcm;
-  final String verificationCode;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  LoginRequest({
-    required this.phoneNumber,
-    required this.fcm,
-    required this.verificationCode,
-  });
+part 'dto_login_request.freezed.dart';
+part 'dto_login_request.g.dart';
 
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      "phone_number": phoneNumber,
-      "fcm_token": fcm,
-      "sms_code": verificationCode,
-    };
-  }
+@freezed
+class LoginRequest with _$LoginRequest {
+
+  factory LoginRequest({
+    @JsonKey(name: 'phone_number') required String phoneNumber,
+    @JsonKey(name: 'fcm_token') required String fcm,
+    @JsonKey(name: 'sms_code') required String verificationCode,
+  }) = _LoginRequest;
+
+  factory LoginRequest.fromJson(Map<String, dynamic> json) => _$LoginRequestFromJson(json);
 }

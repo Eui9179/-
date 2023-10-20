@@ -1,14 +1,15 @@
-class Game {
-  final String name;
-  final String? nickname;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Game({this.name = '', this.nickname});
+part 'dto_game.freezed.dart';
 
-  factory Game.fromJson(Map<String, dynamic> json) {
-    return Game(name: json['game'], nickname: json['nickname']);
-  }
+part 'dto_game.g.dart';
 
-  factory Game.fromString(String game) {
-    return Game(name: game);
-  }
+@unfreezed
+class Game with _$Game {
+  factory Game({
+    @JsonKey(name: 'game') required String name,
+    String? nickname,
+  }) = _Game;
+
+  factory Game.fromJson(Map<String, Object?> json) => _$GameFromJson(json);
 }

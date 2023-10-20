@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:woojoo/data/memory/authentication/dto_access_token.dart';
-import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
 import 'package:woojoo/data/memory/authentication/dto_signup_request.dart';
 import 'package:woojoo/data/remote/authentication/authentication_repository.dart';
@@ -20,7 +19,7 @@ class AuthenticationApi implements AuthenticationRepository {
       '/auth/login',
       data: request.toJson(),
     );
-    return AccessToken.fromResponse(response);
+    return AccessToken.fromJson(response);
   }
 
   @override
@@ -29,7 +28,7 @@ class AuthenticationApi implements AuthenticationRepository {
       '/auth/signup',
       data: request.toForm(),
     );
-    return AccessToken.fromResponse(response);
+    return AccessToken.fromJson(response);
   }
 
   @override

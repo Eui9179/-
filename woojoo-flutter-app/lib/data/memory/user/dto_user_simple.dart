@@ -1,32 +1,20 @@
-class UserSimple {
-  final int id;
-  String name;
-  String? profileImageName;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  UserSimple({
-    this.id = 0,
-    this.name = '',
-    this.profileImageName,
-  });
+part 'dto_user_simple.freezed.dart';
+part 'dto_user_simple.g.dart';
 
-  UserSimple copyWith(String name, String? profileImageName) {
-    return UserSimple(
-      id: id,
-      name: name,
-      profileImageName: profileImageName,
-    );
-  }
+@unfreezed
+class UserSimple with _$UserSimple {
+  factory UserSimple({
+    @Default(0)
+    final int id,
+    @Default("")
+    String name,
+    @Default("")
+    @JsonKey(name: 'profile_image_name')
+    String? profileImageName,
+  }) = _UserSimple;
 
-  factory UserSimple.fromJson(Map<String, dynamic> json) {
-    return UserSimple(
-      id: json['id'],
-      name: json['name'],
-      profileImageName: json['profile_image_name'],
-    );
-  }
-
-  set setName(String name) => this.name = name;
-
-  set setProfileImageName(String? profileImageName) =>
-      this.profileImageName = profileImageName;
+  factory UserSimple.fromJson(Map<String, dynamic> json) =>
+      _$UserSimpleFromJson(json);
 }

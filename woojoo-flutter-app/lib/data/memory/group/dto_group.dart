@@ -1,14 +1,15 @@
-class Group {
-  String name;
-  String detail1;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Group({this.name = '', this.detail1 = ''});
+part 'dto_group.freezed.dart';
+part 'dto_group.g.dart';
 
-  Group copyWith(String name, String detail1) {
-    return Group(name: name, detail1: detail1);
-  }
+@unfreezed
+class Group with _$Group {
 
-  factory Group.fromJson(Map<String, dynamic> json) {
-    return Group(name: json['name'], detail1: json['detail1']);
-  }
+  factory Group({
+    @Default("") String name,
+    @Default("") String detail1,
+  }) = _Group;
+
+  factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 }

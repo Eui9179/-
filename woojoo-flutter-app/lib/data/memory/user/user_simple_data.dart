@@ -6,7 +6,7 @@ import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
 import '../../remote/user/user_api.dart';
 
 class UserSimpleData extends GetxController {
-  final Rx<UserSimple> _rxMyProfile = UserSimple().obs;
+  final Rx<UserSimple> _myProfile = UserSimple().obs;
 
   UserApi userRepository = UserApi.instance;
 
@@ -18,19 +18,23 @@ class UserSimpleData extends GetxController {
 
   Future<void> getMyProfile() async {
     UserSimple myProfile = await userRepository.getMyProfile();
-    _rxMyProfile(myProfile);
+    _myProfile(myProfile);
   }
 
   Future<void> updateMyProfile(UpdateMyProfileRequest request) async {
-    String name = _rxMyProfile.value.name;
+    String name = _myProfile.value.name;
     String? profileImageName = await userRepository.updateMyProfile(request);
     if (request.name.isNotEmptyAndNotNull) name = request.name!;
     if (request.file == null) profileImageName = null;
-    _rxMyProfile(_rxMyProfile.value.copyWith(name, profileImageName));
+    _myProfile(_myProfile.value.copyWith(
+      name: name,
+      profileImageName: profileImageName,
+    ));
   }
 
-  UserSimple get myProfile => _rxMyProfile.value;
-  String? get profileImageName => _rxMyProfile.value.profileImageName;
+  UserSimple get myProfile => _myProfile.value;
+
+  String? get profileImageName => _myProfile.value.profileImageName;
 }
 
 mixin class UserSimpleDataProvider {
