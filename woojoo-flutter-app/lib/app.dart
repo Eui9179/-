@@ -10,10 +10,6 @@ import 'package:woojoo/screen/main_loading_screen.dart';
 
 import 'data/controller/fcm_token_controller.dart';
 import 'data/controller/my_friends_controller.dart';
-import 'data/controller/my_games_controller.dart';
-import 'data/controller/my_groups_controller.dart';
-import 'data/controller/my_profile_controller.dart';
-import 'data/controller/todays_game_controller.dart';
 import 'data/memory/authentication/access_token_data.dart';
 
 class App extends StatefulWidget {
@@ -43,11 +39,6 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
   void _initGetXController() {
     Get.put(AccessTokenData());
     Get.put(MyFriendsController());
-    Get.put(MyProfileController());
-    Get.put(MyGroupsController());
-    Get.put(MyGamesController());
-    Get.put(TodaysGameController());
-    Get.put(FcmTokenController());
   }
 
   @override

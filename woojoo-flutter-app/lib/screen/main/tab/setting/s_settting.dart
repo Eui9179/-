@@ -17,8 +17,6 @@ import 'package:woojoo/screen/main/tab/setting/w_setting_name_input.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../../../../data/controller/my_friends_controller.dart';
-import '../../../../../data/controller/my_groups_controller.dart';
-import '../../../../../data/controller/my_profile_controller.dart';
 import 'd_withdrawal_check.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -156,8 +154,6 @@ class _SettingScreenState extends State<SettingScreen>
 
   void clearGetXController() {
     Get.find<AccessTokenData>().clear();
-    Get.find<MyGroupsController>().clear();
-    Get.find<MyProfileController>().clear();
     Get.find<MyFriendsController>().clear();
     Get.find<GameData>().clear();
   }

@@ -4,17 +4,15 @@ class FirstConnection {
 
   FirstConnection._();
 
-  static const String _lastAccessTimeKey = "lastAccessTime";
+  static const String _keyLastAccessTimeKey = "keyLastAccessTimeKey";
 
-  static Future<bool> isFirst() async {
+  static Future<void> runIfFirst(Function func) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    String lastAccessTime = prefs.getString(_lastAccessTimeKey) ?? '';
+    String lastAccessTime = prefs.getString(_keyLastAccessTimeKey) ?? '';
     String today = DateTime.now().toString().split(' ')[0];
-
-    if (today == lastAccessTime) return false;
-
-    prefs.setString('lastAccessTime', today);
-    return true;
+    if (today != lastAccessTime) {
+      func();
+      prefs.setString(_keyLastAccessTimeKey, today);
+    }
   }
 }

@@ -13,7 +13,6 @@ import 'package:woojoo/screen/authentication/verification/w_verification_code_in
 import '../../../common/widget/w_height.dart';
 import '../../../common/widget/button/w_rounded_button.dart';
 import '../../../data/controller/fcm_token_controller.dart';
-import '../../../main.dart';
 import '../../../common/appbar/logo_app_bar.dart';
 import '../signup/s_step1_profile.dart';
 import '../../../utils/notification.dart';

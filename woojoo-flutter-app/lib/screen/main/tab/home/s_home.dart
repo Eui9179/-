@@ -32,14 +32,12 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
 
-    FirstConnection.isFirst().then((isFirst) {
-      if (isFirst) {
-        Future.delayed(
-          Duration.zero,
-              () => showSelectingTodaysGame(context),
-        );
-      }
-    });
+    FirstConnection.runIfFirst(
+      () => Future.delayed(
+        Duration.zero,
+        () => showSelectingTodaysGame(context),
+      ),
+    );
 
     return Scaffold(
       backgroundColor: context.appColors.mainBackgroundColor,

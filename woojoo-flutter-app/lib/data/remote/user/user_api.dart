@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:get/get.dart' as G;
+import 'package:get/get.dart' as g;
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/user/dto_fcm_request.dart';
 import 'package:woojoo/data/memory/user/dto_user_simple.dart';
@@ -9,7 +9,7 @@ import 'package:woojoo/data/remote/user/user_repository.dart';
 
 class UserApi implements UserRepository {
   final Dio dio = DioInstance(
-    accessToken: G.Get.find<AccessTokenData>().accessToken,
+    accessToken: g.Get.find<AccessTokenData>().accessToken,
   ).dio;
 
   UserApi._();
