@@ -4,9 +4,8 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/w_height.dart';
 import 'package:woojoo/data/memory/user/dto_user_simple.dart';
+import 'package:woojoo/common/widget/avatar/w_profile_avatar.dart';
 import 'package:woojoo/data/memory/user/user_simple_data.dart';
-
-import '../../../../common/widget/avatar/w_profile_avatar.dart';
 
 class HomeProfileFrame extends StatefulWidget {
   const HomeProfileFrame({Key? key}) : super(key: key);

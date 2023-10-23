@@ -1,21 +1,13 @@
 // import 'package:firebase_core/firebase_core.dart';
-import 'dart:async';
-import 'dart:io';
-
-import 'package:after_layout/after_layout.dart';
-
-// import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:woojoo/app.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/pages.dart';
-import 'package:woojoo/screen/authentication/s_login.dart';
-import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:woojoo/screen/main/s_main.dart';
+import 'package:woojoo/app.dart';
+import 'package:woojoo/common/theme/color_palette.dart';
+import 'package:woojoo/pages.dart';
 
 // import 'firebase_options.dart';
 

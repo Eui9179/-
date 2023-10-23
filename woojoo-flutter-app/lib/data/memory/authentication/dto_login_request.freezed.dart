@@ -21,8 +21,8 @@ LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LoginRequest {
   String get phoneNumber => throw _privateConstructorUsedError;
-  String get fcm => throw _privateConstructorUsedError;
-  String get verificationCode => throw _privateConstructorUsedError;
+  String get fcmToken => throw _privateConstructorUsedError;
+  String get smsCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $LoginRequestCopyWith<$Res> {
           LoginRequest value, $Res Function(LoginRequest) then) =
       _$LoginRequestCopyWithImpl<$Res, LoginRequest>;
   @useResult
-  $Res call({String phoneNumber, String fcm, String verificationCode});
+  $Res call({String phoneNumber, String fcmToken, String smsCode});
 }
 
 /// @nodoc
@@ -53,21 +53,21 @@ class _$LoginRequestCopyWithImpl<$Res, $Val extends LoginRequest>
   @override
   $Res call({
     Object? phoneNumber = null,
-    Object? fcm = null,
-    Object? verificationCode = null,
+    Object? fcmToken = null,
+    Object? smsCode = null,
   }) {
     return _then(_value.copyWith(
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fcm: null == fcm
-          ? _value.fcm
-          : fcm // ignore: cast_nullable_to_non_nullable
+      fcmToken: null == fcmToken
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
               as String,
-      verificationCode: null == verificationCode
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
+      smsCode: null == smsCode
+          ? _value.smsCode
+          : smsCode // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$LoginRequestImplCopyWith<$Res>
       __$$LoginRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String phoneNumber, String fcm, String verificationCode});
+  $Res call({String phoneNumber, String fcmToken, String smsCode});
 }
 
 /// @nodoc
@@ -96,21 +96,21 @@ class __$$LoginRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phoneNumber = null,
-    Object? fcm = null,
-    Object? verificationCode = null,
+    Object? fcmToken = null,
+    Object? smsCode = null,
   }) {
     return _then(_$LoginRequestImpl(
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fcm: null == fcm
-          ? _value.fcm
-          : fcm // ignore: cast_nullable_to_non_nullable
+      fcmToken: null == fcmToken
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
               as String,
-      verificationCode: null == verificationCode
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
+      smsCode: null == smsCode
+          ? _value.smsCode
+          : smsCode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -121,8 +121,8 @@ class __$$LoginRequestImplCopyWithImpl<$Res>
 class _$LoginRequestImpl implements _LoginRequest {
   _$LoginRequestImpl(
       {required this.phoneNumber,
-      required this.fcm,
-      required this.verificationCode});
+      required this.fcmToken,
+      required this.smsCode});
 
   factory _$LoginRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginRequestImplFromJson(json);
@@ -130,13 +130,13 @@ class _$LoginRequestImpl implements _LoginRequest {
   @override
   final String phoneNumber;
   @override
-  final String fcm;
+  final String fcmToken;
   @override
-  final String verificationCode;
+  final String smsCode;
 
   @override
   String toString() {
-    return 'LoginRequest(phoneNumber: $phoneNumber, fcm: $fcm, verificationCode: $verificationCode)';
+    return 'LoginRequest(phoneNumber: $phoneNumber, fcmToken: $fcmToken, smsCode: $smsCode)';
   }
 
   @override
@@ -146,15 +146,14 @@ class _$LoginRequestImpl implements _LoginRequest {
             other is _$LoginRequestImpl &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
-            (identical(other.fcm, fcm) || other.fcm == fcm) &&
-            (identical(other.verificationCode, verificationCode) ||
-                other.verificationCode == verificationCode));
+            (identical(other.fcmToken, fcmToken) ||
+                other.fcmToken == fcmToken) &&
+            (identical(other.smsCode, smsCode) || other.smsCode == smsCode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, phoneNumber, fcm, verificationCode);
+  int get hashCode => Object.hash(runtimeType, phoneNumber, fcmToken, smsCode);
 
   @JsonKey(ignore: true)
   @override
@@ -173,8 +172,8 @@ class _$LoginRequestImpl implements _LoginRequest {
 abstract class _LoginRequest implements LoginRequest {
   factory _LoginRequest(
       {required final String phoneNumber,
-      required final String fcm,
-      required final String verificationCode}) = _$LoginRequestImpl;
+      required final String fcmToken,
+      required final String smsCode}) = _$LoginRequestImpl;
 
   factory _LoginRequest.fromJson(Map<String, dynamic> json) =
       _$LoginRequestImpl.fromJson;
@@ -182,9 +181,9 @@ abstract class _LoginRequest implements LoginRequest {
   @override
   String get phoneNumber;
   @override
-  String get fcm;
+  String get fcmToken;
   @override
-  String get verificationCode;
+  String get smsCode;
   @override
   @JsonKey(ignore: true)
   _$$LoginRequestImplCopyWith<_$LoginRequestImpl> get copyWith =>

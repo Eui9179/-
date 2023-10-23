@@ -8,7 +8,7 @@ import 'package:woojoo/utils/notification.dart';
 import 'dto_friend_simple.dart';
 
 class FriendSimpleData extends GetxController {
-  RxList<FriendSimple> rxMyFriends = <FriendSimple>[].obs;
+  final RxList<FriendSimple> _myFriends = <FriendSimple>[].obs;
 
   FriendApi friendRepository = FriendApi.instance;
 
@@ -20,8 +20,8 @@ class FriendSimpleData extends GetxController {
 
   Future<void> getMyFriendList() async {
     List<FriendSimple> myFriendList = await friendRepository.getMyFriendList();
-    rxMyFriends.clear();
-    rxMyFriends.addAll(myFriendList);
+    _myFriends.clear();
+    _myFriends.addAll(myFriendList);
   }
 
   void syncMyFriendList(BuildContext context) {
@@ -57,7 +57,7 @@ class FriendSimpleData extends GetxController {
         .toList();
   }
 
-  List<FriendSimple> get myFriendList => rxMyFriends;
+  List<FriendSimple> get myFriendList => _myFriends;
 }
 
 mixin class FriendSimpleDataProvider {

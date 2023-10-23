@@ -39,6 +39,7 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
   void _initGetXController() {
     Get.put(AccessTokenData());
     Get.put(MyFriendsController());
+    Get.put(FcmTokenController());
   }
 
   @override
@@ -47,8 +48,8 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
     if (accessToken.isEmpty) {
       FlutterNativeSplash.remove();
       Get.offAll(() => const LoginScreen(), transition: Transition.noTransition);
-      return;
+    } else {
+      Get.offAll(() => const MainScreen(), transition: Transition.noTransition);
     }
-    Get.offAll(() => const MainScreen(), transition: Transition.noTransition);
   }
 }

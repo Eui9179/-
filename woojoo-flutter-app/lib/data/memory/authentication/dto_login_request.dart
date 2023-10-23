@@ -8,8 +8,8 @@ class LoginRequest with _$LoginRequest {
 
   factory LoginRequest({
     required String phoneNumber,
-    required String fcm,
-    required String verificationCode,
+    required String fcmToken,
+    required String smsCode,
   }) = _LoginRequest;
 
   factory LoginRequest.fromJson(Map<String, dynamic> json) => _$LoginRequestFromJson(json);

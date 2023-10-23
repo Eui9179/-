@@ -3,28 +3,27 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/data/memory/group/group_data.dart';
 import 'package:woojoo/data/memory/user/user_simple_data.dart';
-
-import '../user/update_my_profile_request.dart';
+import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
 
 class SettingData extends GetxController
     with GroupDataProvider, UserSimpleDataProvider {
-  Rxn<XFile?> rxnImage = Rxn<XFile>();
-  RxString rxUserName = Get.find<UserSimpleData>().myProfile.name.obs;
-  RxnString rxProfileImageName =
+  final Rxn<XFile?> _image = Rxn<XFile>();
+  final RxString _userName = Get.find<UserSimpleData>().myProfile.name.obs;
+  final RxnString _profileImageName =
       RxnString(Get.find<UserSimpleData>().myProfile.profileImageName);
-  RxString rxGroupName = Get.find<GroupData>().myGroup.name.obs;
-  RxString rxGroupDetail = Get.find<GroupData>().myGroup.detail1.obs;
-  RxnString rxOriginImageName =
+  final RxString _groupName = Get.find<GroupData>().myGroup.name.obs;
+  final RxString _groupDetail = Get.find<GroupData>().myGroup.detail1.obs;
+  final RxnString _originImageName =
       RxnString(Get.find<UserSimpleData>().profileImageName);
-  RxBool rxIsName = true.obs;
-  RxBool rxIsNameChanged = false.obs;
-  RxBool rxIsGroup = true.obs;
-  RxBool rxIsGroupChanged = false.obs;
-  RxBool rxIsFile = false.obs;
-  RxBool rxIsLoading = false.obs;
+  final RxBool _isName = true.obs;
+  final RxBool _isNameChanged = false.obs;
+  final RxBool _isGroup = true.obs;
+  final RxBool _isGroupChanged = false.obs;
+  final RxBool _isFile = false.obs;
+  RxBool _isLoading = false.obs;
 
   updateSettingData() {
-    rxIsLoading = true.obs;
+    _isLoading = true.obs;
     final request = UpdateMyProfileRequest(
       isFile: isFile,
       file: image,
@@ -53,56 +52,56 @@ class SettingData extends GetxController
     }
   }
 
-  XFile? get image => rxnImage.value;
+  XFile? get image => _image.value;
 
-  String get userName => rxUserName.value;
+  String get userName => _userName.value;
 
-  String? get profileImageName => rxProfileImageName.value;
+  String? get profileImageName => _profileImageName.value;
 
-  String get groupName => rxGroupName.value;
+  String get groupName => _groupName.value;
 
-  String get groupDetail => rxGroupDetail.value;
+  String get groupDetail => _groupDetail.value;
 
-  String? get originImageName => rxOriginImageName.value;
+  String? get originImageName => _originImageName.value;
 
-  bool get isName => rxIsName.value;
+  bool get isName => _isName.value;
 
-  bool get isNameChanged => rxIsNameChanged.value;
+  bool get isNameChanged => _isNameChanged.value;
 
-  bool get isGroup => rxIsGroup.value;
+  bool get isGroup => _isGroup.value;
 
-  bool get isGroupChanged => rxIsGroupChanged.value;
+  bool get isGroupChanged => _isGroupChanged.value;
 
-  bool get isFile => rxIsFile.value;
+  bool get isFile => _isFile.value;
 
-  bool get isLoading => rxIsLoading.value;
+  bool get isLoading => _isLoading.value;
 
-  set userName(String userName) => rxUserName.value = userName;
+  set userName(String userName) => _userName.value = userName;
 
-  set isName(bool isName) => rxIsName.value = isName;
+  set isName(bool isName) => _isName.value = isName;
 
   set isNameChanged(bool isNameChanged) =>
-      rxIsNameChanged.value = isNameChanged;
+      _isNameChanged.value = isNameChanged;
 
-  set isGroup(bool isGroup) => rxIsGroup.value = isGroup;
+  set isGroup(bool isGroup) => _isGroup.value = isGroup;
 
-  set isGroupChanged(bool isGroup) => rxIsGroupChanged.value = isGroup;
+  set isGroupChanged(bool isGroup) => _isGroupChanged.value = isGroup;
 
   set groupName(String groupName) {
-    rxGroupName.value = groupName;
-    rxGroupDetail.value = '1';
+    _groupName.value = groupName;
+    _groupDetail.value = '1';
   }
 
-  set groupDetail(String detail1) => rxGroupDetail.value = detail1;
+  set groupDetail(String detail1) => _groupDetail.value = detail1;
 
-  set isLoading(bool isLoading) => rxIsLoading.value = isLoading;
+  set isLoading(bool isLoading) => _isLoading.value = isLoading;
 
-  set image(XFile? image) => rxnImage.value = image;
+  set image(XFile? image) => _image.value = image;
 
-  set isFile(bool isFile) => rxIsFile.value = isFile;
+  set isFile(bool isFile) => _isFile.value = isFile;
 
   set originImageName(String? originImageName) =>
-      rxOriginImageName.value = originImageName;
+      _originImageName.value = originImageName;
 }
 
 mixin class SettingDataProvider {

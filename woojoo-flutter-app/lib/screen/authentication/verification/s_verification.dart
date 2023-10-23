@@ -113,8 +113,8 @@ class _VerificationScreenState extends State<VerificationScreen>
   _decideNextPage() {
     final request = LoginRequest(
       phoneNumber: phoneNumber,
-      fcm: fcmToken,
-      verificationCode: verificationCode,
+      fcmToken: fcmToken,
+      smsCode: verificationCode,
     );
     authenticationData.login(request).then((response) {
       switch (response.statusCode) {

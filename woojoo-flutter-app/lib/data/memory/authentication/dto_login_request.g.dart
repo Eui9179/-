@@ -9,13 +9,13 @@ part of 'dto_login_request.dart';
 _$LoginRequestImpl _$$LoginRequestImplFromJson(Map<String, dynamic> json) =>
     _$LoginRequestImpl(
       phoneNumber: json['phoneNumber'] as String,
-      fcm: json['fcm'] as String,
-      verificationCode: json['verificationCode'] as String,
+      fcmToken: json['fcmToken'] as String,
+      smsCode: json['smsCode'] as String,
     );
 
 Map<String, dynamic> _$$LoginRequestImplToJson(_$LoginRequestImpl instance) =>
     <String, dynamic>{
       'phoneNumber': instance.phoneNumber,
-      'fcm': instance.fcm,
-      'verificationCode': instance.verificationCode,
+      'fcmToken': instance.fcmToken,
+      'smsCode': instance.smsCode,
     };

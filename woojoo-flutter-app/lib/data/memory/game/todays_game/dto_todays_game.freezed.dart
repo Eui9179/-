@@ -28,7 +28,7 @@ mixin _$TodaysGame {
   String? get gameNickname => throw _privateConstructorUsedError;
   String get createdTime => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  bool? get isMe => throw _privateConstructorUsedError;
+  bool get isMe => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $TodaysGameCopyWith<$Res> {
       String? gameNickname,
       String createdTime,
       String? description,
-      bool? isMe});
+      bool isMe});
 }
 
 /// @nodoc
@@ -75,7 +75,7 @@ class _$TodaysGameCopyWithImpl<$Res, $Val extends TodaysGame>
     Object? gameNickname = freezed,
     Object? createdTime = null,
     Object? description = freezed,
-    Object? isMe = freezed,
+    Object? isMe = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -110,10 +110,10 @@ class _$TodaysGameCopyWithImpl<$Res, $Val extends TodaysGame>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      isMe: freezed == isMe
+      isMe: null == isMe
           ? _value.isMe
           : isMe // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -135,7 +135,7 @@ abstract class _$$TodaysGameImplCopyWith<$Res>
       String? gameNickname,
       String createdTime,
       String? description,
-      bool? isMe});
+      bool isMe});
 }
 
 /// @nodoc
@@ -157,7 +157,7 @@ class __$$TodaysGameImplCopyWithImpl<$Res>
     Object? gameNickname = freezed,
     Object? createdTime = null,
     Object? description = freezed,
-    Object? isMe = freezed,
+    Object? isMe = null,
   }) {
     return _then(_$TodaysGameImpl(
       id: null == id
@@ -192,10 +192,10 @@ class __$$TodaysGameImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      isMe: freezed == isMe
+      isMe: null == isMe
           ? _value.isMe
           : isMe // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -234,7 +234,7 @@ class _$TodaysGameImpl implements _TodaysGame {
   @override
   final String? description;
   @override
-  final bool? isMe;
+  final bool isMe;
 
   @override
   String toString() {
@@ -292,7 +292,7 @@ abstract class _TodaysGame implements TodaysGame {
       required final String? gameNickname,
       required final String createdTime,
       required final String? description,
-      required final bool? isMe}) = _$TodaysGameImpl;
+      required final bool isMe}) = _$TodaysGameImpl;
 
   factory _TodaysGame.fromJson(Map<String, dynamic> json) =
       _$TodaysGameImpl.fromJson;
@@ -314,7 +314,7 @@ abstract class _TodaysGame implements TodaysGame {
   @override
   String? get description;
   @override
-  bool? get isMe;
+  bool get isMe;
   @override
   @JsonKey(ignore: true)
   _$$TodaysGameImplCopyWith<_$TodaysGameImpl> get copyWith =>

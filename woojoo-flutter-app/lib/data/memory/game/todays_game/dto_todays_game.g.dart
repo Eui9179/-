@@ -16,7 +16,7 @@ _$TodaysGameImpl _$$TodaysGameImplFromJson(Map<String, dynamic> json) =>
       gameNickname: json['gameNickname'] as String?,
       createdTime: json['createdTime'] as String,
       description: json['description'] as String?,
-      isMe: json['isMe'] as bool?,
+      isMe: json['isMe'] as bool,
     );
 
 Map<String, dynamic> _$$TodaysGameImplToJson(_$TodaysGameImpl instance) =>

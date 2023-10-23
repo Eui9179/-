@@ -50,7 +50,7 @@ class _SettingScreenState extends State<SettingScreen>
           actions: [
             TextButton(
               onPressed: _onUpdateProfile,
-              child: settingData.rxIsLoading.value
+              child: settingData.isLoading
                   ? '완료'
                       .text
                       .color(context.appColors.subText)
