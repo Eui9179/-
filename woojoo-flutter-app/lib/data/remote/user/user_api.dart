@@ -25,7 +25,7 @@ class UserApi implements UserRepository {
   @override
   Future<int> syncFcm(FcmRequest request) async {
     final response = await dio.post(
-      '/auth/async-token',
+      '/auth/sync-token',
       data: request.toJson(),
     );
     return response.statusCode ?? 500;

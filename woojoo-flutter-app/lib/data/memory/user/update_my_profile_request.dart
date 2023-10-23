@@ -20,12 +20,12 @@ class UpdateMyProfileRequest {
 
   Future<Map<String, dynamic>> toJson() async {
     return <String, dynamic>{
-      "is_file": isFile,
+      "isFile": isFile,
       "file": file != null ? await MultipartFile.fromFile(file!.path) : null,
       "name": name,
-      "group_name": groupName,
-      "group_detail1": groupDetail1,
-      "is_group": isGroup,
+      "isGroup": isGroup,
+      "groupName": groupName,
+      "groupDetail1": groupDetail1,
     };
   }
 }

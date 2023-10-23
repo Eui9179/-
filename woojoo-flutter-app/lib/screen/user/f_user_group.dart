@@ -25,7 +25,8 @@ class UserGroupFrame extends StatelessWidget {
                       '${userGroups[index]['name']} ${userGroups[index]['detail1']}학년',
                   onTap: () {
                     Get.toNamed(
-                        "/group/detail1?name=${userGroups[index]['name']}&detail1=${userGroups[index]['detail1']}");
+                      "/group/detail1?name=${userGroups[index]['name']}&detail1=${userGroups[index]['detail1']}",
+                    );
                   },
                 );
               }),

@@ -28,8 +28,8 @@ Future<String?> showReport(BuildContext context, int userId) async {
     }
 
     Future<dynamic> response = dioApiReportUser(accessToken, {
-      'reported_user_id': userId,
-      'report_numbers': reportString,
+      'reportedUserId': userId,
+      'reportNumbers': reportString,
     });
 
     int statusCode;

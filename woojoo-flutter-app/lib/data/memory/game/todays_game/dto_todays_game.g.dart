@@ -8,26 +8,26 @@ part of 'dto_todays_game.dart';
 
 _$TodaysGameImpl _$$TodaysGameImplFromJson(Map<String, dynamic> json) =>
     _$TodaysGameImpl(
-      id: json['todays_game_id'] as int,
-      userId: json['id'] as int,
-      userName: json['name'] as String,
-      profileImageName: json['profile_image_name'] as String?,
-      gameName: json['game'] as String,
-      gameNickname: json['game_nickname'] as String?,
-      createdTime: json['create_time'] as String,
-      description: json['introduction'] as String?,
-      isMe: json['isme'] as bool,
+      id: json['id'] as int,
+      userId: json['userId'] as int,
+      userName: json['userName'] as String,
+      profileImageName: json['profileImageName'] as String?,
+      gameName: json['gameName'] as String,
+      gameNickname: json['gameNickname'] as String?,
+      createdTime: json['createdTime'] as String,
+      description: json['description'] as String?,
+      isMe: json['isMe'] as bool?,
     );
 
 Map<String, dynamic> _$$TodaysGameImplToJson(_$TodaysGameImpl instance) =>
     <String, dynamic>{
-      'todays_game_id': instance.id,
-      'id': instance.userId,
-      'name': instance.userName,
-      'profile_image_name': instance.profileImageName,
-      'game': instance.gameName,
-      'game_nickname': instance.gameNickname,
-      'create_time': instance.createdTime,
-      'introduction': instance.description,
-      'isme': instance.isMe,
+      'id': instance.id,
+      'userId': instance.userId,
+      'userName': instance.userName,
+      'profileImageName': instance.profileImageName,
+      'gameName': instance.gameName,
+      'gameNickname': instance.gameNickname,
+      'createdTime': instance.createdTime,
+      'description': instance.description,
+      'isMe': instance.isMe,
     };

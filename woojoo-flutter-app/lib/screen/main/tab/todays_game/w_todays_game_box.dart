@@ -29,7 +29,7 @@ class _TodaysGameBoxState extends State<TodaysGameBox>
   @override
   Widget build(BuildContext context) {
     TodaysGame todaysGame = widget.todaysGame;
-    if (todaysGame.isMe) {
+    if (todaysGame.isMe != null && todaysGame.isMe!) {
       return Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,

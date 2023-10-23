@@ -10,12 +10,12 @@ _$UserSimpleImpl _$$UserSimpleImplFromJson(Map<String, dynamic> json) =>
     _$UserSimpleImpl(
       id: json['id'] as int? ?? 0,
       name: json['name'] as String? ?? "",
-      profileImageName: json['profile_image_name'] as String? ?? "",
+      profileImageName: json['profileImageName'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$UserSimpleImplToJson(_$UserSimpleImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'profile_image_name': instance.profileImageName,
+      'profileImageName': instance.profileImageName,
     };

@@ -11,7 +11,6 @@ class UserSimple with _$UserSimple {
     @Default("")
     String name,
     @Default("")
-    @JsonKey(name: 'profile_image_name')
     String? profileImageName,
   }) = _UserSimple;
 

@@ -9,12 +9,12 @@ Future<Map<String, dynamic>> dioApiUser(String accessToken, int userId) async {
     return {
       'statusCode': response.statusCode,
       'data': {
-        'userProfile': response.data['user_profile'],
-        'isFriend': response.data['is_friend'],
-        'userGroups': response.data['user_groups'],
-        'userGames': response.data['user_games'],
-        'alreadyFriends': response.data['already_friends'],
-        'userFriends': response.data['user_friends']
+        'userProfile': response.data['userProfile'],
+        'isFriend': response.data['isFriend'],
+        'userGroups': response.data['userGroups'],
+        'userGames': response.data['userGames'],
+        'alreadyFriends': response.data['alreadyFriends'],
+        'userFriends': response.data['userFriends']
       }
     };
   } on DioError catch (error) {

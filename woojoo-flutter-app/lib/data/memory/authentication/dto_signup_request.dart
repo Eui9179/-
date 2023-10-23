@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
 class SignupRequest {
-  //TODO dto로 변환
   final Map<String, dynamic> data;
 
   SignupRequest({required this.data});
@@ -14,8 +13,8 @@ class SignupRequest {
       "name": data["name"],
       "groups": data["groups"][0],
       "detail1": data["detail1"],
-      "phone_number": data["phoneNumber"],
-      "fcm_token": data["fcmToken"]
+      "phoneNumber": data["phoneNumber"],
+      "fcmToken": data["fcmToken"]
     });
     return formData;
   }

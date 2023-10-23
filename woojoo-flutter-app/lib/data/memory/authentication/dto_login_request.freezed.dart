@@ -20,11 +20,8 @@ LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LoginRequest {
-  @JsonKey(name: 'phone_number')
   String get phoneNumber => throw _privateConstructorUsedError;
-  @JsonKey(name: 'fcm_token')
   String get fcm => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sms_code')
   String get verificationCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,10 +36,7 @@ abstract class $LoginRequestCopyWith<$Res> {
           LoginRequest value, $Res Function(LoginRequest) then) =
       _$LoginRequestCopyWithImpl<$Res, LoginRequest>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'phone_number') String phoneNumber,
-      @JsonKey(name: 'fcm_token') String fcm,
-      @JsonKey(name: 'sms_code') String verificationCode});
+  $Res call({String phoneNumber, String fcm, String verificationCode});
 }
 
 /// @nodoc
@@ -87,10 +81,7 @@ abstract class _$$LoginRequestImplCopyWith<$Res>
       __$$LoginRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'phone_number') String phoneNumber,
-      @JsonKey(name: 'fcm_token') String fcm,
-      @JsonKey(name: 'sms_code') String verificationCode});
+  $Res call({String phoneNumber, String fcm, String verificationCode});
 }
 
 /// @nodoc
@@ -129,21 +120,18 @@ class __$$LoginRequestImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LoginRequestImpl implements _LoginRequest {
   _$LoginRequestImpl(
-      {@JsonKey(name: 'phone_number') required this.phoneNumber,
-      @JsonKey(name: 'fcm_token') required this.fcm,
-      @JsonKey(name: 'sms_code') required this.verificationCode});
+      {required this.phoneNumber,
+      required this.fcm,
+      required this.verificationCode});
 
   factory _$LoginRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginRequestImplFromJson(json);
 
   @override
-  @JsonKey(name: 'phone_number')
   final String phoneNumber;
   @override
-  @JsonKey(name: 'fcm_token')
   final String fcm;
   @override
-  @JsonKey(name: 'sms_code')
   final String verificationCode;
 
   @override
@@ -184,22 +172,18 @@ class _$LoginRequestImpl implements _LoginRequest {
 
 abstract class _LoginRequest implements LoginRequest {
   factory _LoginRequest(
-          {@JsonKey(name: 'phone_number') required final String phoneNumber,
-          @JsonKey(name: 'fcm_token') required final String fcm,
-          @JsonKey(name: 'sms_code') required final String verificationCode}) =
-      _$LoginRequestImpl;
+      {required final String phoneNumber,
+      required final String fcm,
+      required final String verificationCode}) = _$LoginRequestImpl;
 
   factory _LoginRequest.fromJson(Map<String, dynamic> json) =
       _$LoginRequestImpl.fromJson;
 
   @override
-  @JsonKey(name: 'phone_number')
   String get phoneNumber;
   @override
-  @JsonKey(name: 'fcm_token')
   String get fcm;
   @override
-  @JsonKey(name: 'sms_code')
   String get verificationCode;
   @override
   @JsonKey(ignore: true)

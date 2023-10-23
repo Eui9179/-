@@ -1,3 +1,4 @@
+/// todo freezed
 class FcmRequest {
   final String fcm;
 
@@ -5,7 +6,7 @@ class FcmRequest {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      "fcm_token": fcm
+      "fcmToken": fcm
     };
   }
 }

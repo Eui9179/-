@@ -5,6 +5,7 @@ import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/data/memory/game/dto_game.dart';
 
 class AcquaintanceScreen extends StatelessWidget {
   AcquaintanceScreen({Key? key}) : super(key: key);
@@ -50,6 +51,7 @@ class AcquaintanceScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: _myFriends.length,
                 itemBuilder: (BuildContext context, int index) {
+                  List<dynamic> games = _myFriends[index]['games'];
                   return InkWell(
                     onTap: () {
                       Get.toNamed('/users/${_myFriends[index]['id']}');
@@ -59,7 +61,7 @@ class AcquaintanceScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           UserAvatar(
-                            imagePath: _myFriends[index]["profile_image_name"],
+                            imagePath: _myFriends[index]["profileImageName"],
                           ),
                           const SizedBox(
                             width: 13,
@@ -71,7 +73,7 @@ class AcquaintanceScreen extends StatelessWidget {
                               Text2(text: _myFriends[index]["name"], size: 18),
                               GameBadge(
                                 size: _myFriends[index]['games'].length,
-                                gameList: _myFriends[index]['games'],
+                                gameList: games.map((e) => Game(name: e.toString())).toList(),
                               ),
                             ],
                           ),

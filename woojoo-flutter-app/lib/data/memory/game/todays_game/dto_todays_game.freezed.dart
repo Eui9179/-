@@ -20,24 +20,15 @@ TodaysGame _$TodaysGameFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TodaysGame {
-  @JsonKey(name: 'todays_game_id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'id')
   int get userId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
   String get userName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_image_name')
   String? get profileImageName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'game')
   String get gameName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'game_nickname')
   String? get gameNickname => throw _privateConstructorUsedError;
-  @JsonKey(name: 'create_time')
   String get createdTime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'introduction')
   String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'isme')
-  bool get isMe => throw _privateConstructorUsedError;
+  bool? get isMe => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,15 +43,15 @@ abstract class $TodaysGameCopyWith<$Res> {
       _$TodaysGameCopyWithImpl<$Res, TodaysGame>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'todays_game_id') int id,
-      @JsonKey(name: 'id') int userId,
-      @JsonKey(name: 'name') String userName,
-      @JsonKey(name: 'profile_image_name') String? profileImageName,
-      @JsonKey(name: 'game') String gameName,
-      @JsonKey(name: 'game_nickname') String? gameNickname,
-      @JsonKey(name: 'create_time') String createdTime,
-      @JsonKey(name: 'introduction') String? description,
-      @JsonKey(name: 'isme') bool isMe});
+      {int id,
+      int userId,
+      String userName,
+      String? profileImageName,
+      String gameName,
+      String? gameNickname,
+      String createdTime,
+      String? description,
+      bool? isMe});
 }
 
 /// @nodoc
@@ -84,7 +75,7 @@ class _$TodaysGameCopyWithImpl<$Res, $Val extends TodaysGame>
     Object? gameNickname = freezed,
     Object? createdTime = null,
     Object? description = freezed,
-    Object? isMe = null,
+    Object? isMe = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -119,10 +110,10 @@ class _$TodaysGameCopyWithImpl<$Res, $Val extends TodaysGame>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      isMe: null == isMe
+      isMe: freezed == isMe
           ? _value.isMe
           : isMe // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -136,15 +127,15 @@ abstract class _$$TodaysGameImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'todays_game_id') int id,
-      @JsonKey(name: 'id') int userId,
-      @JsonKey(name: 'name') String userName,
-      @JsonKey(name: 'profile_image_name') String? profileImageName,
-      @JsonKey(name: 'game') String gameName,
-      @JsonKey(name: 'game_nickname') String? gameNickname,
-      @JsonKey(name: 'create_time') String createdTime,
-      @JsonKey(name: 'introduction') String? description,
-      @JsonKey(name: 'isme') bool isMe});
+      {int id,
+      int userId,
+      String userName,
+      String? profileImageName,
+      String gameName,
+      String? gameNickname,
+      String createdTime,
+      String? description,
+      bool? isMe});
 }
 
 /// @nodoc
@@ -166,7 +157,7 @@ class __$$TodaysGameImplCopyWithImpl<$Res>
     Object? gameNickname = freezed,
     Object? createdTime = null,
     Object? description = freezed,
-    Object? isMe = null,
+    Object? isMe = freezed,
   }) {
     return _then(_$TodaysGameImpl(
       id: null == id
@@ -201,10 +192,10 @@ class __$$TodaysGameImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      isMe: null == isMe
+      isMe: freezed == isMe
           ? _value.isMe
           : isMe // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -213,46 +204,37 @@ class __$$TodaysGameImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TodaysGameImpl implements _TodaysGame {
   _$TodaysGameImpl(
-      {@JsonKey(name: 'todays_game_id') required this.id,
-      @JsonKey(name: 'id') required this.userId,
-      @JsonKey(name: 'name') required this.userName,
-      @JsonKey(name: 'profile_image_name') required this.profileImageName,
-      @JsonKey(name: 'game') required this.gameName,
-      @JsonKey(name: 'game_nickname') required this.gameNickname,
-      @JsonKey(name: 'create_time') required this.createdTime,
-      @JsonKey(name: 'introduction') required this.description,
-      @JsonKey(name: 'isme') required this.isMe});
+      {required this.id,
+      required this.userId,
+      required this.userName,
+      required this.profileImageName,
+      required this.gameName,
+      required this.gameNickname,
+      required this.createdTime,
+      required this.description,
+      required this.isMe});
 
   factory _$TodaysGameImpl.fromJson(Map<String, dynamic> json) =>
       _$$TodaysGameImplFromJson(json);
 
   @override
-  @JsonKey(name: 'todays_game_id')
   final int id;
   @override
-  @JsonKey(name: 'id')
   final int userId;
   @override
-  @JsonKey(name: 'name')
   final String userName;
   @override
-  @JsonKey(name: 'profile_image_name')
   final String? profileImageName;
   @override
-  @JsonKey(name: 'game')
   final String gameName;
   @override
-  @JsonKey(name: 'game_nickname')
   final String? gameNickname;
   @override
-  @JsonKey(name: 'create_time')
   final String createdTime;
   @override
-  @JsonKey(name: 'introduction')
   final String? description;
   @override
-  @JsonKey(name: 'isme')
-  final bool isMe;
+  final bool? isMe;
 
   @override
   String toString() {
@@ -302,47 +284,37 @@ class _$TodaysGameImpl implements _TodaysGame {
 
 abstract class _TodaysGame implements TodaysGame {
   factory _TodaysGame(
-      {@JsonKey(name: 'todays_game_id') required final int id,
-      @JsonKey(name: 'id') required final int userId,
-      @JsonKey(name: 'name') required final String userName,
-      @JsonKey(name: 'profile_image_name')
+      {required final int id,
+      required final int userId,
+      required final String userName,
       required final String? profileImageName,
-      @JsonKey(name: 'game') required final String gameName,
-      @JsonKey(name: 'game_nickname') required final String? gameNickname,
-      @JsonKey(name: 'create_time') required final String createdTime,
-      @JsonKey(name: 'introduction') required final String? description,
-      @JsonKey(name: 'isme') required final bool isMe}) = _$TodaysGameImpl;
+      required final String gameName,
+      required final String? gameNickname,
+      required final String createdTime,
+      required final String? description,
+      required final bool? isMe}) = _$TodaysGameImpl;
 
   factory _TodaysGame.fromJson(Map<String, dynamic> json) =
       _$TodaysGameImpl.fromJson;
 
   @override
-  @JsonKey(name: 'todays_game_id')
   int get id;
   @override
-  @JsonKey(name: 'id')
   int get userId;
   @override
-  @JsonKey(name: 'name')
   String get userName;
   @override
-  @JsonKey(name: 'profile_image_name')
   String? get profileImageName;
   @override
-  @JsonKey(name: 'game')
   String get gameName;
   @override
-  @JsonKey(name: 'game_nickname')
   String? get gameNickname;
   @override
-  @JsonKey(name: 'create_time')
   String get createdTime;
   @override
-  @JsonKey(name: 'introduction')
   String? get description;
   @override
-  @JsonKey(name: 'isme')
-  bool get isMe;
+  bool? get isMe;
   @override
   @JsonKey(ignore: true)
   _$$TodaysGameImplCopyWith<_$TodaysGameImpl> get copyWith =>

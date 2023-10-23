@@ -1,3 +1,4 @@
+/// todo freezed
 class VerificationCodeRequest {
   final String phoneNumber;
   final String cp;
@@ -6,7 +7,7 @@ class VerificationCodeRequest {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'phone_number': phoneNumber,
+      'phoneNumber': phoneNumber,
       'cp': cp
     };
   }

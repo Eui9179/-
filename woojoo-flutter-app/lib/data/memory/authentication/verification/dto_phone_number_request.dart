@@ -1,3 +1,4 @@
+/// todo freezed
 class PhoneNumberRequest {
   final String phoneNumber;
 
@@ -7,7 +8,7 @@ class PhoneNumberRequest {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'phone_number': phoneNumber,
+      'phoneNumber': phoneNumber,
     };
   }
 }

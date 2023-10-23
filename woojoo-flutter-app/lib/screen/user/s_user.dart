@@ -63,12 +63,15 @@ class _UserScreenState extends State<UserScreen> {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  UserProfileFrame(userProfile: _userProfile, isFriend: _isFriend),
+                  UserProfileFrame(
+                      userProfile: _userProfile, isFriend: _isFriend),
                   UserGroupFrame(
                     userGroups: _userGroups,
                   ),
                   UserGameListFrame(
-                      userGames: _userGames, userName: _userProfile['name']),
+                    userGames: _userGames,
+                    userName: _userProfile['name'],
+                  ),
                   UserFriendListFrame(
                       alreadyFriends: _alreadyFriends,
                       userFriends: _userFriends,

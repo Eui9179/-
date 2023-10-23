@@ -1,3 +1,4 @@
+/// todo freezed
 class TodaysGameRequest {
   final String game;
   final String? description;

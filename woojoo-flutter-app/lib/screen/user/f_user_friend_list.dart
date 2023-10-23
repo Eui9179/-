@@ -16,12 +16,13 @@ import '../../../common/widget/w_text2.dart';
 import '../../../common/widget/w_subject_title.dart';
 
 class UserFriendListFrame extends StatefulWidget {
-  const UserFriendListFrame(
-      {Key? key,
-      required this.alreadyFriends,
-      required this.userFriends,
-      required this.userName})
-      : super(key: key);
+  const UserFriendListFrame({
+    Key? key,
+    required this.alreadyFriends,
+    required this.userFriends,
+    required this.userName,
+  }) : super(key: key);
+
   final List<dynamic> alreadyFriends;
   final List<dynamic> userFriends;
   final String userName;
@@ -37,7 +38,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
   @override
   void initState() {
     super.initState();
-    setFriendString();
+    getFriendString();
   }
 
   @override
@@ -114,8 +115,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                     child: Row(
                       children: [
                         UserAvatar(
-                            imagePath: userFriends[index]
-                                ["profile_image_name"]),
+                            imagePath: userFriends[index]["profileImageName"]),
                         const SizedBox(
                           width: 13,
                         ),
@@ -177,7 +177,8 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
                                                 ]),
                                               ),
                                               SubjectTitle(
-                                                  "함께 하는 게임 ${userFriends[index]['games'].length}개")
+                                                "함께 하는 게임 ${userFriends[index]['games'].length}개",
+                                              )
                                             ]
                                           ],
                                         )
@@ -214,7 +215,7 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
     );
   }
 
-  setFriendString() {
+  getFriendString() {
     setState(() {
       userFriends = List.generate(widget.userFriends.length,
           (index) => {...widget.userFriends[index], 'isFollow': false});

@@ -29,7 +29,7 @@ class UserGameListFrame extends StatelessWidget {
                 itemCount: userGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GameCard(
-                    gameName: userGames[index]['game'],
+                    gameName: userGames[index]['name'],
                     isMe: false,
                     nickname: userGames[index]['nickname'],
                   );

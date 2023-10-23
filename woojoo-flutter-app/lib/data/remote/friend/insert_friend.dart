@@ -8,10 +8,10 @@ Future<Map<String, dynamic>> dioApiInsertFriendOne(
 
   try {
     Response response =
-        await dio.post('/friend', data: {'friend_id': friendId});
+        await dio.post('/friend', data: {'friendId': friendId});
     return {
       'statusCode': response.statusCode,
-      'data': response.data['new_friend']
+      'data': response.data['newFriend']
     };
   } on DioError catch (error) {
     return {

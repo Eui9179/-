@@ -7,12 +7,12 @@ part of 'dto_game.dart';
 // **************************************************************************
 
 _$GameImpl _$$GameImplFromJson(Map<String, dynamic> json) => _$GameImpl(
-      name: json['game'] as String,
+      name: json['name'] as String,
       nickname: json['nickname'] as String?,
     );
 
 Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
     <String, dynamic>{
-      'game': instance.name,
+      'name': instance.name,
       'nickname': instance.nickname,
     };

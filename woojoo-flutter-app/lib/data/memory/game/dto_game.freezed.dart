@@ -20,9 +20,7 @@ Game _$GameFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Game {
-  @JsonKey(name: 'game')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'game')
   set name(String value) => throw _privateConstructorUsedError;
   String? get nickname => throw _privateConstructorUsedError;
   set nickname(String? value) => throw _privateConstructorUsedError;
@@ -37,7 +35,7 @@ abstract class $GameCopyWith<$Res> {
   factory $GameCopyWith(Game value, $Res Function(Game) then) =
       _$GameCopyWithImpl<$Res, Game>;
   @useResult
-  $Res call({@JsonKey(name: 'game') String name, String? nickname});
+  $Res call({String name, String? nickname});
 }
 
 /// @nodoc
@@ -76,7 +74,7 @@ abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
       __$$GameImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'game') String name, String? nickname});
+  $Res call({String name, String? nickname});
 }
 
 /// @nodoc
@@ -108,13 +106,12 @@ class __$$GameImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GameImpl implements _Game {
-  _$GameImpl({@JsonKey(name: 'game') required this.name, this.nickname});
+  _$GameImpl({required this.name, this.nickname});
 
   factory _$GameImpl.fromJson(Map<String, dynamic> json) =>
       _$$GameImplFromJson(json);
 
   @override
-  @JsonKey(name: 'game')
   String name;
   @override
   String? nickname;
@@ -139,16 +136,12 @@ class _$GameImpl implements _Game {
 }
 
 abstract class _Game implements Game {
-  factory _Game(
-      {@JsonKey(name: 'game') required String name,
-      String? nickname}) = _$GameImpl;
+  factory _Game({required String name, String? nickname}) = _$GameImpl;
 
   factory _Game.fromJson(Map<String, dynamic> json) = _$GameImpl.fromJson;
 
   @override
-  @JsonKey(name: 'game')
   String get name;
-  @JsonKey(name: 'game')
   set name(String value);
   @override
   String? get nickname;

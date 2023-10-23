@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/avatar/w_group_avatar.dart';
 import 'package:woojoo/common/widget/button/w_text_button2.dart';
+import 'package:woojoo/data/memory/game/dto_game.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../../../../../common/widget/avatar/w_user_avatar.dart';
@@ -158,7 +159,10 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
                                     ),
                                     GameBadge(
                                       size: _friends[index]['games'].length,
-                                      gameList: _friends[index]['games'],
+                                      gameList: (_friends[index]['games']
+                                              as List<dynamic>)
+                                          .map((e) => Game(name: e.toString()))
+                                          .toList(),
                                     ),
                                   ],
                                 ),
@@ -269,8 +273,11 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
   void _initMyGroupDetail() {
     _accessToken = Get.find<AccessTokenData>().accessToken;
 
-    Future<Map<String, dynamic>> response =
-        dioApiGetFriendsByGroupDetail1(_accessToken, groupName, detail1);
+    Future<Map<String, dynamic>> response = dioApiGetFriendsByGroupDetail1(
+      _accessToken,
+      groupName,
+      detail1,
+    );
     response.then((res) {
       int statusCode = res['statusCode'];
       if (statusCode == 200) {

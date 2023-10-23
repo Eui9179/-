@@ -7,7 +7,7 @@ part 'dto_game.g.dart';
 @unfreezed
 class Game with _$Game {
   factory Game({
-    @JsonKey(name: 'game') required String name,
+    required String name,
     String? nickname,
   }) = _Game;
 

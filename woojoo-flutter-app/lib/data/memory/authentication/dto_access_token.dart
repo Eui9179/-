@@ -9,7 +9,7 @@ class AccessToken {
   factory AccessToken.fromJson(Response response) {
     return AccessToken(
       statusCode: response.statusCode!,
-      accessToken: response.data["access_token"],
+      accessToken: response.data["accessToken"],
     );
   }
 }

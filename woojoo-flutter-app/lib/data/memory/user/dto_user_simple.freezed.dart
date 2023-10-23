@@ -23,9 +23,7 @@ mixin _$UserSimple {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   set name(String value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_image_name')
   String? get profileImageName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_image_name')
   set profileImageName(String? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,10 +38,7 @@ abstract class $UserSimpleCopyWith<$Res> {
           UserSimple value, $Res Function(UserSimple) then) =
       _$UserSimpleCopyWithImpl<$Res, UserSimple>;
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      @JsonKey(name: 'profile_image_name') String? profileImageName});
+  $Res call({int id, String name, String? profileImageName});
 }
 
 /// @nodoc
@@ -88,10 +83,7 @@ abstract class _$$UserSimpleImplCopyWith<$Res>
       __$$UserSimpleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      @JsonKey(name: 'profile_image_name') String? profileImageName});
+  $Res call({int id, String name, String? profileImageName});
 }
 
 /// @nodoc
@@ -129,10 +121,7 @@ class __$$UserSimpleImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserSimpleImpl implements _UserSimple {
-  _$UserSimpleImpl(
-      {this.id = 0,
-      this.name = "",
-      @JsonKey(name: 'profile_image_name') this.profileImageName = ""});
+  _$UserSimpleImpl({this.id = 0, this.name = "", this.profileImageName = ""});
 
   factory _$UserSimpleImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserSimpleImplFromJson(json);
@@ -144,7 +133,7 @@ class _$UserSimpleImpl implements _UserSimple {
   @JsonKey()
   String name;
   @override
-  @JsonKey(name: 'profile_image_name')
+  @JsonKey()
   String? profileImageName;
 
   @override
@@ -167,10 +156,7 @@ class _$UserSimpleImpl implements _UserSimple {
 }
 
 abstract class _UserSimple implements UserSimple {
-  factory _UserSimple(
-          {final int id,
-          String name,
-          @JsonKey(name: 'profile_image_name') String? profileImageName}) =
+  factory _UserSimple({final int id, String name, String? profileImageName}) =
       _$UserSimpleImpl;
 
   factory _UserSimple.fromJson(Map<String, dynamic> json) =
@@ -182,9 +168,7 @@ abstract class _UserSimple implements UserSimple {
   String get name;
   set name(String value);
   @override
-  @JsonKey(name: 'profile_image_name')
   String? get profileImageName;
-  @JsonKey(name: 'profile_image_name')
   set profileImageName(String? value);
   @override
   @JsonKey(ignore: true)
