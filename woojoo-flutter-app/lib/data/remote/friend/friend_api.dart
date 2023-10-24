@@ -5,13 +5,11 @@ import 'package:get/get.dart';
 
 import '../../memory/authentication/access_token_data.dart';
 import '../../memory/friend/dto_friend_simple.dart';
-import '../dio_instance.dart';
+import '../dio/dio_instance.dart';
 import 'friend_repository.dart';
 
 class FriendApi implements FriendRepository {
-  final Dio dio = DioInstance(
-    accessToken: Get.find<AccessTokenData>().accessToken,
-  ).dio;
+  final Dio dio = DioClient.dio;
 
   FriendApi._();
 

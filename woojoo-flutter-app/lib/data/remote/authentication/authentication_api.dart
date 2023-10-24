@@ -4,10 +4,10 @@ import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
 import 'package:woojoo/data/memory/authentication/dto_signup_request.dart';
 import 'package:woojoo/data/remote/authentication/authentication_repository.dart';
 
-import '../dio_instance.dart';
+import '../dio/dio_instance.dart';
 
 class AuthenticationApi implements AuthenticationRepository {
-  Dio dio = DioInstance().dio;
+  Dio dio = DioClient.dio;
 
   AuthenticationApi._();
 

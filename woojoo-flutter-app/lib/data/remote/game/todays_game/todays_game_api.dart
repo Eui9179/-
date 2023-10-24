@@ -1,14 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/game/todays_game/dto_todays_game.dart';
 import 'package:woojoo/data/memory/game/todays_game/dto_todays_game_request.dart';
-import 'package:woojoo/data/remote/dio_instance.dart';
+import 'package:woojoo/data/remote/dio/dio_instance.dart';
 import 'package:woojoo/data/remote/game/todays_game/todays_game_repository.dart';
 
 class TodaysGameApi implements TodaysGameRepository {
-  final Dio _dio =
-      DioInstance(accessToken: Get.find<AccessTokenData>().accessToken).dio;
+  final Dio _dio = DioClient.dio;
 
   TodaysGameApi._();
 

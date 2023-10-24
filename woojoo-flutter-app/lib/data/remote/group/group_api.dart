@@ -3,14 +3,12 @@ import 'package:get/get.dart';
 import 'package:woojoo/data/remote/group/group_repository.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/group/dto_group.dart';
-import 'package:woojoo/data/remote/dio_instance.dart';
+import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
 
 
 class GroupApi implements GroupRepository {
-  Dio dio = DioInstance(
-    accessToken: Get.find<AccessTokenData>().accessToken,
-  ).dio;
+  Dio dio = DioClient.dio;
 
   GroupApi._();
 

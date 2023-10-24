@@ -2,11 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_request.dart';
 import 'package:woojoo/data/memory/authentication/verification/dto_verification_code_request.dart';
 
-import '../../dio_instance.dart';
+import '../../dio/dio_instance.dart';
 import 'verification_repository.dart';
 
 class VerificationApi implements VerificationRepository {
-  Dio dio = DioInstance().dio;
+  Dio dio = DioClient.dio;
 
   VerificationApi._();
 

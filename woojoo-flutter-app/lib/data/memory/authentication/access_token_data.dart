@@ -4,21 +4,21 @@ import 'package:get/get.dart';
 import '../../../main.dart';
 
 class AccessTokenData extends GetxController {
-  RxString rxAccessToken = ''.obs;
+  RxString _accessToken = ''.obs;
 
   void clear() {
     storage.delete(key: "accessToken");
-    rxAccessToken = ''.obs;
+    _accessToken = ''.obs;
   }
 
   bool isLogin() {
-    return rxAccessToken.isNotEmpty;
+    return _accessToken.isNotEmpty;
   }
 
-  String get accessToken => rxAccessToken.value;
+  String get accessToken => _accessToken.value;
 
   set accessToken(String accessToken) {
-    rxAccessToken.value = accessToken;
+    _accessToken.value = accessToken;
     storage.write(key: "accessToken", value: accessToken);
   }
 

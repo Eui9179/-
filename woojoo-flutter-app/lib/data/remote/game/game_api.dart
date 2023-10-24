@@ -1,14 +1,12 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:get/get.dart' as g;
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/game/dto_game.dart';
-import 'package:woojoo/data/remote/dio_instance.dart';
+import 'package:woojoo/data/remote/dio/dio_instance.dart';
 import 'package:woojoo/data/remote/game/game_repository.dart';
 
 class GameApi implements GameRepository {
-  Dio dio = DioInstance(accessToken: g.Get.find<AccessTokenData>().accessToken).dio;
+  Dio dio = DioClient.dio;
 
   GameApi._();
 
