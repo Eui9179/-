@@ -1,20 +1,17 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/common/widget/button/w_text_button2.dart';
-import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/widget/button/w_text_button2.dart';
+import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
 
 import '../../../common/constants.dart';
 import '../../../common/widget/avatar/w_avatar.dart';
 import '../../../common/widget/avatar/w_user_avatar.dart';
 import '../../../common/widget/w_dividing_line.dart';
-import '../../../data/controller/my_friends_controller.dart';
-import '../../../data/remote/friend/delete_friend.dart';
-import '../../../data/remote/friend/insert_friend.dart';
-import '../../../common/widget/w_text2.dart';
 import '../../../common/widget/w_subject_title.dart';
+import '../../../common/widget/w_text2.dart';
 
+/// TODO Refactoring
 class UserFriendListFrame extends StatefulWidget {
   const UserFriendListFrame({
     Key? key,
@@ -31,7 +28,8 @@ class UserFriendListFrame extends StatefulWidget {
   State<UserFriendListFrame> createState() => _UserFriendListFrameState();
 }
 
-class _UserFriendListFrameState extends State<UserFriendListFrame> {
+class _UserFriendListFrameState extends State<UserFriendListFrame>
+    with FriendSimpleDataProvider {
   List<dynamic> userFriends = [];
   String myFriendString = '';
 
@@ -101,125 +99,116 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
           ),
         if (userFriends.isNotEmpty) ...[
           ListView.builder(
-              shrinkWrap: true,
-              itemExtent: 75.0,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: userFriends.length,
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    Get.toNamed('/users/${userFriends[index]['id']}');
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 13.0, left: 13.0),
-                    child: Row(
-                      children: [
-                        UserAvatar(
-                            imagePath: userFriends[index]["profileImageName"]),
-                        const SizedBox(
-                          width: 13,
-                        ),
-                        Expanded(
-                          flex: 8,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text2(
-                                      text: userFriends[index]["name"],
-                                      size: 18),
-                                  userFriends[index]['games'].length != 0
-                                      ? const SizedBox(
-                                          height: 8,
-                                        )
-                                      : const SizedBox(),
-                                  userFriends[index]['games'].length != 0
-                                      ? Row(
-                                          children: [
-                                            if (userFriends[index]['games']
-                                                    .length ==
-                                                1) ...[
-                                              Avatar(
-                                                imagePath:
-                                                    '$basePath/${userFriends[index]['games'][0]}',
-                                                radius: Avatar.gameAvatarSize,
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              const SubjectTitle("함께 하는 게임 1개")
-                                            ],
-                                            if (userFriends[index]['games']
-                                                    .length >
-                                                1) ...[
-                                              SizedBox(
-                                                width: 52,
-                                                child: Stack(children: [
-                                                  Positioned(
-                                                    left: 18,
-                                                    child: Avatar(
-                                                      imagePath:
-                                                          '$basePath/${userFriends[index]['games'][1]}',
-                                                      radius:
-                                                          Avatar.gameAvatarSize,
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                      child: Avatar(
+            shrinkWrap: true,
+            itemExtent: 75.0,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: userFriends.length,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                onTap: () {
+                  Get.toNamed('/users/${userFriends[index]['id']}');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 13.0, left: 13.0),
+                  child: Row(
+                    children: [
+                      UserAvatar(
+                          imagePath: userFriends[index]["profileImageName"]),
+                      const SizedBox(width: 13),
+                      Expanded(
+                        flex: 8,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text2(
+                                    text: userFriends[index]["name"], size: 18),
+                                userFriends[index]['games'].length != 0
+                                    ? const SizedBox(height: 8)
+                                    : const SizedBox(),
+                                userFriends[index]['games'].length != 0
+                                    ? Row(
+                                        children: [
+                                          if (userFriends[index]['games']
+                                                  .length ==
+                                              1) ...[
+                                            Avatar(
+                                              imagePath:
+                                                  '$basePath/${userFriends[index]['games'][0]}',
+                                              radius: Avatar.gameAvatarSize,
+                                            ),
+                                            const SizedBox(width: 5),
+                                            const SubjectTitle("함께 하는 게임 1개")
+                                          ],
+                                          if (userFriends[index]['games']
+                                                  .length >
+                                              1) ...[
+                                            SizedBox(
+                                              width: 52,
+                                              child: Stack(children: [
+                                                Positioned(
+                                                  left: 18,
+                                                  child: Avatar(
                                                     imagePath:
-                                                        '$basePath/${userFriends[index]['games'][0]}',
+                                                        '$basePath/${userFriends[index]['games'][1]}',
                                                     radius:
                                                         Avatar.gameAvatarSize,
-                                                  )),
-                                                ]),
-                                              ),
-                                              SubjectTitle(
-                                                "함께 하는 게임 ${userFriends[index]['games'].length}개",
-                                              )
-                                            ]
-                                          ],
-                                        )
-                                      : const SizedBox()
-                                ],
-                              ),
-                              userFriends[index]['isFollow']
-                                  ? TextButton2(
-                                      onPressed: () {
-                                        deleteFriendFromMyFriends(
-                                            userFriends[index]['id'], index);
-                                      },
-                                      text: '취소',
-                                      color: context.appColors.text,
-                                    )
-                                  : TextButton2(
-                                      onPressed: () {
-                                        insertFriendsIntoMyFriends(
-                                            userFriends[index]['id'], index);
-                                      },
-                                      text: '친구 추가',
-                                      color: Colors.blueAccent,
-                                    ),
-                            ],
-                          ),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                    child: Avatar(
+                                                  imagePath:
+                                                      '$basePath/${userFriends[index]['games'][0]}',
+                                                  radius: Avatar.gameAvatarSize,
+                                                )),
+                                              ]),
+                                            ),
+                                            SubjectTitle(
+                                              "함께 하는 게임 ${userFriends[index]['games'].length}개",
+                                            )
+                                          ]
+                                        ],
+                                      )
+                                    : const SizedBox()
+                              ],
+                            ),
+                            userFriends[index]['isFollow']
+                                ? TextButton2(
+                                    onPressed: () {
+                                      _deleteFriendFromMyFriends(
+                                          userFriends[index]['id'], index);
+                                    },
+                                    text: '취소',
+                                    color: context.appColors.text,
+                                  )
+                                : TextButton2(
+                                    onPressed: () {
+                                      _insertFriendsIntoMyFriends(
+                                          userFriends[index]['id'], index);
+                                    },
+                                    text: '친구 추가',
+                                    color: Colors.blueAccent,
+                                  ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ]
       ],
     );
   }
 
   getFriendString() {
-    setState(() {
-      userFriends = List.generate(widget.userFriends.length,
-          (index) => {...widget.userFriends[index], 'isFollow': false});
-    });
+    setState(() => userFriends = List.generate(widget.userFriends.length,
+          (index) => {...widget.userFriends[index], 'isFollow': false}));
     if (widget.alreadyFriends.length == 1) {
       myFriendString = '${widget.alreadyFriends[0]["name"]}님과 함께 알고 있습니다.';
     } else if (widget.alreadyFriends.length == 2) {
@@ -231,45 +220,13 @@ class _UserFriendListFrameState extends State<UserFriendListFrame> {
     }
   }
 
-  insertFriendsIntoMyFriends(int friendId, int index) {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response =
-        dioApiInsertFriendOne(accessToken, friendId);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        List<dynamic> originalFriends =
-            Get.find<MyFriendsController>().myFriends;
-        Get.find<MyFriendsController>()
-            .setMyFriends([res['data'], ...originalFriends]);
-        setState(() {
-          userFriends[index]['isFollow'] = true;
-        });
-      } else if (statusCode == 409) {
-        notification(context, '이미 등록된 친구 입니다.');
-      } else {
-        print('insertFriendsIntoFriends(): $statusCode');
-      }
-    });
+  void _insertFriendsIntoMyFriends(int friendId, int index) async {
+    await friendSimpleData.insertFriend(friendId);
+    setState(() => userFriends[index]['isFollow'] = true);
   }
 
-  deleteFriendFromMyFriends(int friendId, int index) {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response =
-        dioApiDeleteFriendOne(accessToken, friendId);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        List<dynamic> originalFriends =
-            Get.find<MyFriendsController>().myFriends;
-        originalFriends.removeAt(index);
-        Get.find<MyFriendsController>().setMyFriends([...originalFriends]);
-        setState(() {
-          userFriends[index]['isFollow'] = false;
-        });
-      } else {
-        print('insertFriendsIntoFriends(): $statusCode');
-      }
-    });
+  void _deleteFriendFromMyFriends(int friendId, int index) async {
+    await friendSimpleData.deleteFriend(friendId);
+    setState(() => userFriends[index]['isFollow'] = false);
   }
 }

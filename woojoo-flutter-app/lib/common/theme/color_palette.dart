@@ -21,4 +21,5 @@ class ColorPalette {
   Color get gameSelectedColor => const Color.fromARGB(255, 29, 60, 135).withOpacity(0.7);
   Color get gameUnSelectedColor => Colors.black87.withOpacity(0.4);
   Color get textField => const Color.fromARGB(255, 52, 52, 71);
+  Color get inputField => const Color.fromARGB(255, 62, 62, 75);
 }

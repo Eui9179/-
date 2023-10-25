@@ -15,11 +15,15 @@ class AuthenticationApi implements AuthenticationRepository {
 
   @override
   Future<AccessToken> login(LoginRequest request) async {
-    Response response = await dio.post(
-      '/auth/login',
-      data: request.toJson(),
-    );
-    return AccessToken.fromJson(response);
+    try {
+      Response response = await dio.post(
+        '/auth/login',
+        data: request.toJson(),
+      );
+      return AccessToken.fromJson(response);
+    } catch (e) {
+      return AccessToken(statusCode: 401);
+    }
   }
 
   @override

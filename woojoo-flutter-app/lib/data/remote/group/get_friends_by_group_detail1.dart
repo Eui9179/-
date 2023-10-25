@@ -2,8 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../dio/dio_instance.dart';
 
-Future<Map<String, dynamic>> dioApiGetFriendsByGroupDetail1(
-    String? accessToken, String name, String detail1) async {
+Future<Map<String, dynamic>> dioApiGetFriendsByGroupDetail1(String name, String detail1) async {
   Dio dio = DioClient.dio;
   try {
     Response response = await dio.get('/groups/$name/$detail1');

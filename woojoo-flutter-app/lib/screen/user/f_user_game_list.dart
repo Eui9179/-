@@ -2,6 +2,7 @@ import 'package:woojoo/screen/main/tab/home/w_game_card.dart';
 import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:flutter/material.dart';
 
+/// TODO Refactoring
 class UserGameListFrame extends StatelessWidget {
   const UserGameListFrame({Key? key, required this.userGames, required this.userName})
       : super(key: key);

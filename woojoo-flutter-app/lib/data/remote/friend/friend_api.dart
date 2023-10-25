@@ -1,9 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 
-import '../../memory/authentication/access_token_data.dart';
 import '../../memory/friend/dto_friend_simple.dart';
 import '../dio/dio_instance.dart';
 import 'friend_repository.dart';

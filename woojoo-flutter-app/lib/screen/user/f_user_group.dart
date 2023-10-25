@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../main/tab/home/w_group_text_button.dart';
 
+/// TODO Refactoring
 class UserGroupFrame extends StatelessWidget {
   const UserGroupFrame({Key? key, required this.userGroups}) : super(key: key);
   final List<dynamic> userGroups;

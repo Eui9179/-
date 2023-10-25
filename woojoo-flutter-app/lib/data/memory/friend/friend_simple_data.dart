@@ -2,7 +2,9 @@ import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:woojoo/data/remote/friend/delete_friend.dart';
 import 'package:woojoo/data/remote/friend/friend_api.dart';
+import 'package:woojoo/data/remote/friend/insert_friend.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import 'dto_friend_simple.dart';
@@ -26,13 +28,21 @@ class FriendSimpleData extends GetxController {
 
   void syncMyFriendList(BuildContext context) {
     _getPhoneNumberFromContact().then((phoneNumberList) {
-      return friendRepository
-        .syncFriendList(phoneNumberList)
-        .then((_) {
-          notification(context, "동기화가 완료되었습니다.", warning: false);
-          return getMyFriendList();
-        });
+      return friendRepository.syncFriendList(phoneNumberList).then((_) {
+        notification(context, "동기화가 완료되었습니다.", warning: false);
+        return getMyFriendList();
+      });
     });
+  }
+
+  Future<void> insertFriend(int userId) async {
+    Map<String, dynamic> response = await dioApiInsertFriendOne(userId);
+    _myFriends.add(FriendSimple.fromJson(response['data']));
+  }
+
+  Future<void> deleteFriend(int userId) async {
+    await dioApiDeleteFriendOne(userId);
+    _myFriends.removeWhere((element) => element.userSimple.id == userId);
   }
 
   Future<List<String>> _getPhoneNumberFromContact() async {

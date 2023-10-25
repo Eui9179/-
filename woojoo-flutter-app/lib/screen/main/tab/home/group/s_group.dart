@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
-import 'package:woojoo/common/widget/w_dividing_line.dart';
 import 'package:woojoo/common/widget/avatar/w_group_avatar.dart';
+import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
 import 'package:woojoo/common/widget/button/w_text_button2.dart';
+import 'package:woojoo/common/widget/w_dividing_line.dart';
+import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
+import 'package:woojoo/data/memory/game/dto_game.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../../../../../common/widget/w_game_badge.dart';
+import '../../../../../../common/widget/w_subject_title.dart';
+import '../../../../../../common/widget/w_text2.dart';
 import '../../../../../../data/controller/my_friends_controller.dart';
-import '../../../../../../data/memory/authentication/access_token_data.dart';
-import '../../../../../../data/remote/friend/delete_friend.dart';
-import '../../../../../../data/remote/friend/insert_friend.dart';
 import '../../../../../../data/remote/friend/insert_friends.dart';
 import '../../../../../../data/remote/group/get_people_by_group.dart';
-import '../../../../../../common/widget/w_text2.dart';
-import '../../../../../../common/widget/w_subject_title.dart';
 
+/// TODO Refactoring
 class GroupScreen extends StatefulWidget {
   const GroupScreen({Key? key}) : super(key: key);
 
@@ -24,11 +24,11 @@ class GroupScreen extends StatefulWidget {
   State<GroupScreen> createState() => _GroupScreenState();
 }
 
-class _GroupScreenState extends State<GroupScreen> {
+class _GroupScreenState extends State<GroupScreen>
+    with FriendSimpleDataProvider {
   List<dynamic> _people = [];
   List<dynamic> _friends = [];
   String myFriendString = '';
-  String _accessToken = '';
 
   @override
   void initState() {
@@ -189,30 +189,27 @@ class _GroupScreenState extends State<GroupScreen> {
                                       ),
                                       GameBadge(
                                         size: _people[index]['games'].length,
-                                        gameList: _people[index]['games'],
+                                        gameList:
+                                            (_people[index]['games'] as List)
+                                                .map((e) => Game(name: e))
+                                                .toList(),
                                       ),
                                     ],
                                   ),
                                   _people[index]['isFollow']
                                       ? TextButton2(
-                                          onPressed: () {
-                                            setState(() {
-                                              _people[index]['isFollow'] =
-                                                  false;
-                                            });
-                                            deleteFriendFromMyFriends(
-                                                _people[index]['id']);
-                                          },
+                                          onPressed: () =>
+                                              _deleteFriendFromMyFriends(
+                                                  _people[index]['id'], index),
                                           text: '취소',
                                           color: context.appColors.subText,
                                         )
                                       : TextButton2(
                                           onPressed: () {
-                                            setState(() {
-                                              _people[index]['isFollow'] = true;
-                                            });
-                                            insertFriendsIntoMyFriends(
-                                                _people[index]['id']);
+                                            _insertFriendsIntoMyFriends(
+                                              _people[index]['id'],
+                                              index,
+                                            );
                                           },
                                           text: '친구 추가',
                                           color: Colors.blueAccent,
@@ -233,10 +230,7 @@ class _GroupScreenState extends State<GroupScreen> {
   }
 
   void _initMyGroupDetail() {
-    _accessToken = Get.find<AccessTokenData>().accessToken;
-
-    Future<Map<String, dynamic>> response =
-        dioApiGetPeopleByGroup(_accessToken, groupName);
+    Future<Map<String, dynamic>> response = dioApiGetPeopleByGroup(groupName);
     response.then((res) {
       int statusCode = res['statusCode'];
       if (statusCode == 200) {
@@ -263,45 +257,14 @@ class _GroupScreenState extends State<GroupScreen> {
     });
   }
 
-  insertFriendsIntoMyFriends(int userId) {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response =
-        dioApiInsertFriendOne(accessToken, userId);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        List<dynamic> originalFriends =
-            Get.find<MyFriendsController>().myFriends;
-        Get.find<MyFriendsController>()
-            .setMyFriends([res['data'], ...originalFriends]);
-      } else if (statusCode == 409) {
-        notification(context, '이미 등록된 친구입니다.', warning: false);
-      } else {
-        print('insertFriendsIntoFriends(): $statusCode');
-      }
-    });
+  void _insertFriendsIntoMyFriends(int userId, int index) async {
+    await friendSimpleData.insertFriend(userId);
+    setState(() => _people[index]['isFollow'] = true);
   }
 
-  deleteFriendFromMyFriends(int userId) {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response =
-        dioApiDeleteFriendOne(accessToken, userId);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        List<dynamic> originalFriends =
-            Get.find<MyFriendsController>().myFriends;
-        for (int i = 0; i < originalFriends.length; i++) {
-          if (originalFriends[i]['id'] == userId) {
-            originalFriends.removeAt(i);
-            break;
-          }
-        }
-        Get.find<MyFriendsController>().setMyFriends([...originalFriends]);
-      } else {
-        print('insertFriendsIntoFriends(): $statusCode');
-      }
-    });
+  void _deleteFriendFromMyFriends(int userId, int index) async {
+    await friendSimpleData.deleteFriend(userId);
+    setState(() => _people[index]['isFollow'] = false);
   }
 
   void followController() {
@@ -313,7 +276,7 @@ class _GroupScreenState extends State<GroupScreen> {
     }
     if (peopleToBeFriends.isNotEmpty) {
       Future<Map<String, dynamic>> response =
-          dioApiInsertFriends(_accessToken, peopleToBeFriends);
+          dioApiInsertFriends(peopleToBeFriends);
       response.then((res) {
         int statusCode = res['statusCode'];
         if (statusCode == 200) {

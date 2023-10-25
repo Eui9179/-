@@ -31,8 +31,6 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
   final String _phoneNumber = Get.arguments;
   final TextEditingController _typeAheadGroupController =
       TextEditingController();
-  final TextEditingController _typeAheadDetail1Controller =
-      TextEditingController();
   final List<String> _groups = [];
   XFile? _image;
   String? _name;
@@ -57,9 +55,7 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {
-                    getImageFromGallery();
-                  },
+                  onTap: () => getImageFromGallery(),
                   child: Stack(
                     children: [
                       _image == null
@@ -92,90 +88,89 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 OutlineInput(
                   onSaved: (val) {
-                    setState(() {
-                      _name = val;
-                    });
+                    setState(() => _name = val);
                   },
                   onChanged: (val) {
                     if (val != null && val.isNotEmpty) {
-                      setState(() {
-                        isName = true;
-                      });
+                      setState(() => isName = true);
                     }
                   },
-                  validator: (val) {
-                    return null;
-                  },
+                  validator: (val) => null,
                   labelText: "이름을 입력해주세요",
                   autoFocus: true,
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Container(
                   margin: const EdgeInsets.only(bottom: 10),
                   child: TypeAheadField(
-                      textFieldConfiguration: TextFieldConfiguration(
-                        textInputAction: TextInputAction.next,
-                        style: TextStyle(
-                            fontSize: 20.0, color: context.appColors.text),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 52, 52, 71),
-                                  width: 2)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                              borderSide: const BorderSide(
-                                  color: Colors.blueAccent, width: 2)),
-                          fillColor: const Color.fromARGB(255, 62, 62, 75),
-                          filled: true,
-                          labelText: "학교를 입력해주세요",
-                          labelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 206, 206, 215),
-                              fontSize: 20),
-                        ),
-                        controller: _typeAheadGroupController,
-                        onChanged: (val) {
-                          if (val.isEmpty ||
-                              !WoojooGroups.states.contains(val)) {
-                            setState(() {
-                              isGroup = false;
-                            });
-                          } else if (WoojooGroups.states.contains(val)) {
-                            setState(() {
-                              _groups.clear(); // 그룹 여러개로 했을 때 지워야됨
-                              _groups.add(val);
-                              isGroup = true;
-                            });
-                          }
-                        },
+                    textFieldConfiguration: TextFieldConfiguration(
+                      textInputAction: TextInputAction.next,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: context.appColors.text,
                       ),
-                      suggestionsCallback: (pattern) {
-                        return WoojooGroups.getSuggestions(pattern);
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 52, 52, 71),
+                            width: 2,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(
+                              color: Colors.blueAccent, width: 2),
+                        ),
+                        fillColor: context.appColors.inputField,
+                        filled: true,
+                        labelText: "학교를 입력해주세요",
+                        labelStyle: const TextStyle(
+                          color: Color.fromARGB(255, 206, 206, 215),
+                          fontSize: 20,
+                        ),
+                      ),
+                      controller: _typeAheadGroupController,
+                      onChanged: (val) {
+                        if (val.isEmpty || !WoojooGroups.states.contains(val)) {
+                          setState(() => isGroup = false);
+                        } else if (WoojooGroups.states.contains(val)) {
+                          setState(() {
+                            _groups.clear(); // 그룹 여러개로 했을 때 지워야됨
+                            _groups.add(val);
+                            isGroup = true;
+                          });
+                        }
                       },
-                      transitionBuilder: (context, suggestionsBox, controller) {
-                        return suggestionsBox;
-                      },
-                      itemBuilder: (context, suggestion) {
-                        return ListTile(
-                          title: Text(suggestion.toString()),
-                        );
-                      },
-                      onSuggestionSelected: (suggestion) {
-                        _typeAheadGroupController.text = suggestion.toString();
-                        setState(() {
-                          _groups.clear();
-                          _groups.add(_typeAheadGroupController.text);
-                          isGroup = true;
-                        });
-                      }),
+                    ),
+                    suggestionsCallback: (pattern) {
+                      return WoojooGroups.getSuggestions(pattern);
+                    },
+                    transitionBuilder: (context, suggestionsBox, controller) {
+                      return suggestionsBox;
+                    },
+                    suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                        color: context.appColors.inputField),
+                    itemBuilder: (context, suggestion) {
+                      return ListTile(
+                        title: Text(
+                          suggestion.toString(),
+                          style: TextStyle(color: context.appColors.text),
+                        ),
+                      );
+                    },
+                    onSuggestionSelected: (suggestion) {
+                      _typeAheadGroupController.text = suggestion.toString();
+                      setState(() {
+                        _groups.clear();
+                        _groups.add(_typeAheadGroupController.text);
+                        isGroup = true;
+                      });
+                    },
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 10, bottom: 10),

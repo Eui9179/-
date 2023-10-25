@@ -2,8 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../dio/dio_instance.dart';
 
-Future<Map<String, dynamic>> dioApiDeleteFriendOne(
-    String accessToken, int friendId) async {
+Future<Map<String, dynamic>> dioApiDeleteFriendOne(int friendId) async {
   Dio dio = DioClient.dio;
 
   try {

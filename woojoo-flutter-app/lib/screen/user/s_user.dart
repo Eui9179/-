@@ -13,6 +13,7 @@ import '../../../data/remote/profile/get_user.dart';
 import '../../dialog/d_block.dart';
 import '../../screen/main/tab/home/s_profile_loading.dart';
 
+/// TODO Refactoring
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
 
@@ -64,7 +65,9 @@ class _UserScreenState extends State<UserScreen> {
               child: Column(
                 children: [
                   UserProfileFrame(
-                      userProfile: _userProfile, isFriend: _isFriend),
+                    userProfile: _userProfile,
+                    isFriend: _isFriend,
+                  ),
                   UserGroupFrame(
                     userGroups: _userGroups,
                   ),
@@ -73,12 +76,14 @@ class _UserScreenState extends State<UserScreen> {
                     userName: _userProfile['name'],
                   ),
                   UserFriendListFrame(
-                      alreadyFriends: _alreadyFriends,
-                      userFriends: _userFriends,
-                      userName: _userProfile['name'])
+                    alreadyFriends: _alreadyFriends,
+                    userFriends: _userFriends,
+                    userName: _userProfile['name'],
+                  )
                 ],
               ),
-            ));
+            ),
+          );
   }
 
   _initUser() {

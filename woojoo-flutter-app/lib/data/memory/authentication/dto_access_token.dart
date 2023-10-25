@@ -4,7 +4,7 @@ class AccessToken {
   final int statusCode;
   final String? accessToken;
 
-  AccessToken({required this.statusCode, required this.accessToken});
+  AccessToken({required this.statusCode, this.accessToken});
 
   factory AccessToken.fromJson(Response response) {
     return AccessToken(

@@ -6,12 +6,9 @@ part 'dto_user_simple.g.dart';
 @unfreezed
 class UserSimple with _$UserSimple {
   factory UserSimple({
-    @Default(0)
-    final int id,
-    @Default("")
-    String name,
-    @Default("")
-    String? profileImageName,
+    @Default(0) final int id,
+    @Default("") String name,
+    @Default("") String? profileImageName,
   }) = _UserSimple;
 
   factory UserSimple.fromJson(Map<String, dynamic> json) =>
