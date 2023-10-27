@@ -1,10 +1,9 @@
+import 'package:woojoo/data/dto/dto_access_token.dart';
+import 'package:woojoo/data/dto/dto_login_request.dart';
+import 'package:woojoo/data/dto/dto_signup_request.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
-import 'package:woojoo/data/remote/authentication/authentication_api.dart';
-
-import 'dto_access_token.dart';
-import 'dto_login_request.dart';
-import 'dto_signup_request.dart';
+import 'package:woojoo/data/remote/api/authentication/authentication_api.dart';
 
 mixin class AuthenticationDataProvider {
   late final AuthenticationData authenticationData = AuthenticationData();
@@ -38,7 +37,7 @@ class AuthenticationData with AccessTokenDataProvider {
 
   Future<int> withdrawal() async {
     int statusCode =
-        await authRepository.withdrawal(accessTokenData.accessToken);
+        await authRepository.withdrawal();
     accessTokenData.clear();
     return statusCode;
   }

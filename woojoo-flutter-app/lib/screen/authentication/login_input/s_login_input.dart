@@ -5,7 +5,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/common/widget/w_height.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_request.dart';
+import 'package:woojoo/data/dto/dto_phone_number_request.dart';
 import 'package:woojoo/screen/authentication/login_input/w_input_phone_number.dart';
 import 'package:woojoo/screen/authentication/login_input/w_terms_description.dart';
 import 'package:woojoo/screen/authentication/verification/s_verification.dart';

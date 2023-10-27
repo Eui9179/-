@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/w_game_badge.dart';
-import 'package:woojoo/data/memory/friend/dto_friend_simple.dart';
+import 'package:woojoo/data/dto/dto_friend_in_list.dart';
 
 import '../theme/font_size.dart';
 import 'avatar/w_user_avatar.dart';
 import 'w_width.dart';
 
-class FriendInList extends StatelessWidget {
-  final FriendSimple friendSimple;
+class FriendInListWidget extends StatelessWidget {
+  final UserInList friendSimple;
 
-  const FriendInList({super.key, required this.friendSimple});
+  const FriendInListWidget({super.key, required this.friendSimple});
 
   @override
   Widget build(BuildContext context) {

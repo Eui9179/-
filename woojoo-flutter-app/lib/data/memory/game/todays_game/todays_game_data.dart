@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import 'package:woojoo/data/memory/game/todays_game/dto_todays_game_request.dart';
-import 'package:woojoo/data/remote/game/todays_game/todays_game_repository.dart';
-
-import '../../../remote/game/todays_game/todays_game_api.dart';
-import 'dto_todays_game.dart';
+import 'package:woojoo/data/dto/dto_todays_game_request.dart';
+import 'package:woojoo/data/remote/api/game/todays_game/todays_game_api.dart';
+import 'package:woojoo/data/remote/api/game/todays_game/todays_game_repository.dart';
+import '../../../dto/dto_todays_game.dart';
 
 class TodaysGameData extends GetxController {
   RxList<TodaysGame> todaysGameList = <TodaysGame>[].obs;
@@ -22,7 +21,8 @@ class TodaysGameData extends GetxController {
   }
 
   Future<void> insertTodaysGame(TodaysGameRequest request) async {
-    todaysGameRepository.insertTodaysGames(request);
+    await todaysGameRepository.insertTodaysGames(request);
+    getTodaysGameList();
   }
 
   Future<void> deleteTodaysGame(int id, int index) async {

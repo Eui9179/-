@@ -9,7 +9,7 @@ import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:woojoo/common/widget/w_width.dart';
 
 import '../../../../common/widget/w_friend_in_list.dart';
-import '../../../../data/memory/friend/dto_friend_simple.dart';
+import '../../../../data/dto/dto_friend_in_list.dart';
 import '../../../../data/memory/friend/friend_simple_data.dart';
 
 class HomeFriendListFrame extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HomeFriendListFrameState extends State<HomeFriendListFrame>
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      List<FriendSimple> myFriendList = friendSimpleData.myFriendList;
+      List<UserInList> myFriendList = friendSimpleData.myFriendList;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -88,7 +88,7 @@ class _HomeFriendListFrameState extends State<HomeFriendListFrame>
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: myFriendList.length,
                   itemBuilder: (context, index) =>
-                      FriendInList(friendSimple: myFriendList[index]),
+                      FriendInListWidget(friendSimple: myFriendList[index]),
                 ),
         ],
       );

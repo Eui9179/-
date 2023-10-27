@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:woojoo/common/widget/avatar/w_avatar.dart';
 import 'package:woojoo/common/widget/w_height.dart';
-import 'package:woojoo/data/memory/game/dto_game.dart';
+import 'package:woojoo/data/dto/dto_game.dart';
 
 import 'w_subject_title.dart';
 import '../constants.dart';

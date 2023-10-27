@@ -1,11 +1,10 @@
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/data/controller/my_friends_controller.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
+import 'package:woojoo/data/remote/api/friend/block_user.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../data/controller/my_friends_controller.dart';
-import '../../data/remote/friend/block_user.dart';
 
 Future<String?> showBlockDialog(BuildContext context, int userId) async {
   blockUserHandler() {

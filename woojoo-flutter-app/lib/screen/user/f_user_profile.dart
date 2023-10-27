@@ -41,7 +41,7 @@ class _UserProfileFrameState extends State<UserProfileFrame>
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 15, bottom: 20, right: 13, left: 13),
+      padding: const EdgeInsets.only(top: 15, bottom: 5, right: 13, left: 13),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,

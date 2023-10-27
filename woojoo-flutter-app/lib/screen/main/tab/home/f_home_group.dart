@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
 import '../../../../data/memory/group/group_data.dart';
 import 'w_group_text_button.dart';
 
@@ -15,18 +16,10 @@ class _HomeGroupFrameState extends State<HomeGroupFrame>
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Container(
-        padding: const EdgeInsets.only(left: 13, bottom: 15, right: 13),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            GroupTextButton(
-              text: '${groupData.myGroup.name} ${groupData.myGroup.detail1}학년',
-              onTap: onTap,
-            ),
-          ],
-        ),
-      ),
+      () => GroupTextButton(
+        text: '${groupData.myGroup.name} ${groupData.myGroup.detail1}학년',
+        onTap: onTap,
+      ).pOnly(left: 13, right: 13, bottom: 15),
     );
   }
 

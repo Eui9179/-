@@ -1,11 +1,10 @@
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
+import 'package:woojoo/data/remote/api/game/update_my_game_nickname.dart';
 import 'package:woojoo/utils/woojoo_games.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../data/remote/game/update_my_game_nickname.dart';
 
 class GameCard extends StatefulWidget {
   const GameCard(

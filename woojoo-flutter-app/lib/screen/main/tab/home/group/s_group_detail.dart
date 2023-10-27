@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/avatar/w_group_avatar.dart';
+import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
 import 'package:woojoo/common/widget/button/w_text_button2.dart';
+import 'package:woojoo/common/widget/w_game_badge.dart';
+import 'package:woojoo/common/widget/w_subject_title.dart';
+import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
-import 'package:woojoo/data/memory/game/dto_game.dart';
+import 'package:woojoo/data/dto/dto_game.dart';
+import 'package:woojoo/data/remote/api/group/get_friends_by_group_detail1.dart';
 import 'package:woojoo/utils/notification.dart';
-
-import '../../../../../../common/widget/avatar/w_user_avatar.dart';
-import '../../../../../../common/widget/w_game_badge.dart';
-import '../../../../../../common/widget/w_subject_title.dart';
-import '../../../../../../common/widget/w_text2.dart';
-import '../../../../../../data/remote/group/get_friends_by_group_detail1.dart';
 
 class GroupDetailScreen extends StatefulWidget {
   const GroupDetailScreen({Key? key}) : super(key: key);
@@ -77,7 +76,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen>
                                 size: 23,
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 10
                               ),
                               SubjectTitle(
                                 '${_people.length + _friends.length}명이 소속되어 있습니다.',

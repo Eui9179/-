@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
+import 'package:woojoo/data/remote/api/friend/report_user.dart';
 import 'package:woojoo/utils/notification.dart';
-
-import '../../data/remote/friend/report_user.dart';
 
 Future<String?> showReport(BuildContext context, int userId) async {
   List<bool> isCheckedList = [

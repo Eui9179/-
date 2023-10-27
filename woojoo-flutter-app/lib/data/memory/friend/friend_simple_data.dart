@@ -2,15 +2,15 @@ import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:woojoo/data/remote/friend/delete_friend.dart';
-import 'package:woojoo/data/remote/friend/friend_api.dart';
-import 'package:woojoo/data/remote/friend/insert_friend.dart';
+import 'package:woojoo/data/remote/api/friend/delete_friend.dart';
+import 'package:woojoo/data/remote/api/friend/friend_api.dart';
+import 'package:woojoo/data/remote/api/friend/insert_friend.dart';
 import 'package:woojoo/utils/notification.dart';
 
-import 'dto_friend_simple.dart';
+import '../../dto/dto_friend_in_list.dart';
 
 class FriendSimpleData extends GetxController {
-  final RxList<FriendSimple> _myFriends = <FriendSimple>[].obs;
+  final RxList<UserInList> _myFriends = <UserInList>[].obs;
 
   FriendApi friendRepository = FriendApi.instance;
 
@@ -21,7 +21,7 @@ class FriendSimpleData extends GetxController {
   }
 
   Future<void> getMyFriendList() async {
-    List<FriendSimple> myFriendList = await friendRepository.getMyFriendList();
+    List<UserInList> myFriendList = await friendRepository.getMyFriendList();
     _myFriends.clear();
     _myFriends.addAll(myFriendList);
   }
@@ -37,7 +37,7 @@ class FriendSimpleData extends GetxController {
 
   Future<void> insertFriend(int userId) async {
     Map<String, dynamic> response = await dioApiInsertFriendOne(userId);
-    _myFriends.add(FriendSimple.fromJson(response['data']));
+    _myFriends.add(UserInList.fromJson(response['data']));
   }
 
   Future<void> deleteFriend(int userId) async {
@@ -67,7 +67,7 @@ class FriendSimpleData extends GetxController {
         .toList();
   }
 
-  List<FriendSimple> get myFriendList => _myFriends;
+  List<UserInList> get myFriendList => _myFriends;
 }
 
 mixin class FriendSimpleDataProvider {

@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
+import 'package:woojoo/common/widget/w_game_list.dart';
 import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:woojoo/data/memory/game/game_data.dart';
-import 'package:woojoo/screen/main/tab/home/w_game_card.dart';
 
 class HomeGameListFrame extends StatefulWidget {
   const HomeGameListFrame({Key? key}) : super(key: key);
@@ -42,21 +42,7 @@ class _HomeGameListFrameState extends State<HomeGameListFrame>
             ],
           ).pSymmetric(h: 13),
           gameData.myGameList.isNotEmpty
-              ? Container(
-                  margin: const EdgeInsets.only(top: 5.0, left: 13),
-                  height: 230.0,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: gameData.myGameList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GameCard(
-                        gameName: gameData.myGameList[index].name,
-                        isMe: true,
-                        nickname: gameData.myGameList[index].nickname,
-                      );
-                    },
-                  ),
-                )
+              ? GameListWidget(gameData.myGameList)
               : Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
                   height: 200.0,

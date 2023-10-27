@@ -3,15 +3,14 @@ import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/data/remote/api/user/get_user.dart';
+import 'package:woojoo/dialog/d_block.dart';
 import 'package:woojoo/dialog/d_report.dart';
+import 'package:woojoo/screen/main/tab/home/s_profile_loading.dart';
 import 'package:woojoo/screen/user/f_user_friend_list.dart';
 import 'package:woojoo/screen/user/f_user_game_list.dart';
 import 'package:woojoo/screen/user/f_user_group.dart';
 import 'package:woojoo/screen/user/f_user_profile.dart';
-
-import '../../../data/remote/profile/get_user.dart';
-import '../../dialog/d_block.dart';
-import '../../screen/main/tab/home/s_profile_loading.dart';
 
 /// TODO Refactoring
 class UserScreen extends StatefulWidget {
@@ -98,10 +97,7 @@ class _UserScreenState extends State<UserScreen> {
         _userGames = res['data']['userGames'];
         _alreadyFriends = res['data']['alreadyFriends'];
         _userFriends = res['data']['userFriends'];
-
-        setState(() {
-          isLoading = false;
-        });
+        setState(() => isLoading = false);
       } else {
         print('users initUser: $statusCode');
       }

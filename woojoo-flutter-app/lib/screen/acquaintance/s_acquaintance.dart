@@ -5,7 +5,7 @@ import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:woojoo/data/memory/game/dto_game.dart';
+import 'package:woojoo/data/dto/dto_game.dart';
 
 class AcquaintanceScreen extends StatelessWidget {
   AcquaintanceScreen({Key? key}) : super(key: key);

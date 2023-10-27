@@ -5,16 +5,15 @@ import 'package:woojoo/common/widget/avatar/w_group_avatar.dart';
 import 'package:woojoo/common/widget/avatar/w_user_avatar.dart';
 import 'package:woojoo/common/widget/button/w_text_button2.dart';
 import 'package:woojoo/common/widget/w_dividing_line.dart';
+import 'package:woojoo/common/widget/w_game_badge.dart';
+import 'package:woojoo/common/widget/w_subject_title.dart';
+import 'package:woojoo/common/widget/w_text2.dart';
+import 'package:woojoo/data/controller/my_friends_controller.dart';
 import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
-import 'package:woojoo/data/memory/game/dto_game.dart';
+import 'package:woojoo/data/dto/dto_game.dart';
+import 'package:woojoo/data/remote/api/friend/insert_friends.dart';
+import 'package:woojoo/data/remote/api/group/get_people_by_group.dart';
 import 'package:woojoo/utils/notification.dart';
-
-import '../../../../../../common/widget/w_game_badge.dart';
-import '../../../../../../common/widget/w_subject_title.dart';
-import '../../../../../../common/widget/w_text2.dart';
-import '../../../../../../data/controller/my_friends_controller.dart';
-import '../../../../../../data/remote/friend/insert_friends.dart';
-import '../../../../../../data/remote/group/get_people_by_group.dart';
 
 /// TODO Refactoring
 class GroupScreen extends StatefulWidget {

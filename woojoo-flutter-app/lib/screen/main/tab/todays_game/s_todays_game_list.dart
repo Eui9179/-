@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
-import 'package:woojoo/data/memory/game/todays_game/dto_todays_game.dart';
+import 'package:woojoo/data/dto/dto_todays_game.dart';
 import 'package:woojoo/data/memory/game/todays_game/todays_game_data.dart';
 import 'package:woojoo/screen/main/tab/todays_game/w_todays_game_box.dart';
 import 'package:woojoo/utils/notification.dart';

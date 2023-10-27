@@ -2,19 +2,20 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/data/memory/group/group_data.dart';
-import 'package:woojoo/data/memory/user/user_simple_data.dart';
-import 'package:woojoo/data/memory/user/update_my_profile_request.dart';
+import 'package:woojoo/data/memory/my_profile/update_my_profile_request.dart';
+import 'package:woojoo/data/memory/my_profile/my_profile_data.dart';
 
 class SettingData extends GetxController
     with GroupDataProvider, UserSimpleDataProvider {
+
   final Rxn<XFile?> _image = Rxn<XFile>();
-  final RxString _userName = Get.find<UserSimpleData>().myProfile.name.obs;
+  final RxString _userName = Get.find<MyProfileData>().myProfile.name.obs;
   final RxnString _profileImageName =
-      RxnString(Get.find<UserSimpleData>().myProfile.profileImageName);
+      RxnString(Get.find<MyProfileData>().myProfile.profileImageName);
   final RxString _groupName = Get.find<GroupData>().myGroup.name.obs;
   final RxString _groupDetail = Get.find<GroupData>().myGroup.detail1.obs;
   final RxnString _originImageName =
-      RxnString(Get.find<UserSimpleData>().profileImageName);
+      RxnString(Get.find<MyProfileData>().profileImageName);
   final RxBool _isName = true.obs;
   final RxBool _isNameChanged = false.obs;
   final RxBool _isGroup = true.obs;

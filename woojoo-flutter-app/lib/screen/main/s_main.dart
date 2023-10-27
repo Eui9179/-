@@ -7,14 +7,12 @@ import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/logo/w_logo.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/data/memory/authentication/authentication_data.dart';
+import 'package:woojoo/data/memory/my_profile/my_profile_data.dart';
 
 import '../../data/memory/friend/friend_simple_data.dart';
 import '../../data/memory/game/game_data.dart';
 import '../../data/memory/game/todays_game/todays_game_data.dart';
 import '../../data/memory/group/group_data.dart';
-import '../../data/memory/user/user_simple_data.dart';
 import 'tab/home/s_home.dart';
 import 'tab/setting/s_settting.dart';
 import 'tab/todays_game/s_todays_game_list.dart';
@@ -38,7 +36,7 @@ class _MainScreenState extends State<MainScreen> with AfterLayoutMixin{
 
   @override
   void initState() {
-    Get.put(UserSimpleData());
+    Get.put(MyProfileData());
     Get.put(GroupData());
     Get.put(GameData());
     Get.put(FriendSimpleData());

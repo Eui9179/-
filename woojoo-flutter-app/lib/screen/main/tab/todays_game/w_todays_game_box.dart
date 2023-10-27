@@ -8,7 +8,7 @@ import 'package:woojoo/data/memory/game/todays_game/todays_game_data.dart';
 import '../../../../common/theme/font_size.dart';
 import '../../../../common/widget/avatar/w_profile_avatar.dart';
 import '../../../../common/widget/w_height.dart';
-import '../../../../data/memory/game/todays_game/dto_todays_game.dart';
+import '../../../../data/dto/dto_todays_game.dart';
 import '../../../../utils/woojoo_games.dart';
 
 class TodaysGameBox extends StatefulWidget {
@@ -29,7 +29,7 @@ class _TodaysGameBoxState extends State<TodaysGameBox>
   @override
   Widget build(BuildContext context) {
     TodaysGame todaysGame = widget.todaysGame;
-    if (todaysGame.isMe != null && todaysGame.isMe!) {
+    if (todaysGame.isMe) {
       return Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,

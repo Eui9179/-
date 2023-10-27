@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/authentication/dto_signup_request.dart';
+import 'package:woojoo/data/dto/dto_signup_request.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 
 import '../../../../common/appbar/text_app_bar.dart';

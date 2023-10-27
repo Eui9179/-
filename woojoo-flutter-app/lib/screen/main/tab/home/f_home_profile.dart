@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/w_height.dart';
-import 'package:woojoo/data/memory/user/dto_user_simple.dart';
 import 'package:woojoo/common/widget/avatar/w_profile_avatar.dart';
-import 'package:woojoo/data/memory/user/user_simple_data.dart';
+import 'package:woojoo/data/dto/dto_user_simple.dart';
+import 'package:woojoo/data/memory/my_profile/my_profile_data.dart';
 
 class HomeProfileFrame extends StatefulWidget {
   const HomeProfileFrame({Key? key}) : super(key: key);
@@ -16,6 +16,7 @@ class HomeProfileFrame extends StatefulWidget {
 
 class _HomeProfileFrameState extends State<HomeProfileFrame>
     with UserSimpleDataProvider {
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {

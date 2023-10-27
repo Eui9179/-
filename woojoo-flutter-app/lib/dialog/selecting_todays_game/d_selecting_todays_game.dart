@@ -4,7 +4,7 @@ import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/data/memory/game/game_data.dart';
 import 'package:woojoo/data/memory/game/game_setting/vo_game_selection.dart';
-import 'package:woojoo/data/memory/game/todays_game/dto_todays_game_request.dart';
+import 'package:woojoo/data/dto/dto_todays_game_request.dart';
 import 'package:woojoo/data/memory/game/todays_game/todays_game_data.dart';
 import 'package:woojoo/dialog/selecting_todays_game/w_game_circle_button.dart';
 import 'package:woojoo/dialog/selecting_todays_game/w_selecting_todays_game_description_input.dart';

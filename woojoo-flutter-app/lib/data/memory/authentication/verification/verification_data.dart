@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_verification_code_request.dart';
-
-import '../../../../utils/notification.dart';
-import '../../../remote/authentication/verification/verification_api.dart';
+import 'package:woojoo/data/dto/dto_phone_number_request.dart';
+import 'package:woojoo/data/dto/dto_verification_code_request.dart';
+import 'package:woojoo/data/remote/api/authentication/verification/verification_api.dart';
+import 'package:woojoo/utils/notification.dart';
 
 class VerificationData {
   final verificationRepository = VerificationApi.instance;
@@ -12,7 +11,8 @@ class VerificationData {
     return verificationRepository.sendVerificationCode(request);
   }
 
-  void verifyCode(BuildContext context, VerificationCodeRequest request, Function() function) {
+  void verifyCode(BuildContext context, VerificationCodeRequest request,
+      Function() function) {
     verificationRepository.verifyCode(request).then((statusCode) {
       switch (statusCode) {
         case 200:

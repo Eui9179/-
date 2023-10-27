@@ -4,10 +4,10 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/app.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/theme/font_size.dart';
+import 'package:woojoo/data/dto/dto_login_request.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
-import 'package:woojoo/data/memory/authentication/dto_login_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_phone_number_request.dart';
-import 'package:woojoo/data/memory/authentication/verification/dto_verification_code_request.dart';
+import 'package:woojoo/data/dto/dto_phone_number_request.dart';
+import 'package:woojoo/data/dto/dto_verification_code_request.dart';
 import 'package:woojoo/screen/authentication/verification/w_verification_code_input.dart';
 
 import '../../../common/widget/w_height.dart';

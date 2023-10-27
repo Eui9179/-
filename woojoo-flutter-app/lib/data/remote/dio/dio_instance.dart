@@ -2,11 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:woojoo/data/remote/dio/authorization_interceptor.dart';
 import 'package:woojoo/data/remote/dio/endpoints.dart';
 
-import '../../../screen/authentication/s_login.dart';
-
-String baseUri = "http://localhost:8080/api";
-// String baseUri = "http://43.201.193.44/api";
-
 const String cdnProfileImageBaseUri =
     "http://localhost:8080/api/users/profile/image/";
 const String imageBaseUrl = "http://localhost:8080/api/image";
@@ -29,5 +24,4 @@ class DioClient {
   ]);
 
   static Dio get dio => DioClient._()._dio;
-  // Dio get dio => _dio;
 }

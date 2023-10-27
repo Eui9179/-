@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:woojoo/data/remote/game/game_api.dart';
-import 'package:woojoo/data/remote/game/game_repository.dart';
+import 'package:woojoo/data/remote/api/game/game_api.dart';
+import 'package:woojoo/data/remote/api/game/game_repository.dart';
 
-import 'dto_game.dart';
+import '../../dto/dto_game.dart';
 
 class GameData extends GetxController {
   RxList<Game> myGameList = <Game>[].obs;
