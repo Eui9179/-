@@ -6,6 +6,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/app.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/common/theme/color_palette.dart';
 import 'package:woojoo/pages.dart';
 
@@ -22,6 +23,7 @@ void main() async {
   ));
   final ensureInitialized = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: ensureInitialized);
+  setUp();
 
   // await Firebase.initializeApp(
   // options: DefaultFirebaseOptions.currentPlatform,

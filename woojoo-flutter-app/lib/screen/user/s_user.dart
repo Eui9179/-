@@ -1,8 +1,11 @@
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
+import 'package:woojoo/data/dto/dto_user_info.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/data/memory/user/user_data.dart';
 import 'package:woojoo/data/remote/api/user/get_user.dart';
 import 'package:woojoo/dialog/d_block.dart';
 import 'package:woojoo/dialog/d_report.dart';
@@ -12,7 +15,6 @@ import 'package:woojoo/screen/user/f_user_game_list.dart';
 import 'package:woojoo/screen/user/f_user_group.dart';
 import 'package:woojoo/screen/user/f_user_profile.dart';
 
-/// TODO Refactoring
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
 
@@ -22,18 +24,13 @@ class UserScreen extends StatefulWidget {
 
 class _UserScreenState extends State<UserScreen> {
   final int userId = int.parse(Get.parameters['userId']!);
-  Map<String, dynamic> _userProfile = {};
-  List<dynamic> _userGroups = [];
-  List<dynamic> _userGames = [];
-  List<dynamic> _alreadyFriends = [];
-  List<dynamic> _userFriends = [];
-  bool _isFriend = false;
+  late UserInfo _userInfo;
   bool isLoading = true;
 
   @override
   void initState() {
-    super.initState();
     _initUser();
+    super.initState();
   }
 
   @override
@@ -64,7 +61,7 @@ class _UserScreenState extends State<UserScreen> {
               child: Column(
                 children: [
                   UserProfileFrame(
-                    userProfile: _userProfile,
+                    userProfile: _userInfo.userSimple,
                     isFriend: _isFriend,
                   ),
                   UserGroupFrame(
@@ -84,24 +81,10 @@ class _UserScreenState extends State<UserScreen> {
             ),
           );
   }
-
-  _initUser() {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    Future<Map<String, dynamic>> response = dioApiUser(accessToken, userId);
-    response.then((res) {
-      int statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        _userProfile = res['data']['userProfile'];
-        _isFriend = res['data']['isFriend'];
-        _userGroups = res['data']['userGroups'];
-        _userGames = res['data']['userGames'];
-        _alreadyFriends = res['data']['alreadyFriends'];
-        _userFriends = res['data']['userFriends'];
-        setState(() => isLoading = false);
-      } else {
-        print('users initUser: $statusCode');
-      }
-    });
+  
+  _initUser() async {
+    userInfo = await getIt.get<UserData>().getUserInfo(userId);
+    setState(() => isLoading = false);
   }
 
   _userMoreHandler(String value) {
