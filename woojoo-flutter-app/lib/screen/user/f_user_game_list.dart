@@ -1,12 +1,12 @@
+import 'package:woojoo/data/dto/dto_game.dart';
 import 'package:woojoo/screen/main/tab/home/w_game_card.dart';
 import 'package:woojoo/common/widget/w_subject_title.dart';
 import 'package:flutter/material.dart';
 
-/// TODO Refactoring
 class UserGameListFrame extends StatelessWidget {
-  const UserGameListFrame({Key? key, required this.userGames, required this.userName})
+  const UserGameListFrame({Key? key, required this.games, required this.userName})
       : super(key: key);
-  final List<dynamic> userGames;
+  final List<Game> games;
   final String userName;
 
   @override
@@ -21,18 +21,18 @@ class UserGameListFrame extends StatelessWidget {
           ],
         ),
       ),
-      userGames.isNotEmpty
+      games.isNotEmpty
           ? Container(
               margin: const EdgeInsets.only(top: 5.0, left: 13),
               height: 230.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: userGames.length,
+                itemCount: games.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GameCard(
-                    gameName: userGames[index]['name'],
+                    gameName: games[index].name,
                     isMe: false,
-                    nickname: userGames[index]['nickname'],
+                    nickname: games[index].nickname,
                   );
                 },
               ),

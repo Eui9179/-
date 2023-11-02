@@ -1,12 +1,10 @@
-import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/common/get_it/get_it.dart';
-import 'package:woojoo/data/dto/dto_user_info.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
-import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
+import 'package:woojoo/common/widget/w_text2.dart';
+import 'package:woojoo/data/dto/dto_user_info.dart';
 import 'package:woojoo/data/memory/user/user_data.dart';
-import 'package:woojoo/data/remote/api/user/get_user.dart';
 import 'package:woojoo/dialog/d_block.dart';
 import 'package:woojoo/dialog/d_report.dart';
 import 'package:woojoo/screen/main/tab/home/s_profile_loading.dart';
@@ -61,20 +59,20 @@ class _UserScreenState extends State<UserScreen> {
               child: Column(
                 children: [
                   UserProfileFrame(
-                    userProfile: _userInfo.userSimple,
-                    isFriend: _isFriend,
+                    userSimple: _userInfo.userSimple,
+                    isFriend: _userInfo.isFriend,
                   ),
                   UserGroupFrame(
-                    userGroups: _userGroups,
+                    group: _userInfo.group,
                   ),
                   UserGameListFrame(
-                    userGames: _userGames,
-                    userName: _userProfile['name'],
+                    games: _userInfo.games,
+                    userName: _userInfo.userSimple.name,
                   ),
                   UserFriendListFrame(
-                    alreadyFriends: _alreadyFriends,
-                    userFriends: _userFriends,
-                    userName: _userProfile['name'],
+                    alreadyFriends: _userInfo.alreadyFriends,
+                    userFriends: _userInfo.userFriends,
+                    userName: _userInfo.userSimple.name,
                   )
                 ],
               ),
@@ -83,7 +81,7 @@ class _UserScreenState extends State<UserScreen> {
   }
   
   _initUser() async {
-    userInfo = await getIt.get<UserData>().getUserInfo(userId);
+    _userInfo = await getIt.get<UserData>().getUserInfo(userId);
     setState(() => isLoading = false);
   }
 

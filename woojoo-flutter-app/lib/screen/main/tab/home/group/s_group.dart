@@ -187,7 +187,6 @@ class _GroupScreenState extends State<GroupScreen>
                                         size: 18,
                                       ),
                                       GameBadge(
-                                        size: _people[index]['games'].length,
                                         gameList:
                                             (_people[index]['games'] as List)
                                                 .map((e) => Game(name: e))

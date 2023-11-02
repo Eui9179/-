@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:woojoo/common/context_extension.dart';
 import 'package:woojoo/common/widget/button/w_text_button2.dart';
+import 'package:woojoo/data/dto/dto_user_simple.dart';
 import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
 
 import '../../../common/widget/avatar/w_profile_avatar.dart';
 
-/// TODO Refactoring
 class UserProfileFrame extends StatefulWidget {
   const UserProfileFrame({
     Key? key,
-    required this.userProfile,
+    required this.userSimple,
     required this.isFriend,
   }) : super(key: key);
 
-  final Map<String, dynamic> userProfile;
+  final UserSimple userSimple;
   final bool isFriend;
 
   @override
@@ -36,8 +36,9 @@ class _UserProfileFrameState extends State<UserProfileFrame>
 
   @override
   Widget build(BuildContext context) {
-    String? userProfileImageName = widget.userProfile['profileImageName'];
-    String name = widget.userProfile['name']!;
+    UserSimple userSimple = widget.userSimple;
+    String? userProfileImageName = userSimple.profileImageName;
+    String name = userSimple.name;
 
     return Container(
       width: double.infinity,
@@ -82,7 +83,7 @@ class _UserProfileFrameState extends State<UserProfileFrame>
   }
 
   void _insertFriendsIntoMyFriends() async {
-    await friendSimpleData.insertFriend(widget.userProfile['userId']);
+    await friendSimpleData.insertFriend(widget.userSimple.id);
     setState(() {
       isFriend = !isFriend;
       buttonText = '취소';
@@ -90,7 +91,7 @@ class _UserProfileFrameState extends State<UserProfileFrame>
   }
 
   void _deleteFriendFromMyFriends() async {
-    await friendSimpleData.deleteFriend(widget.userProfile['userId']);
+    await friendSimpleData.deleteFriend(widget.userSimple.id);
     setState(() {
       isFriend = !isFriend;
       buttonText = '친구 추가';

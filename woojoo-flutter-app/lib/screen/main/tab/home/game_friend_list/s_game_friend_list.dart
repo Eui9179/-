@@ -104,9 +104,7 @@ class _GameFriendListScreenState extends State<GameFriendListScreen> {
                           UserAvatar(
                             imagePath: _friends[index]["profile_image_name"],
                           ),
-                          const SizedBox(
-                            width: 13,
-                          ),
+                          const SizedBox(width: 13),
                           Expanded(
                             flex: 8,
                             child: Row(
@@ -121,7 +119,6 @@ class _GameFriendListScreenState extends State<GameFriendListScreen> {
                                       size: 18,
                                     ),
                                     GameBadge(
-                                      size: _friends[index]['games'].length,
                                       gameList: _friends[index]['games'],
                                     ),
                                   ],

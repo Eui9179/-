@@ -34,10 +34,7 @@ class FriendInListWidget extends StatelessWidget {
                   .size(FontSize.normal)
                   .color(context.appColors.text)
                   .make(),
-              GameBadge(
-                size: friendSimple.gameList.length,
-                gameList: friendSimple.gameList,
-              ),
+              GameBadge(gameList: friendSimple.gameList),
             ],
           ),
         ],

@@ -152,7 +152,6 @@ class _GroupDetailScreenState extends State<GroupDetailScreen>
                                       size: 18,
                                     ),
                                     GameBadge(
-                                      size: _friends[index]['games'].length,
                                       gameList: (_friends[index]['games']
                                               as List<dynamic>)
                                           .map((e) => Game(name: e.toString()))
@@ -222,7 +221,6 @@ class _GroupDetailScreenState extends State<GroupDetailScreen>
                                       size: 18,
                                     ),
                                     GameBadge(
-                                      size: _people[index]['games'].length,
                                       gameList:
                                           (_people[index]['games'] as List)
                                               .map((e) => Game(name: e))

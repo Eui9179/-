@@ -72,7 +72,6 @@ class AcquaintanceScreen extends StatelessWidget {
                             children: [
                               Text2(text: _myFriends[index]["name"], size: 18),
                               GameBadge(
-                                size: _myFriends[index]['games'].length,
                                 gameList: games.map((e) => Game(name: e.toString())).toList(),
                               ),
                             ],

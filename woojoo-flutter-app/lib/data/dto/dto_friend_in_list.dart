@@ -5,6 +5,7 @@ import 'dto_game.dart';
 class UserInList {
   final UserSimple userSimple;
   final List<Game> gameList;
+  bool? isFriend;
 
   UserInList({required this.userSimple, required this.gameList});
 

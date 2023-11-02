@@ -8,12 +8,10 @@ import '../constants.dart';
 import 'w_width.dart';
 
 class GameBadge extends StatelessWidget {
-  final int size;
   final List<Game> gameList;
 
   const GameBadge({
     super.key,
-    required this.size,
     required this.gameList,
   });
 
@@ -21,23 +19,19 @@ class GameBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        getMarginBySize(size),
-        getGameBadgeBySize(size, gameList),
+        getMarginBySize(),
+        getGameBadgeBySize(gameList),
       ],
     );
   }
 
-  Widget getMarginBySize(int size) {
-    switch (size) {
-      case 0:
-        return const SizedBox();
-      default:
-        return height5;
-    }
+  Widget getMarginBySize() {
+    if (gameList.isEmpty) return const SizedBox();
+    return height5;
   }
 
-  Widget getGameBadgeBySize(int size, List<Game> gameNames) {
-    switch (size) {
+  Widget getGameBadgeBySize(List<Game> gameNames) {
+    switch (gameNames.length) {
       case 0:
         return const SizedBox();
       case 1:
@@ -73,7 +67,7 @@ class GameBadge extends StatelessWidget {
               ],
             ),
             width10,
-            SubjectTitle("함께 하는 게임 $size개")
+            SubjectTitle("함께 하는 게임 ${gameList.length}개")
           ],
         );
     }
