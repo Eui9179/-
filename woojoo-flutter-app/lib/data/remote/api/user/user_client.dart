@@ -10,4 +10,7 @@ abstract class UserClient {
 
   @GET('/users/{userId}')
   Future<UserInfo> getUserInfo(@Path('userId') int userId);
+
+  @POST('/admin/report')
+  Future<void> report(Map<String, dynamic> data);
 }

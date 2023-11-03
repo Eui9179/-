@@ -137,8 +137,9 @@ class _UserFriendListFrameState extends State<UserFriendListFrame>
                                 : TextButton2(
                                     onPressed: () {
                                       _insertFriendsIntoMyFriends(
-                                          userFriends[index].userSimple.id,
-                                          index);
+                                        userFriends[index].userSimple.id,
+                                        index,
+                                      );
                                     },
                                     text: '친구 추가',
                                     color: Colors.blueAccent,

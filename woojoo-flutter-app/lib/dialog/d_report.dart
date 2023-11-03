@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woojoo/common/context_extension.dart';
-import 'package:woojoo/data/memory/authentication/access_token_data.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/common/widget/w_text2.dart';
-import 'package:woojoo/data/remote/api/friend/report_user.dart';
+import 'package:woojoo/data/memory/user/user_data.dart';
 import 'package:woojoo/utils/notification.dart';
 
 Future<String?> showReport(BuildContext context, int userId) async {
@@ -15,32 +15,6 @@ Future<String?> showReport(BuildContext context, int userId) async {
     false,
     false,
   ];
-
-  _onPressed(List<bool> isCheckedList, int userId) {
-    String accessToken = Get.find<AccessTokenData>().accessToken;
-    String reportString = '';
-
-    for (int i = 0; i < isCheckedList.length; i++) {
-      if (isCheckedList[i]) {
-        reportString.isEmpty ? reportString += '$i' : reportString += '/$i';
-      }
-    }
-
-    Future<dynamic> response = dioApiReportUser(accessToken, {
-      'reportedUserId': userId,
-      'reportNumbers': reportString,
-    });
-
-    int statusCode;
-    response.then((res) {
-      statusCode = res['statusCode'];
-      if (statusCode == 200) {
-        notification(context, '신고가 완료되었습니다.');
-      } else {
-        print(statusCode);
-      }
-    });
-  }
 
   return showDialog(
       context: context,
@@ -68,9 +42,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[0],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[0] = newValue!;
-                        });
+                        setState(() => isCheckedList[0] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -84,9 +56,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[1],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[1] = newValue!;
-                        });
+                        setState(() => isCheckedList[1] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -100,9 +70,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[2],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[2] = newValue!;
-                        });
+                        setState(() => isCheckedList[2] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -116,9 +84,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[3],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[3] = newValue!;
-                        });
+                        setState(() => isCheckedList[3] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -132,9 +98,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[4],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[4] = newValue!;
-                        });
+                        setState(() => isCheckedList[4] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -148,9 +112,7 @@ Future<String?> showReport(BuildContext context, int userId) async {
                     Checkbox(
                       value: isCheckedList[5],
                       onChanged: (bool? newValue) {
-                        setState(() {
-                          isCheckedList[5] = newValue!;
-                        });
+                        setState(() => isCheckedList[5] = newValue!);
                       },
                       side: BorderSide(color: context.appColors.text),
                       checkColor: context.appColors.text,
@@ -163,24 +125,43 @@ Future<String?> showReport(BuildContext context, int userId) async {
             ),
             actions: [
               TextButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  child: Text(
-                    '닫기',
-                    style: TextStyle(color: context.appColors.text, fontSize: 20),
-                  )),
+                onPressed: () => Get.back(),
+                child: Text(
+                  '닫기',
+                  style: TextStyle(color: context.appColors.text, fontSize: 20),
+                ),
+              ),
               TextButton(
-                  onPressed: () {
-                    _onPressed(isCheckedList, userId);
-                    Get.back();
-                  },
-                  child: const Text(
-                    '완료',
-                    style: TextStyle(color: Colors.blueAccent, fontSize: 20),
-                  )),
+                onPressed: () {
+                  _onPressed(isCheckedList, userId, context);
+                  Get.back();
+                },
+                child: const Text(
+                  '완료',
+                  style: TextStyle(color: Colors.blueAccent, fontSize: 20),
+                ),
+              ),
             ],
           );
         });
       });
+}
+
+void _onPressed(List<bool> isCheckedList, int userId, BuildContext context) {
+  String reportString = _generateReportString(isCheckedList);
+  getIt.get<UserData>().report({
+    'reportedUserId': userId,
+    'reportNumbers': reportString,
+  }).then((_) => notification(context, '신고가 완료되었습니다.'));
+}
+
+String _generateReportString(List<bool> isCheckedList) {
+  String reportString = '';
+
+  for (int i = 0; i < isCheckedList.length; i++) {
+    if (isCheckedList[i]) {
+      reportString.isEmpty ? reportString += '$i' : reportString += '/$i';
+    }
+  }
+  return reportString;
 }

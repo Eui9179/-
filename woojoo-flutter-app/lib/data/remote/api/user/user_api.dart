@@ -13,4 +13,8 @@ class UserApi {
   Future<UserInfo> getUserInfo(int userId) async {
     return await _client.getUserInfo(userId);
   }
+
+  Future<void> report(Map<String, dynamic> data) async {
+    await _client.report(data);
+  }
 }

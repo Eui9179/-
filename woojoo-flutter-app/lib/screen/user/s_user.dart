@@ -42,6 +42,7 @@ class _UserScreenState extends State<UserScreen> {
               backgroundColor: context.appColors.headerBackgroundColor,
               actions: [
                 PopupMenuButton(
+                  icon: Icon(Icons.more_vert, color: context.appColors.text,),
                   onSelected: _userMoreHandler,
                   color: context.appColors.headerBackgroundColor,
                   itemBuilder: (BuildContext context) {

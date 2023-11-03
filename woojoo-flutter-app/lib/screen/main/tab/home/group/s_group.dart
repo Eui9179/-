@@ -11,11 +11,9 @@ import 'package:woojoo/common/widget/w_text2.dart';
 import 'package:woojoo/data/controller/my_friends_controller.dart';
 import 'package:woojoo/data/memory/friend/friend_simple_data.dart';
 import 'package:woojoo/data/dto/dto_game.dart';
-import 'package:woojoo/data/remote/api/friend/insert_friends.dart';
 import 'package:woojoo/data/remote/api/group/get_people_by_group.dart';
 import 'package:woojoo/utils/notification.dart';
 
-/// TODO Refactoring
 class GroupScreen extends StatefulWidget {
   const GroupScreen({Key? key}) : super(key: key);
 
@@ -41,7 +39,6 @@ class _GroupScreenState extends State<GroupScreen>
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        // followController();
         return true;
       },
       child: Scaffold(
@@ -263,30 +260,5 @@ class _GroupScreenState extends State<GroupScreen>
   void _deleteFriendFromMyFriends(int userId, int index) async {
     await friendSimpleData.deleteFriend(userId);
     setState(() => _people[index]['isFollow'] = false);
-  }
-
-  void followController() {
-    List<int> peopleToBeFriends = [];
-    for (var person in _people) {
-      if (person['isFollow']) {
-        peopleToBeFriends.add(person['id']);
-      }
-    }
-    if (peopleToBeFriends.isNotEmpty) {
-      Future<Map<String, dynamic>> response =
-          dioApiInsertFriends(peopleToBeFriends);
-      response.then((res) {
-        int statusCode = res['statusCode'];
-        if (statusCode == 200) {
-          List<dynamic> addedFriends = res['data'];
-          List<dynamic> originalFriends =
-              Get.find<MyFriendsController>().myFriends;
-          Get.find<MyFriendsController>()
-              .setMyFriends([...addedFriends, ...originalFriends]);
-        } else {
-          notification(context, "[$statusCode] 친구 등록할 때 문제가 발생했습니다. 다시 시도해주세요");
-        }
-      });
-    }
   }
 }

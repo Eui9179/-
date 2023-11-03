@@ -7,4 +7,8 @@ class UserData {
   Future<UserInfo> getUserInfo(int userId) async {
     return await userApi.getUserInfo(userId);
   }
+
+  Future<void> report(Map<String, dynamic> data) async {
+    await userApi.report(data);
+  }
 }
