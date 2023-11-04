@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:woojoo/data/dto/dto_game_nickname.dart';
 import 'package:woojoo/data/remote/api/game/game_api.dart';
 import 'package:woojoo/data/remote/api/game/game_repository.dart';
 
@@ -26,6 +27,10 @@ class GameData extends GetxController {
     List<Game> updatedGameList =
         await gameRepository.updateMyGameList(selectedGameList);
     myGameList.addAll(updatedGameList);
+  }
+
+  void updateGameNickname(GameNickname gameNickname) {
+    gameRepository.updateGameNickname(gameNickname);
   }
 
   void clear() {

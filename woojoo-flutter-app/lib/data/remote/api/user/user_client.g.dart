@@ -42,7 +42,7 @@ class _UserClient implements UserClient {
   }
 
   @override
-  Future<void> reportUser(data) async {
+  Future<void> report(data) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
