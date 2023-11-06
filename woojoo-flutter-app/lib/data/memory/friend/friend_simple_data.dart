@@ -2,7 +2,8 @@ import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:woojoo/data/remote/api/friend/friend_api.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
+import 'package:woojoo/data/remote/api/friend/friend_repository.dart';
 import 'package:woojoo/utils/notification.dart';
 
 import '../../dto/dto_friend_in_list.dart';
@@ -10,7 +11,7 @@ import '../../dto/dto_friend_in_list.dart';
 class FriendSimpleData extends GetxController {
   final RxList<UserInList> _myFriends = <UserInList>[].obs;
 
-  FriendApi friendRepository = FriendApi.instance;
+  final friendRepository = getIt.get<FriendRepository>();
 
   @override
   void onInit() async {

@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_access_token.dart';
 import 'package:woojoo/data/dto/dto_login_request.dart';
 import 'package:woojoo/data/dto/dto_signup_request.dart';
 import 'package:woojoo/data/remote/api/authentication/authentication_repository.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
+@Singleton(as: AuthenticationRepository)
 class AuthenticationApi implements AuthenticationRepository {
   Dio dio = DioClient.dio;
-
-  AuthenticationApi._();
-
-  static AuthenticationApi instance = AuthenticationApi._();
 
   @override
   Future<AccessToken> login(LoginRequest request) async {

@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/data/dto/dto_todays_game_request.dart';
-import 'package:woojoo/data/remote/api/game/todays_game/todays_game_api.dart';
 import 'package:woojoo/data/remote/api/game/todays_game/todays_game_repository.dart';
 import '../../../dto/dto_todays_game.dart';
 
 class TodaysGameData extends GetxController {
   RxList<TodaysGame> todaysGameList = <TodaysGame>[].obs;
-  final TodaysGameRepository todaysGameRepository = TodaysGameApi.instance;
+  final todaysGameRepository = getIt.get<TodaysGameRepository>();
 
   @override
   void onInit() async {

@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_phone_number_request.dart';
 import 'package:woojoo/data/dto/dto_verification_code_request.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
 import 'verification_repository.dart';
 
+@Singleton(as: VerificationRepository)
 class VerificationApi implements VerificationRepository {
   Dio dio = DioClient.dio;
-
-  VerificationApi._();
-
-  static VerificationApi instance = VerificationApi._();
 
   @override
   Future<int> sendVerificationCode(PhoneNumberRequest request) async {

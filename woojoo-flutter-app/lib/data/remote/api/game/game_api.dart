@@ -1,17 +1,15 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_game.dart';
 import 'package:woojoo/data/dto/dto_game_nickname.dart';
 import 'package:woojoo/data/remote/api/game/game_repository.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
+@Singleton(as: GameRepository)
 class GameApi implements GameRepository {
   Dio dio = DioClient.dio;
-
-  GameApi._();
-
-  static GameRepository instance = GameApi._();
 
   @override
   Future<List<Game>> getMyGameList() async {

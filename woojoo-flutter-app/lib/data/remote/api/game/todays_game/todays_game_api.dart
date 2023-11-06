@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_todays_game.dart';
 import 'package:woojoo/data/dto/dto_todays_game_request.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
 import 'todays_game_repository.dart';
 
+@Singleton(as: TodaysGameRepository)
 class TodaysGameApi implements TodaysGameRepository {
   final Dio _dio = DioClient.dio;
-
-  TodaysGameApi._();
-
-  static TodaysGameRepository instance = TodaysGameApi._();
 
   @override
   Future<void> insertTodaysGames(TodaysGameRequest request) async {

@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/data/dto/dto_group.dart';
-import 'package:woojoo/data/remote/api/group/group_api.dart';
 import 'package:woojoo/data/remote/api/group/group_repository.dart';
 
 class GroupData extends GetxController {
   final Rx<Group> _myGroup = Group().obs;
 
-  GroupRepository groupRepository = GroupApi.instance;
+  final groupRepository = getIt.get<GroupRepository>();
 
   @override
   void onInit() async {

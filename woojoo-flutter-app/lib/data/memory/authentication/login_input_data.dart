@@ -1,9 +1,5 @@
 import 'package:get/get.dart';
 
-abstract mixin class LoginInputDataProvider {
-  late final inputData = Get.find<LoginInputData>();
-}
-
 class LoginInputData extends GetxController {
   RxString rxPhoneNumber = "".obs;
   RxBool rxButtonActive = false.obs;
@@ -22,4 +18,8 @@ class LoginInputData extends GetxController {
 
   String get phoneNumber => rxPhoneNumber.value;
   bool get buttonActive => rxButtonActive.value;
+}
+
+abstract mixin class LoginInputDataProvider {
+  late final inputData = Get.find<LoginInputData>();
 }

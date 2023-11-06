@@ -1,14 +1,15 @@
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/data/dto/dto_user_simple.dart';
-import 'package:woojoo/data/remote/api/my_profile/my_profile_api.dart';
+import 'package:woojoo/data/remote/api/my_profile/my_profile_repository.dart';
 
 import 'update_my_profile_request.dart';
 
 class MyProfileData extends GetxController {
   final Rx<UserSimple> _myProfile = UserSimple().obs;
 
-  final MyProfileApi myProfileRepository = MyProfileApi.instance;
+  final myProfileRepository = getIt.get<MyProfileRepository>();
 
   @override
   void onInit() async {

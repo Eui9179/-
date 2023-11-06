@@ -1,9 +1,10 @@
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/data/dto/dto_access_token.dart';
 import 'package:woojoo/data/dto/dto_login_request.dart';
 import 'package:woojoo/data/dto/dto_signup_request.dart';
 import 'package:woojoo/data/memory/authentication/access_token_data.dart';
 import 'package:woojoo/data/memory/authentication/verification/verification_data.dart';
-import 'package:woojoo/data/remote/api/authentication/authentication_api.dart';
+import 'package:woojoo/data/remote/api/authentication/authentication_repository.dart';
 
 mixin class AuthenticationDataProvider {
   late final AuthenticationData authenticationData = AuthenticationData();
@@ -11,7 +12,7 @@ mixin class AuthenticationDataProvider {
 }
 
 class AuthenticationData with AccessTokenDataProvider {
-  final authRepository = AuthenticationApi.instance;
+  final authRepository = getIt.get<AuthenticationRepository>();
 
   Future<AccessToken> login(LoginRequest request) async {
     AccessToken accessTokenResponse =

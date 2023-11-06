@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_fcm_request.dart';
 import 'package:woojoo/data/dto/dto_user_simple.dart';
 import 'package:woojoo/data/memory/my_profile/update_my_profile_request.dart';
 import 'package:woojoo/data/remote/api/my_profile/my_profile_repository.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
-class MyProfileApi implements UserRepository {
+@Singleton(as: MyProfileRepository)
+class MyProfileApi implements MyProfileRepository {
   final Dio dio = DioClient.dio;
-
-  MyProfileApi._();
-
-  static MyProfileApi instance = MyProfileApi._();
 
   @override
   Future<UserSimple> getMyProfile() async {

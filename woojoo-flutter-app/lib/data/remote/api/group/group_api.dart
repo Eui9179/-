@@ -1,14 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:woojoo/data/dto/dto_group.dart';
 import 'package:woojoo/data/remote/api/group/group_repository.dart';
 import 'package:woojoo/data/remote/dio/dio_instance.dart';
 
+@Singleton(as: GroupRepository)
 class GroupApi implements GroupRepository {
   Dio dio = DioClient.dio;
-
-  GroupApi._();
-
-  static GroupApi instance = GroupApi._();
 
   @override
   Future<Group> getMyGroup() async {

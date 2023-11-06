@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:woojoo/common/get_it/get_it.dart';
 import 'package:woojoo/data/dto/dto_phone_number_request.dart';
 import 'package:woojoo/data/dto/dto_verification_code_request.dart';
-import 'package:woojoo/data/remote/api/authentication/verification/verification_api.dart';
+import 'package:woojoo/data/remote/api/authentication/verification/verification_repository.dart';
 import 'package:woojoo/utils/notification.dart';
 
 class VerificationData {
-  final verificationRepository = VerificationApi.instance;
+  final verificationRepository = getIt.get<VerificationRepository>();
 
   Future<int> sendVerificationCode(PhoneNumberRequest request) {
     return verificationRepository.sendVerificationCode(request);
