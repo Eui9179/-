@@ -2,24 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>985699191779-7qfcctas87sidpdr08cl38ji84u592uf.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.985699191779-7qfcctas87sidpdr08cl38ji84u592uf</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>985699191779-74kc65ftun6jhjs76dae0lvl76dotu5e.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDA2E7wBts3MrRA1nVE0YrV-dQLf0SeCyw</string>
+	<string>AIzaSyDPDL06cNwqxxrN69oKTNjgWAfgJCuwAP4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>985699191779</string>
+	<string>417563858999</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.dorApp</string>
 	<key>PROJECT_ID</key>
-	<string>dor-app-d5544</string>
+	<string>woojoo-app-c68fb</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dor-app-d5544.appspot.com</string>
+	<string>woojoo-app-c68fb.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:985699191779:ios:14ca520a3dbccbd7b9aed6</string>
+	<string>1:417563858999:ios:1b509d30da862da41407b2</string>
 </dict>
 </plist>
