@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:woojoo/app.dart';
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/fcm/fcm_manager.dart';
 import 'package:woojoo/common/theme/font_size.dart';
 import 'package:woojoo/data/dto/dto_login_request.dart';
 import 'package:woojoo/data/memory/authentication/authentication_data.dart';
@@ -12,7 +13,6 @@ import 'package:woojoo/screen/authentication/verification/w_verification_code_in
 
 import '../../../common/widget/w_height.dart';
 import '../../../common/widget/button/w_rounded_button.dart';
-import '../../../data/controller/fcm_token_controller.dart';
 import '../../../common/appbar/logo_app_bar.dart';
 import '../signup/s_step1_profile.dart';
 import '../../../utils/notification.dart';
@@ -33,7 +33,7 @@ class _VerificationScreenState extends State<VerificationScreen>
   final _formKey = GlobalKey<FormState>();
 
   String verificationCode = "";
-  final String fcmToken = Get.find<FcmTokenController>().fcmToken;
+  final String? fcmToken = FcmManager.token;
   bool btnEnabled = false;
   bool isVerification = false;
 

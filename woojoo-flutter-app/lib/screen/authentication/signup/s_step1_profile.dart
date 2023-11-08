@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:woojoo/common/constants.dart';
 import 'package:woojoo/common/context_extension.dart';
+import 'package:woojoo/common/fcm/fcm_manager.dart';
 import 'package:woojoo/utils/notification.dart';
 import 'package:woojoo/utils/woojoo_groups.dart';
 
@@ -15,7 +16,6 @@ import '../../../../common/appbar/text_app_bar.dart';
 import '../../../../common/widget/button/w_rounded_button.dart';
 import '../../../../common/widget/input/w_outline_input.dart';
 import '../../../../common/widget/input/w_outline_input_readonly.dart';
-import '../../../../data/controller/fcm_token_controller.dart';
 
 class Step1ProfileScreen extends StatefulWidget {
   const Step1ProfileScreen({Key? key}) : super(key: key);
@@ -253,7 +253,7 @@ class _Step1ProfileScreenState extends State<Step1ProfileScreen> {
     if (!WoojooGroups.states.contains(_groups[0])) {
       notification(context, "학교 이름을 확인해주세요!");
     } else {
-      String fcmToken = Get.find<FcmTokenController>().fcmToken;
+      String? fcmToken = FcmManager.token;
       Get.toNamed('/auth/signup/step2', arguments: {
         "file": _image,
         "name": _name,

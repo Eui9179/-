@@ -9,7 +9,7 @@ part of 'dto_login_request.dart';
 _$LoginRequestImpl _$$LoginRequestImplFromJson(Map<String, dynamic> json) =>
     _$LoginRequestImpl(
       phoneNumber: json['phoneNumber'] as String,
-      fcmToken: json['fcmToken'] as String,
+      fcmToken: json['fcmToken'] as String?,
       smsCode: json['smsCode'] as String,
     );
 

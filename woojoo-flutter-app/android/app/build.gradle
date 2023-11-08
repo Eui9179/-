@@ -1,3 +1,8 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -57,10 +62,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('../key.jks') // Key store 위치
-            storePassword file('../keystore/store.password').text.trim() // Key store 비밀번호
-            keyPassword file('../keystore/key.password').text.trim() // Key 비밀번호
-            keyAlias 'key'
+//            storeFile file('../key.jks') // Key store 위치
+//            storePassword file('../keystore/store.password').text.trim() // Key store 비밀번호
+//            keyPassword file('../keystore/key.password').text.trim() // Key 비밀번호
+//            keyAlias 'key'
         }
     }
 
@@ -89,11 +94,6 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-analytics'
-    classpath 'com.android.tools.build:gradle:4.1.0'
-    classpath 'com.google.gms:google-services:4.3.10'
-}
-
-plugins {
-  id 'com.android.application'
-  id 'com.google.gms.google-services'
+//    classpath 'com.android.tools.build:gradle:4.1.0'
+//    classpath 'com.google.gms:google-services:4.3.10'
 }

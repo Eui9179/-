@@ -4,11 +4,11 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:woojoo/common/fcm/fcm_manager.dart';
 import 'package:woojoo/screen/authentication/s_login.dart';
 import 'package:woojoo/screen/main/s_main.dart';
 import 'package:woojoo/screen/main_loading_screen.dart';
 
-import 'data/controller/fcm_token_controller.dart';
 import 'data/controller/my_friends_controller.dart';
 import 'data/memory/authentication/access_token_data.dart';
 
@@ -23,6 +23,8 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
   @override
   void initState() {
     super.initState();
+    FcmManager.requestPermission();
+    FcmManager.initialize();
     _initGetXController();
   }
 
@@ -34,7 +36,6 @@ class _AppState extends State<App> with AccessTokenDataProvider, AfterLayoutMixi
   void _initGetXController() {
     Get.put(AccessTokenData());
     Get.put(MyFriendsController());
-    Get.put(FcmTokenController());
   }
 
   @override

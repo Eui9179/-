@@ -1,0 +1,654 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.woojoo.app"
+4    android:versionCode="3016"
+5    android:versionName="3.1.6" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:3:5-67
+15-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:3:22-64
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:4:5-65
+16-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:4:22-62
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:5:5-79
+17-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:5:22-77
+18    <uses-permission android:name="android.permission.FLASHLIGHT" />
+18-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:6:5-69
+18-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:6:22-66
+19    <uses-permission android:name="android.permission.READ_CONTACTS" />
+19-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:7:5-72
+19-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:7:22-69
+20    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+20-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:8:5-80
+20-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:8:22-78
+21    <uses-permission android:name="android.permission.VIBRATE" />
+21-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:9:5-66
+21-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:9:22-63
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:10:5-68
+22-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:10:22-65
+23    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+23-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:11:5-81
+23-->/Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/android/app/src/main/AndroidManifest.xml:11:22-78
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+24-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+24-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
+25    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+25-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+25-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-74
+26    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+26-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-79
+26-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-76
+27
+28    <queries>
+28-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-22:15
+29        <intent>
+29-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
+30            <action android:name="android.accounts.AccountAuthenticator" />
+30-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-76
+30-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-73
+31        </intent>
+32        <!-- Allows the app to load an icon corresponding to the custom MIME type. -->
+33        <intent>
+33-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-21:18
+34            <action android:name="android.intent.action.VIEW" />
+34-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-65
+34-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:21-62
+35
+36            <data
+36-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-20:44
+37                android:host="com.android.contacts"
+37-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-52
+38                android:mimeType="vnd.android.cursor.item/*"
+38-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-61
+39                android:scheme="content" />
+39-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-41
+40        </intent>
+41    </queries> <!-- Required by older versions of Google Play services to create IID tokens -->
+42    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+42-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:26:5-82
+42-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:26:22-79
+43    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+43-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:25:5-79
+43-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:25:22-76
+44    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+44-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:26:5-88
+44-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:26:22-85
+45    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+45-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:27:5-82
+45-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:27:22-79
+46    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+46-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:26:5-110
+46-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:26:22-107
+47
+48    <permission
+48-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+49        android:name="com.woojoo.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+49-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+50        android:protectionLevel="signature" />
+50-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+51
+52    <uses-permission android:name="com.woojoo.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+52-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+52-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+53
+54    <application
+55        android:name="android.app.Application"
+56        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+56-->[androidx.core:core:1.10.1] /Users/leui/.gradle/caches/transforms-3/0fbb658f63d3d85bf47af3fec5a3f032/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+57        android:debuggable="true"
+58        android:icon="@mipmap/ic_launcher"
+59        android:label="우주"
+60        android:usesCleartextTraffic="true" >
+61
+62        <!-- android:networkSecurityConfig="@xml/network_security_config"> -->
+63        <activity
+64            android:name="com.woojoo.dor_app.MainActivity"
+65            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+66            android:exported="true"
+67            android:hardwareAccelerated="true"
+68            android:launchMode="singleTop"
+69            android:showWhenLocked="true"
+70            android:theme="@style/LaunchTheme"
+71            android:turnScreenOn="true"
+72            android:windowSoftInputMode="adjustResize" >
+73
+74            <!--
+75                 Specifies an Android theme to apply to this Activity as soon as
+76                 the Android process has started. This theme is visible to the user
+77                 while the Flutter UI initializes. After that, this theme continues
+78                 to determine the Window background behind the Flutter UI.
+79            -->
+80            <meta-data
+81                android:name="io.flutter.embedding.android.NormalTheme"
+82                android:resource="@style/NormalTheme" />
+83
+84            <intent-filter>
+85                <action android:name="android.intent.action.MAIN" />
+86
+87                <category android:name="android.intent.category.LAUNCHER" />
+88
+89                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+90
+91                <category android:name="android.intent.category.DEFAULT" />
+91-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:17-76
+91-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:27-73
+92            </intent-filter>
+93        </activity>
+94        <!--
+95             Don't delete the meta-data below.
+96             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+97        -->
+98        <meta-data
+99            android:name="flutterEmbedding"
+100            android:value="2" />
+101        <meta-data
+102            android:name="com.google.firebase.messaging.default_notification_channel_id"
+103            android:value="high_importance_channel" />
+104
+105        <service
+105-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+106            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+106-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+107            android:exported="false"
+107-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+108            android:permission="android.permission.BIND_JOB_SERVICE" />
+108-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+109        <service
+109-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+110            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+110-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+111            android:exported="false" >
+111-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+112            <intent-filter>
+112-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+113                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+113-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+113-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+114            </intent-filter>
+115        </service>
+116
+117        <receiver
+117-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+118            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+118-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+119            android:exported="true"
+119-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+120            android:permission="com.google.android.c2dm.permission.SEND" >
+120-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+121            <intent-filter>
+121-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+122                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+122-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+122-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+123            </intent-filter>
+124        </receiver>
+125
+126        <service
+126-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:9-41:19
+127            android:name="com.google.firebase.components.ComponentDiscoveryService"
+127-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:18-89
+128            android:directBootAware="true"
+128-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
+129            android:exported="false" >
+129-->[com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/leui/.gradle/caches/transforms-3/ffe252c1ce1a31a050394fe3ad1c7b88/transformed/jetified-firebase-analytics-ktx-21.5.0/AndroidManifest.xml:10:13-37
+130            <meta-data
+130-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+131                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+131-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+133            <meta-data
+133-->[:firebase_core] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+134                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+134-->[:firebase_core] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[:firebase_core] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+136            <meta-data
+136-->[com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/leui/.gradle/caches/transforms-3/ffe252c1ce1a31a050394fe3ad1c7b88/transformed/jetified-firebase-analytics-ktx-21.5.0/AndroidManifest.xml:11:13-13:85
+137                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsLegacyRegistrar"
+137-->[com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/leui/.gradle/caches/transforms-3/ffe252c1ce1a31a050394fe3ad1c7b88/transformed/jetified-firebase-analytics-ktx-21.5.0/AndroidManifest.xml:12:17-129
+138                android:value="com.google.firebase.components.ComponentRegistrar" />
+138-->[com.google.firebase:firebase-analytics-ktx:21.5.0] /Users/leui/.gradle/caches/transforms-3/ffe252c1ce1a31a050394fe3ad1c7b88/transformed/jetified-firebase-analytics-ktx-21.5.0/AndroidManifest.xml:13:17-82
+139            <meta-data
+139-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:69:13-71:85
+140                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+140-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:70:17-109
+141                android:value="com.google.firebase.components.ComponentRegistrar" />
+141-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:71:17-82
+142            <meta-data
+142-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:57:13-59:85
+143                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+143-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:58:17-122
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:59:17-82
+145            <meta-data
+145-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:60:13-62:85
+146                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+146-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:61:17-119
+147                android:value="com.google.firebase.components.ComponentRegistrar" />
+147-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:62:17-82
+148            <meta-data
+148-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:37:13-39:85
+149                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+149-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:38:17-139
+150                android:value="com.google.firebase.components.ComponentRegistrar" />
+150-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:39:17-82
+151            <meta-data
+151-->[com.google.firebase:firebase-iid:21.1.0] /Users/leui/.gradle/caches/transforms-3/e4cb1939c8741c345f6abe46112a4d05/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+152                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+152-->[com.google.firebase:firebase-iid:21.1.0] /Users/leui/.gradle/caches/transforms-3/e4cb1939c8741c345f6abe46112a4d05/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+153                android:value="com.google.firebase.components.ComponentRegistrar" />
+153-->[com.google.firebase:firebase-iid:21.1.0] /Users/leui/.gradle/caches/transforms-3/e4cb1939c8741c345f6abe46112a4d05/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+154            <meta-data
+154-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+155                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+155-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+156                android:value="com.google.firebase.components.ComponentRegistrar" />
+156-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+157            <meta-data
+157-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+158                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+158-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+159                android:value="com.google.firebase.components.ComponentRegistrar" />
+159-->[com.google.firebase:firebase-installations:17.2.0] /Users/leui/.gradle/caches/transforms-3/cbb0f0b77a2f216eb2d050c1880579dd/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+160            <meta-data
+160-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/leui/.gradle/caches/transforms-3/39848f776f5fb0d45153092c884784cf/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:12:13-14:85
+161                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+161-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/leui/.gradle/caches/transforms-3/39848f776f5fb0d45153092c884784cf/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:13:17-116
+162                android:value="com.google.firebase.components.ComponentRegistrar" />
+162-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/leui/.gradle/caches/transforms-3/39848f776f5fb0d45153092c884784cf/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:14:17-82
+163            <meta-data
+163-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:35:13-37:85
+164                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+164-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:36:17-109
+165                android:value="com.google.firebase.components.ComponentRegistrar" />
+165-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:37:17-82
+166            <meta-data
+166-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/leui/.gradle/caches/transforms-3/cc96b6f4872b8b3441ede481179c877c/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+167                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+167-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/leui/.gradle/caches/transforms-3/cc96b6f4872b8b3441ede481179c877c/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+168                android:value="com.google.firebase.components.ComponentRegistrar" />
+168-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/leui/.gradle/caches/transforms-3/cc96b6f4872b8b3441ede481179c877c/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+169        </service>
+170
+171        <provider
+171-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+172            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+172-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+173            android:authorities="com.woojoo.app.flutterfirebasemessaginginitprovider"
+173-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
+174            android:exported="false"
+174-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+175            android:initOrder="99" />
+175-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+176        <provider
+176-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
+177            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+177-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
+178            android:authorities="com.woojoo.app.flutter.image_provider"
+178-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
+179            android:exported="false"
+179-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+180            android:grantUriPermissions="true" >
+180-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
+181            <meta-data
+181-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
+182                android:name="android.support.FILE_PROVIDER_PATHS"
+182-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
+183                android:resource="@xml/flutter_image_picker_file_paths" />
+183-->[:image_picker_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
+184        </provider>
+185
+186        <receiver
+186-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-18:40
+187            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+187-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-97
+188            android:exported="false" />
+188-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+189        <receiver
+189-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-28:20
+190            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+190-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-101
+191            android:exported="false" >
+191-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-37
+192            <intent-filter>
+192-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-27:29
+193                <action android:name="android.intent.action.BOOT_COMPLETED" />
+193-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-79
+193-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:25-76
+194                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+194-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-84
+194-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-81
+195                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+195-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-82
+195-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-79
+196                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+196-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:17-82
+196-->[:flutter_local_notifications] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:25-79
+197            </intent-filter>
+198        </receiver>
+199
+200        <activity
+200-->[:url_launcher_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+201            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+201-->[:url_launcher_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+202            android:exported="false"
+202-->[:url_launcher_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+203            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+203-->[:url_launcher_android] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+204        <activity
+204-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:29:9-46:20
+205            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+205-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:30:13-80
+206            android:excludeFromRecents="true"
+206-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:31:13-46
+207            android:exported="true"
+207-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:32:13-36
+208            android:launchMode="singleTask"
+208-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:33:13-44
+209            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+209-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:34:13-72
+210            <intent-filter>
+210-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:35:13-45:29
+211                <action android:name="android.intent.action.VIEW" />
+211-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-65
+211-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:21-62
+212
+213                <category android:name="android.intent.category.DEFAULT" />
+213-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:17-76
+213-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:27-73
+214                <category android:name="android.intent.category.BROWSABLE" />
+214-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:39:17-78
+214-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:39:27-75
+215
+216                <data
+216-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-20:44
+217                    android:host="firebase.auth"
+217-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-52
+218                    android:path="/"
+219                    android:scheme="genericidp" />
+219-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-41
+220            </intent-filter>
+221        </activity>
+222        <activity
+222-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:47:9-64:20
+223            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+223-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:48:13-79
+224            android:excludeFromRecents="true"
+224-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:49:13-46
+225            android:exported="true"
+225-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:50:13-36
+226            android:launchMode="singleTask"
+226-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:51:13-44
+227            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+227-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:52:13-72
+228            <intent-filter>
+228-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:53:13-63:29
+229                <action android:name="android.intent.action.VIEW" />
+229-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-65
+229-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:15:21-62
+230
+231                <category android:name="android.intent.category.DEFAULT" />
+231-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:17-76
+231-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:38:27-73
+232                <category android:name="android.intent.category.BROWSABLE" />
+232-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:39:17-78
+232-->[com.google.firebase:firebase-auth:22.2.0] /Users/leui/.gradle/caches/transforms-3/1734d5034c31522fcf54d97a3e5dec2c/transformed/jetified-firebase-auth-22.2.0/AndroidManifest.xml:39:27-75
+233
+234                <data
+234-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-20:44
+235                    android:host="firebase.auth"
+235-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-52
+236                    android:path="/"
+237                    android:scheme="recaptcha" />
+237-->[:contacts_service] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/contacts_service/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-41
+238            </intent-filter>
+239        </activity>
+240
+241        <receiver
+241-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:29:9-40:20
+242            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+242-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:30:13-78
+243            android:exported="true"
+243-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:31:13-36
+244            android:permission="com.google.android.c2dm.permission.SEND" >
+244-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:32:13-73
+245            <intent-filter>
+245-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+246                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+246-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+246-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+247            </intent-filter>
+248
+249            <meta-data
+249-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:37:13-39:40
+250                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+250-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:38:17-92
+251                android:value="true" />
+251-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:39:17-37
+252        </receiver>
+253        <!--
+254             FirebaseMessagingService performs security checks at runtime,
+255             but set to not exported to explicitly avoid allowing another app to call it.
+256        -->
+257        <service
+257-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:46:9-53:19
+258            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+258-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:47:13-82
+259            android:directBootAware="true"
+259-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:48:13-43
+260            android:exported="false" >
+260-->[com.google.firebase:firebase-messaging:23.3.1] /Users/leui/.gradle/caches/transforms-3/7299cca50690018647ce1a28b4142ece/transformed/jetified-firebase-messaging-23.3.1/AndroidManifest.xml:49:13-37
+261            <intent-filter android:priority="-500" >
+261-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+262                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+262-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+262-->[:firebase_messaging] /Users/leui/Desktop/Leui/Workspace/woojoo-app/woojoo-flutter-app/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+263            </intent-filter>
+264        </service>
+265
+266        <property
+266-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:30:9-32:61
+267            android:name="android.adservices.AD_SERVICES_CONFIG"
+267-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:31:13-65
+268            android:resource="@xml/ga_ad_services_config" />
+268-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/leui/.gradle/caches/transforms-3/927702690e15db695b1b1a39d0d95173/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:32:13-58
+269
+270        <provider
+270-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:23:9-28:39
+271            android:name="com.google.firebase.provider.FirebaseInitProvider"
+271-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:24:13-77
+272            android:authorities="com.woojoo.app.firebaseinitprovider"
+272-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:25:13-72
+273            android:directBootAware="true"
+273-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:26:13-43
+274            android:exported="false"
+274-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:27:13-37
+275            android:initOrder="100" />
+275-->[com.google.firebase:firebase-common:20.4.2] /Users/leui/.gradle/caches/transforms-3/f1a509620719781a3758bfa1708872b0/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:28:13-36
+276
+277        <activity
+277-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:23:9-27:75
+278            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+278-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:24:13-93
+279            android:excludeFromRecents="true"
+279-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:25:13-46
+280            android:exported="false"
+280-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:26:13-37
+281            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+281-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:27:13-72
+282        <!--
+283            Service handling Google Sign-In user revocation. For apps that do not integrate with
+284            Google Sign-In, this service will never be started.
+285        -->
+286        <service
+286-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:33:9-37:51
+287            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+287-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:34:13-89
+288            android:exported="true"
+288-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:35:13-36
+289            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+289-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:36:13-107
+290            android:visibleToInstantApps="true" />
+290-->[com.google.android.gms:play-services-auth:20.4.0] /Users/leui/.gradle/caches/transforms-3/8557892a1410abe08c79e4c51d35c0c1/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:37:13-48
+291
+292        <receiver
+292-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:29:9-33:20
+293            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+293-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:30:13-85
+294            android:enabled="true"
+294-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:31:13-35
+295            android:exported="false" >
+295-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:32:13-37
+296        </receiver>
+297
+298        <service
+298-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:35:9-38:40
+299            android:name="com.google.android.gms.measurement.AppMeasurementService"
+299-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:36:13-84
+300            android:enabled="true"
+300-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:37:13-35
+301            android:exported="false" />
+301-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:38:13-37
+302        <service
+302-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:39:9-43:72
+303            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+303-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:40:13-87
+304            android:enabled="true"
+304-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:41:13-35
+305            android:exported="false"
+305-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:42:13-37
+306            android:permission="android.permission.BIND_JOB_SERVICE" />
+306-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/leui/.gradle/caches/transforms-3/0c8c9b3713884aa90155c86293cce319/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:43:13-69
+307
+308        <activity
+308-->[com.google.android.gms:play-services-base:18.0.1] /Users/leui/.gradle/caches/transforms-3/ed366c711384116badd2ddf749ed96f3/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+309            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+309-->[com.google.android.gms:play-services-base:18.0.1] /Users/leui/.gradle/caches/transforms-3/ed366c711384116badd2ddf749ed96f3/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+310            android:exported="false"
+310-->[com.google.android.gms:play-services-base:18.0.1] /Users/leui/.gradle/caches/transforms-3/ed366c711384116badd2ddf749ed96f3/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+311            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+311-->[com.google.android.gms:play-services-base:18.0.1] /Users/leui/.gradle/caches/transforms-3/ed366c711384116badd2ddf749ed96f3/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+312
+313        <uses-library
+313-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/leui/.gradle/caches/transforms-3/b8f0e5bf768e909fc93cb461c83d5575/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+314            android:name="android.ext.adservices"
+314-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/leui/.gradle/caches/transforms-3/b8f0e5bf768e909fc93cb461c83d5575/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+315            android:required="false" />
+315-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/leui/.gradle/caches/transforms-3/b8f0e5bf768e909fc93cb461c83d5575/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+316        <uses-library
+316-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+317            android:name="androidx.window.extensions"
+317-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+318            android:required="false" />
+318-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+319        <uses-library
+319-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+320            android:name="androidx.window.sidecar"
+320-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+321            android:required="false" />
+321-->[androidx.window:window:1.0.0-beta04] /Users/leui/.gradle/caches/transforms-3/4dbc71c7d60d3389f83bd1cdb4c72549/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+322
+323        <meta-data
+323-->[com.google.android.gms:play-services-basement:18.1.0] /Users/leui/.gradle/caches/transforms-3/e8fcb4f250a1f25aa2b0f86191922f7b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+324            android:name="com.google.android.gms.version"
+324-->[com.google.android.gms:play-services-basement:18.1.0] /Users/leui/.gradle/caches/transforms-3/e8fcb4f250a1f25aa2b0f86191922f7b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+325            android:value="@integer/google_play_services_version" />
+325-->[com.google.android.gms:play-services-basement:18.1.0] /Users/leui/.gradle/caches/transforms-3/e8fcb4f250a1f25aa2b0f86191922f7b/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+326
+327        <provider
+327-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+328            android:name="androidx.startup.InitializationProvider"
+328-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
+329            android:authorities="com.woojoo.app.androidx-startup"
+329-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
+330            android:exported="false" >
+330-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
+331            <meta-data
+331-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+332                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+332-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+333                android:value="androidx.startup" />
+333-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+334        </provider>
+335
+336        <receiver
+336-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+337            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+337-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+338            android:directBootAware="false"
+338-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+339            android:enabled="true"
+339-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+340            android:exported="true"
+340-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+341            android:permission="android.permission.DUMP" >
+341-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+342            <intent-filter>
+342-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+343                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+343-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+343-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+344            </intent-filter>
+345            <intent-filter>
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+346                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+346-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+346-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+347            </intent-filter>
+348            <intent-filter>
+348-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+349                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+349-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+349-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+350            </intent-filter>
+351            <intent-filter>
+351-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+352                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+352-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+352-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/leui/.gradle/caches/transforms-3/0e28bd15f737e0ed09ee577e928cdc75/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+353            </intent-filter>
+354        </receiver>
+355
+356        <service
+356-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+357            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+357-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+358            android:exported="false" >
+358-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+359            <meta-data
+359-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+360                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+360-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+361                android:value="cct" />
+361-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/leui/.gradle/caches/transforms-3/c7e6fe8e83db01e59c864e67c939523a/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+362        </service>
+363        <service
+363-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+364            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+364-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+365            android:exported="false"
+365-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+366            android:permission="android.permission.BIND_JOB_SERVICE" >
+366-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+367        </service>
+368
+369        <receiver
+369-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+370            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+370-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+371            android:exported="false" />
+371-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/leui/.gradle/caches/transforms-3/d3e496939449a48bdd7e985ac9a42a62/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+372    </application>
+373
+374</manifest>

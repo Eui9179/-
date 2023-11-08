@@ -5,10 +5,9 @@ part 'dto_login_request.g.dart';
 
 @freezed
 class LoginRequest with _$LoginRequest {
-
   factory LoginRequest({
     required String phoneNumber,
-    required String fcmToken,
+    String? fcmToken,
     required String smsCode,
   }) = _LoginRequest;
 
